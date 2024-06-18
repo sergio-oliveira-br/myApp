@@ -79,14 +79,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--Maven Compiler Plugin and avoid using the -release option -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version> <!-- from: https://maven.apache.org/plugins/ -->
-                <configuration>
-                    <release>17</release>
-                </configuration>
+            <!--Deploying Java Applications with the Heroku Maven Plugin -->
+            <plugin> <!--https://devcenter.heroku.com/articles/deploying-java-applications-with-the-heroku-maven-plugin-->
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.7</version>
             </plugin>
 
         </plugins>
