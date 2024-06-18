@@ -416,3 +416,6 @@ java.text.ParseException: Error parsing dates
 2024-06-18 23:13:56 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
 2024-06-18 23:13:56 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 0.28 seconds (process running for 69.45)
 2024-06-18 23:13:56 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-06-18 23:14:07 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-18 23:14:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-06-18 23:14:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
