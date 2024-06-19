@@ -1,7 +1,7 @@
 #HELP.md
+
+# Ignore target directory
 target/
-!**/src/main/**/target/
-!**/src/test/**/target/
 
 # Ignore target directory except the JAR file
 /target/*
@@ -35,7 +35,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Ignore target directory except the JAR file
-/target/*
-!/target/*.jar
