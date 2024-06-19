@@ -29,7 +29,13 @@ $(document).ready(function ()
         submitEditForm();
     });
 
-})
+});
+
+function displayMsgWIP()
+{
+    alert("Working in progress...")
+}
+
 
 
 /**
