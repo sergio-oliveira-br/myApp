@@ -44,6 +44,7 @@ function loadCustomers()
                 '<td>' + customer.firstName + '</td>'+
                 '<td>' + customer.lastName + '</td>' +
                 '<td>' + customer.city + '</td>' +
+                '<td>' + customer.additionalInfo + '</td>' +
                 '</tr>');
         });
     });
