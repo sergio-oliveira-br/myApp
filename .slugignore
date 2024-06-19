@@ -1,0 +1,4 @@
+# This is a comment
+
+# Exclude the target directory
+target/
