@@ -89,7 +89,7 @@ function loadRent()
                 '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
                 '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
                 '</tr>'
-            );
+            )
         });
     });
 }
