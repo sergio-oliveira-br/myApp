@@ -11,8 +11,8 @@
 
 $(document).ready(function ()
 {
-    //load the table with all information from rental database
-    //loadRentTable();
+    //load the table with all rent paid information from rental database
+    loadRentTable("Paid");
 })
 
 
@@ -46,7 +46,6 @@ function loadRentTable(status)
                 '<td>' + rent.rentPaymentStatus + '</td>' +
                 '<td>' + rent.rentStatus+ '</td>' +
                 '<td>' + rent.rentDetails + '</td>' +
-                '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
                 '</tr>'
             );
         });
@@ -68,6 +67,12 @@ function displayAllRentStatusInProgress()
     loadRentTable('InProgress');
 }
 
+//Rent Status: Sold
+function displayListAllRentStatusSold()
+{
+    loadRentTable( 'Sold');
+}
+
 //Rent Payment Status: Unpaid
 function displayListAllRentStatusUnpaid()
 {
@@ -78,5 +83,4 @@ function displayListAllRentStatusUnpaid()
 function displayListAllRentStatusPaid()
 {
     loadRentTable( 'Paid');
-    //alert("WIP");
 }
