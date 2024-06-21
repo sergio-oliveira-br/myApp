@@ -50,18 +50,6 @@
 
 }
 
-/*
- * Page: All
- * Topic:
- * Details:
- */
-/*html, body*/
-/*{*/
-/*    height: 50%;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
 
 /*
  * Page: All
@@ -71,28 +59,11 @@
 .sidebar
 {
     position: fixed;
-    width: 280px;
+    width: 20%;
     height: 100%;
     left: 0;
     top: 0; /*Overlap the Menu button*/
 }
-
-/*
- * Page: All
- * Topic: Content
- * Details: All pages will be display ate the same point
- */
-.content
-{
-    margin-left: 300px;
-}
-
-.btn-group
-{
-    left: 70px;
-    top: 3px;
-}
-
 
 /* ---------------------------------------------
  * Page: Index
