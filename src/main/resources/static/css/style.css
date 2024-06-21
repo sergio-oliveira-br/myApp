@@ -9,6 +9,35 @@
  * Version: 1.0
  */
 
+
+/* Page: All
+* The styles defined within the @media (max-width: 'X' px)
+* rule will only be applied when the viewport
+*
+* This is a common technique used in responsive web design
+* to apply different styles depending on the device or screen size.*/
+@media (max-width: 992px)
+{
+    .sidebar
+    {
+        display: none; /*hides the side menu side bar*/
+        overflow-y: scroll;
+        width: 30%;
+    }
+    #menuBTN{
+        top: 10px;
+    }
+}
+
+
+/* Rule to set screen minimum size 991px */
+@media (min-width: 991px)
+{
+    #menuBTN {
+        /*display: none; hides the side menu btn*/
+    }
+}
+
 /*
  * Page: All
  * Topic:
@@ -86,56 +115,4 @@ html, body
 }
 
 
-/* ---------------------------------------------
- * Page: Product
- * Topic: Main Content
- * Details:
-*/
 
-
-
-
-
-
-/* ---------------------------------------------
- * Page: Dashboard
- * Topic:
- * Details:
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/* --------------------------------------------- */
-
-
-
-
-
-
-
-
-/* Page: All  */
-/*The styles defined within the @media (max-width: 'X' px)
-* rule will only be applied when the viewport
-* width is 1200 pixels or less.
-* This is a common technique used in responsive web design
-* to apply different styles depending on the device or screen size.*/
-@media (max-width: 992px)
-{
-    .sidebar
-    {
-        display: none; /*hides the side menu */
-        overflow-y: scroll;
-        width: 30%;
-    }
-
-}
