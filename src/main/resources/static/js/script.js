@@ -8,6 +8,14 @@
  * Project Commencing May 2024
  * Version: 1.0
  */
+
+function displayMsgWIP()
+{
+    alert("Sorry! Working in progress...")
+}
+
+
+
 //Reference: https://getbootstrap.com/docs/5.0/forms/validation/
 //Checking form submissions if there are invalid fields: Used by "Rent Form"/"Rent Form Edit"
 (function () {

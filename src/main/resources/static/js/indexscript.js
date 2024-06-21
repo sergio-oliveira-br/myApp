@@ -31,12 +31,6 @@ $(document).ready(function ()
 
 });
 
-function displayMsgWIP()
-{
-    alert("Working in progress...")
-}
-
-
 
 /**
  Item: Card (UNPAID)
