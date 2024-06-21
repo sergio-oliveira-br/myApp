@@ -16,26 +16,38 @@
 *
 * This is a common technique used in responsive web design
 * to apply different styles depending on the device or screen size.*/
-@media (max-width: 992px)
+@media (max-width: 1280px)
 {
     .sidebar
     {
         display: none; /*hides the side menu side bar*/
         overflow-y: scroll;
-        width: 30%;
     }
+
+    .content
+    {
+        margin-left: 0;
+    }
+
     #menuBTN{
         top: 10px;
     }
 }
 
 
-/* Rule to set screen minimum size 991px */
-@media (min-width: 991px)
+/* Rule to set screen minimum size 1280px */
+@media (min-width: 1280px)
 {
     #menuBTN {
-        display: none; /*hides the side menu btn*!*/
+        display: none; /*hides the menu btn*/
     }
+
+    .content
+    {
+        margin-left: 18%;
+        margin-right: -3%;
+    }
+
 }
 
 /*
@@ -43,12 +55,12 @@
  * Topic:
  * Details:
  */
-html, body
-{
-    height: 50%;
-    margin: 0;
-    padding: 0;
-}
+/*html, body*/
+/*{*/
+/*    height: 50%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 
 
 /*
