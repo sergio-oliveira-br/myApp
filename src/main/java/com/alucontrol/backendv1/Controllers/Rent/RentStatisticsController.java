@@ -33,12 +33,4 @@ public class RentStatisticsController
     }
 
 
-    /** Endpoint to get back the rentals "Scaffolds "has been done
-     *  (CHART) Pointing to stockScript.js  and stock.html */
-    @GetMapping("/scaffoldsRentals")
-    public List<ItemQtyDateProjection> getScaffoldsRented()
-    {
-        return rentRepository.getScaffoldsQtyRented();
-    }
-
 }
