@@ -11,7 +11,6 @@
 package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
 import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +30,7 @@ public interface RentRepository extends JpaRepository<Rent, Long>
      * */
     @Query(value = "SELECT COUNT(QtyRentStatusUnpaidProjection.rentPaymentStatus) AS rentPaymentStatus " +
             "FROM Rent QtyRentStatusUnpaidProjection " +
-            "WHERE rentPaymentStatus = 'UnPaid'")
+            "WHERE rentPaymentStatus = 'Unpaid'")
     Long countUnpaidRents();
 
 
@@ -40,58 +39,20 @@ public interface RentRepository extends JpaRepository<Rent, Long>
      *  Item: NEW
      *  Method: Rental count with status of: "NEW"
      * */
-    @Query(value = "SELECT COUNT(rent_status) " +
-            "FROM AluControlV1.rent " +
-            "WHERE rent_status = 'new'",
-            nativeQuery = true) //Native query allows to perform mySQL queries directly, exactly the same on workbench
+    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
+            "FROM Rent RentStatusProjection " +
+            "WHERE RentStatusProjection.rentStatus = 'New'")
     Long countRentStatusNew();
 
 
     /** Display: on Index.html via HomeController
-     *  Item: NEW
+     *  Item: In Progress
      *  Method: Rental count with status of: "In Progress"
      * */
-    @Query(value = "SELECT COUNT(rent_status) " +
-            "FROM AluControlV1.rent " +
-            "WHERE rent_status = 'In Progress'",
-            nativeQuery = true) //Native query allows to perform mySQL queries directly, exactly the same on workbench
+    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
+            "FROM Rent RentStatusProjection " +
+            "WHERE RentStatusProjection.rentStatus = 'In Progress'")
     Long countRentStatusInProgress();
-
-
-    /** Display: on Product.html via ProductStatisticsController
-     *  Item: SCAFFOLDS
-     *  Method: Counting of Scaffolds that was rented
-     * */
-    @Query(value = "SELECT SUM(rent_qty_item) " +
-            "FROM AluControlV1.rent " +
-            "WHERE rent_item = 'Scaffolds'",
-            nativeQuery = true) //Native query allows to perform mySQL queries directly, exactly the same on workbench
-    Long sumScaffoldsRented();
-
-
-    /** Display: NO Display
-     * Item: SCAFFOLDS
-     * Method: Calculating the items available
-     * */
-    @Query(value = "SELECT SUM(item_quantity) " +
-            "FROM AluControlV1.products " +
-            "WHERE item_description = 'Scaffolds'",
-            nativeQuery = true) //Native query allows to perform mySQL queries directly, exactly the same on workbench
-    Long getSumScaffolds();
-
-
-
-
-    /** Display: on Stock.html via RentStatisticsController
-     * Item: SCAFFOLDS
-     * Method: To construct a graph that will display each rented has been done
-     * */
-    @Query(value = "SELECT RentStockProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStockProjection.rentItem AS rentItem, " +
-            "RentStockProjection.rentStarts AS rentStarts " +
-            "FROM Rent RentStockProjection " +
-            "WHERE rentItem = 'Scaffolds'")
-    List<ItemQtyDateProjection> getScaffoldsQtyRented();
 
 
 
