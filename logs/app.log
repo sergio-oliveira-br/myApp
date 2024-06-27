@@ -1,14 +1,14 @@
-2024-06-21 10:17:28 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 43235 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:17:28 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 10:17:28 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:17:28 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:17:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:17:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:17:28 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:17:28 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+2024-06-27 12:47:23 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74217 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 12:47:23 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 12:47:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 12:47:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 12:47:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 12:47:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2024-06-27 12:47:23 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-06-27 12:47:23 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:17:28 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+2024-06-27 12:47:23 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
 
 ***************************
 APPLICATION FAILED TO START
@@ -27,299 +27,20 @@ Action:
 
 Update your application's configuration
 
-2024-06-21 10:43:09 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44092 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:43:09 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:43:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:43:09 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:43:09 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:43:09 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:43:09 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:43:09 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:43:09 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:46:54 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44118 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:46:54 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:46:54 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:46:54 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:46:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:46:54 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:46:54 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:46:54 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:46:54 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:50:02 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44175 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:50:02 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:50:02 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:50:02 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:50:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:50:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:50:02 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:50:02 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:50:02 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:51:31 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44193 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:51:31 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:51:31 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:51:31 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:51:32 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:51:32 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:51:32 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:51:32 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:51:32 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 32:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:51:44 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44197 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:51:44 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:51:44 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:51:44 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:51:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:51:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:51:44 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-06-21 10:51:44 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-06-21 10:51:44 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-21 10:51:44 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-21 10:51:44 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-21 10:51:44 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 451 ms
-2024-06-21 10:51:44 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-06-21 10:51:46 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-org.postgresql.util.PSQLException: The server requested SCRAM-based authentication, but no password was provided.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.lambda$doAuthentication$4(ConnectionFactoryImpl.java:838)
-	at org.postgresql.core.v3.AuthenticationPluginManager.withPassword(AuthenticationPluginManager.java:81)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:835)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2024-06-21 10:51:46 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-2024-06-21 10:51:46 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-06-21 10:51:46 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:51:46 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	... 38 common frames omitted
-Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 39 common frames omitted
-Caused by: org.postgresql.util.PSQLException: The server requested SCRAM-based authentication, but no password was provided.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.lambda$doAuthentication$4(ConnectionFactoryImpl.java:838)
-	at org.postgresql.core.v3.AuthenticationPluginManager.withPassword(AuthenticationPluginManager.java:81)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:835)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	... 50 common frames omitted
-2024-06-21 10:54:23 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44237 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:54:23 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:54:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:54:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:54:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:54:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:54:24 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-06-21 10:54:24 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-06-21 10:54:24 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-21 10:54:24 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-21 10:54:24 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-21 10:54:24 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 456 ms
-2024-06-21 10:54:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-06-21 10:54:25 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+2024-06-27 13:00:55 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74514 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 13:00:55 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 13:00:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 13:00:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 13:00:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 13:00:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
+2024-06-27 13:00:56 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-27 13:00:56 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-27 13:00:56 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-27 13:00:56 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-27 13:00:56 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-27 13:00:56 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 500 ms
+2024-06-27 13:00:56 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 13:00:57 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
 java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -382,12 +103,12 @@ java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2024-06-21 10:54:25 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-2024-06-21 10:54:25 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-06-21 10:54:25 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+2024-06-27 13:00:57 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
+2024-06-27 13:00:57 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-06-27 13:00:57 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:54:25 ERROR o.s.boot.SpringApplication - Application run failed
+2024-06-27 13:00:57 ERROR o.s.boot.SpringApplication - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
@@ -463,596 +184,305 @@ Caused by: java.sql.SQLException: Access denied for user 'sergiovinicio'@'localh
 	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
 	... 50 common frames omitted
-2024-06-21 10:54:38 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44242 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:54:38 INFO  c.a.backendv1.Backendv1Application - The following 1 profile is active: "dev"
-2024-06-21 10:54:38 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:54:38 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:54:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:54:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:54:38 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-06-21 10:54:38 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-06-21 10:54:38 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-21 10:54:38 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-21 10:54:38 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-21 10:54:38 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 463 ms
-2024-06-21 10:54:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-06-21 10:54:39 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2024-06-21 10:54:39 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-2024-06-21 10:54:39 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-06-21 10:54:39 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:54:39 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	... 38 common frames omitted
-Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 39 common frames omitted
-Caused by: java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	... 50 common frames omitted
-2024-06-21 10:55:28 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44325 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:55:28 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 10:55:28 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:55:28 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:55:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:55:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:55:29 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:55:29 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:55:29 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:56:21 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44337 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:56:21 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 10:56:21 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:56:21 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:56:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:56:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:56:22 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-06-21 10:56:22 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-06-21 10:56:22 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-21 10:56:22 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-21 10:56:22 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-21 10:56:22 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 463 ms
-2024-06-21 10:56:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-06-21 10:56:24 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-org.postgresql.util.PSQLException: The server requested SCRAM-based authentication, but no password was provided.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.lambda$doAuthentication$4(ConnectionFactoryImpl.java:838)
-	at org.postgresql.core.v3.AuthenticationPluginManager.withPassword(AuthenticationPluginManager.java:81)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:835)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2024-06-21 10:56:24 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-2024-06-21 10:56:24 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-06-21 10:56:24 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:56:24 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	... 38 common frames omitted
-Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: The server requested SCRAM-based authentication, but no password was provided.
-	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 39 common frames omitted
-Caused by: org.postgresql.util.PSQLException: The server requested SCRAM-based authentication, but no password was provided.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.lambda$doAuthentication$4(ConnectionFactoryImpl.java:838)
-	at org.postgresql.core.v3.AuthenticationPluginManager.withPassword(AuthenticationPluginManager.java:81)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:835)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
-	at org.postgresql.Driver.makeConnection(Driver.java:443)
-	at org.postgresql.Driver.connect(Driver.java:297)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	... 50 common frames omitted
-2024-06-21 10:56:59 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44351 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:56:59 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 10:56:59 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:56:59 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:56:59 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:56:59 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:57:00 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 10:57:00 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:57:00 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 10:57:08 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 44356 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 10:57:08 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 10:57:08 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 10:57:08 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 10:57:08 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 10:57:08 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 10:57:08 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2024-06-21 10:57:08 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2024-06-21 10:57:08 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-06-21 10:57:08 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-21 10:57:08 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-06-21 10:57:08 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 442 ms
-2024-06-21 10:57:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-06-21 10:57:10 ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-2024-06-21 10:57:10 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-2024-06-21 10:57:10 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2024-06-21 10:57:10 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 10:57:10 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.alucontrol.backendv1.Backendv1Application.main(Backendv1Application.java:22)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alucontrol/backendv1/DatabaseConfig.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
-	... 24 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Factory method 'dataSource' threw exception with message: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
-	... 38 common frames omitted
-Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at com.alucontrol.backendv1.DatabaseConfig.dataSource(DatabaseConfig.java:21)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.CGLIB$dataSource$0(<generated>)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
-	at com.alucontrol.backendv1.DatabaseConfig$$SpringCGLIB$$0.dataSource(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
-	... 39 common frames omitted
-Caused by: java.sql.SQLException: Access denied for user 'sergiovinicio'@'localhost' (using password: NO)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:121)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	... 50 common frames omitted
-2024-06-21 11:29:27 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 45470 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 11:29:27 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 11:29:27 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 11:29:27 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 11:29:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 11:29:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 11:29:28 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 11:29:28 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 11:29:28 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
-2024-06-21 19:58:27 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 50029 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
-2024-06-21 19:58:27 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
-2024-06-21 19:58:27 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-21 19:58:27 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-21 19:58:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-21 19:58:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-06-21 19:58:28 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-06-21 19:58:28 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-21 19:58:28 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${PORT}"
-    Origin: class path resource [application.properties] - 29:13
-    Reason: failed to convert java.lang.String to java.lang.Integer (caused by java.lang.NumberFormatException: For input string: "${PORT}")
-
-Action:
-
-Update your application's configuration
-
+2024-06-27 14:41:06 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74625 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 14:41:06 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 14:41:06 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 14:41:06 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 14:41:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 14:41:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 4 JPA repository interfaces.
+2024-06-27 14:41:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-27 14:41:07 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:41:07 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-27 14:41:07 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-27 14:41:07 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-27 14:41:07 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 725 ms
+2024-06-27 14:41:07 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-27 14:41:07 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-27 14:41:07 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-27 14:41:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-27 14:41:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 14:41:08 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2312abf7
+2024-06-27 14:41:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 14:41:08 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-27 14:41:08 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:41:08 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-27 14:41:09 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-27 14:41:09 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: URL [file:/Users/sergiovinicio/Documents/GitHub/aluControl/frontend/pilotProjectAluControl/html/index.html]
+2024-06-27 14:41:09 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-06-27 14:41:09 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:41:09 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-06-27 14:41:09 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 2.977 seconds (process running for 3.569)
+2024-06-27 14:41:27 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-27 14:41:27 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-27 14:41:27 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2024-06-27 14:41:27 INFO  c.a.backendv1.Util.LoggerUtil - Fetching all rent records
+2024-06-27 14:41:27 ERROR c.a.backendv1.Util.LoggerUtil - GenericException handled: No static resource apple-touch-icon-precomposed.png.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource apple-touch-icon-precomposed.png.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2024-06-27 14:41:27 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource apple-touch-icon-precomposed.png.]
+2024-06-27 14:41:27 ERROR c.a.backendv1.Util.LoggerUtil - GenericException handled: No static resource apple-touch-icon.png.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource apple-touch-icon.png.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2024-06-27 14:41:27 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource apple-touch-icon.png.]
+2024-06-27 14:41:27 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 16 rent records
+2024-06-27 14:41:27 ERROR c.a.backendv1.Util.LoggerUtil - GenericException handled: No static resource favicon.ico.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2024-06-27 14:41:27 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-06-27 14:41:51 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:41:51 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-27 14:41:51 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-27 14:42:14 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74664 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 14:42:14 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 14:42:14 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 14:42:14 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 14:42:15 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 14:42:15 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2024-06-27 14:42:15 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-27 14:42:15 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:42:15 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-27 14:42:15 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-27 14:42:15 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-27 14:42:15 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 734 ms
+2024-06-27 14:42:15 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-27 14:42:15 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-27 14:42:15 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-27 14:42:15 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-27 14:42:15 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 14:42:15 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@70414388
+2024-06-27 14:42:15 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 14:42:16 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-27 14:42:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:42:16 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-27 14:42:17 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-27 14:42:17 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: URL [file:/Users/sergiovinicio/Documents/GitHub/aluControl/frontend/pilotProjectAluControl/html/index.html]
+2024-06-27 14:42:17 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-06-27 14:42:17 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:42:17 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-06-27 14:42:17 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 2.87 seconds (process running for 3.542)
+2024-06-27 14:42:23 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-27 14:42:23 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-27 14:42:23 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-06-27 14:42:23 INFO  c.a.backendv1.Util.LoggerUtil - Fetching all rent records
+2024-06-27 14:42:23 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 16 rent records
+2024-06-27 14:42:24 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:42:24 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:42:24 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:42:34 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:42:34 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:42:34 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:42:40 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:42:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-27 14:42:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-27 14:43:25 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74679 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 14:43:25 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 14:43:25 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 14:43:25 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 14:43:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 14:43:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2024-06-27 14:43:26 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-27 14:43:26 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:43:26 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-27 14:43:26 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-27 14:43:26 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-27 14:43:26 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 727 ms
+2024-06-27 14:43:26 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-27 14:43:26 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-27 14:43:26 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-27 14:43:26 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-27 14:43:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 14:43:26 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2495f63d
+2024-06-27 14:43:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 14:43:27 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-27 14:43:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:43:27 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-27 14:43:27 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-27 14:43:27 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2024-06-27 14:43:27 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-06-27 14:43:27 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:43:27 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-06-27 14:43:28 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 2.895 seconds (process running for 3.6)
+2024-06-27 14:43:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-27 14:43:32 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-27 14:43:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-06-27 14:43:32 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:43:32 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:43:32 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:43:44 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:43:44 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:43:44 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:44:15 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:44:15 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:44:15 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:44:20 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:44:20 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:44:20 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:44:30 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:44:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-27 14:44:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-27 14:46:35 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 74773 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-06-27 14:46:35 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-27 14:46:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-27 14:46:35 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-27 14:46:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-27 14:46:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2024-06-27 14:46:35 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-27 14:46:35 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:46:35 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-27 14:46:35 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-27 14:46:35 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-27 14:46:35 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 713 ms
+2024-06-27 14:46:35 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-27 14:46:35 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-27 14:46:35 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-27 14:46:36 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-27 14:46:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 14:46:36 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4945889
+2024-06-27 14:46:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 14:46:36 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-27 14:46:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:46:37 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-27 14:46:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-27 14:46:37 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2024-06-27 14:46:37 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-06-27 14:46:37 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-27 14:46:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-06-27 14:46:37 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 2.828 seconds (process running for 3.37)
+2024-06-27 14:46:47 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-27 14:46:47 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-27 14:46:47 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2024-06-27 14:46:47 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:46:47 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:46:47 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:46:54 INFO  c.a.backendv1.Util.LoggerUtil - Fetching all rent records
+2024-06-27 14:46:54 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 16 rent records
+2024-06-27 14:46:57 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-27 14:46:57 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
+2024-06-27 14:46:57 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
+2024-06-27 14:47:00 INFO  c.a.backendv1.Util.LoggerUtil - Searching for rentals with status: Sold
+2024-06-27 14:47:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-27 14:47:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-27 14:47:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
