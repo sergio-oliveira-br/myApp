@@ -10,13 +10,15 @@
  */
 package com.alucontrol.backendv1.Repository;
 
+import com.alucontrol.backendv1.Model.Rent;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /** This is responsible for managing the persistence of Expense data
  *  in the database, providing a simplified interface for CRUD operations
  */
 @Repository
-public interface ExpenseRepository
+public interface ExpenseRepository extends JpaRepository<Rent, Long>
 {
 
 }
