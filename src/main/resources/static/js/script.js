@@ -182,6 +182,9 @@ function submitEditForm() {
         rentStatus: $('#editRentStatus').val()
     };
 
+    //this is a log to check what's it will send
+    console.log(rentData);
+
     $.ajax({ //allows updating parts of a web page without reloading the entire page
         url: '/rent/' + rentData.id, //indicates the endpoint
         type: 'PUT', //HTTP request methods used to INSERT data to the server (backend), indicating by the endpoint specified by the URL

@@ -306,12 +306,12 @@
 
                             <div class="mb-3">
                                 <label for="editRentFirstName" class="form-label">First Name</label>
-                                <select class="form-control" id="editRentFirstName" name="rentFirstName" required></select>
+                                <select class="form-control" id="editRentFirstName" name="rentFirstName" readonly></select>
                             </div>
 
                             <div class="mb-3">
                                 <label for="editRentTotalPrice" class="form-label">Total Price</label>
-                                <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" required>
+                                <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" readonly>
                             </div>
 
                             <div class="mb-3">
@@ -336,6 +336,18 @@
                             </div><br>
 
                             <button type="submit" class="btn btn-primary">Save changes</button>
+                            <!-- Ends what the user can change or see -->
+
+
+                            <!-- These fields do not display to the user, but is necessary to fix the bug undefined -->
+                            <input type="hidden" class="form-control" id="editRentDetails" name="rentDetails">
+                            <input type="hidden" class="form-control" id="editRentAddress" name="rentAddress" required>
+                            <input type="hidden" class="form-control" id="editRentStarts" name="rentStarts" required>
+                            <input type="hidden" class="form-control" id="editRentEnds" name="rentEnds" required>
+                            <input type="hidden" class="form-control" id="editRentTotalDays" name="rentTotalDays" required>
+                            <input type="hidden" class="form-control" id="editRentItem" name="rentItem" required></input>
+                            <input type="hidden" class="form-control" id="editRentQtyItem" name="rentQtyItem" required>
+                            <input type="hidden" class="form-control" id="editRentPrice" name="rentPrice" step="0.01" required>
                         </form>
                     </div>
                 </div>
