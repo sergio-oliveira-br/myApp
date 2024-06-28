@@ -14,6 +14,12 @@ function displayMsgWIP()
     alert("Sorry! Working in progress...")
 }
 
+//Redirecting the user to the reports page
+function toToReportPage()
+{
+    window.location.href = "report.html";
+}
+
 
 
 //Reference: https://getbootstrap.com/docs/5.0/forms/validation/

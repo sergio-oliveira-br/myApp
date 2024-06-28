@@ -186,27 +186,58 @@
                         <h5 class="card-title">Manage Your Sales</h5>
                         <p> You have the option to either create or view what you have already sold. </p>
                         <button onclick="displayMsgWIP()" class="btn btn-primary">New Sale</button>
-                        <button onclick="displayAllStatusSold()" class="btn btn-secondary">See your sales</button>
+                        <button onclick="displayAllStatusSold()" class="btn btn-secondary">Your Sales</button>
+                        <button onclick="toToReportPage()" class="btn btn-outline-secondary">Report Page</button>
                     </div>
                 </div>
                 <!-- Ends Cards-->
 
+                <!-- MODAL (table UNPAID) - This modal make possible the user see what they have about Rents witch status unpaid -->
+                <div class="modal fade" id="displayListAllRentStatusUnpaidOrSoldModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
 
-                    <!-- MODAL (table UNPAID) - This modal make possible the user see what they have about Rents witch status unpaid -->
-                    <div class="modal fade" id="displayListAllRentStatusUnpaidOrSoldModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
+                            <!--- Header -->
+                            <div class="modal-header">
+                                <h3 class="modal-title"> Sales & Rent</h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div> <!--modal-header-->
 
-                                <!--- Header -->
-                                <div class="modal-header">
-                                    <h3 class="modal-title"> Sales & Rent</h3>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div> <!--modal-header-->
+                            <!-- Body -->
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col"> Customer </th>
+                                        <th scope="col"> Item </th>
+                                        <th scope="col"> Payment </th>
+                                        <th scope="col"> Total Price </th>
+                                        <th scope="col"> Status </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="rentListStatusUnpaidOrSold"> <!-- Display the items witch are "new" status --> </tbody>
+                                </table>
+                            </div>
 
-                                <!-- Body -->
-                                <div class="modal-body">
-                                    <table class="table table-striped">
-                                        <thead>
+                        </div> <!--modal-content-->
+                    </div> <!--modal-dialog-->
+                </div> <!--modal fade-->
+
+                <!-- MODAL (table NEW Rent) - This modal make possible the user see what they have about Rents witch status is new -->
+                <div class="modal fade" id="displayAllRentStatusNewModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <!--- Header -->
+                            <div class="modal-header">
+                                <h3 class="modal-title"> Your New Rents </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div> <!--modal-header-->
+
+                            <!-- Body -->
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr>
                                             <th scope="col"> Customer </th>
                                             <th scope="col"> Item </th>
@@ -214,79 +245,47 @@
                                             <th scope="col"> Total Price </th>
                                             <th scope="col"> Status </th>
                                         </tr>
-                                        </thead>
-                                        <tbody id="rentListStatusUnpaidOrSold"> <!-- Display the items witch are "new" status --> </tbody>
-                                    </table>
-                                </div>
+                                    </thead>
+                                    <tbody id="rentListStatusNew"> <!-- Display the items witch are "new" status --> </tbody>
+                                </table>
+                            </div>
 
-                            </div> <!--modal-content-->
-                        </div> <!--modal-dialog-->
-                    </div> <!--modal fade-->
+                        </div> <!--modal-content-->
+                    </div> <!--modal-dialog-->
+                </div> <!--modal fade-->
 
-                    <!-- MODAL (table NEW Rent) - This modal make possible the user see what they have about Rents witch status is new -->
-                    <div class="modal fade" id="displayAllRentStatusNewModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
+                <!-- MODAL (table In Progress Rent) - This modal make possible the user see what they have about Rents witch status in progress -->
+                <div class="modal fade" id="displayAllRentStatusInProgressModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
 
-                                <!--- Header -->
-                                <div class="modal-header">
-                                    <h3 class="modal-title"> Your New Rents </h3>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div> <!--modal-header-->
+                            <!--- Header -->
+                            <div class="modal-header">
+                                <h3 class="modal-title"> Your Rents In Progress </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div> <!--modal-header-->
 
-                                <!-- Body -->
-                                <div class="modal-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"> Customer </th>
-                                                <th scope="col"> Item </th>
-                                                <th scope="col"> Payment </th>
-                                                <th scope="col"> Total Price </th>
-                                                <th scope="col"> Status </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="rentListStatusNew"> <!-- Display the items witch are "new" status --> </tbody>
-                                    </table>
-                                </div>
+                            <!-- Body -->
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"> Customer </th>
+                                            <th scope="col"> Item </th>
+                                            <th scope="col"> Payment </th>
+                                            <th scope="col"> Total Price </th>
+                                            <th scope="col"> Status </th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rentListStatusInProgress"> <!-- Display the items witch are "In Progress" status --> </tbody>
+                                </table>
+                            </div>
 
-                            </div> <!--modal-content-->
-                        </div> <!--modal-dialog-->
-                    </div> <!--modal fade-->
-
-                    <!-- MODAL (table In Progress Rent) - This modal make possible the user see what they have about Rents witch status in progress -->
-                    <div class="modal fade" id="displayAllRentStatusInProgressModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-
-                                <!--- Header -->
-                                <div class="modal-header">
-                                    <h3 class="modal-title"> Your Rents In Progress </h3>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div> <!--modal-header-->
-
-                                <!-- Body -->
-                                <div class="modal-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"> Customer </th>
-                                                <th scope="col"> Item </th>
-                                                <th scope="col"> Payment </th>
-                                                <th scope="col"> Total Price </th>
-                                                <th scope="col"> Status </th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="rentListStatusInProgress"> <!-- Display the items witch are "In Progress" status --> </tbody>
-                                    </table>
-                                </div>
-
-                            </div> <!--modal-content-->
-                        </div> <!--modal-dialog-->
-                    </div> <!--modal fade-->
-
-                </div> <!-- content -->
+                        </div> <!--modal-content-->
+                    </div> <!--modal-dialog-->
+                </div> <!--modal fade-->
+                
             </div> <!-- Ends Main Content -->
         </div> <!-- Container -->
 

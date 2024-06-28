@@ -57,7 +57,8 @@ $(document).ready(function()
         e.preventDefault();
         submitEditForm();
     });
-})
+});
+
 
 /**
  Page: Rent
