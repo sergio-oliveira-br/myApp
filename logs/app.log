@@ -972,3 +972,6 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2024-06-28 23:02:49 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents in progress
 2024-06-28 23:02:49 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents with status NEW
 2024-06-28 23:02:49 INFO  c.a.backendv1.Util.LoggerUtil - Searching for all rents Unpaid
+2024-06-28 23:17:38 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-28 23:17:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-28 23:17:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
