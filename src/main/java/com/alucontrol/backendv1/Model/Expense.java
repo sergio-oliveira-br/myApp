@@ -34,8 +34,8 @@ public class Expense
     @Column(nullable = false) //cannot be null
     private String ExpenseCategory;
 
-    @Column(nullable = false) //cannot be null
-    private String ExpenseType;
+//    @Column(nullable = false) //cannot be null
+//    private String ExpenseType;
 
     @Column(nullable = false)
     private String ExpenseAdditionalNotes;
@@ -82,13 +82,13 @@ public class Expense
         ExpenseCategory = expenseCategory;
     }
 
-    public String getExpenseType() {
-        return ExpenseType;
-    }
-
-    public void setExpenseType(String expenseType) {
-        ExpenseType = expenseType;
-    }
+//    public String getExpenseType() {
+//        return ExpenseType;
+//    }
+//
+//    public void setExpenseType(String expenseType) {
+//        ExpenseType = expenseType;
+//    }
 
     public String getExpenseAdditionalNotes() {
         return ExpenseAdditionalNotes;
