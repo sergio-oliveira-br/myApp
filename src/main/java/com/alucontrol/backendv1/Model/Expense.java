@@ -23,22 +23,22 @@ public class Expense
     private long id;
 
     @Column(nullable = false) //cannot be null
-    private String ExpenseDescription;
+    private String expenseDescription;
 
     @Column(nullable = false) //cannot be null
-    private Double ExpenseAmount;
+    private Double expenseAmount;
 
     @Column(nullable = false) //cannot be null
-    private String ExpenseDate;
+    private String expenseDate;
 
     @Column(nullable = false) //cannot be null
-    private String ExpenseCategory;
+    private String expenseCategory;
 
 //    @Column(nullable = false) //cannot be null
 //    private String ExpenseType;
 
     @Column(nullable = false)
-    private String ExpenseAdditionalNotes;
+    private String expenseAdditionalNotes;
 
 
     /** Getters and Setters */
@@ -51,35 +51,35 @@ public class Expense
     }
 
     public String getExpenseDescription() {
-        return ExpenseDescription;
+        return expenseDescription;
     }
 
     public void setExpenseDescription(String expenseDescription) {
-        ExpenseDescription = expenseDescription;
+        this.expenseDescription = expenseDescription;
     }
 
     public Double getExpenseAmount() {
-        return ExpenseAmount;
+        return expenseAmount;
     }
 
     public void setExpenseAmount(Double expenseAmount) {
-        ExpenseAmount = expenseAmount;
+        this.expenseAmount = expenseAmount;
     }
 
     public String getExpenseDate() {
-        return ExpenseDate;
+        return expenseDate;
     }
 
     public void setExpenseDate(String expenseDate) {
-        ExpenseDate = expenseDate;
+        this.expenseDate = expenseDate;
     }
 
     public String getExpenseCategory() {
-        return ExpenseCategory;
+        return expenseCategory;
     }
 
     public void setExpenseCategory(String expenseCategory) {
-        ExpenseCategory = expenseCategory;
+        this.expenseCategory = expenseCategory;
     }
 
 //    public String getExpenseType() {
@@ -91,10 +91,10 @@ public class Expense
 //    }
 
     public String getExpenseAdditionalNotes() {
-        return ExpenseAdditionalNotes;
+        return expenseAdditionalNotes;
     }
 
     public void setExpenseAdditionalNotes(String expenseAdditionalNotes) {
-        ExpenseAdditionalNotes = expenseAdditionalNotes;
+        this.expenseAdditionalNotes = expenseAdditionalNotes;
     }
 }
