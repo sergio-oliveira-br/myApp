@@ -10,7 +10,7 @@
  */
 package com.alucontrol.backendv1.Repository;
 
-import com.alucontrol.backendv1.Model.Rent;
+import com.alucontrol.backendv1.Model.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
  *  in the database, providing a simplified interface for CRUD operations
  */
 @Repository
-public interface ExpenseRepository extends JpaRepository<Rent, Long>
+public interface ExpenseRepository extends JpaRepository<Expense, Long>
 {
 
 }
