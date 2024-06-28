@@ -13,6 +13,8 @@ package com.alucontrol.backendv1.Controllers.Expense;
 
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
+import com.alucontrol.backendv1.Service.ExpenseService;
+import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,19 +26,40 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExpenseCreateUpdateController
 {
     //Repository for access to expense data
-    private final ExpenseRepository expenseRepository;
+    private final ExpenseService expenseService;
 
     //Constructor responsible for injecting the repository
-    private ExpenseCreateUpdateController (ExpenseRepository expenseRepository)
+    private ExpenseCreateUpdateController ( ExpenseService expenseService)
     {
-        this.expenseRepository = expenseRepository;
+        this.expenseService = expenseService;
     }
 
     /** Endpoints */
     @PostMapping("/saveExpense")
     public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense)
     {
+        try {
+            //Instance object
+            Expense savedExpense = expenseService.createExpense(
+                    expense.getExpenseDescription(),
+                    expense.getExpenseAmount(),
+                    expense.getExpenseDate(),
+                    expense.getExpenseCategory(),
+                    expense.getExpenseAdditionalNotes());
 
+            //Create a log
+            LoggerUtil.info("Save Expense Successfully, ID:" + savedExpense.getId());
+
+            //Return a response HTTP 200 - OK - saving the expense
+            return ResponseEntity.ok(savedExpense);
+        }
+        catch (Exception e)
+        {
+            //Create a log (if there is an error)
+            LoggerUtil.error("Save Expense Failed: " + e.getMessage());
+
+            //Throw the exception (if there is an error)
+            return ResponseEntity.internalServerError().build();
+        }
     }
-
 }

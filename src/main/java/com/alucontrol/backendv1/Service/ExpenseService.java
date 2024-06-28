@@ -57,10 +57,10 @@ public class ExpenseService
         catch (Exception e)
         {
             //Create a log (if there is an error)
-            LoggerUtil.info("Error creating expense");
+            LoggerUtil.info("Error creating expense" + e);
 
             //Throw the exception (if there is an error)
-            throw new Exception(e.getMessage());
+            throw new Exception("Error creating expense: " + e.getMessage());
         }
     }
 }
