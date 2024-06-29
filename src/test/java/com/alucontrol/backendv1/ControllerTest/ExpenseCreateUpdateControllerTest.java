@@ -1,36 +1,99 @@
-///**
-// * National College of Ireland - NCI
-// *    Higher Diploma in Computing
-// *         Final Project
-// *              ---
-// * Author: Sergio Vinicio da Silva Oliveira
-// * ID: x23170981@student.ncirl.ie
-// * Project Commencing May 2024
-// * Version: 1.0 - Test
-// */
-//package com.alucontrol.backendv1.ControllerTest;
-//
-////Reference: https://site.mockito.org
-//
-//import org.junit.jupiter.api.extension.ExtendWith;
-//import org.mockito.junit.jupiter.MockitoExtension;
-//
-///** This test focuses on the "saveRent" method by checking:
-//
-// -> Whether the method correctly saves a rent in the database.
-// -> If the method returns a Rent object with the correct data.
-// -> If the method throws an exception when an error occurs.
-// -> Whether the method creates a correct log when the client is saved successfully or when an error occurs.*/
-//@ExtendWith(MockitoExtension.class)
-//public class ExpenseCreateUpdateControllerTest
-//{
-//    //Inject the ExpenseCreateUpdateController Controller Instance into the Test
-//
-//    //Create a Mock Instance of the ExpenseRepository
-//
-//    /** The success case: where the product is saved correctly in DB*/
-//
-//
-//    /** The error case, where an exception is thrown when trying to save the product to the database */
-//
-//}
+/**
+ * National College of Ireland - NCI
+ *    Higher Diploma in Computing
+ *         Final Project
+ *              ---
+ * Author: Sergio Vinicio da Silva Oliveira
+ * ID: x23170981@student.ncirl.ie
+ * Project Commencing May 2024
+ * Version: 1.0 - Test
+ */
+package com.alucontrol.backendv1.ControllerTest;
+
+//Reference: https://site.mockito.org
+
+import com.alucontrol.backendv1.Controllers.Expense.ExpenseCreateUpdateController;
+import com.alucontrol.backendv1.Model.Expense;
+import com.alucontrol.backendv1.Repository.ExpenseRepository;
+import com.alucontrol.backendv1.Service.ExpenseService;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.util.AssertionErrors.assertEquals;
+
+/** This test focuses on the "saveRent" method by checking:
+
+ -> Whether the method correctly saves a rent in the database.
+ -> If the method returns a Rent object with the correct data.
+ -> If the method throws an exception when an error occurs.
+ -> Whether the method creates a correct log when the client is saved successfully or when an error occurs.*/
+@ExtendWith(MockitoExtension.class)
+public class ExpenseCreateUpdateControllerTest
+{
+    //Inject the ExpenseCreateUpdateController Controller Instance into the Test
+    @InjectMocks
+    private ExpenseCreateUpdateController expenseCreateUpdateController;
+
+    //Create a Mock Instance of the ExpenseRepository
+    @Mock
+    private ExpenseService expenseService;
+
+    /** The success case: where the product is saved correctly in DB*/
+    @Test
+    public void saveExpenseTest()
+    {
+        //Instance an object
+        Expense expense = new Expense();
+
+        //Set values
+        expense.setExpenseDescription("descriptionTest");
+        expense.setExpenseCategory("categoryTest");
+        expense.setExpenseDate("29/06/2024");
+        expense.setExpenseAmount(123.45);
+        expense.setExpenseAdditionalNotes("This is a JUnit Test");
+
+        //Stubbing: Set the behavior of the Repository save method.
+        try
+        {//description, amount, date, category and additional info
+            when(expenseService.createExpense(any(String.class),
+                    any(double.class), any(String.class), any(String.class),
+                    any(String.class))).thenReturn(expense);
+
+        }
+
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        ResponseEntity<Expense> response;
+        response = expenseCreateUpdateController
+                .saveExpense(expense.getExpenseDescription(),
+                        expense.getExpenseAmount(), expense.getExpenseDate(),
+                        expense.getExpenseCategory(), expense.getExpenseAdditionalNotes());
+
+        //The method is expected to return a response with a status code of 200 (OK) and the client saved
+        assertEquals("Successful: " , HttpStatus.OK, response.getStatusCode());
+        assertEquals("Successful: ", expense, response.getBody());
+        try{
+            verify(expenseService).createExpense(any(String.class),
+                    any(double.class), any(String.class), any(String.class),
+                    any(String.class));
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    /** The error case, where an exception is thrown when trying to save the product to the database */
+
+}
