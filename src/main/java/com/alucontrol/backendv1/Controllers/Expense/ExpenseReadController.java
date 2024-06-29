@@ -16,6 +16,7 @@ import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -45,6 +46,18 @@ public class ExpenseReadController {
         }
 
         //Returns a 200 OK HTTP response with the list of expenses in the body.
+        return ResponseEntity.ok(expenses);
+    }
+
+    /** Endpoint to get back expenses by selecting the "Category" */
+    @GetMapping("/expensesByCategory")
+    public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory)
+    {
+        List<Expense> expenses = expenseRepository.findByExpenseCategory(expenseCategory);
+        if (expenses.isEmpty()) {
+            LoggerUtil.error("No expenses found for category " + expenseCategory);
+            throw new ResourceNotFoundException("No expenses found");
+        }
         return ResponseEntity.ok(expenses);
     }
 }

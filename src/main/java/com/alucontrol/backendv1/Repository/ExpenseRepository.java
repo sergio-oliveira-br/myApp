@@ -14,11 +14,17 @@ import com.alucontrol.backendv1.Model.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /** This is responsible for managing the persistence of Expense data
  *  in the database, providing a simplified interface for CRUD operations
  */
 @Repository
 public interface ExpenseRepository extends JpaRepository<Expense, Long>
 {
-
+    /** Display: on Report Page via ExpenseReadController
+     *  by Category -> Acquisition of Cost, Maintenance Expense, Utilities Expenses and Others
+     *  Method: List all info by selecting the category
+     * */
+    List<Expense> findByExpenseCategory(String category);
 }
