@@ -546,3 +546,5 @@ org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'applic
 2024-06-29 10:56:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-06-29 10:56:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-06-29 10:56:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-29 11:13:06 ERROR c.a.backendv1.Util.LoggerUtil - Save Expense Failed: Error: An exception is thrown when trying to save the expense to the DB
+2024-06-29 11:13:06 INFO  c.a.backendv1.Util.LoggerUtil - Save Expense Successfully, ID:0
