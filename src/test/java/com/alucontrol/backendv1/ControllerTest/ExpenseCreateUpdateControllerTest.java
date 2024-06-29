@@ -24,6 +24,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.text.ParseException;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -94,6 +97,26 @@ public class ExpenseCreateUpdateControllerTest
         }
     }
 
-    /** The error case, where an exception is thrown when trying to save the product to the database */
+    /** The error case, where an exception is thrown when trying to save the expense to the DB */
+    @Test
+    public void saveExpenseError() throws Exception {
+        //Mockito will throw an Exception instead of actually saving the expense in to the DB
+
+            when(expenseService.createExpense(any(String.class),
+                    any(double.class), any(String.class), any(String.class), any(String.class)))
+                    .thenThrow(new ParseException("Error: An exception is thrown when trying to save the expense to the DB", 0));
+
+
+        ResponseEntity<Expense> response;
+        response = expenseCreateUpdateController.saveExpense("descriptionTest",
+                123.45,"29/06/2024",
+                "categoryTest", "This is a JUnit Test");
+
+        //Checks whether the server response is an internal error (500) and whether the response body is empty
+        assertEquals("Error: " , HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+
+        //Checks if the response body is empty, as there is nothing to be returned in case of error
+        assertNull(response.getBody());
+    }
 
 }
