@@ -46,33 +46,3 @@ function loadExpenseTable()
 }
 
 
-function getExpensesByCategory(category)
-{
- console.log("Category selected: " + category);
-
- //Build the URL
- let url = "/expensesByCategory?expenseCategory=" + category;
-
- //Call the Ajax request
- ajaxRequest(url, function (data)
- {
-  //clean the table
-  $('#expensesListReport').empty();
-
-  //Iteration
-  data.forEach(function (expense) {
-   $('#expensesListReport').append('<tr>' +
-       '<td>' + expense.id + '</td>' +
-       '<td>' + expense.expenseDescription + '</td>' +
-       '<td>' + expense.expenseAmount + '</td>' +
-       '<td>' + expense.expenseDate + '</td>' +
-       '<td>' + expense.expenseCategory + '</td>' +
-       '<td>' + expense.expenseAdditionalNotes + '</td>' +
-       '</tr>'
-   );
-  })
- });
-}
-
-
-

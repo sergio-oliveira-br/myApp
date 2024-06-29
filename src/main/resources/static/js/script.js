@@ -20,6 +20,11 @@ function toToReportPage()
     window.location.href = "report.html";
 }
 
+//Redirecting the user to the expense reports page
+function toToExpenseReportPage()
+{
+    window.location.href = "expensesreport.html";
+}
 
 
 //Reference: https://getbootstrap.com/docs/5.0/forms/validation/
