@@ -101,7 +101,7 @@
 
                 <!-- Starts the Expense's Form - Through this the user will create and edit expenses -->
                 <div class="form-floating">
-                    <form id="expenseForm" action="" method="post" class="row g-1 needs-validation" novalidate>
+                    <form id="expenseForm" action="/saveExpense" method="post" enctype="" class="row g-1 needs-validation" novalidate>
 
                         <!-- Description -->
                         <div class="col-md-6">
@@ -127,7 +127,7 @@
                         <!-- Category -->
                         <div class="col-md-4">
                             <label for="expenseCategory" class="">Category</label>
-                            <select class="form-select" id="expenseCategory" name="expenseCategory">
+                            <select class="form-select" id="expenseCategory" name="expenseCategory" required>
                                 <option selected disabled value="" ></option>
                                 <option>Acquisition of Cost</option>
                                 <option>Maintenance Expense</option>
@@ -140,7 +140,7 @@
                         <!-- Additional Note -->
                         <div class="col-md-8">
                             <label for="expenseAdditionalNotes" class="">Additional Note</label>
-                            <input type="text" class="form-control" id="expenseAdditionalNotes" name="expenseAdditionalNotes" value="" required>
+                            <input type="text" class="form-control" id="expenseAdditionalNotes" name="expenseAdditionalNotes" value="">
                         </div>
 
                         <!-- Button -->
@@ -148,7 +148,7 @@
                             <button  id="submitButton" class="btn btn-primary" type="submit">Submit Expense Form</button>
                         </div>
                     </form>
-                </div> <!-- form-floating -->
+                </div> <!-- form -->
 
                 <!-- Starts Table - Display the expense in our database -->
                 <div class="table-responsive">

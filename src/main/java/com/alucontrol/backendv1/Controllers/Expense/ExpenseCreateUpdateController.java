@@ -15,9 +15,11 @@ import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /** This controller is dedicated to endpoints that create and update records
@@ -36,16 +38,16 @@ public class ExpenseCreateUpdateController
 
     /** Endpoints */
     @PostMapping("/saveExpense")
-    public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense)
+    public ResponseEntity<Expense> saveExpense(@RequestParam("expenseDescription") String expenseDescription,
+                                               @RequestParam("expenseAmount") Double expenseAmount,
+                                               @RequestParam("expenseDate") String expenseDate,
+                                               @RequestParam("expenseCategory")String expenseCategory,
+                                               @RequestParam("expenseAdditionalNotes")String expenseAdditionalNotes)
     {
         try {
-            //Instance object
-            Expense savedExpense = expenseService.createExpense(
-                    expense.getExpenseDescription(),
-                    expense.getExpenseAmount(),
-                    expense.getExpenseDate(),
-                    expense.getExpenseCategory(),
-                    expense.getExpenseAdditionalNotes());
+            //Instance an object
+            Expense savedExpense = expenseService
+                    .createExpense(expenseDescription, expenseAmount, expenseDate, expenseCategory, expenseAdditionalNotes);
 
             //Create a log
             LoggerUtil.info("Save Expense Successfully, ID:" + savedExpense.getId());
@@ -59,7 +61,8 @@ public class ExpenseCreateUpdateController
             LoggerUtil.error("Save Expense Failed: " + e.getMessage());
 
             //Throw the exception (if there is an error)
-            return ResponseEntity.internalServerError().build();
+            //return ResponseEntity.internalServerError().build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }

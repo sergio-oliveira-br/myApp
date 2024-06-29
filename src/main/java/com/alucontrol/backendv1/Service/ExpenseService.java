@@ -49,7 +49,7 @@ public class ExpenseService
             expense.setExpenseAdditionalNotes(expenseAdditionalNotes);
 
             //Create a log
-            LoggerUtil.info("Expense created" + expense.getId());
+            LoggerUtil.info("Expense created");
 
             //Saves the new expense in the repository and returns it.
             return expenseRepository.save(expense);
@@ -57,7 +57,7 @@ public class ExpenseService
         catch (Exception e)
         {
             //Create a log (if there is an error)
-            LoggerUtil.info("Error creating expense" + e);
+            LoggerUtil.info("Error creating expense" +  e.getMessage());
 
             //Throw the exception (if there is an error)
             throw new Exception("Error creating expense: " + e.getMessage());
