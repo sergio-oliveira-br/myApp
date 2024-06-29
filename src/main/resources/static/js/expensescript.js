@@ -11,8 +11,10 @@
 
 /** Load content when the page is loaded */
 $(document).ready(function () {
+ //load the table with all expenses
+ loadExpenseTable();
 
-})
+});
 
 
 /**
@@ -20,3 +22,25 @@ $(document).ready(function () {
  Item: Table
  Method: The script will load all expenses in a table
  */
+function loadExpenseTable()
+{
+ //Call the generic method, that perform an Ajax Request
+ ajaxRequest("/expense", function (data){
+  //clean
+  $('#expenseTable').empty();
+
+  //Iteration
+  data.forEach(function(expense){
+   $('#expenseTable').append('<tr>' +
+    '<td>' + expense.id + '</td>' +
+    '<td>' + expense.expenseDescription + '</td>' +
+    '<td>' + expense.expenseAmount + '</td>' +
+    '<td>' + expense.expenseDate + '</td>' +
+    '<td>' + expense.expenseCategory + '</td>' +
+    '<td>' + expense.expenseAdditionalNotes + '</td>' +
+    '<td><button class="btn btn-primary" onclick="openEditModal(' + expense.id + ')">Edit</button></td>' +
+    '</tr>'
+   )
+  });
+ });
+}

@@ -16,10 +16,12 @@ import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /** This controller is dedicated to endpoints that read data */
+@RestController
 public class ExpenseReadController {
 
     //Repository for access to Expense data
