@@ -49,7 +49,15 @@
           </ul>
 
           <!-- Search by Date -->
+          <label for="monthInput"></label>
+          <input type="number" id="monthInput" placeholder="Month" class="form-control me-2">
 
+          <label for="yearInput"></label>
+          <input type="number" id="yearInput" placeholder="Year" class="form-control me-2">
+
+          <button class="btn btn-outline-success" type="button"
+                  onclick="getExpensesByDate(document.getElementById('yearInput').value,
+                  document.getElementById('monthInput').value)">Search</button>
         </div>
       </div>
     </nav> <!-- ends navbar -->
