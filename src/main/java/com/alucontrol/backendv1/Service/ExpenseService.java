@@ -68,7 +68,7 @@ public class ExpenseService
     }
 
     /** Used: Expense Page through the Read Controller
-     *  Method: This will allow the user retrieve data selecting the month */
+     *  Method: This will allow the user retrieve data by selecting the month */
     public List<Expense> getExpensesByDate(int month, int year)
     {
         YearMonth yearMonth = YearMonth.of(month, year);
