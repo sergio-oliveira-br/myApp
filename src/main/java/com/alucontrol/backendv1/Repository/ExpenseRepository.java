@@ -35,5 +35,5 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>
      *  by Date -> Month and Year
      *  Method: List all info by selecting the date
      * */
-    List<Expense> findByExpenseDate(int month, int year);
+    List<Expense> findByExpenseDate(LocalDate startMonth, LocalDate endMonth);
 }
