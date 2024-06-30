@@ -14,6 +14,7 @@ import com.alucontrol.backendv1.Model.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /** This is responsible for managing the persistence of Expense data
@@ -27,4 +28,12 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>
      *  Method: List all info by selecting the category
      * */
     List<Expense> findByExpenseCategory(String category);
+
+
+
+    /** Display: on Report Page via ExpenseReadController
+     *  by Date -> Month and Year
+     *  Method: List all info by selecting the date
+     * */
+    List<Expense> findByExpenseDate(int month, int year);
 }
