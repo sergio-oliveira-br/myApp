@@ -12,6 +12,7 @@ package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Expense;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -33,7 +34,8 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>
 
     /** Display: on Report Page via ExpenseReadController
      *  by Date -> Month and Year
-     *  Method: List all info by selecting the date
+     *  Method: List all info by selecting the date (Projection is not necessary, 'cause I want all data)
      * */
+    @Query("SELECT * FROM ")
     List<Expense> findByExpenseDate(LocalDate startMonth, LocalDate endMonth);
 }

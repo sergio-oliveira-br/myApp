@@ -13,12 +13,10 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
-import com.alucontrol.backendv1.Util.DateUtil;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.stereotype.Service;
 
-import java.time.YearMonth;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /** This Service Class has methods that contain business logic.*/
@@ -69,17 +67,5 @@ public class ExpenseService
 
     /** Used: Expense Page through the Read Controller
      *  Method: This will allow the user retrieve data by selecting the month */
-    public List<Expense> getExpensesByDate(int month, int year)
-    {
-        YearMonth yearMonth = YearMonth.of(month, year);
 
-        List<Expense> expenses = expenseRepository.findByExpenseDate(yearMonth.atDay(1), yearMonth.atEndOfMonth());
-
-        if (expenses.isEmpty())
-        {
-            LoggerUtil.info("No expenses found");
-            throw new ResourceNotFoundException("No expenses found");
-        }
-        return expenses;
-    }
 }

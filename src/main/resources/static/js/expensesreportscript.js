@@ -81,4 +81,28 @@ function getAllExpenses()
     });
 }
 
+/**
+ Page: Expense Report
+ Item: Table -> Date (Month and Year)
+ Method: This will filter date by selecting Month and Year
+ */
+function getExpensesByMonth(year, month) {
+    ajaxRequest("/expensesByMonth?year=" + year + "&month=" + month, function (data)
+    {
+        $('#expensesListReport').empty();
+        data.forEach(function (expense) {
+            $('#expensesListReport').append('<tr>' +
+                '<td>' + expense.id + '</td>' +
+                '<td>' + expense.expenseDescription + '</td>' +
+                '<td>' + expense.expenseAmount + '</td>' +
+                '<td>' + expense.expenseDate + '</td>' +
+                '<td>' + expense.expenseCategory + '</td>' +
+                '<td>' + expense.expenseAdditionalNotes + '</td>' +
+                '</tr>'
+            );
+        });
+    });
+}
+
+
 
