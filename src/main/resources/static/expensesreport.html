@@ -51,10 +51,12 @@
           <!-- Search by Date -->
           <div class="d-flex">
             <label class="col-form-label" for="monthInput">Month</label>
-            <input type="number" id="monthInput" placeholder="MM" class="form-control me-2">
+            <input type="number" id="monthInput" placeholder="MM" class="form-control me-2" required>
+            <!--<div class="invalid-feedback">Enter the month in numeric format MM, please</div> -->
 
             <label class="col-form-label" for="yearInput">Year</label>
-            <input type="number" id="yearInput" placeholder="YYYY" class="form-control me-2">
+            <input type="number" id="yearInput" placeholder="YYYY" class="form-control me-2" required>
+            <!-- <div class="invalid-feedback">The year needs to be entered in numeric format YYYY.</div> -->
           </div>
 
 
