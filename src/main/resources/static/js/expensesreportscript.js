@@ -83,11 +83,16 @@ function getAllExpenses()
 
 /**
  Page: Expense Report
- Item: Table -> Date (Month and Year)
+ Item: Table -> Date (Month and Year) in NAVBAR
  Method: This will filter date by selecting Month and Year
  */
 function getExpensesByMonth(year, month) {
-    ajaxRequest("/expensesByMonth?year=" + year + "&month=" + month, function (data)
+
+    //Building the URL
+    let url = "/expensesByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
+
+    //Call the ajax request
+    ajaxRequest(url,function (data)
     {
         $('#expensesListReport').empty();
         data.forEach(function (expense) {

@@ -16,7 +16,6 @@ import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /** This Service Class has methods that contain business logic.*/
@@ -64,8 +63,4 @@ public class ExpenseService
             throw new Exception("Error creating expense: " + e.getMessage());
         }
     }
-
-    /** Used: Expense Page through the Read Controller
-     *  Method: This will allow the user retrieve data by selecting the month */
-
 }

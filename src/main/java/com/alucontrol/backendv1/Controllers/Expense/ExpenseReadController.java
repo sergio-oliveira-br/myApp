@@ -64,9 +64,17 @@ public class ExpenseReadController {
         return ResponseEntity.ok(expenses);
     }
 
-    /** Endpoint to get back expenses by selecting the "Month" */
+    /** Endpoint to retrieve expenses by selecting the "Month" and "Year" in expenseDate field */
+    @GetMapping("/expensesByDate")
+    public ResponseEntity<List<Expense>> getExpensesByDate(String year, String month)
+    {
+        List<Expense> expenses = expenseRepository.findByYearAndMonth(year, month);
 
-
-
+        if (expenses.isEmpty()) {
+            LoggerUtil.error("No expenses found for year " + year + " and month " + month);
+            throw new ResourceNotFoundException("No expenses found");
+        }
+        return ResponseEntity.ok(expenses);
+    }
 
 }

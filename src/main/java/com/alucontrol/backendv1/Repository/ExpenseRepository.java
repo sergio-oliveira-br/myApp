@@ -15,7 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /** This is responsible for managing the persistence of Expense data
@@ -36,6 +35,14 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>
      *  by Date -> Month and Year
      *  Method: List all info by selecting the date (Projection is not necessary, 'cause I want all data)
      * */
-    @Query("SELECT * FROM ")
-    List<Expense> findByExpenseDate(LocalDate startMonth, LocalDate endMonth);
+    @Query("SELECT myE " +
+            "FROM Expense myE " +
+            "WHERE myE.expenseDate LIKE CONCAT(:year, '-%', :month, '%')") //(meaning: % is a wildcard character that means "anything")
+    List<Expense> findByYearAndMonth(String year, String month);
+
+
+
+
+
+
 }
