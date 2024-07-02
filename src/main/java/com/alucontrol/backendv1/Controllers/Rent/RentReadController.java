@@ -10,6 +10,8 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
+import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -42,5 +44,18 @@ public class RentReadController
 
         //Returning the list of all rent records in a ResponseEntity with status OK
         return ResponseEntity.ok(rent);
+    }
+
+    /** Endpoint to retrieve Rent by selecting the "Month" and "Year" in expenseDate field */
+    @GetMapping("/rentByDate")
+    public ResponseEntity<List<Rent>> getRentByDate(String year, String month)
+    {
+        List<Rent> rents = rentRepository.findByYearAndMonth(year, month);
+
+        if (rents.isEmpty()) {
+            LoggerUtil.error("No Rent found for year " + year + " and month " + month);
+            throw new ResourceNotFoundException("No Rent found");
+        }
+        return ResponseEntity.ok(rents);
     }
 }

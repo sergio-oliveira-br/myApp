@@ -175,7 +175,7 @@ public interface RentRepository extends JpaRepository<Rent, Long>
     @Query("SELECT myR " +
             "FROM Rent myR " +
             "WHERE myR.rentStarts LIKE CONCAT(:year, '-%', :month, '%')") //(meaning: % is a wildcard character that means "anything")
-    List<Expense> findByYearAndMonth(String year, String month);
+    List<Rent> findByYearAndMonth(String year, String month);
 
 }
 
