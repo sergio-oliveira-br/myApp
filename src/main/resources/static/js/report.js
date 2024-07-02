@@ -12,88 +12,65 @@
 $(document).ready(function ()
 {
     //load the table with all rent paid information from rental database
-    loadRentTable("Paid");
+    getRentByPaymentStatus('Paid');
 })
+
+/**
+ * Function to render rent table
+ */
+function renderRentTable(data) {
+    $('#rentList').empty();
+
+    data.forEach(function (rent) {
+        $('#rentList').append('<tr>' +
+            '<td>' + rent.id + '</td>' +
+            '<td>' + rent.rentFirstName + '</td>' +
+            /** '<td>' + rent.rentLastName + '</td>' + */
+            '<td>' + rent.rentAddress + '</td>' +
+            '<td>' + rent.rentItem + '</td>' +
+            '<td>' + rent.rentPrice.toFixed(2) + '</td>' + // Formatting to two decimal places
+            '<td>' + rent.rentStarts + '</td>' +
+            '<td>' + rent.rentEnds + '</td>' +
+            '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + // Formatting to two decimal places
+            '<td>' + rent.rentPaymentStatus + '</td>' +
+            '<td>' + rent.rentStatus + '</td>' +
+            '<td>' + rent.rentDetails + '</td>' +
+            '</tr>'
+        );
+    });
+}
 
 
 /**
  Page: Rent
  Item: Table
- Method: The script will load all items in a table
+ Method: The script will load all items in a table by selecting the Payment Status and,
+         by clicking on the buttons on navbar "filter by"
  */
 function getRentByPaymentStatus(status)
 {
     //Building the URL
     let url = "/rentByPaymentStatus?paymentStatus=" + encodeURIComponent(status);
 
-    //Call method Ajax Request
-    ajaxRequest(url, function(data)
-    {
-        //Clean
-        $('#rentList').empty();
-
-        //Iteration
-        data.forEach(function(rent)
-        {
-            $('#rentList').append('<tr>' +
-                '<td>' + rent.id + '</td>' +
-                '<td>' + rent.rentFirstName + '</td>' +
-                /** '<td>' + rent.rentLastName + '</td>' + */
-                '<td>' + rent.rentAddress + '</td>' +
-                '<td>' + rent.rentItem + '</td>' +
-                '<td>' + rent.rentPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentStarts + '</td>' +
-                '<td>' + rent.rentEnds + '</td>' +
-                '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentPaymentStatus + '</td>' +
-                '<td>' + rent.rentStatus+ '</td>' +
-                '<td>' + rent.rentDetails + '</td>' +
-                '</tr>'
-            );
-        });
-    });
+    //Call method Ajax Request with the render method table
+    ajaxRequest(url, renderRentTable);
 }
 
 
-
-
+/**
+ Page: Rent
+ Item: Table
+ Method: The script will load all items in a table by selecting the Status and,
+        by clicking on the buttons on navbar "filter by"
+ */
 function getRentByStatus(status)
 {
     //Building the URL
     let url = "/rentByStatus?rentStatus=" + encodeURIComponent(status);
 
-    //Call method Ajax Request
-    ajaxRequest(url, function(data)
-    {
-        //Clean
-        $('#rentList').empty();
-
-        //Iteration
-        data.forEach(function(rent)
-        {
-            $('#rentList').append('<tr>' +
-                '<td>' + rent.id + '</td>' +
-                '<td>' + rent.rentFirstName + '</td>' +
-                /** '<td>' + rent.rentLastName + '</td>' + */
-                '<td>' + rent.rentAddress + '</td>' +
-                '<td>' + rent.rentItem + '</td>' +
-                '<td>' + rent.rentPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentStarts + '</td>' +
-                '<td>' + rent.rentEnds + '</td>' +
-                '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentPaymentStatus + '</td>' +
-                '<td>' + rent.rentStatus+ '</td>' +
-                '<td>' + rent.rentDetails + '</td>' +
-                '</tr>'
-            );
-        });
-    });
+    //Call method Ajax Request with the render method table
+    ajaxRequest(url, renderRentTable);
 }
-
-
-
-
-
 
 
 /**
@@ -106,68 +83,6 @@ function getRentByMonth(year, month)
     //Building the URL
     let url = "/rentByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
 
-    //Call the ajax request
-    ajaxRequest(url,function (data)
-    {
-        //first clean
-        $('#rentList').empty();
-
-        //Iteration
-        data.forEach(function(rent)
-        {
-            $('#rentList').append('<tr>' +
-                '<td>' + rent.id + '</td>' +
-                '<td>' + rent.rentFirstName + '</td>' +
-                /** '<td>' + rent.rentLastName + '</td>' + */
-                '<td>' + rent.rentAddress + '</td>' +
-                '<td>' + rent.rentItem + '</td>' +
-                '<td>' + rent.rentPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentStarts + '</td>' +
-                '<td>' + rent.rentEnds + '</td>' +
-                '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
-                '<td>' + rent.rentPaymentStatus + '</td>' +
-                '<td>' + rent.rentStatus+ '</td>' +
-                '<td>' + rent.rentDetails + '</td>' +
-                '</tr>'
-            );
-        });
-    });
-}
-
-
-
-
-
-
-/**
- Method: By clicking on the buttons on navbar" filter by", the table will load the info selected.
- */
-//Rent Status: New
-function displayAllRentStatusNew()
-{
-    loadRentTable('New');
-}
-
-//Rent Status: New
-function displayAllRentStatusInProgress()
-{
-    loadRentTable('InProgress');
-}
-
-//Rent Status: Sold
-function displayListAllRentStatusSold()
-{
-    loadRentTable( 'Sold');
-}
-
-//Rent Payment Status: Unpaid
-function displayListAllRentStatusUnpaid()
-{
-    loadRentTable( 'Unpaid');
-}
-
-//Rent Payment Status: Paid
-function displayListAllRentStatusPaid()
-{
-    loadRentTable( 'Paid');
+    //Call method Ajax Request with the render method table
+    ajaxRequest(url, renderRentTable);
 }
