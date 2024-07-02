@@ -286,3 +286,6 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2024-07-02 09:34:32 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-07-02 09:34:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
 2024-07-02 09:34:32 INFO  c.a.backendv1.Util.LoggerUtil - Searching for rentals with status: Paid
+2024-07-02 09:36:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-02 09:36:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-07-02 09:36:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
