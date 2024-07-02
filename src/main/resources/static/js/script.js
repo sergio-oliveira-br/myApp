@@ -15,13 +15,13 @@ function displayMsgWIP()
 }
 
 //Redirecting the user to the reports page
-function toToReportPage()
+function goToReportPage()
 {
     window.location.href = "report.html";
 }
 
 //Redirecting the user to the expense reports page
-function toToExpenseReportPage()
+function goToExpenseReportPage()
 {
     window.location.href = "expensesreport.html";
 }
