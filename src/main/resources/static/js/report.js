@@ -52,6 +52,52 @@ function loadRentTable(status)
     });
 }
 
+
+
+
+/**
+ Page: Rent Report
+ Item: Table -> Date (Month and Year) in NAVBAR
+ Method: This will filter date by selecting Month and Year
+ */
+function getRentByMonth(year, month)
+{
+    //Building the URL
+    let url = "/rentByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
+
+    //Call the ajax request
+    ajaxRequest(url,function (data)
+    {
+        //first clean
+        $('#rentList').empty();
+
+        //Iteration
+        data.forEach(function(rent)
+        {
+            $('#rentList').append('<tr>' +
+                '<td>' + rent.id + '</td>' +
+                '<td>' + rent.rentFirstName + '</td>' +
+                /** '<td>' + rent.rentLastName + '</td>' + */
+                '<td>' + rent.rentAddress + '</td>' +
+                '<td>' + rent.rentItem + '</td>' +
+                '<td>' + rent.rentPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
+                '<td>' + rent.rentStarts + '</td>' +
+                '<td>' + rent.rentEnds + '</td>' +
+                '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
+                '<td>' + rent.rentPaymentStatus + '</td>' +
+                '<td>' + rent.rentStatus+ '</td>' +
+                '<td>' + rent.rentDetails + '</td>' +
+                '</tr>'
+            );
+        });
+    });
+}
+
+
+
+
+
+
 /**
  Method: By clicking on the buttons on navbar" filter by", the table will load the info selected.
  */
