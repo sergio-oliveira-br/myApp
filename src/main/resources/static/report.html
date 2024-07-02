@@ -38,12 +38,13 @@
                   Filter by
                 </a>
                 <ul class="dropdown-menu">
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusPaid()">All Paid</button></li>
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusUnpaid()">All Unpaid</button></li>
+                  <!-- <li><button class="dropdown-item" onclick="displayListAllRentStatusPaid()">All Paid</button></li> -->
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Paid')">All Paid</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Unpaid')">All Unpaid</button></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><button class="dropdown-item" onclick="displayAllRentStatusNew()">All New</button></li>
-                  <li><button class="dropdown-item" onclick="displayAllRentStatusInProgress()">All In Progress</button></li>
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusSold()">All Sold</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('New')">All New</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('In Progress')">All In Progress</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('Sold')">All Sold</button></li>
                 </ul>
               </li>
             </ul>

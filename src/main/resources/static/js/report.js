@@ -21,13 +21,15 @@ $(document).ready(function ()
  Item: Table
  Method: The script will load all items in a table
  */
-
-function loadRentTable(status)
+function getRentByPaymentStatus(status)
 {
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/listRentStatus" + '?status=' + status, function(data)
+    //Building the URL
+    let url = "/rentByPaymentStatus?paymentStatus=" + encodeURIComponent(status);
+
+    //Call method Ajax Request
+    ajaxRequest(url, function(data)
     {
-        //first clean
+        //Clean
         $('#rentList').empty();
 
         //Iteration
@@ -51,6 +53,45 @@ function loadRentTable(status)
         });
     });
 }
+
+
+
+
+function getRentByStatus(status)
+{
+    //Building the URL
+    let url = "/rentByStatus?rentStatus=" + encodeURIComponent(status);
+
+    //Call method Ajax Request
+    ajaxRequest(url, function(data)
+    {
+        //Clean
+        $('#rentList').empty();
+
+        //Iteration
+        data.forEach(function(rent)
+        {
+            $('#rentList').append('<tr>' +
+                '<td>' + rent.id + '</td>' +
+                '<td>' + rent.rentFirstName + '</td>' +
+                /** '<td>' + rent.rentLastName + '</td>' + */
+                '<td>' + rent.rentAddress + '</td>' +
+                '<td>' + rent.rentItem + '</td>' +
+                '<td>' + rent.rentPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
+                '<td>' + rent.rentStarts + '</td>' +
+                '<td>' + rent.rentEnds + '</td>' +
+                '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + //Formatting to two decimal places
+                '<td>' + rent.rentPaymentStatus + '</td>' +
+                '<td>' + rent.rentStatus+ '</td>' +
+                '<td>' + rent.rentDetails + '</td>' +
+                '</tr>'
+            );
+        });
+    });
+}
+
+
+
 
 
 

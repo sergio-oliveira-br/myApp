@@ -15,6 +15,7 @@ import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -167,6 +168,36 @@ public interface RentRepository extends JpaRepository<Rent, Long>
             "FROM Rent RentStatusProjection " + //This data came from Projection
             "WHERE rentPaymentStatus = 'Paid'") //Filter
     List<SummaryRentStatusProjection> getPaidRents();
+
+
+
+
+
+
+    //******************************
+
+    /** Display: on Index.html via HomeController
+     * Method: Display a table with ALL Rents witch by selecting the Payment Status
+     * */
+    @Query("SELECT myRPaymentStatus " +
+            "FROM Rent myRPaymentStatus " +
+            "WHERE myRPaymentStatus.rentPaymentStatus = :paymentStatus")
+    List<Rent> findRentByPaymentStatus(String paymentStatus);
+
+
+
+    /** Display: on Index.html via HomeController
+     * Method: Display a table with ALL Rents witch by selecting the Status
+     * */
+    @Query("SELECT myRStatus " +
+            "FROM Rent myRStatus " +
+            "WHERE myRStatus.rentStatus = :rentStatus")
+    List<Rent> findRentByStatus(String rentStatus);
+
+
+
+    //******************************
+
 
     /** Display: on Report Page via RentReadController
      *  by Date -> Month and Year (RENT -> RentStarts is the reference)
