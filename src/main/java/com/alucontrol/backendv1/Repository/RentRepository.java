@@ -10,6 +10,7 @@
  */
 package com.alucontrol.backendv1.Repository;
 
+import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -166,6 +167,15 @@ public interface RentRepository extends JpaRepository<Rent, Long>
             "FROM Rent RentStatusProjection " + //This data came from Projection
             "WHERE rentPaymentStatus = 'Paid'") //Filter
     List<SummaryRentStatusProjection> getPaidRents();
+
+    /** Display: on Report Page via RentReadController
+     *  by Date -> Month and Year (RENT -> RentStarts is the reference)
+     *  Method: List all info by selecting the date (Projection is not necessary, 'cause I want all data)
+     * */
+    @Query("SELECT myR " +
+            "FROM Rent myR " +
+            "WHERE myR.rentStarts LIKE CONCAT(:year, '-%', :month, '%')") //(meaning: % is a wildcard character that means "anything")
+    List<Expense> findByYearAndMonth(String year, String month);
 
 }
 
