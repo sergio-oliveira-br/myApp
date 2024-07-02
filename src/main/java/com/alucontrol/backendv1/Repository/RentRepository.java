@@ -12,7 +12,6 @@ package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -57,124 +56,6 @@ public interface RentRepository extends JpaRepository<Rent, Long>
     Long countRentStatusInProgress();
 
 
-
-    /** Display: on Index.html via HomeController
-     * Status: NEW
-     * Method: Display a table with ALL Rents witch status is NEW
-     * */
-    @Query(value = "SELECT RentStatusProjection.id AS id, " +
-            "RentStatusProjection.rentFirstName AS rentFirstName, " +
-            "RentStatusProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStatusProjection.rentAddress AS rentAddress, " +
-            "RentStatusProjection.rentPrice AS rentPrice," +
-            "RentStatusProjection.rentStarts AS rentStarts," +
-            "RentStatusProjection.rentEnds AS rentEnds," +
-            "RentStatusProjection.rentDetails AS rentDetails," +
-            "RentStatusProjection.rentTotalDays AS rentTotalDays," +
-            "RentStatusProjection.rentItem AS rentItem, " +
-            "RentStatusProjection.rentPaymentStatus AS rentPaymentStatus," +
-            "RentStatusProjection.rentTotalPrice AS rentTotalPrice, " +
-            "RentStatusProjection.rentStatus  AS rentStatus " +
-            "FROM Rent RentStatusProjection " + //This data came from Projection
-            "WHERE rentStatus = 'New'")
-    List<SummaryRentStatusProjection> getNewRentsList();
-
-
-
-    /** Display: on Index.html via HomeController
-     * Status: IN PROGRESS
-     * Method: Display a table with ALL Rents witch status is 'In Progress'
-     * */
-    @Query(value = "SELECT RentStatusProjection.id AS id, " +
-            "RentStatusProjection.rentFirstName AS rentFirstName, " +
-            "RentStatusProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStatusProjection.rentAddress AS rentAddress, " +
-            "RentStatusProjection.rentPrice AS rentPrice," +
-            "RentStatusProjection.rentStarts AS rentStarts," +
-            "RentStatusProjection.rentEnds AS rentEnds," +
-            "RentStatusProjection.rentDetails AS rentDetails," +
-            "RentStatusProjection.rentTotalDays AS rentTotalDays," +
-            "RentStatusProjection.rentItem AS rentItem, " +
-            "RentStatusProjection.rentPaymentStatus AS rentPaymentStatus," +
-            "RentStatusProjection.rentTotalPrice AS rentTotalPrice, " +
-            "RentStatusProjection.rentStatus  AS rentStatus " +
-            "FROM Rent RentStatusProjection " + //This data came from Projection
-            "WHERE rentStatus = 'In Progress'")
-    List<SummaryRentStatusProjection> getInProgressRentsList();
-
-
-    /** Display: on Index.html via HomeController
-     * Status: SOLD
-     * Method: Display a table with ALL Rents witch status is 'Sold'
-     * */
-    @Query(value = "SELECT RentStatusProjection.id AS id, " +
-            "RentStatusProjection.rentFirstName AS rentFirstName, " +
-            "RentStatusProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStatusProjection.rentAddress AS rentAddress, " +
-            "RentStatusProjection.rentPrice AS rentPrice," +
-            "RentStatusProjection.rentStarts AS rentStarts," +
-            "RentStatusProjection.rentEnds AS rentEnds," +
-            "RentStatusProjection.rentDetails AS rentDetails," +
-            "RentStatusProjection.rentTotalDays AS rentTotalDays," +
-            "RentStatusProjection.rentItem AS rentItem, " +
-            "RentStatusProjection.rentPaymentStatus AS rentPaymentStatus," +
-            "RentStatusProjection.rentTotalPrice AS rentTotalPrice, " +
-            "RentStatusProjection.rentStatus  AS rentStatus " +
-            "FROM Rent RentStatusProjection " + //This data came from Projection
-            "WHERE rentStatus = 'Sold'") //Filter
-    List<SummaryRentStatusProjection> getSoldItems();
-
-
-    /** Display: on Index.html via HomeController
-     * Status: UNPAID
-     * Method: Display a table with ALL Rents witch status is 'Unpaid'
-     * */
-    @Query(value = "SELECT RentStatusProjection.id AS id, " +
-            "RentStatusProjection.rentFirstName AS rentFirstName, " +
-            "RentStatusProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStatusProjection.rentAddress AS rentAddress, " +
-            "RentStatusProjection.rentPrice AS rentPrice," +
-            "RentStatusProjection.rentStarts AS rentStarts," +
-            "RentStatusProjection.rentEnds AS rentEnds," +
-            "RentStatusProjection.rentDetails AS rentDetails," +
-            "RentStatusProjection.rentTotalDays AS rentTotalDays," +
-            "RentStatusProjection.rentItem AS rentItem, " +
-            "RentStatusProjection.rentPaymentStatus AS rentPaymentStatus," +
-            "RentStatusProjection.rentTotalPrice AS rentTotalPrice, " +
-            "RentStatusProjection.rentStatus  AS rentStatus " +
-            "FROM Rent RentStatusProjection " + //This data came from Projection
-            "WHERE rentPaymentStatus = 'Unpaid'") //Filter
-    List<SummaryRentStatusProjection> getUnpaidRents();
-
-
-
-    /** Display: on Index.html via HomeController
-     * Status: PAID
-     * Method: Display a table with ALL Rents witch status is 'Paid'
-     * */
-    @Query(value = "SELECT RentStatusProjection.id AS id, " +
-            "RentStatusProjection.rentFirstName AS rentFirstName, " +
-            "RentStatusProjection.rentQtyItem AS rentQtyItem, " +
-            "RentStatusProjection.rentAddress AS rentAddress, " +
-            "RentStatusProjection.rentPrice AS rentPrice," +
-            "RentStatusProjection.rentStarts AS rentStarts," +
-            "RentStatusProjection.rentEnds AS rentEnds," +
-            "RentStatusProjection.rentDetails AS rentDetails," +
-            "RentStatusProjection.rentTotalDays AS rentTotalDays," +
-            "RentStatusProjection.rentItem AS rentItem, " +
-            "RentStatusProjection.rentPaymentStatus AS rentPaymentStatus," +
-            "RentStatusProjection.rentTotalPrice AS rentTotalPrice, " +
-            "RentStatusProjection.rentStatus  AS rentStatus " +
-            "FROM Rent RentStatusProjection " + //This data came from Projection
-            "WHERE rentPaymentStatus = 'Paid'") //Filter
-    List<SummaryRentStatusProjection> getPaidRents();
-
-
-
-
-
-
-    //******************************
 
     /** Display: on Index.html via HomeController
      * Method: Display a table with ALL Rents witch by selecting the Payment Status

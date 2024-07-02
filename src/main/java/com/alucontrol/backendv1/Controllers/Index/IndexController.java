@@ -10,8 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Index;
 
-
-import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
+import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.IndexService;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +27,13 @@ public class IndexController
 {
     //Repository for access to Rent data
     private final IndexService indexService;
+    private final RentRepository rentRepository;
 
     //Constructor responsible for injecting the repository
-    public IndexController(IndexService indexService)
+    public IndexController(IndexService indexService, RentRepository rentRepository)
     {
         this.indexService =  indexService;
+        this.rentRepository = rentRepository;
     }
 
 //    /** Main endpoint for the home page, indicating that the endpoint is active  */
@@ -68,19 +69,5 @@ public class IndexController
     {
        Long qtyRentStatusInProgress = indexService.getQtyRentStatusInProgress();
        return ResponseEntity.ok(qtyRentStatusInProgress);
-    }
-
-    /**                 ---
-     * These methods bellow, display summary information
-     * within the cards, by clicking on tge buttons
-     *                  ---
-     * */
-
-    /** Endpoint to get the all rents witch the status is "NEW"
-     *  Pointing to indexScript.js (CARD) */
-    @GetMapping("/listRentStatus") //GetMapping annotated methods handle the HTTP GET requests matched with the given URI expression
-    public List<SummaryRentStatusProjection> getListRentStatus(@RequestParam String status)
-    {
-        return indexService.getListRentStatus(status);
     }
 }

@@ -84,6 +84,4 @@ public class RentReadController
         }
         return ResponseEntity.ok(rents);
     }
-
-
 }
