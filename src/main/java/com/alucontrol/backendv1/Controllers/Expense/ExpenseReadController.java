@@ -13,9 +13,11 @@ package com.alucontrol.backendv1.Controllers.Expense;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
+import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,10 +28,12 @@ public class ExpenseReadController {
 
     //Repository for access to Expense data
     private final ExpenseRepository expenseRepository;
+    private final ExpenseService expenseService;
 
     //Constructor responsible for injecting the repository
-    public ExpenseReadController(ExpenseRepository expenseRepository) {
+    public ExpenseReadController(ExpenseRepository expenseRepository, ExpenseService expenseService) {
         this.expenseRepository = expenseRepository;
+        this.expenseService = expenseService;
     }
 
     /** Endpoint to get back all expenses */
@@ -47,4 +51,30 @@ public class ExpenseReadController {
         //Returns a 200 OK HTTP response with the list of expenses in the body.
         return ResponseEntity.ok(expenses);
     }
+
+    /** Endpoint to get back expenses by selecting the "Category" */
+    @GetMapping("/expensesByCategory")
+    public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory)
+    {
+        List<Expense> expenses = expenseRepository.findByExpenseCategory(expenseCategory);
+        if (expenses.isEmpty()) {
+            LoggerUtil.error("No expenses found for category " + expenseCategory);
+            throw new ResourceNotFoundException("No expenses found");
+        }
+        return ResponseEntity.ok(expenses);
+    }
+
+    /** Endpoint to retrieve expenses by selecting the "Month" and "Year" in expenseDate field */
+    @GetMapping("/expensesByDate")
+    public ResponseEntity<List<Expense>> getExpensesByDate(String year, String month)
+    {
+        List<Expense> expenses = expenseRepository.findByYearAndMonth(year, month);
+
+        if (expenses.isEmpty()) {
+            LoggerUtil.error("No expenses found for year " + year + " and month " + month);
+            throw new ResourceNotFoundException("No expenses found");
+        }
+        return ResponseEntity.ok(expenses);
+    }
+
 }
