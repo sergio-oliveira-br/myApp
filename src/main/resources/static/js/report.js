@@ -85,7 +85,7 @@ function searchRent()
 
     //check the user's input and call the method by searching based on the input values
     if (name) {
-        getRentByName(name);
+        getRentByName(name + '%'); //Finds any values that start with "name"
     }
 
     else if(year && month) {
