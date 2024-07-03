@@ -26,6 +26,12 @@ function goToExpenseReportPage()
     window.location.href = "expensesreport.html";
 }
 
+//Redirecting the user to the expense page
+function goToExpensePage()
+{
+    window.location.href = "expenses.html";
+}
+
 
 //Reference: https://getbootstrap.com/docs/5.0/forms/validation/
 //Checking form submissions if there are invalid fields: Used by "Rent Form"/"Rent Form Edit"
