@@ -73,6 +73,34 @@ function getRentByStatus(status)
 }
 
 
+
+
+
+function searchRent()
+{
+    //getting the user's input
+    let year = document.getElementById('yearInput').value;
+    let month = document.getElementById('monthInput').value;
+    let name = document.getElementById('nameInput').value;
+
+    //check the user's input and call the method by searching based on the input values
+    if (name) {
+        getRentByName(name);
+    }
+
+    else if(year && month) {
+        getRentByMonth(year, month);
+    }
+
+    else{
+        alert("Sorry! To search, enter a Name or a Month and Year combination.")
+    }
+}
+
+
+
+
+
 /**
  Page: Rent Report
  Item: Table -> Date (Month and Year) in NAVBAR
