@@ -86,3 +86,17 @@ function getRentByMonth(year, month)
     //Call method Ajax Request with the render method table
     ajaxRequest(url, renderRentTable);
 }
+
+/**
+ Page: Rent Report
+ Item: Table -> Search (Name) in NAVBAR
+ Method: This will filter date by entering a name
+ */
+function getRentByName(name)
+{
+    //Building the URL
+    let url = "/rentByName?name=" + encodeURIComponent(name);
+
+    //Call method Ajax Request with the render method table
+    ajaxRequest(url, renderRentTable);
+}
