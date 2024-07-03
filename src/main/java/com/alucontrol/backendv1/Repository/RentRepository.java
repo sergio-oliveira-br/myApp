@@ -91,7 +91,9 @@ public interface RentRepository extends JpaRepository<Rent, Long>
      *  by Name -> Customer Name (RENT -> RentFirstName is the reference)
      *  Method: List all info by selecting the Customer Name (Projection is not necessary, 'cause I want all data)
      * */
-    @Query("SELECT myR FROM Rent myR WHERE myR.rentFirstName = :name ")
+    @Query("SELECT myR " +
+            "FROM Rent myR " +
+            "WHERE myR.rentFirstName LIKE :name") //Finds any values that start with "name"
     List<Rent> findRentByFirstName(String name);
 
 
