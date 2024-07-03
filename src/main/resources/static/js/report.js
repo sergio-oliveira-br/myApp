@@ -75,7 +75,11 @@ function getRentByStatus(status)
 
 
 
-
+/**
+ Page: Rent
+ Item: Search and Display
+ Method: The script will load all items in a table by selecting the Name or Date
+ */
 function searchRent()
 {
     //getting the user's input
@@ -85,7 +89,14 @@ function searchRent()
 
     //check the user's input and call the method by searching based on the input values
     if (name) {
-        getRentByName(name + '%'); //Finds any values that start with "name"
+        if(year || month) //In case that the user fill more than one option available
+        {
+            alert('Sorry! I cannot combine name and date yet.' +
+                '\nPlease try to search by name or date, not both.');
+        }
+        else{
+            getRentByName(name + '%'); //Finds any values that start with "name"
+        }
     }
 
     else if(year && month) {
