@@ -76,10 +76,6 @@ public interface RentRepository extends JpaRepository<Rent, Long>
     List<Rent> findRentByStatus(String rentStatus);
 
 
-
-    //******************************
-
-
     /** Display: on Report Page via RentReadController
      *  by Date -> Month and Year (RENT -> RentStarts is the reference)
      *  Method: List all info by selecting the date (Projection is not necessary, 'cause I want all data)
@@ -88,6 +84,16 @@ public interface RentRepository extends JpaRepository<Rent, Long>
             "FROM Rent myR " +
             "WHERE myR.rentStarts LIKE CONCAT(:year, '-%', :month, '%')") //(meaning: % is a wildcard character that means "anything")
     List<Rent> findByYearAndMonth(String year, String month);
+
+
+
+    /** Display: on Index Page via RentReadController
+     *  by Name -> Customer Name (RENT -> RentFirstName is the reference)
+     *  Method: List all info by selecting the Customer Name (Projection is not necessary, 'cause I want all data)
+     * */
+    @Query("SELECT myR FROM Rent myR WHERE myR.rentFirstName = :name ")
+    List<Rent> findRentByFirstName(String name);
+
 
 }
 
