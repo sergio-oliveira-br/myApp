@@ -57,38 +57,6 @@ $(document).ready(function ()
             });
         }
 
-    function renderRentChart(data)
-        {
-            //variables
-            var item = data.map(function(rent){return rent.rentItem});
-            var price = data.map(function(rent){return rent.rentTotalPrice})
-
-            // Graphs
-            const ctx2 = document.getElementById('myRentChart')
-            const myRentChart = new Chart(ctx2,{
-                type: 'bar',
-                data: {
-                    labels: item,
-                    datasets: [{
-                        data: price,
-                        lineTension: 0,
-                        borderWidth: 4,
-                        pointBackgroundColor: '#007bff'
-                    }],
-                },
-                options:{
-                    plugins:{
-                        legend:{
-                            display: false,
-                        },
-                        tooltip:{
-                            boxPadding: '5px',
-                        }
-                    }
-                }
-            });
-        }
-
     //relation unpaid x paid
     function renderPaymentChart(data)
         {
