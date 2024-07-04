@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 public interface DashboardRepository extends JpaRepository<Rent, Long>
 {
-    /**This method will present the relation between item vs total price rented*/
+    /** This creates a table that display item and your respective total price rented */
     @Query("SELECT RentProjection.rentItem AS rentItem," +
             "SUM(RentProjection.rentTotalPrice) AS rentTotalPrice " +
             "FROM Rent RentProjection " +

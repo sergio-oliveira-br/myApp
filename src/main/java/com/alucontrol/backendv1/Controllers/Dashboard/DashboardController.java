@@ -57,26 +57,30 @@ public class DashboardController
         }
     }
 
-    /** Endpoint to get items and total price individually
-     * Pointing to dashboardScript.js */
-    @GetMapping("/findRentItems")
-    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<ItemsTPriceProjection> getRentItems()
-    {
-        try {
-            //exception handling
-            if(dashboardRepository.findRentItems() == null)
-            {
-                throw new ResourceNotFoundException("From DashboardController: Rent items not found");
-            }
-            return dashboardRepository.findRentItems();
-        }
-        catch (Exception e)
-        {
-            LoggerUtil.error("An error occurred while fetching rent items: " + e.getMessage(), e);
-            throw new ResourceNotFoundException("Failed to retrieve rent items");
-        }
-    }
+
+    //disable this for a while
+
+
+//    /** Endpoint to get items and total price individually
+//     * Pointing to dashboardScript.js */
+//    @GetMapping("/findRentItems")
+//    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
+//    public List<ItemsTPriceProjection> getRentItems()
+//    {
+//        try {
+//            //exception handling
+//            if(dashboardRepository.findRentItems() == null)
+//            {
+//                throw new ResourceNotFoundException("From DashboardController: Rent items not found");
+//            }
+//            return dashboardRepository.findRentItems();
+//        }
+//        catch (Exception e)
+//        {
+//            LoggerUtil.error("An error occurred while fetching rent items: " + e.getMessage(), e);
+//            throw new ResourceNotFoundException("Failed to retrieve rent items");
+//        }
+//    }
 
     /** Endpoint to get all rent separated by status
      * Pointing to dashboardScript.js */
