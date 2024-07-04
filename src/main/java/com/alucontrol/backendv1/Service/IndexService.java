@@ -11,7 +11,6 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Projection.SummaryRentStatusProjection;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.stereotype.Service;
@@ -110,73 +109,6 @@ public class IndexService
         {
             LoggerUtil.error("While searching for rentals in progress, an error occurred. " + e.getMessage());
             throw new ResourceNotFoundException("Could not find a number of rentals in progress");
-        }
-    }
-
-
-
-    /**                 ---
-     * These methods bellow, display summary information
-     * within the cards, by clicking on tge buttons
-     *                  ---
-     * */
-
-    /** Method: get the all rents witch the status is ""
-     *  Pointing to indexScript.js (CARD) */
-    public List<SummaryRentStatusProjection> getListRentStatus(String status)
-    {
-        try
-        {
-            //Log
-            LoggerUtil.info("Searching for rentals with status: " + status);
-
-            //Call the repository method, witch has the info about the RENT from Projection
-            List<SummaryRentStatusProjection> rentsList;
-
-            //get from rent repository the data filtered to display all information where the rent status is new
-            if (status.equals("New"))
-            {
-                rentsList = rentRepository.getNewRentsList(); //return
-                return rentsList;
-
-            }
-
-            //get from rent repository the data filtered to display all information where the rent status is in progress
-            else if (status.equals("InProgress"))
-            {
-                rentsList = rentRepository.getInProgressRentsList();
-                return rentsList;
-            }
-
-            //get from rent repository the data filtered to display all information where the rent status of the payment is Unpaid
-            else if(status.equals("Unpaid"))
-            {
-                rentsList = rentRepository.getUnpaidRents();
-                return rentsList;
-            }
-
-            //get from rent repository the data filtered to display all information where the rent status of the payment is Paid
-            else if(status.equals("Paid"))
-            {
-                rentsList = rentRepository.getPaidRents();
-                return rentsList;
-            }
-
-            //get from rent repository the data filtered to display all information where is sold
-            else if(status.equals("Sold"))
-            {
-                rentsList = rentRepository.getSoldItems();
-                return rentsList;
-            }
-
-            //in case where the status mismatched
-            else {
-                throw new ResourceNotFoundException("Invalid status: " + status);
-            }
-
-        } catch (Exception e) {
-            LoggerUtil.error("While searching for rentals with status " + status + ", an error occurred. " + e.getMessage());
-            throw new ResourceNotFoundException("Could not find a list of rentals with status " + status);
         }
     }
 }

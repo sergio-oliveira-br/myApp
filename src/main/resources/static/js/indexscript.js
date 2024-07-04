@@ -12,10 +12,8 @@
 /**                             ------------ Generic Function ------------ */
 $(document).ready(function ()
 {
-    //This card display the num of rent is "Unpaid"
+    //This will display a number by status within the cards
     loadNumRentUnpaid();
-
-    //This card display the num of rent is witch Status is :
     loadNumRentByStatus('New');
     loadNumRentByStatus('InProgress');
 
@@ -113,85 +111,61 @@ function loadCurrentStock()
 
 
 
-
-/**                   ------------ Functions for the cards Rent Status: In Progress & New ------------ */
-
-/** *                                   ------------ Generic Function ------------
- Page: Index
- Method: To load rent lists into a table within a modal.
+/**
+ * Function to render rent table
  */
-function loadRentList(url, status, tableSelector)
+function renderIndexRentTable(data)
 {
+    $('#rentListIndex').empty();
 
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest(url + '?status=' + status, function(data)
+    data.forEach(function (rent)
     {
-        //first clean
-        $(tableSelector).empty();
-
-        //Iteration
-        data.forEach(function(rent)
-        {
-            $(tableSelector).append('<tr>' +
-                '<td>' + rent.rentFirstName + '</td>' +
-                '<td>' + rent.rentItem + '</td>' +
-                '<td>' + rent.rentPaymentStatus + '</td>' +
-                '<td>' + rent.rentTotalPrice  + '</td>' +
-                '<td>' + rent.rentStatus + '</td>' +
-                '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
+        $('#rentListIndex').append('<tr>' +
+            '<td>' + rent.rentFirstName + '</td>' +
+            '<td>' + rent.rentItem + '</td>' +
+            '<td>' + rent.rentPaymentStatus + '</td>' +
+            '<td>' + rent.rentTotalPrice  + '</td>' +
+            '<td>' + rent.rentStatus + '</td>' +
+            '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
             '</tr>');
-            console.log(rent.id);
-        });
+        console.log(rent.id);
     });
 }
 
-
-
-/**                                  ------------ Generic Function ------------
+/**
  Page: Index
  Method: To display a modal and load the rent list
  */
-function displayRentStatusModal(modalId, status, tableSelector)
+function displayRentByPaymentStatusIndex(status)
 {
-    let modal = new bootstrap.Modal(document.getElementById(modalId));
+    //Display the modal
+    let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
     modal.show();
 
-    //Call the generic function to load rent lists, then display into a table within a modal.
-    loadRentList('/listRentStatus', status, tableSelector);
+    //Build the URL
+    let url = "/rentByPaymentStatus?paymentStatus=" + encodeURIComponent(status);
+
+    //Call the Ajax Request rending the Table
+    ajaxRequest(url, renderIndexRentTable);
 }
 
 
-/**             ------------ Display the table content calling the generic methods  ------------
+/**
  Page: Index
- Item: Card -> BUTTON -> Open Modal
- Method: The modal will display a table with the info selected. (Rent Status: New or In Progress)
+ Method: To display a modal and load the rent list
  */
-//Rent Status: New
-function displayAllRentStatusNew()
+function displayRentByStatusIndex(status)
 {
-    displayRentStatusModal('displayAllRentStatusNewModal', 'New', '#rentListStatusNew');
+    //Display the modal
+    let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
+    modal.show();
+
+    //Build the URL
+    let url = "/rentByStatus?rentStatus=" + encodeURIComponent(status);
+
+    //Call the Ajax Request rending the Table
+    ajaxRequest(url, renderIndexRentTable);
 }
-
-//Rent Status: In Progress
-function displayAllRentStatusInProgress()
-{
-    displayRentStatusModal('displayAllRentStatusInProgressModal', 'InProgress', '#rentListStatusInProgress');
-}
-
-//Rent Payment Status: Unpaid
-function displayListAllRentStatusUnpaid()
-{
-    displayRentStatusModal('displayListAllRentStatusUnpaidOrSoldModal', 'Unpaid', '#rentListStatusUnpaidOrSold');
-}
-
-//Rent Status: Sold
-function displayAllStatusSold()
-{
-    displayRentStatusModal('displayListAllRentStatusUnpaidOrSoldModal', 'Sold', '#rentListStatusUnpaidOrSold');
-}
-
-
-
 
 
 

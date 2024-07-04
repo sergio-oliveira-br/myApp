@@ -18,13 +18,15 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="containerReport">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="rent.html">Rent</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- Navbar collapse -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -38,30 +40,42 @@
                   Filter by
                 </a>
                 <ul class="dropdown-menu">
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusPaid()">All Paid</button></li>
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusUnpaid()">All Unpaid</button></li>
+                  <!-- <li><button class="dropdown-item" onclick="displayListAllRentStatusPaid()">All Paid</button></li> -->
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Paid')">All Paid</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Unpaid')">All Unpaid</button></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><button class="dropdown-item" onclick="displayAllRentStatusNew()">All New</button></li>
-                  <li><button class="dropdown-item" onclick="displayAllRentStatusInProgress()">All In Progress</button></li>
-                  <li><button class="dropdown-item" onclick="displayListAllRentStatusSold()">All Sold</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('New')">All New</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('In Progress')">All In Progress</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('Sold')">All Sold</button></li>
                 </ul>
               </li>
             </ul>
 
-            <!-- Search by Date -->
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Week" aria-label="Search">
-            </form>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Month" aria-label="Search">
-            </form>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Year" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav> <!-- ends navbar -->
+            <!-- Search by -->
+            <div class="d-flex">
+              <!-- Search by Name -->
+              <label class="col-form-label" for="nameInput">Name</label>
+              <input type="text" id="nameInput" class="form-control me-2">
+
+              <!-- Search by Date -->
+              <label class="col-form-label" for="monthInput">Month</label>
+              <input type="number" id="monthInput" placeholder="MM" class="form-control me-2">
+              <!--<div class="invalid-feedback">Enter the month in numeric format MM, please</div> -->
+
+              <label class="col-form-label" for="yearInput">Year</label>
+              <input type="number" id="yearInput" placeholder="YYYY" class="form-control me-2">
+              <!-- <div class="invalid-feedback">The year needs to be entered in numeric format YYYY.</div> -->
+            </div> <!-- Ends Search by -->
+
+            <!-- By clicking in this button, the script will search by [name] OR [date (month and year)]-->
+            <button class="btn btn-outline-success" type="button"
+                      onclick="searchRent(document.getElementById('yearInput').value,
+                        document.getElementById('monthInput').value,
+                          document.getElementById('nameInput').value)">Search</button>
+
+          </div> <!-- Ends Navbar (Collapse) -->
+        </div> <!-- Ends Container -->
+      </nav> <!-- Ends navbar -->
 
       <div class="reportContent">
         <p></p>
