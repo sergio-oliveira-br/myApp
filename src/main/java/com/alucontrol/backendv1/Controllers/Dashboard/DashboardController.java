@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Dashboard;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
+import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
 import com.alucontrol.backendv1.Projection.ItemsTotalPriceProjection;
 import com.alucontrol.backendv1.Projection.TotalRentProjection;
 import com.alucontrol.backendv1.Repository.DashboardRepository;
@@ -59,29 +60,26 @@ public class DashboardController
     }
 
 
-    //disable this for a while
-
-
-//    /** Endpoint to get items and total price individually
-//     * Pointing to dashboardScript.js */
-//    @GetMapping("/findRentItems")
-//    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-//    public List<ItemsTPriceProjection> getRentItems()
-//    {
-//        try {
-//            //exception handling
-//            if(dashboardRepository.findRentItems() == null)
-//            {
-//                throw new ResourceNotFoundException("From DashboardController: Rent items not found");
-//            }
-//            return dashboardRepository.findRentItems();
-//        }
-//        catch (Exception e)
-//        {
-//            LoggerUtil.error("An error occurred while fetching rent items: " + e.getMessage(), e);
-//            throw new ResourceNotFoundException("Failed to retrieve rent items");
-//        }
-//    }
+    /** Endpoint to get the quantity of items grouped by item
+     * Pointing to dashboardScript.js */
+    @GetMapping("/item-quantity")
+    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
+    public List<ItemQtyDateProjection> retrieveQtyItemsRented()
+    {
+        try {
+            //exception handling
+            if(dashboardRepository.findQtyItems() == null)
+            {
+                throw new ResourceNotFoundException("From DashboardController: Rent items not found");
+            }
+            return dashboardRepository.findQtyItems();
+        }
+        catch (Exception e)
+        {
+            LoggerUtil.error("An error occurred while fetching rent items: " + e.getMessage(), e);
+            throw new ResourceNotFoundException("Failed to retrieve rent items");
+        }
+    }
 
     /** Endpoint to get all rent separated by status payment status "paid or unpaid"
      * Pointing to dashboardScript.js */

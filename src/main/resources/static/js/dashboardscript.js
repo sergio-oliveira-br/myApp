@@ -24,7 +24,7 @@ $(document).ready(function ()
             var price = data.map(function(rent){return rent.rentTotalPrice})
 
             // Graphs
-            const ctx = document.getElementById('myItemsChart')
+            const ctx = document.getElementById('myTotalPriceItemsChart')
             const myChart = new Chart(ctx,{
                 type: 'bar',
                 data: {
@@ -102,6 +102,56 @@ $(document).ready(function ()
             });
         }
 
+    //relation quantity x item
+    function renderQtyItemsChart(data)
+    {
+        //variables
+        let item = data.map(function(rent){return rent.rentItem});
+        let qty = data.map(function(rent){return rent.rentQtyItem});
+
+        //graph
+        const ctx4 = document.getElementById('myQtyItemsChart')
+
+        //Config
+        const myItemsChart = new Chart(ctx4,
+            {
+                type: 'bar',
+                data:{
+                    labels: item,
+                    datasets: [{
+                        data: qty,
+                        label: 'Items Quantity',
+                        lineTension: 0,
+                        borderWidth: 4,
+                        backgroundColor: '#2F5061',
+                        //pointBackgroundColor: '#007bff'
+                    }],
+                },
+                options:{
+                    responsive: true,           //allows responsiveness
+                    maintainAspectRatio: false, //disables the maintenance of the aspect
+                    aspectRatio: 1,             //ratio between width and height
+                    plugins:{
+                        legend:{
+                            display: true,
+                        },
+                        tooltip:{
+                            boxPadding: '5px',
+                        },
+                    }
+                },
+                options:{
+                    indexAxis: 'y', // This property makes the bars horizontal
+                    plugins:{
+                        datalabels:{
+                            enabled: true,
+                        }
+                    }
+                },
+            });
+        }
+
+
     //AJAX calls to load data and render graphics
     ajaxRequest('/items-total-price', //this came from:
         function (data) {
@@ -111,6 +161,10 @@ $(document).ready(function ()
     ajaxRequest('/rent-payment-status', function (data) {
         renderPaymentChart(data);
     });
+
+    ajaxRequest('/item-quantity', function (data) {
+        renderQtyItemsChart(data);
+    })
 
 });
 
