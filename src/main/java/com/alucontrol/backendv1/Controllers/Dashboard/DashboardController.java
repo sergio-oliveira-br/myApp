@@ -83,19 +83,19 @@ public class DashboardController
 //        }
 //    }
 
-    /** Endpoint to get all rent separated by status
+    /** Endpoint to get all rent separated by status payment status "paid or unpaid"
      * Pointing to dashboardScript.js */
-    @GetMapping("/findRentPaymentStatus")
+    @GetMapping("/rent-payment-status")
     //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<TotalRentProjection> getRentPayment()
+    public List<TotalRentProjection> retrieveRentByPaymentStatus()
     {
         try
         {
-            if(dashboardRepository.findRentPaymentStatus() == null)
+            if(dashboardRepository.findRentByPaymentStatus() == null)
             {
                 throw new ResourceNotFoundException("From DashboardController: Rent payment status not found");
             }
-            return dashboardRepository.findRentPaymentStatus();
+            return dashboardRepository.findRentByPaymentStatus();
         }
         catch (Exception e)
         {

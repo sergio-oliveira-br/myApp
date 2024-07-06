@@ -108,7 +108,7 @@ $(document).ready(function ()
         renderItemsChart(data);
     });
 
-    ajaxRequest('/findRentPaymentStatus', function (data) {
+    ajaxRequest('/rent-payment-status', function (data) {
         renderPaymentChart(data);
     });
 

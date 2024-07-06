@@ -43,6 +43,6 @@ public interface DashboardRepository extends JpaRepository<Rent, Long>
             "SUM(RentProjection.rentTotalPrice) AS rentTotalPrice " +
             "FROM Rent RentProjection " +
             "GROUP BY RentProjection.rentPaymentStatus")
-    List<TotalRentProjection> findRentPaymentStatus();
+    List<TotalRentProjection> findRentByPaymentStatus();
 
 }
