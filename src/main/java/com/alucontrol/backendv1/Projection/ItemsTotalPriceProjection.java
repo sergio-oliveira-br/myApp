@@ -13,7 +13,7 @@ package com.alucontrol.backendv1.Projection;
 /** A Projection interface aims to determine
   * which fields of an entity or dataset
   * are to be selected or projected during a query.*/
-public interface ItemsTPriceProjection
+public interface ItemsTotalPriceProjection
 {
     String getRentItem();
     Double getRentTotalPrice();

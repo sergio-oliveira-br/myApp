@@ -11,7 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Dashboard;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Projection.ItemsTPriceProjection;
+import com.alucontrol.backendv1.Projection.ItemsTotalPriceProjection;
 import com.alucontrol.backendv1.Projection.TotalRentProjection;
 import com.alucontrol.backendv1.Repository.DashboardRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -37,18 +37,19 @@ public class DashboardController
 
     /** Endpoint to get items and SUM of total prices
      * Pointing to dashboardScript.js */
-    @GetMapping("/findItemsTotalPrice")
-    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<ItemsTPriceProjection> getItemsTotalPrice()
+    @GetMapping("/items-total-price")
+    //Remember: A Projection interface aims to determine
+    //which fields of an entity or dataset are to be selected or projected during a query
+    public List<ItemsTotalPriceProjection> retrieveItemsWithTotalPrices()
     {
         try{
             //handling exceptions
             if(dashboardRepository.findItemsTotalPrice() == null)
             {
-                throw new ResourceNotFoundException("From DashboardController: It was not possible to locate items to calculate the total price");
+                throw new ResourceNotFoundException("From DashboardController: It was not possible to locate " +
+                                                        "items to calculate the total price");
             }
             return dashboardRepository.findItemsTotalPrice();
-
         }
         catch (Exception e)
         {

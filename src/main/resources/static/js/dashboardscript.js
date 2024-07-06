@@ -103,7 +103,7 @@ $(document).ready(function ()
         }
 
     //AJAX calls to load data and render graphics
-    ajaxRequest('/findItemsTotalPrice', //this came from:
+    ajaxRequest('/items-total-price', //this came from:
         function (data) {
         renderItemsChart(data);
     });

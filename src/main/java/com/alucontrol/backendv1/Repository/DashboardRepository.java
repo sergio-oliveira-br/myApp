@@ -12,7 +12,7 @@ package com.alucontrol.backendv1.Repository;
 
 
 import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Projection.ItemsTPriceProjection;
+import com.alucontrol.backendv1.Projection.ItemsTotalPriceProjection;
 import com.alucontrol.backendv1.Projection.TotalRentProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,14 +28,14 @@ public interface DashboardRepository extends JpaRepository<Rent, Long>
             "SUM(RentProjection.rentTotalPrice) AS rentTotalPrice " +
             "FROM Rent RentProjection " +
             "GROUP BY RentProjection.rentItem")
-    List<ItemsTPriceProjection> findItemsTotalPrice();
+    List<ItemsTotalPriceProjection> findItemsTotalPrice();
 
 
     /**This method will present each item rented */
     @Query("SELECT RentProjection.rentItem AS rentItem, " +
             "RentProjection.rentTotalPrice AS rentTotalPrice " +
             "FROM Rent RentProjection")
-    List<ItemsTPriceProjection> findRentItems();
+    List<ItemsTotalPriceProjection> findRentItems();
 
 
     /**This method will present all rent separated by status */
