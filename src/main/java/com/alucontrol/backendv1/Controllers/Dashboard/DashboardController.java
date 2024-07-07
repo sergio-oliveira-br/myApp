@@ -11,7 +11,8 @@
 package com.alucontrol.backendv1.Controllers.Dashboard;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Projection.ItemsTPriceProjection;
+import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
+import com.alucontrol.backendv1.Projection.ItemsTotalPriceProjection;
 import com.alucontrol.backendv1.Projection.TotalRentProjection;
 import com.alucontrol.backendv1.Repository.DashboardRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -37,18 +38,19 @@ public class DashboardController
 
     /** Endpoint to get items and SUM of total prices
      * Pointing to dashboardScript.js */
-    @GetMapping("/findItemsTotalPrice")
-    //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<ItemsTPriceProjection> getItemsTotalPrice()
+    @GetMapping("/items-total-price")
+    //Remember: A Projection interface aims to determine
+    //which fields of an entity or dataset are to be selected or projected during a query
+    public List<ItemsTotalPriceProjection> retrieveItemsWithTotalPrices()
     {
         try{
             //handling exceptions
             if(dashboardRepository.findItemsTotalPrice() == null)
             {
-                throw new ResourceNotFoundException("From DashboardController: It was not possible to locate items to calculate the total price");
+                throw new ResourceNotFoundException("From DashboardController: It was not possible to locate " +
+                                                        "items to calculate the total price");
             }
             return dashboardRepository.findItemsTotalPrice();
-
         }
         catch (Exception e)
         {
@@ -57,19 +59,20 @@ public class DashboardController
         }
     }
 
-    /** Endpoint to get items and total price individually
+
+    /** Endpoint to get the quantity of items grouped by item
      * Pointing to dashboardScript.js */
-    @GetMapping("/findRentItems")
+    @GetMapping("/item-quantity")
     //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<ItemsTPriceProjection> getRentItems()
+    public List<ItemQtyDateProjection> retrieveQtyItemsRented()
     {
         try {
             //exception handling
-            if(dashboardRepository.findRentItems() == null)
+            if(dashboardRepository.findQtyItems() == null)
             {
                 throw new ResourceNotFoundException("From DashboardController: Rent items not found");
             }
-            return dashboardRepository.findRentItems();
+            return dashboardRepository.findQtyItems();
         }
         catch (Exception e)
         {
@@ -78,19 +81,19 @@ public class DashboardController
         }
     }
 
-    /** Endpoint to get all rent separated by status
+    /** Endpoint to get all rent separated by status payment status "paid or unpaid"
      * Pointing to dashboardScript.js */
-    @GetMapping("/findRentPaymentStatus")
+    @GetMapping("/rent-payment-status")
     //A Projection interface aims to determine which fields of an entity or dataset are to be selected or projected during a query
-    public List<TotalRentProjection> getRentPayment()
+    public List<TotalRentProjection> retrieveRentByPaymentStatus()
     {
         try
         {
-            if(dashboardRepository.findRentPaymentStatus() == null)
+            if(dashboardRepository.findRentByPaymentStatus() == null)
             {
                 throw new ResourceNotFoundException("From DashboardController: Rent payment status not found");
             }
-            return dashboardRepository.findRentPaymentStatus();
+            return dashboardRepository.findRentByPaymentStatus();
         }
         catch (Exception e)
         {
