@@ -98,7 +98,7 @@ function handleError(errorMessage)
 
 function openEditModal(rentId)
 {
-    console.log(rentId);
+    console.log("Open Edit Modal, ID: " + rentId);
 
     //Call the generic function, that perform an AJAX request
     ajaxRequest("/rent/" + rentId, function(rent)
