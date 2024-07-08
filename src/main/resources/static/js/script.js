@@ -255,3 +255,72 @@ function updateRentStatus()
         }
     });
 }
+
+
+
+
+
+
+/**
+ Page: Customers, bla bla bla...
+ Item: Form
+ Method: Send the customer data by using AJAX
+ */
+function formSubmission(formId, url, formDataFunction, successCallback, errorCallback)
+{
+    $(document).ready(function()
+    {
+        //Get the form ID that contain the all data. Remember: FormID is ID from the form on HTML
+        $(formId).on('submit', function(event)
+        {
+            //Prevents the default behavior of the browser, which would reload the page and send the form data synchronously
+            event.preventDefault();
+
+            //Get the form data
+            let formData = customerFormData();
+
+            $.ajax({
+                url: url,
+                data: JSON.stringify(formData),
+                type: 'POST',
+                contentType: 'application/json',
+                success: function(response){
+                    if(successCallback)
+                    {
+                        successCallback(response);
+                    }
+                },
+                error: function(xhr, status, error)
+                {
+                    if(errorCallback)
+                    {
+                        let errorMessage = xhr.responseText;
+                        alert("From the Server: " + errorMessage);
+                        errorCallback(error);
+                    }
+                }
+            });
+        });
+    });
+}
+
+/**
+ Item: Form
+ Method: Callback function for success
+ */
+function saveSuccess(response)
+{
+    alert('Form added successfully!');
+    console.log(response);
+    loadCustomers(); //update the table
+    //I need to add each form
+}
+
+/**
+ Item: Form
+ Method: Callback function for error
+ */
+function saveError(error) {
+    alert('Failed to add this form. Please try again.');
+    console.error(error);
+}

@@ -53,54 +53,14 @@ function loadCustomers()
 
 
 
+
 /**
- Page: Customers
  Item: Form
  Method: Send the customer data by using AJAX
  */
-function formSubmission(formId, url, formDataFunction, successCallback, errorCallback)
-{
-    $(document).ready(function()
-    {
-        //Get the form ID that contain the all data
-        $(formId).on('submit', function(event)
-        {
-            event.preventDefault();
+formSubmission('#customerForm', '/saveCustomer', customerFormData, saveSuccess, saveError);
 
-            //get the form data
-            let formData = customerFormData();
-
-            $.ajax({
-                url: url,
-                data: JSON.stringify(formData),
-                type: 'POST',
-                contentType: 'application/json',
-                success: function(response){
-                    if(successCallback)
-                    {
-                        successCallback(response);
-                    }
-                },
-                error: function(xhr, status, error)
-                {
-                    if(errorCallback)
-                    {
-                        let errorMessage = xhr.responseText;
-                        alert("From the Server: " + errorMessage);
-                        errorCallback(error);
-                    }
-                }
-            });
-        });
-    });
-}
-
-
-
-
-
-
-//Get the form data in a generic way
+//Get the form data from the form
 function customerFormData()
 {
     return {
@@ -111,19 +71,3 @@ function customerFormData()
         city: $('#customerCity').val()
     };
 }
-//Callback function for success
-function saveSuccess(response)
-{
-    alert('Form added successfully!');
-    console.log(response);
-    loadCustomers(); // update the table
-}
-
-//Callback function for error
-function saveError(error) {
-    alert('Failed to add this form. Please try again.');
-    console.error(error);
-}
-
-formSubmission('#customerForm', '/saveCustomer', customerFormData, saveSuccess, saveError);
-
