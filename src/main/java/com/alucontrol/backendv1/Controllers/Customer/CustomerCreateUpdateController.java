@@ -34,20 +34,8 @@ public class CustomerCreateUpdateController
     /** Endpoint to send customers */
     @PostMapping("/saveCustomer")
     public ResponseEntity<Customer> saveCustomer( @RequestBody Customer customer)
-//                                                 @RequestParam("firstName") String firstName,
-//                                                 @RequestParam("lastName") String lastName,
-//                                                 @RequestParam("phoneNumber") String phoneNumber,
-//                                                 @RequestParam("additionalInfo") String additionalInfo,
-//                                                 @RequestParam("city") String city)
     {
         try {
-            //Create a new customer object and set its attributes
-//            Customer customer = new Customer();
-//            customer.setFirstName(firstName);
-//            customer.setLastName(lastName);
-//            customer.setPhoneNumber(phoneNumber);
-//            customer.setAdditionalInfo(additionalInfo);
-//            customer.setCity(city);
 
             //Save the customer in the database
             Customer savedCustomer = customerRepository.save(customer);
