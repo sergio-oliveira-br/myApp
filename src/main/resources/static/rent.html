@@ -169,14 +169,14 @@
                   <div class="invalid-feedback">Please enter the end date for this rental</div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3"> <!-- To make sure the user will use the start and end date field, Total Days is "read only" -->
                   <label for="rentTotalDays" class="">Total Days</label>
-                  <input type="text" class="form-control" id="rentTotalDays" name="rentTotalDays" value="" required>
+                  <input type="text" class="form-control" id="rentTotalDays" name="rentTotalDays" value="" readonly>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3"> <!-- To make sure the user will use the fields related to calculate the total price, Total Price is "read only" -->
                   <label for="rentTotalPrice" class="">Total Price</label>
-                  <input type="text" class="form-control" id="rentTotalPrice" name="rentTotalPrice" value="" required>
+                  <input type="text" class="form-control" id="rentTotalPrice" name="rentTotalPrice" value="" readonly>
                 </div>
 
                 <p></p>
@@ -311,7 +311,7 @@
                     <input type="text" class="form-control" id="editRentTotalDays" name="rentTotalDays" readonly>
                   </div>
 
-                  <div class="mb-3"> <!-- To make sure the user will use the start and end date field, Total Price is "read only" -->
+                  <div class="mb-3"> <!-- To make sure the user will use the fields related to calculate the total price, Total Price is "read only" -->
                     <label for="editRentTotalPrice" class="form-label">Total Price</label>
                     <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" readonly>
                   </div>
