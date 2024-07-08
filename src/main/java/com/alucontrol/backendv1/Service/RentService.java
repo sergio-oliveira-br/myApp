@@ -115,7 +115,8 @@ public class RentService
             //Exception: out off stock
             else
             {
-                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock.");
+                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
+                        "\nYour current stock is: " + product.getItemAvailableQty() + " un."); 
             }
         }
         //Exception: ID incorrect, product was not found
