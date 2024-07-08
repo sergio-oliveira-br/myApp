@@ -148,3 +148,32 @@ function updateLoadProductForm()
 }
 
 
+
+
+/**
+ Item: Form
+ Method: Send the Product data by using AJAX
+ */
+formSubmission('#itemForm', '/saveProduct', productFormData, productSaveSuccess, saveError);
+
+//Get the form data from the form
+function productFormData()
+{
+    return {
+        itemDescription: $('#itemDescription').val(),
+        itemQuantity: $('#itemQty').val()
+    };
+}
+
+/**
+ Item: Form
+ Method: Callback function for success
+ */
+function productSaveSuccess(response)
+{
+    alert('Product added successfully!');
+    console.log(response);
+    loadProduct(); //update the product table
+}
+
+

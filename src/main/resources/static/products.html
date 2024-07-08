@@ -115,8 +115,8 @@
 
         <!-- Starts the Customer’s Form - Through this the user will creat new products to associate with the rent-->
         <div class="form-floating">
-          <form id="itemForm"  action="/saveProduct" method="post" enctype="application/json" class="row g-3 needs-validation" novalidate>
-
+<!--          <form id="itemForm"  action="/saveProduct" method="post" enctype="application/json" class="row g-3 needs-validation" novalidate>-->
+          <form id="itemForm" class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
               <label for="itemDescription" class="form-label">Item Description</label>
               <input type="text" class="form-control" id="itemDescription" name="itemDescription" required>
@@ -131,7 +131,7 @@
 
             <!-- Buttons -->
             <div class="col-12">
-              <button  id="submitButton" class="btn btn-primary" type="submit">Create New Item</button>
+              <button id="submitButton" class="btn btn-primary" type="submit">Create New Item</button>
             </div><p></p>
 
           </form>

@@ -277,7 +277,7 @@ function formSubmission(formId, url, formDataFunction, successCallback, errorCal
             event.preventDefault();
 
             //Get the form data
-            let formData = customerFormData();
+            let formData = formDataFunction();
 
             $.ajax({
                 url: url,
@@ -302,18 +302,6 @@ function formSubmission(formId, url, formDataFunction, successCallback, errorCal
             });
         });
     });
-}
-
-/**
- Item: Form
- Method: Callback function for success
- */
-function saveSuccess(response)
-{
-    alert('Form added successfully!');
-    console.log(response);
-    loadCustomers(); //update the table
-    //I need to add each form
 }
 
 /**

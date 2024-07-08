@@ -58,7 +58,7 @@ function loadCustomers()
  Item: Form
  Method: Send the customer data by using AJAX
  */
-formSubmission('#customerForm', '/saveCustomer', customerFormData, saveSuccess, saveError);
+formSubmission('#customerForm', '/saveCustomer', customerFormData, customerSaveSuccess, saveError);
 
 //Get the form data from the form
 function customerFormData()
@@ -70,4 +70,15 @@ function customerFormData()
         additionalInfo: $('#additionalInformation').val(),
         city: $('#customerCity').val()
     };
+}
+
+/**
+ Item: Form
+ Method: Callback function for success
+ */
+function customerSaveSuccess(response)
+{
+    alert('Customer added successfully!');
+    console.log(response);
+    loadCustomers(); //update the customer table
 }
