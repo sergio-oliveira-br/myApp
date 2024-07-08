@@ -103,8 +103,26 @@ public class RentCreateUpdateController
                 LoggerUtil.info("Rent Item: " + rent.getRentItem());
                 LoggerUtil.info("Quantity Returned to the stock: " + quantityReturned);
 
-                //Execute the method
+                //Execute the method to return the qyt to the stock
                 rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
+            }
+
+            //If the status changed from new to in progress, then the stock have to decrease
+            else if ("In Progress".equals(rentStatus))
+            {
+                String rentItem = rent.getRentItem();
+                int rentQtyItem = rent.getRentQtyItem();
+
+                //create a log
+                LoggerUtil.info("Rent Item: " + rentItem);
+                LoggerUtil.info("Rent Qty Item decreased: " + rentQtyItem);
+                LoggerUtil.info("Rent Status: " + rentStatus);
+                LoggerUtil.info("Rent status updated successfully. ID: " + id);
+
+
+                //When a rental is created, make a call to subtract inventory
+                rentService.subtractStockByRentalDates(rentItem, rentQtyItem, null, null);
+
             }
 
             return ResponseEntity.ok(savedRent);

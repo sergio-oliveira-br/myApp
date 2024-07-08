@@ -66,10 +66,21 @@ public class RentService
             Date startDate = DateUtil.convertStringToDate(rentStarts);
             Date endDate = DateUtil.convertStringToDate(rentEnds);
 
-            //When a rental is created, make a call to subtract inventory
-            subtractStockByRentalDates(rentItem, rentQtyItem, startDate, endDate);
+            //The stock will be subtracted based on the user's input
+            //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
+            if(rent.getRentStatus().equals("New"))
+            {
+                //create a log
+                LoggerUtil.info("Rent status New selected: Your Rent has not started yet, so your stock has not been changed.");
+            }
 
-            LoggerUtil.info("Rent created" + rent.getId());
+            else
+            {
+                //When a rental is created, make a call to subtract inventory
+                subtractStockByRentalDates(rentItem, rentQtyItem, startDate, endDate);
+            }
+
+            LoggerUtil.info("Rent created successfully");
             return rentRepository.save(rent);
 
         }catch (Exception e)
@@ -116,7 +127,7 @@ public class RentService
             else
             {
                 throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
-                        "\nYour current stock is: " + product.getItemAvailableQty() + " un."); 
+                        "\nYour current stock is: " + product.getItemAvailableQty() + " un.");
             }
         }
         //Exception: ID incorrect, product was not found
