@@ -26,7 +26,7 @@ public class Expense
     private String expenseDescription;
 
     @Column(nullable = false) //cannot be null
-    private Double expenseAmount;
+    private double expenseAmount;
 
     @Column(nullable = false) //cannot be null
     private String expenseDate;
@@ -58,11 +58,11 @@ public class Expense
         this.expenseDescription = expenseDescription;
     }
 
-    public Double getExpenseAmount() {
+    public double getExpenseAmount() {
         return expenseAmount;
     }
 
-    public void setExpenseAmount(Double expenseAmount) {
+    public void setExpenseAmount(double expenseAmount) {
         this.expenseAmount = expenseAmount;
     }
 
