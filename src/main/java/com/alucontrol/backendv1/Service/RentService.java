@@ -43,7 +43,7 @@ public class RentService
 
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
-    public void subtractStockByRentalDates(String itemDescription, int quantity, Date rentStarts, Date rentEnds)
+    public void subtractStockByRentalDates(String itemDescription, int quantity)
     {
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance

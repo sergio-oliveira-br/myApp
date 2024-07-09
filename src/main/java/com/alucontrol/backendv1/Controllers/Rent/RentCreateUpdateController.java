@@ -46,6 +46,21 @@ public class RentCreateUpdateController
         try
         {
             Rent savedRent = rentRepository.save(rent);
+
+            //The stock will be subtracted based on the user's input
+            //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
+            if(rent.getRentStatus().equals("New"))
+            {
+                //create a log
+                LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
+            }
+
+            else
+            {
+                //When a rental is created, make a call to subtract inventory
+                rentService.subtractStockByRentalDates(rent.getRentItem(), rent.getRentQtyItem());
+            }
+
             LoggerUtil.info("Save Order Successfully, ID:" + savedRent.getId() + ", " + savedRent.getRentFirstName());
             return ResponseEntity.ok(savedRent);
 
@@ -109,7 +124,7 @@ public class RentCreateUpdateController
 
 
                 //When a rental is created, make a call to subtract inventory
-                rentService.subtractStockByRentalDates(rentItem, rentQtyItem, null, null);
+                rentService.subtractStockByRentalDates(rentItem, rentQtyItem);
 
             }
 
