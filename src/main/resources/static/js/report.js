@@ -40,6 +40,17 @@ function renderRentTable(data) {
     });
 }
 
+/**
+ Page: Rent
+ Item: Table
+ Method: The script will load all items in a table without selection or filters
+ */
+function getAllRent()
+{
+    ajaxRequest("/rent", renderRentTable);
+}
+
+
 
 /**
  Page: Rent

@@ -38,7 +38,6 @@ public class RentReadController
     @GetMapping("/rent")
     public ResponseEntity<List<Rent>> getAllRent()
     {
-        LoggerUtil.info("Fetching all rent records"); //Create log
         List<Rent> rent = rentRepository.findAll(); //using the method findALL from CRUD
         LoggerUtil.info("Fetched " + rent.size() + " rent records"); //Create a log
 
