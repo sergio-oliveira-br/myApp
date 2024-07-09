@@ -41,30 +41,33 @@ public class RentCreateUpdateController
 
     /** Endpoint to send rent */
     @PostMapping("/saveRent")
-    public ResponseEntity<Rent> saveRent(@RequestParam("rentFirstName")String rentFirstName,
-                                         //@RequestParam("rentLastName")String rentLastName,
-                                         @RequestParam("rentAddress")String rentAddress,
-                                         @RequestParam("rentItem")String rentItem,
-                                         @RequestParam("rentPrice")double rentPrice, //they must always have a value
-                                         @RequestParam("rentQtyItem")Integer rentQtyItem,
-                                         @RequestParam("rentStarts")String rentStarts,
-                                         @RequestParam("rentEnds")String rentEnds,
-                                         @RequestParam("rentTotalDays")Integer rentTotalDays,
-                                         @RequestParam("rentTotalPrice")double rentTotalPrice,
-                                         @RequestParam("rentDetails") String rentDetails,
-                                         @RequestParam("rentPaymentStatus") String rentPaymentStatus,
-                                         @RequestParam("rentStatus") String rentStatus)
-
+    public ResponseEntity<Rent> saveRent( @RequestBody Rent rent)
     {
         try
         {
-            Rent savedRent = rentService.createRent(rentFirstName, rentAddress, rentItem, rentPrice, rentQtyItem, rentStarts, rentEnds, rentTotalDays, rentTotalPrice, rentDetails, rentPaymentStatus, rentStatus);
-            LoggerUtil.info("Save Rent endpoint accessed for rent: " + savedRent.getId());
+            Rent savedRent = rentRepository.save(rent);
+
+            //The stock will be subtracted based on the user's input
+            //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
+            if(rent.getRentStatus().equals("New"))
+            {
+                //create a log
+                LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
+            }
+
+            else
+            {
+                //When a rental is created, make a call to subtract inventory
+                rentService.subtractStockByRentalDates(rent.getRentItem(), rent.getRentQtyItem());
+            }
+
+            LoggerUtil.info("Save Order Successfully, ID:" + savedRent.getId() + ", " + savedRent.getRentFirstName());
             return ResponseEntity.ok(savedRent);
 
         }
-        catch (ParseException e) {
-            LoggerUtil.error("Error parsing dates: " + rentStarts + " or " + rentEnds, e);
+        catch (Exception e)
+        {
+            LoggerUtil.error("Save Expense Failed: " + e.getMessage());
             return ResponseEntity.internalServerError().build();
         }
     }
@@ -103,8 +106,26 @@ public class RentCreateUpdateController
                 LoggerUtil.info("Rent Item: " + rent.getRentItem());
                 LoggerUtil.info("Quantity Returned to the stock: " + quantityReturned);
 
-                //Execute the method
+                //Execute the method to return the qyt to the stock
                 rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
+            }
+
+            //If the status changed from new to in progress, then the stock have to decrease
+            else if ("In Progress".equals(rentStatus))
+            {
+                String rentItem = rent.getRentItem();
+                int rentQtyItem = rent.getRentQtyItem();
+
+                //create a log
+                LoggerUtil.info("Rent Item: " + rentItem);
+                LoggerUtil.info("Rent Qty Item decreased: " + rentQtyItem);
+                LoggerUtil.info("Rent Status: " + rentStatus);
+                LoggerUtil.info("Rent status updated successfully. ID: " + id);
+
+
+                //When a rental is created, make a call to subtract inventory
+                rentService.subtractStockByRentalDates(rentItem, rentQtyItem);
+
             }
 
             return ResponseEntity.ok(savedRent);

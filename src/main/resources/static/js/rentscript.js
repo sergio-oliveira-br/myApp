@@ -262,3 +262,44 @@ function updateTotalPrice()
     //Writing
     $('#editRentTotalPrice').val(newRentTotalPriceModal.toFixed(2));
 }
+
+
+
+
+
+/**
+ Item: Form
+ Method: Send the order (rent or sale) data by using AJAX
+ */
+formSubmission('#rentForm', '/saveRent', orderFormData, orderSaveSuccess, saveError);
+
+//Get the form data from the form
+function orderFormData()
+{
+    return {
+        rentFirstName: $('#rentFirstName').val(),
+        rentLastName: $('#rentLastName').val(),
+        rentAddress: $('#rentAddress').val(),
+        rentItem: $('#rentItem').val(),
+        rentQtyItem: $('#rentQtyItem').val(),
+        rentPrice: $('#rentPrice').val(),
+        rentStarts: $('#rentStarts').val(),
+        rentEnds: $('#rentEnds').val(),
+        rentTotalDays: $('#rentTotalDays').val(),
+        rentTotalPrice: parseFloat($('#rentTotalPrice').val()),
+        rentPaymentStatus: $('#rentPaymentStatus').val(),
+        rentDetails: $('#rentDetails').val(),
+        rentStatus: $('#rentStatus').val()
+    };
+}
+
+/**
+ Item: Form
+ Method: Callback function for success
+ */
+function orderSaveSuccess(response)
+{
+    alert('Order added successfully!');
+    console.log(response);
+    loadRent(); //update the customer table
+}

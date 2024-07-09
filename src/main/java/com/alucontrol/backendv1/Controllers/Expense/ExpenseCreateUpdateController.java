@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
 
+import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
@@ -27,30 +28,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ExpenseCreateUpdateController
 {
-    //Repository for access to expense data
-    private final ExpenseService expenseService;
+    private final ExpenseRepository expenseRepository;
 
     //Constructor responsible for injecting the repository
-    private ExpenseCreateUpdateController ( ExpenseService expenseService)
+    private ExpenseCreateUpdateController (ExpenseRepository expenseRepository)
     {
-        this.expenseService = expenseService;
+        this.expenseRepository = expenseRepository;
     }
 
-    /** Endpoints */
+    /** Endpoint to sent Expenses to DB */
     @PostMapping("/saveExpense")
-    public ResponseEntity<Expense> saveExpense(@RequestParam("expenseDescription") String expenseDescription,
-                                               @RequestParam("expenseAmount") Double expenseAmount,
-                                               @RequestParam("expenseDate") String expenseDate,
-                                               @RequestParam("expenseCategory")String expenseCategory,
-                                               @RequestParam("expenseAdditionalNotes")String expenseAdditionalNotes)
+    public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense)
     {
         try {
-            //Instance an object
-            Expense savedExpense = expenseService
-                    .createExpense(expenseDescription, expenseAmount, expenseDate, expenseCategory, expenseAdditionalNotes);
+            //Save the customer in the database
+            Expense savedExpense = expenseRepository.save(expense);
 
             //Create a log
-            LoggerUtil.info("Save Expense Successfully, ID:" + savedExpense.getId());
+            LoggerUtil.info("Save Expense Successfully, ID:" + expense.getId() + ", " + expense.getExpenseDescription() );
 
             //Return a response HTTP 200 - OK - saving the expense
             return ResponseEntity.ok(savedExpense);

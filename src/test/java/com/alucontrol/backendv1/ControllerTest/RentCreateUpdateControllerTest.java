@@ -46,10 +46,7 @@
 //    @InjectMocks
 //    private RentCreateUpdateController rentCreateUpdateController;
 //
-//    //Create a Mock Instance of the ProductRepository
-//    @Mock
-//    private RentRepository rentRepository;
-//
+//    //Create a Mock Instance of the RentRepository
 //    @Mock
 //    public RentService rentService;
 //

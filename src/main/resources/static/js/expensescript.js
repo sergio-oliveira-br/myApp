@@ -46,3 +46,33 @@ function loadExpenseTable()
 }
 
 
+/**
+ Item: Form
+ Method: Send the customer data by using AJAX
+ */
+formSubmission('#expenseForm', '/saveExpense', expenseFormData, expenseSaveSuccess, saveError);
+
+//Get the form data from the form
+function expenseFormData()
+{
+ return {
+  expenseDescription: $('#expenseDescription').val(),
+  expenseAmount: $('#expenseAmount').val(),
+  expenseDate: $('#expenseDate').val(),
+  expenseCategory: $('#expenseCategory').val(),
+  expenseAdditionalNotes: $('#expenseAdditionalNotes').val()
+ };
+}
+
+/**
+ Item: Form, Save
+ Method: Callback function for success
+ */
+function expenseSaveSuccess(response)
+{
+ alert('Expense added successfully!');
+ console.log(response);
+ loadExpenseTable(); //update the customer table
+}
+
+

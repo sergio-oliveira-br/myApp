@@ -27,6 +27,12 @@ $(document).ready(function ()
         submitEditForm();
     });
 
+    //(Modal)Update the rent status, if is "Finished", the item stock will return to total available
+    $('#editRentStatus').on('change', function() {
+        console.log('Rent Status Changed');
+        updateRentStatus();
+    });
+
 });
 
 

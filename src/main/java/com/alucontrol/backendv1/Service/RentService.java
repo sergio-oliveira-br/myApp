@@ -41,48 +41,9 @@ public class RentService
     }
 
 
-    /***/
-    public Rent createRent(String rentFirstName, String rentAddress, String rentItem, double rentPrice,
-                           Integer rentQtyItem, String rentStarts, String rentEnds, Integer rentTotalDays,
-                           double rentTotalPrice, String rentDetails, String rentPaymentStatus, String rentStatus) throws ParseException
-    {
-        try {
-            Rent rent = new Rent();
-
-            rent.setRentFirstName(rentFirstName);
-            rent.setRentAddress(rentAddress);
-            rent.setRentItem(rentItem);
-            rent.setRentPrice(rentPrice);
-            rent.setRentQtyItem(rentQtyItem);
-            rent.setRentStarts(rentStarts);
-            rent.setRentEnds(rentEnds);
-            rent.setRentTotalDays(rentTotalDays);
-            rent.setRentTotalPrice(rentTotalPrice);
-            rent.setRentDetails(rentDetails);
-            rent.setRentPaymentStatus(rentPaymentStatus);
-            rent.setRentStatus(rentStatus);
-
-            //Calling the method DateUtil(), that's contain method to convert strings into date objects
-            Date startDate = DateUtil.convertStringToDate(rentStarts);
-            Date endDate = DateUtil.convertStringToDate(rentEnds);
-
-            //When a rental is created, make a call to subtract inventory
-            subtractStockByRentalDates(rentItem, rentQtyItem, startDate, endDate);
-
-            LoggerUtil.info("Rent created" + rent.getId());
-            return rentRepository.save(rent);
-
-        }catch (Exception e)
-        {
-            LoggerUtil.error("Error creating rent");
-            throw new ResourceNotFoundException(e.getMessage());
-        }
-    }
-
-
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
-    public void subtractStockByRentalDates(String itemDescription, int quantity, Date rentStarts, Date rentEnds)
+    public void subtractStockByRentalDates(String itemDescription, int quantity)
     {
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
@@ -115,7 +76,8 @@ public class RentService
             //Exception: out off stock
             else
             {
-                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock.");
+                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
+                        "\nYour current stock is: " + product.getItemAvailableQty() + " un.");
             }
         }
         //Exception: ID incorrect, product was not found

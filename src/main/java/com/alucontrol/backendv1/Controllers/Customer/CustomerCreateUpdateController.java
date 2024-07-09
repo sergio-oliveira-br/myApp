@@ -33,24 +33,15 @@ public class CustomerCreateUpdateController
 
     /** Endpoint to send customers */
     @PostMapping("/saveCustomer")
-    public ResponseEntity<Customer> saveCustomer(@RequestParam("firstName") String firstName,
-                                                 @RequestParam("lastName") String lastName,
-                                                 @RequestParam("phoneNumber") String phoneNumber,
-                                                 @RequestParam("additionalInfo") String additionalInfo,
-                                                 @RequestParam("city") String city)
+    public ResponseEntity<Customer> saveCustomer( @RequestBody Customer customer)
     {
         try {
-            //Create a new customer object and set its attributes
-            Customer customer = new Customer();
-            customer.setFirstName(firstName);
-            customer.setLastName(lastName);
-            customer.setPhoneNumber(phoneNumber);
-            customer.setAdditionalInfo(additionalInfo);
-            customer.setCity(city);
 
             //Save the customer in the database
             Customer savedCustomer = customerRepository.save(customer);
-            LoggerUtil.info("Customer saved successfully: " + customer.getFirstName()); //create a log
+
+            //Create a log
+            LoggerUtil.info("Customer saved successfully, ID: "  + customer.getId() +", " + customer.getFirstName());
 
             return ResponseEntity.ok(savedCustomer); //return the saved customer data
 

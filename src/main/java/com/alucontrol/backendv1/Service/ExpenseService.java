@@ -30,37 +30,5 @@ public class ExpenseService
     {
         this.expenseRepository = expenseRepository;
     }
-
-    /** Used: Expense Page through the Controller
-     *  Method: This method will allow the user create a new expense */
-    public Expense createExpense(String expenseDescription, Double expenseAmount,
-                                 String expenseDate,String expenseCategory,
-                                 String expenseAdditionalNotes) throws Exception
-    {
-        try {
-            //Creates a new instance of Expense
-            Expense expense = new Expense();
-
-            //Set the values
-            expense.setExpenseDescription(expenseDescription);
-            expense.setExpenseAmount(expenseAmount);
-            expense.setExpenseDate(expenseDate);
-            expense.setExpenseCategory(expenseCategory);
-            expense.setExpenseAdditionalNotes(expenseAdditionalNotes);
-
-            //Create a log
-            LoggerUtil.info("Expense created");
-
-            //Saves the new expense in the repository and returns it.
-            return expenseRepository.save(expense);
-        }
-        catch (Exception e)
-        {
-            //Create a log (if there is an error)
-            LoggerUtil.info("Error creating expense" +  e.getMessage());
-
-            //Throw the exception (if there is an error)
-            throw new Exception("Error creating expense: " + e.getMessage());
-        }
-    }
+    
 }

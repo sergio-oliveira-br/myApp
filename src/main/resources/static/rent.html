@@ -117,8 +117,8 @@
 
             <!-- Starts the Rent’s Form - Through this the user will create new rents and edit rents already created -->
             <div class="form-floating">
-              <form id="rentForm" action="/saveRent" method="post" enctype="" class="row g-1 needs-validation" novalidate>
-
+<!--              <form id="rentForm" action="/saveRent" method="post" enctype="" class="row g-1 needs-validation" novalidate>-->
+              <form id="rentForm" class="row g-1 needs-validation" novalidate>
                 <div class="col-md-6">
                   <label for="rentFirstName" class="">Customer</label>
                   <select class="form-control" id="rentFirstName" name="rentFirstName" value="" required></select>
@@ -169,14 +169,14 @@
                   <div class="invalid-feedback">Please enter the end date for this rental</div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3"> <!-- To make sure the user will use the start and end date field, Total Days is "read only" -->
                   <label for="rentTotalDays" class="">Total Days</label>
-                  <input type="text" class="form-control" id="rentTotalDays" name="rentTotalDays" value="" required>
+                  <input type="text" class="form-control" id="rentTotalDays" name="rentTotalDays" value="" readonly>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3"> <!-- To make sure the user will use the fields related to calculate the total price, Total Price is "read only" -->
                   <label for="rentTotalPrice" class="">Total Price</label>
-                  <input type="text" class="form-control" id="rentTotalPrice" name="rentTotalPrice" value="" required>
+                  <input type="text" class="form-control" id="rentTotalPrice" name="rentTotalPrice" value="" readonly>
                 </div>
 
                 <p></p>
@@ -306,14 +306,14 @@
                     <div class="invalid-feedback">When this rentals will end?</div>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3"> <!-- To make sure the user will use the start and end date field, Total Days is "read only" -->
                     <label for="editRentTotalDays" class="form-label">Total Days</label>
-                    <input type="text" class="form-control" id="editRentTotalDays" name="rentTotalDays" required>
+                    <input type="text" class="form-control" id="editRentTotalDays" name="rentTotalDays" readonly>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3"> <!-- To make sure the user will use the fields related to calculate the total price, Total Price is "read only" -->
                     <label for="editRentTotalPrice" class="form-label">Total Price</label>
-                    <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" required>
+                    <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" readonly>
                   </div>
 
                   <div class="mb-3">
