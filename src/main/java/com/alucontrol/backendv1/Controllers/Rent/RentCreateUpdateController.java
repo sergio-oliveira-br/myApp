@@ -41,30 +41,18 @@ public class RentCreateUpdateController
 
     /** Endpoint to send rent */
     @PostMapping("/saveRent")
-    public ResponseEntity<Rent> saveRent(@RequestParam("rentFirstName")String rentFirstName,
-                                         //@RequestParam("rentLastName")String rentLastName,
-                                         @RequestParam("rentAddress")String rentAddress,
-                                         @RequestParam("rentItem")String rentItem,
-                                         @RequestParam("rentPrice")double rentPrice, //they must always have a value
-                                         @RequestParam("rentQtyItem")Integer rentQtyItem,
-                                         @RequestParam("rentStarts")String rentStarts,
-                                         @RequestParam("rentEnds")String rentEnds,
-                                         @RequestParam("rentTotalDays")Integer rentTotalDays,
-                                         @RequestParam("rentTotalPrice")double rentTotalPrice,
-                                         @RequestParam("rentDetails") String rentDetails,
-                                         @RequestParam("rentPaymentStatus") String rentPaymentStatus,
-                                         @RequestParam("rentStatus") String rentStatus)
-
+    public ResponseEntity<Rent> saveRent( @RequestBody Rent rent)
     {
         try
         {
-            Rent savedRent = rentService.createRent(rentFirstName, rentAddress, rentItem, rentPrice, rentQtyItem, rentStarts, rentEnds, rentTotalDays, rentTotalPrice, rentDetails, rentPaymentStatus, rentStatus);
-            LoggerUtil.info("Save Rent endpoint accessed for rent: " + savedRent.getId());
+            Rent savedRent = rentRepository.save(rent);
+            LoggerUtil.info("Save Order Successfully, ID:" + savedRent.getId() + ", " + savedRent.getRentFirstName());
             return ResponseEntity.ok(savedRent);
 
         }
-        catch (ParseException e) {
-            LoggerUtil.error("Error parsing dates: " + rentStarts + " or " + rentEnds, e);
+        catch (Exception e)
+        {
+            LoggerUtil.error("Save Expense Failed: " + e.getMessage());
             return ResponseEntity.internalServerError().build();
         }
     }

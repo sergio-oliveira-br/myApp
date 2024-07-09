@@ -57,7 +57,6 @@ public class ExpenseCreateUpdateController
 
             //Throw the exception (if there is an error)
             //return ResponseEntity.internalServerError().build();
-            LoggerUtil.error("An error occurred while saving expense data: " + e.getMessage(), e); //create log
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
