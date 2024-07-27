@@ -18,7 +18,6 @@ import org.apache.logging.log4j.Logger;
  *  The purpose of this is to create Loggers and set them up with different levels.*/
 public class LoggerUtil
 {
-
     //Creating a static logger
     private static final Logger logger = LogManager.getLogger(LoggerUtil.class);
 
@@ -46,5 +45,4 @@ public class LoggerUtil
     public static void error(String message, Throwable t) {
         logger.error(message, t);
     }
-
 }

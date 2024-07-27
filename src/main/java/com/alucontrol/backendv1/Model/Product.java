@@ -16,10 +16,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-public class Product
-{
-    /** Here is the original data from the Product */
-    @Id
+public class Product {
+    @Id //Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 

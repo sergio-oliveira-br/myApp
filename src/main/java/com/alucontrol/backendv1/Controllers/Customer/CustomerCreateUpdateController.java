@@ -19,11 +19,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**This controller is dedicated to endpoints that create and update records
- * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
+ * It's the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
 @RestController
 public class CustomerCreateUpdateController
 {
-    //Repository for access to product data
+    //Repository for access to Customers data
     private final CustomerRepository customerRepository;
 
     //Constructor responsible for injecting the repository
@@ -33,10 +33,8 @@ public class CustomerCreateUpdateController
 
     /** Endpoint to send customers */
     @PostMapping("/saveCustomer")
-    public ResponseEntity<Customer> saveCustomer( @RequestBody Customer customer)
-    {
+    public ResponseEntity<Customer> saveCustomer( @RequestBody Customer customer) {
         try {
-
             //Save the customer in the database
             Customer savedCustomer = customerRepository.save(customer);
 
@@ -44,7 +42,6 @@ public class CustomerCreateUpdateController
             LoggerUtil.info("Customer saved successfully, ID: "  + customer.getId() +", " + customer.getFirstName());
 
             return ResponseEntity.ok(savedCustomer); //return the saved customer data
-
         }
         catch (Exception e) {
             LoggerUtil.error("An error occurred while saving customer data: " + e.getMessage(), e); //create log

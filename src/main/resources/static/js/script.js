@@ -65,13 +65,14 @@ function ajaxRequest(url, successCallback)
         url: url,     //indicates the endpoint from the argument to the ajaxRequest function
         type: "GET",  //HTTP request methods used to RETRIEVE data from the server (backend)
 
-        //If the request is successful, a callback function will be called from the argument to the ajaxRequest function
+        //If the request is successful,
+        //a callback function will be called from the argument to the ajaxRequest function
         success: successCallback,
 
         //If there is any error
         error: function(xhr, status, error)
         {
-            console.error(error);
+            console.error(error); //log
             let errorMessage = xhr.responseText;
             alert("From the Server: " + errorMessage);
         }

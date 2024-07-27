@@ -21,8 +21,7 @@ import java.util.List;
  *  in the database, providing a simplified interface for CRUD operations
  */
 @Repository
-public interface ExpenseRepository extends JpaRepository<Expense, Long>
-{
+public interface ExpenseRepository extends JpaRepository<Expense, Long> {
     /** Display: on Report Page via ExpenseReadController
      *  by Category -> Acquisition of Cost, Maintenance Expense, Utilities Expenses and Others
      *  Method: List all info by selecting the category

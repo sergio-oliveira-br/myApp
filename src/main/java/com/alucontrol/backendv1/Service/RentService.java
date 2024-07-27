@@ -30,21 +30,17 @@ import java.util.Optional;
 public class RentService
 {
     //Repository for access to Rent data
-    private final RentRepository rentRepository;
     private final ProductRepository productRepository;
 
     //Constructor responsible for injecting the repository
-    public RentService(RentRepository rentRepository, ProductRepository productRepository)
-    {
-        this.rentRepository = rentRepository;
+    public RentService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
 
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
-    public void subtractStockByRentalDates(String itemDescription, int quantity)
-    {
+    public void subtractStockByRentalDates(String itemDescription, int quantity) {
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
@@ -52,7 +48,7 @@ public class RentService
         //Check if the product was found
         if(productOptional.isPresent())
         {
-            //Retrieve the value contained in the Optional and allocate it to a Product product variable
+            //Retrieve the value contained in the Optional and allocate it to a Product variable
             Product product = productOptional.get();
 
             //Check if the product is available in stock
@@ -62,7 +58,6 @@ public class RentService
                 LoggerUtil.info("Renting Item: " + product.getItemDescription());
                 LoggerUtil.info("Getting the Item Available Qty: " + product.getItemAvailableQty());
                 LoggerUtil.info("Getting the quantity: " + quantity);
-
 
                 //Take the quantity out of the stock
                 product.setItemAvailableQty(product.getItemAvailableQty() - quantity);
@@ -74,15 +69,13 @@ public class RentService
             }
 
             //Exception: out off stock
-            else
-            {
+            else {
                 throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
                         "\nYour current stock is: " + product.getItemAvailableQty() + " un.");
             }
         }
         //Exception: ID incorrect, product was not found
-        else
-        {
+        else {
             throw new ResourceNotFoundException("The product '" + itemDescription + "' does not exist.");
         }
     }

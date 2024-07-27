@@ -15,6 +15,7 @@ package com.alucontrol.backendv1.Projection;
  * are to be selected or projected during a query.*/
 public interface TotalRentProjection
 {
+    //Used to build the charts
     String getRentPaymentStatus();
     Double getRentTotalPrice();
 }
