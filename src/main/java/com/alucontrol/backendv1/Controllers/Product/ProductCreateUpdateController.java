@@ -35,23 +35,16 @@ public class ProductCreateUpdateController
     /** Endpoint to send Products to my DB*/
     @PostMapping("/saveProduct")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product)
-//                                                @RequestParam("itemDescription") String itemDescription,
-//                                               @RequestParam("itemQuantity") int itemQuantity)
     {
         try
         {
-//            //create a new product object and set its attributes
-//            Product product = new Product();
-//            product.setItemDescription(itemDescription);
-//            product.setItemQuantity(itemQuantity);
-
             //Initialize itemAvailableQty with the same itemQuantity value
             product.setItemAvailableQty(product.getItemQuantity());
             LoggerUtil.info("Item Quantity: " + product.getItemQuantity());
 
             Product savedProduct = productRepository.save(product);
             //create a log
-            LoggerUtil.info("Customer saved successfully, ID: " + product.getId() + ", " + product.getItemDescription());
+            LoggerUtil.info("Product saved successfully, ID: " + product.getId() + ", " + product.getItemDescription());
 
             return ResponseEntity.ok(savedProduct);
         }
