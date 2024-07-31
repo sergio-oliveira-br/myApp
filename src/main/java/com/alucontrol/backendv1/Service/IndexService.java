@@ -36,9 +36,6 @@ public class IndexService
     {
         try
         {
-            //Log
-            LoggerUtil.info("Searching for all rents Unpaid");
-
             //call the repository method, witch has the info about the RENT
             Long qtyRentUnpaid = rentRepository.countUnpaidRents();
 
@@ -62,10 +59,8 @@ public class IndexService
      * Pointing to indexScript.js
      */
     public Long getQtyRentStatusNew() {
-        try {
-            //log
-            LoggerUtil.info("Searching for all rents with status NEW");
-
+        try
+        {
             //call the repository method, witch has the info about the RENT
             Long qtyRentStatusNew = rentRepository.countRentStatusNew();
 
@@ -91,9 +86,6 @@ public class IndexService
     {
         try
         {
-            //log
-            LoggerUtil.info("Searching for all rents in progress");
-
             //Call the repository method, witch has the info about the RENT
             Long qtyRentStatusInProgress = rentRepository.countRentStatusInProgress();
 
