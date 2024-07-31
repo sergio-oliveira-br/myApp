@@ -176,7 +176,7 @@ public class RentCreateUpdateController
 
             //Log
             LoggerUtil.info("Rent updated successfully. ID: " + id);
-            LoggerUtil.info("New Data:" + rent);
+            LoggerUtil.info("New Data:" + savedRent.toString());
 
             return ResponseEntity.ok(savedRent);
         } else {

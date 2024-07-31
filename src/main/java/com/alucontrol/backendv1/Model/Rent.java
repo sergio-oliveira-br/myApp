@@ -172,4 +172,24 @@ public class Rent
     public String getRentStatus() {return rentStatus;}
 
     public void setRentStatus(String rentStatus) {this.rentStatus = rentStatus;}
+
+    @Override
+    public String toString() {
+        return "Rent{" +
+                "id=" + id +
+                ", rentFirstName='" + rentFirstName + '\'' +
+                ", rentLastName='" + rentLastName + '\'' +
+                ", rentAddress='" + rentAddress + '\'' +
+                ", rentItem='" + rentItem + '\'' +
+                ", rentPrice=" + rentPrice +
+                ", rentQtyItem=" + rentQtyItem +
+                ", rentStarts='" + rentStarts + '\'' +
+                ", rentEnds='" + rentEnds + '\'' +
+                ", rentTotalDays=" + rentTotalDays +
+                ", rentTotalPrice=" + rentTotalPrice +
+                ", rentDetails='" + rentDetails + '\'' +
+                ", rentPaymentStatus='" + rentPaymentStatus + '\'' +
+                ", rentStatus='" + rentStatus + '\'' +
+                '}';
+    }
 }
