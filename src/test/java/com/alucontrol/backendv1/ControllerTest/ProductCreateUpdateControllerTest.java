@@ -51,7 +51,6 @@
 //    @Mock
 //    private ProductRepository productRepository;
 //
-//
 //    //The success case: where the product is saved correctly in DB
 //    @Test
 //    public void saveProductSuccess()
@@ -69,12 +68,10 @@
 //        ResponseEntity<Product> response;
 //        response = productCreateUpdateController.saveProduct(product.getItemDescription(), product.getItemQuantity());
 //
-//
 //        /** The method is expected to return a response with a status code of 200 (OK) and the client saved */
 //        assertEquals("Status code should be 200: ", HttpStatus.OK, response.getStatusCode());
 //        assertEquals("Returned customer should match: ", product, response.getBody());
 //        verify(productRepository).save(any(Product.class));
-//
 //    }
 //
 //    //The error case, where an exception is thrown when trying to save the product to the database.

@@ -108,7 +108,7 @@
 //        when(rentService.createRent(any(String.class), any(String.class), any(String.class), anyDouble(),
 //                anyInt(), any(String.class), any(String.class), anyInt(), anyDouble(),
 //                any(String.class), any(String.class), any(String.class)))
-//                .thenThrow(new ParseException("Error parsing dates", 0));
+//                .thenThrow(new ParseException("The rent could not be saved due to an error. ", 0));
 //
 //
 //        ResponseEntity<Rent> response;
