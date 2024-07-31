@@ -473,3 +473,89 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2024-07-31 11:11:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-07-31 11:11:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-07-31 11:11:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-07-31 11:15:29 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 10000 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-07-31 11:15:29 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-07-31 11:15:29 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-31 11:15:29 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-31 11:15:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-31 11:15:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+2024-07-31 11:15:30 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-07-31 11:15:30 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-07-31 11:15:30 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-31 11:15:30 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-07-31 11:15:30 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-31 11:15:30 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 482 ms
+2024-07-31 11:15:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-07-31 11:15:30 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ac1b251
+2024-07-31 11:15:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-07-31 11:15:30 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-31 11:15:30 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-07-31 11:15:30 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-31 11:15:30 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-31 11:15:31 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-31 11:15:31 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-31 11:15:31 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-31 11:15:31 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-31 11:15:31 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2024-07-31 11:15:31 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-31 11:15:31 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-07-31 11:15:31 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-07-31 11:15:31 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 1.971 seconds (process running for 2.395)
+2024-07-31 11:15:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-31 11:15:36 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-07-31 11:15:36 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-07-31 11:15:36 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 21 rent records
+2024-07-31 11:16:09 INFO  c.a.backendv1.Util.LoggerUtil - Renting Item: Scaffolds
+2024-07-31 11:16:09 INFO  c.a.backendv1.Util.LoggerUtil - Getting the Item Available Qty: 1.0
+2024-07-31 11:16:09 INFO  c.a.backendv1.Util.LoggerUtil - Getting the quantity: 1
+2024-07-31 11:16:09 INFO  c.a.backendv1.Util.LoggerUtil - The new Qty Available is:  0.0
+2024-07-31 11:16:09 INFO  c.a.backendv1.Util.LoggerUtil - Save Order Successfully, ID:67, Sergio Oliveirs - 34998055902
+2024-07-31 11:16:11 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 22 rent records
+2024-07-31 11:16:21 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-31 11:16:21 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-07-31 11:16:21 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-07-31 11:16:23 INFO  c.a.backendv1.Backendv1Application - Starting Backendv1Application using Java 22.0.1 with PID 10027 (/Users/sergiovinicio/Documents/GitHub/myApp/target/classes started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-07-31 11:16:23 INFO  c.a.backendv1.Backendv1Application - No active profile set, falling back to 1 default profile: "default"
+2024-07-31 11:16:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-31 11:16:23 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-31 11:16:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-31 11:16:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
+2024-07-31 11:16:23 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-07-31 11:16:23 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-07-31 11:16:23 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-31 11:16:23 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-07-31 11:16:23 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-31 11:16:23 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 441 ms
+2024-07-31 11:16:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-07-31 11:16:23 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@463cfe18
+2024-07-31 11:16:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-07-31 11:16:23 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-31 11:16:23 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-07-31 11:16:23 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-31 11:16:23 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-31 11:16:24 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-31 11:16:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-31 11:16:24 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-31 11:16:24 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-31 11:16:24 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2024-07-31 11:16:24 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-31 11:16:24 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-07-31 11:16:24 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-07-31 11:16:24 INFO  c.a.backendv1.Backendv1Application - Started Backendv1Application in 1.786 seconds (process running for 2.114)
+2024-07-31 11:16:28 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-31 11:16:28 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-07-31 11:16:28 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-07-31 11:16:28 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 22 rent records
+2024-07-31 11:16:58 ERROR c.a.backendv1.Util.LoggerUtil - Save Expense Failed: The product 'Scaffolds' does not have enough in stock.
+Your current stock is: 0.0 un.
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - Renting Item: Concrete mixer
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - Getting the Item Available Qty: 1.0
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - Getting the quantity: 1
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - The new Qty Available is:  0.0
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - Save Order Successfully, ID:69, Arel West-Frimley - 9012533374
+2024-07-31 11:17:14 INFO  c.a.backendv1.Util.LoggerUtil - Rent Status: Rent{id=69, rentFirstName='Arel West-Frimley - 9012533374', rentLastName='null', rentAddress='BRIE', rentItem='Concrete mixer', rentPrice=0.99, rentQtyItem=1, rentStarts='2024-07-31', rentEnds='2024-08-01', rentTotalDays=1, rentTotalPrice=0.99, rentDetails='testing the logs', rentPaymentStatus='Paid', rentStatus='Sold'}
+2024-07-31 11:17:16 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 24 rent records
+2024-07-31 11:17:20 INFO  c.a.backendv1.Util.LoggerUtil - Fetched 24 rent records
+2024-07-31 11:17:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-31 11:17:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-07-31 11:17:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -62,6 +62,7 @@ public class RentCreateUpdateController
             }
 
             LoggerUtil.info("Save Order Successfully, ID:" + savedRent.getId() + ", " + savedRent.getRentFirstName());
+            LoggerUtil.info("New Rent data: " + savedRent.toString());
             return ResponseEntity.ok(savedRent);
 
         }
