@@ -11,18 +11,11 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Util.DateUtil;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
-import com.alucontrol.backendv1.Repository.RentRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 
 /**This Service Class has methods that contain business logic.*/
