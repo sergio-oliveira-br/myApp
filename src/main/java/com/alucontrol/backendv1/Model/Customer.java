@@ -85,5 +85,17 @@ import jakarta.persistence.*;
         public void setCity(String city) {
             this.city = city;
         }
+
+        @Override
+        public String toString() {
+            return "Customer{" +
+                    "ID=" + id +
+                    ", firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", phoneNumber='" + phoneNumber + '\'' +
+                    ", additionalInfo='" + additionalInfo + '\'' +
+                    ", city='" + city + '\'' +
+                    '}';
+        }
     }
 

@@ -39,7 +39,7 @@ public class CustomerCreateUpdateController
             Customer savedCustomer = customerRepository.save(customer);
 
             //Create a log
-            LoggerUtil.info("Customer saved successfully, ID: "  + customer.getId() +", " + customer.getFirstName());
+            LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
 
             return ResponseEntity.ok(savedCustomer); //return the saved customer data
         }
