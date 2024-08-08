@@ -45,7 +45,7 @@ public class ExpenseCreateUpdateController
             Expense savedExpense = expenseRepository.save(expense);
 
             //Create a log
-            LoggerUtil.info("Save Expense Successfully, ID:" + expense.getId() + ", " + expense.getExpenseDescription() );
+            LoggerUtil.info("Expense Saved Successfully: " + savedExpense.toString());
 
             //Return a response HTTP 200 - OK - saving the expense
             return ResponseEntity.ok(savedExpense);
