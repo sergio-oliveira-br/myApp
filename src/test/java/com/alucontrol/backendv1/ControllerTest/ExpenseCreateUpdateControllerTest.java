@@ -47,7 +47,7 @@
 //
 //    //Create a Mock Instance of the ExpenseRepository
 //    @Mock
-//    private ExpenseService expenseService;
+//    private ExpenseRepository expenseRepository;
 //
 //    /** The success case: where the product is saved correctly in DB*/
 //    @Test
@@ -64,34 +64,23 @@
 //        expense.setExpenseAdditionalNotes("This is a JUnit Test");
 //
 //        //Stubbing: Set the behavior of the Repository save method.
-//        try
-//        {//description, amount, date, category and additional info
-//            when(expenseService.createExpense(any(String.class),
-//                    any(double.class), any(String.class), any(String.class),
-//                    any(String.class))).thenReturn(expense);
-//
+//        try {
+//            when(expenseRepository.save(any(Expense.class))).thenReturn(expense);
 //        }
 //
-//        catch (Exception e)
-//        {
+//        catch (Exception e) {
 //            e.printStackTrace();
 //            throw new RuntimeException(e);
 //        }
-//        ResponseEntity<Expense> response;
-//        response = expenseCreateUpdateController
-//                .saveExpense(expense.getExpenseDescription(),
-//                        expense.getExpenseAmount(), expense.getExpenseDate(),
-//                        expense.getExpenseCategory(), expense.getExpenseAdditionalNotes());
+//        ResponseEntity<Expense> response = expenseCreateUpdateController.saveExpense(expense);
 //
-//        //The method is expected to return a response with a status code of 200 (OK) and the client saved
+//        //The method is expected to return a response with a status code of 200 (OK) and the expense saved
 //        assertEquals("Successful: " , HttpStatus.OK, response.getStatusCode());
 //        assertEquals("Successful: ", expense, response.getBody());
 //        try{
-//            verify(expenseService).createExpense(any(String.class),
-//                    any(double.class), any(String.class), any(String.class),
-//                    any(String.class));
-//        }catch (Exception e)
-//        {
+//            verify(expenseRepository).save(any(Expense.class));
+//
+//        }catch (Exception e) {
 //            e.printStackTrace();
 //            throw new RuntimeException(e);
 //        }
@@ -100,17 +89,21 @@
 //    /** The error case, where an exception is thrown when trying to save the expense to the DB */
 //    @Test
 //    public void saveExpenseError() throws Exception {
-//        //Mockito will throw an Exception instead of actually saving the expense in to the DB
 //
-//            when(expenseService.createExpense(any(String.class),
-//                    any(double.class), any(String.class), any(String.class), any(String.class)))
+//        Expense expense = new Expense();
+//
+//        //Set values
+//        expense.setExpenseDescription("descriptionTest");
+//        expense.setExpenseCategory("categoryTest");
+//        expense.setExpenseDate("29/06/2024");
+//        expense.setExpenseAmount(123.45);
+//        expense.setExpenseAdditionalNotes("This is a JUnit Test");
+//
+//        //Mockito will throw an Exception instead of actually saving the expense in to the DB
+//            when(expenseRepository.save(any(Expense.class)))
 //                    .thenThrow(new ParseException("Error: An exception is thrown when trying to save the expense to the DB", 0));
 //
-//
-//        ResponseEntity<Expense> response;
-//        response = expenseCreateUpdateController.saveExpense("descriptionTest",
-//                123.45,"29/06/2024",
-//                "categoryTest", "This is a JUnit Test");
+//        ResponseEntity<Expense> response = expenseCreateUpdateController.saveExpense(expense);
 //
 //        //Checks whether the server response is an internal error (500) and whether the response body is empty
 //        assertEquals("Error: " , HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
@@ -118,5 +111,4 @@
 //        //Checks if the response body is empty, as there is nothing to be returned in case of error
 //        assertNull(response.getBody());
 //    }
-//
 //}

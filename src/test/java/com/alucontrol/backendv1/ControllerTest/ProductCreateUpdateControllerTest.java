@@ -16,11 +16,8 @@
 //import com.alucontrol.backendv1.Controllers.Product.ProductCreateUpdateController;
 //import com.alucontrol.backendv1.Model.Product;
 //import com.alucontrol.backendv1.Repository.ProductRepository;
-//import com.alucontrol.backendv1.Util.LoggerUtil;
-//import org.junit.jupiter.api.Assertions;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
-//import org.mockito.ArgumentCaptor;
 //import org.mockito.InjectMocks;
 //import org.mockito.Mock;
 //import org.mockito.junit.jupiter.MockitoExtension;
@@ -66,7 +63,6 @@
 //        when(productRepository.save(any(Product.class))).thenReturn(product);
 //
 //        ResponseEntity<Product> response;
-//        response = productCreateUpdateController.saveProduct(product.getItemDescription(), product.getItemQuantity());
 //
 //        /** The method is expected to return a response with a status code of 200 (OK) and the client saved */
 //        assertEquals("Status code should be 200: ", HttpStatus.OK, response.getStatusCode());
@@ -78,11 +74,16 @@
 //    @Test
 //    public void saveProductError() throws Exception
 //    {
+//        //create a instance object
+//        Product testProduct = new Product();
+//        testProduct.setItemDescription("ItemTest");
+//        testProduct.setItemQuantity(99);
+//
 //        //Mockito will throw a RuntimeException exception instead of actually saving the client to the database
-//        doThrow(new RuntimeException("Error saving product")).when(productRepository).save(any(Product.class));
+//        doThrow(new RuntimeException("Error saving testProduct")).when(productRepository).save(any(Product.class));
 //
 //        ResponseEntity<Product> response;
-//        response = productCreateUpdateController.saveProduct("itemTest99", 99);
+//        response = productCreateUpdateController.saveProduct(testProduct);
 //
 //        //Checks whether the server response is an internal error (500) and whether the response body is empty
 //        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());

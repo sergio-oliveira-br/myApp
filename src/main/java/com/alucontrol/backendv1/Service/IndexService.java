@@ -15,8 +15,6 @@ import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**This Service Class has methods that contain business logic.*/
 @Service
 public class IndexService

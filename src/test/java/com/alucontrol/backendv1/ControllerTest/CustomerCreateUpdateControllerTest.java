@@ -14,7 +14,6 @@
 //
 //import com.alucontrol.backendv1.Controllers.Customer.CustomerCreateUpdateController;
 //import com.alucontrol.backendv1.Model.Customer;
-//import com.alucontrol.backendv1.Model.Product;
 //import com.alucontrol.backendv1.Repository.CustomerRepository;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
@@ -63,11 +62,11 @@
 //
 //        //Stubbing
 //        //Sets the behavior of the Repository save method, returning the created client
-//        //When the save method is called in the customerRepository object with the customerTest argument, return the customerTest itself as a result
+//        //When the save method is called in the customerRepository object with the customerTest argument,
+//        //...return the customerTest itself as a result
 //        when(customerRepository.save(any(Customer.class))).thenReturn(customerTest);
 //
-//        ResponseEntity<Customer> response = customerCreateUpdateController
-//                .saveCustomer("Sergio", "Oliveira", "0862721772", "This is myTest", "Dublin");
+//        ResponseEntity<Customer> response = customerCreateUpdateController.saveCustomer(customerTest);
 //
 //        //Assert:
 //        //Tests the saveCustomer method, which saves a new client to the database
@@ -81,11 +80,18 @@
 //    @Test
 //    public void saveCustomerError() throws Exception
 //    {
+//        //Create a instance object
+//        Customer customerTestError = new Customer();
+//        customerTestError.setFirstName("Sergio");
+//        customerTestError.setLastName("Oliveira");
+//        customerTestError.setPhoneNumber("0862721772");
+//        customerTestError.setAdditionalInfo("This is myTest");
+//        customerTestError.setCity("Dublin");
+//
 //        //Mockito will throw a RuntimeException exception instead of actually saving the client to the database
 //        doThrow(new RuntimeException("Error saving customer")).when(customerRepository).save(any(Customer.class));
 //
-//        ResponseEntity<Customer> response = customerCreateUpdateController
-//                .saveCustomer("Sergio", "Oliveira", "0862721772", "This is my Test", "Dublin");
+//        ResponseEntity<Customer> response = customerCreateUpdateController.saveCustomer(customerTestError);
 //
 //        //Checks whether the server response is an internal error (500) and whether the response body is empty
 //        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
