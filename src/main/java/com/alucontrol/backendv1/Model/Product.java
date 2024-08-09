@@ -59,4 +59,14 @@ public class Product {
     public double getItemAvailableQty() {return itemAvailableQty;}
 
     public void setItemAvailableQty(double itemAvailableQty) {this.itemAvailableQty = itemAvailableQty;}
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", itemQuantity=" + itemQuantity +
+                ", itemAvailableQty=" + itemAvailableQty +
+                '}';
+    }
 }

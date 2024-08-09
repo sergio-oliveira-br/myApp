@@ -10,6 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Product;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -34,25 +35,38 @@ public class ProductCreateUpdateController
 
     /** Endpoint to send Products to my DB*/
     @PostMapping("/saveProduct")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product)
+    public ResponseEntity<?> saveProduct(@RequestBody Product product)
+    //the "?" above makes the method be of the generic type or a type that can return different types of response
     {
         try
         {
+            //Log
+            LoggerUtil.info("Starting to save product with data: " + product);
+
             //Initialize itemAvailableQty with the same itemQuantity value
             product.setItemAvailableQty(product.getItemQuantity());
-            LoggerUtil.info("Item Quantity: " + product.getItemQuantity());
 
+            //Save
             Product savedProduct = productRepository.save(product);
-            //create a log
-            LoggerUtil.info("Product saved successfully, ID: " + product.getId() + ", " + product.getItemDescription());
+
+            //Log
+            LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
 
             return ResponseEntity.ok(savedProduct);
         }
         catch (Exception e) {
-            LoggerUtil.error("An error occurred while saving product data: " + e.getMessage(), e); //create log
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); //Return an internal error
-        }
+            //Log
+            LoggerUtil.error("An error occurred while saving customer data." +
+                    "Product: " + product.toString() + " | " +
+                    "Error: " + e.getMessage(), e);
 
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures.");
+
+            //Return an internal error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
     /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
