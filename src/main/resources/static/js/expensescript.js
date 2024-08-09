@@ -73,6 +73,9 @@ function expenseSaveSuccess(response)
  alert('Expense added successfully!');
  console.log(response);
  loadExpenseTable(); //update the customer table
+
+ //Clear the form by resetting it
+ document.getElementById('expenseForm').reset();
 }
 
 
