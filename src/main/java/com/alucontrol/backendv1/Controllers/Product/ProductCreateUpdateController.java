@@ -105,21 +105,26 @@ public class ProductCreateUpdateController
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct)
     {
         Optional<Product> productOptional = productRepository.findById(id);
-        if(productOptional.isPresent())
-        {
+        if(productOptional.isPresent()){
+            //Log
+            LoggerUtil.info("Starting to update product with data: " + updatedProduct);
+
             Product product = productOptional.get();
 
+            //get to set the fields with the same value
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
+            product.setItemAvailableQty(product.getItemQuantity());
 
             Product savedProduct = productRepository.save(product);
 
-            LoggerUtil.info("Updating product: " + product.getItemDescription()); //create a log
+            //Log
+            LoggerUtil.info("Updating Product: " + savedProduct.toString());
 
             return ResponseEntity.ok(savedProduct);
         }
-        else
-        {
+
+        else {
             LoggerUtil.error("Product with ID: " + id + " not found"); //create a log
             return ResponseEntity.notFound().build();
         }
