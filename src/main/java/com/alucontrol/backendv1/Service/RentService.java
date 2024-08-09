@@ -34,6 +34,9 @@ public class RentService
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
     public void subtractStockByRentalDates(String itemDescription, int quantity) {
+        //log
+        LoggerUtil.info("Start subtractStockByRentalDates" + itemDescription);
+
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
@@ -48,9 +51,7 @@ public class RentService
             if(product.getItemAvailableQty() >= quantity)
             {
                 //Create a log
-                LoggerUtil.info("Renting Item: " + product.getItemDescription());
-                LoggerUtil.info("Getting the Item Available Qty: " + product.getItemAvailableQty());
-                LoggerUtil.info("Getting the quantity: " + quantity);
+                LoggerUtil.info("Renting, Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity: " + quantity);
 
                 //Take the quantity out of the stock
                 product.setItemAvailableQty(product.getItemAvailableQty() - quantity);
@@ -76,16 +77,16 @@ public class RentService
 
     /** Used: Product Create Update Controller
      *  Method: Adding (item) stock when closing a rental.*/
-    public void addStockByRentalStatusFinished(String itemDescription, int quantity)
-    {
-        System.out.println("Received parameters: itemDescription={}, quantity={}" + itemDescription + quantity);
+    public void addStockByRentalStatusFinished(String itemDescription, int quantity) {
+        //Log
+        LoggerUtil.info("Start addStockByRentalStatusFinished" + itemDescription);
+
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
 
         //Check if the product was found
-        if(productOptional.isPresent())
-        {
+        if(productOptional.isPresent()) {
             //Retrieve the value contained in the Optional and allocate it to a Product product variable
             Product product = productOptional.get();
 
@@ -94,10 +95,8 @@ public class RentService
             productRepository.save(product);
         }
         //Exception: ID incorrect, product was not found
-        else
-        {
+        else {
             throw new ResourceNotFoundException("The product '" + itemDescription+ "' was not found");
         }
-
     }
 }
