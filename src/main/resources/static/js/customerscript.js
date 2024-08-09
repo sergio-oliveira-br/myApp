@@ -81,4 +81,7 @@ function customerSaveSuccess(response)
     alert('Customer added successfully!');
     console.log(response);
     loadCustomers(); //update the customer table
+
+    //Clear the form by resetting it
+    document.getElementById('customerForm').reset();
 }
