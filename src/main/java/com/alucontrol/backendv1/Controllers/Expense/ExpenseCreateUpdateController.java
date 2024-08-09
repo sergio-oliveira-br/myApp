@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
@@ -31,33 +32,38 @@ public class ExpenseCreateUpdateController
     private final ExpenseRepository expenseRepository;
 
     //Constructor responsible for injecting the repository
-    private ExpenseCreateUpdateController (ExpenseRepository expenseRepository)
-    {
+    private ExpenseCreateUpdateController (ExpenseRepository expenseRepository) {
         this.expenseRepository = expenseRepository;
     }
 
     /** Endpoint to sent Expenses to DB */
     @PostMapping("/saveExpense")
-    public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense)
-    {
+    public ResponseEntity<?> saveExpense(@RequestBody Expense expense) {
+    //the "?" makes the method be of the generic type or a type that can return different types of response
         try {
+            //Log
+            LoggerUtil.info("Starting to save Expense with data: " + expense.toString());
+
             //Save the customer in the database
             Expense savedExpense = expenseRepository.save(expense);
 
-            //Create a log
+            //Log
             LoggerUtil.info("Expense Saved Successfully: " + savedExpense.toString());
 
             //Return a response HTTP 200 - OK - saving the expense
             return ResponseEntity.ok(savedExpense);
         }
-        catch (Exception e)
-        {
-            //Create a log (if there is an error)
-            LoggerUtil.error("Save Expense Failed: " + e.getMessage());
+        catch (Exception e) {
+            LoggerUtil.error("An error occurred while saving Expense data." +
+                    "Expense: " + expense.toString() + " | " +
+                    "Error: " + e.getMessage(), e);
+
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures.");
 
             //Throw the exception (if there is an error)
-            //return ResponseEntity.internalServerError().build();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 }
