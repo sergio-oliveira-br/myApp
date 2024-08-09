@@ -118,7 +118,7 @@
 
                 <!-- Starts the Customer’s Form -  Through this the user will creat new customers to associate with the rent -->
                 <div class="form-floating">
-                    <form id="customerForm" class="row g-3 needs-validation" novalidate>
+                    <form id="customerForm" class="row g-3 needs-validation">
                         <div class="col-md-4">
                             <label for="customerFirstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="customerFirstName" name="firstName" value="" required>
@@ -146,9 +146,8 @@
 
                         <div class="col-md-3">
                             <label for="customerCity" class="form-label">City</label>
-                            <select class="form-select" id="customerCity" name="city">
+                            <select class="form-select" id="customerCity" name="city" required>
                                 <option selected disabled value="">Choose...</option>
-                                <option></option>
                                 <option>Capinópolis - MG</option>
                                 <option>Canápolis - MG</option>
                                 <option>Cachoeira Dourada - MG</option>
@@ -159,6 +158,7 @@
                                 <option>Monte Alegre - MG</option>
                                 <option>Uberlândia - MG</option>
                                 <option>Zona Rural</option>
+                                <option>Outros</option>
                             </select>
                         </div>
 

@@ -24,7 +24,7 @@ public class Customer
     @Column(nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String lastName;
 
     @Column(nullable = true) //This field is optional
@@ -33,7 +33,7 @@ public class Customer
     @Column(nullable = true)
     private String additionalInfo;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String city;
 
     // Getters and setters
