@@ -37,7 +37,7 @@ public class Expense
 //    @Column(nullable = false) //cannot be null
 //    private String ExpenseType;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String expenseAdditionalNotes;
 
 
