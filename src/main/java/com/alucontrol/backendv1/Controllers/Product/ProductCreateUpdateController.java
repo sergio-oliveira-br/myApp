@@ -10,6 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Product;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -34,47 +35,68 @@ public class ProductCreateUpdateController
 
     /** Endpoint to send Products to my DB*/
     @PostMapping("/saveProduct")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product)
+    public ResponseEntity<?> saveProduct(@RequestBody Product product)
+    //the "?" above makes the method be of the generic type or a type that can return different types of response
     {
         try
         {
+            //Log
+            LoggerUtil.info("Starting to save product with data: " + product);
+
             //Initialize itemAvailableQty with the same itemQuantity value
             product.setItemAvailableQty(product.getItemQuantity());
-            LoggerUtil.info("Item Quantity: " + product.getItemQuantity());
 
+            //Save
             Product savedProduct = productRepository.save(product);
-            //create a log
-            LoggerUtil.info("Product saved successfully, ID: " + product.getId() + ", " + product.getItemDescription());
+
+            //Log
+            LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
 
             return ResponseEntity.ok(savedProduct);
         }
         catch (Exception e) {
-            LoggerUtil.error("An error occurred while saving product data: " + e.getMessage(), e); //create log
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); //Return an internal error
-        }
+            //Log
+            LoggerUtil.error("An error occurred while saving product data." +
+                    "Product: " + product.toString() + " | " +
+                    "Error: " + e.getMessage(), e);
 
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures.");
+
+            //Return an internal error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
     /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
     @GetMapping("/product/{id}")
-    public ResponseEntity<Product> getProductByID(@PathVariable Long id)
+    public ResponseEntity<?> getProductByID(@PathVariable Long id)
+    //the "?" above makes the method be of the generic type or a type that can return different types of response
     {
         try
         {
             Optional<Product> productOptional = productRepository.findById(id);
-            if(productOptional.isPresent())
-            {
+            if(productOptional.isPresent()) {
                 return ResponseEntity.ok(productOptional.get());
             }
 
-            else
-            {
+            else {
                 return ResponseEntity.notFound().build();
             }
-        } catch (Exception e)
-        {
-            LoggerUtil.error("Error occurred while fetching product by ID: " + id, e); //create a log
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+
+        } catch (Exception e) {
+            //Log
+            LoggerUtil.error("An error occurred while fetching product data." +
+                    "Product: " + id+ " | " +
+                    "Error: " + e.getMessage(), e);
+
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures.");
+
+            //Return an internal error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 
@@ -83,21 +105,26 @@ public class ProductCreateUpdateController
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct)
     {
         Optional<Product> productOptional = productRepository.findById(id);
-        if(productOptional.isPresent())
-        {
+        if(productOptional.isPresent()){
+            //Log
+            LoggerUtil.info("Starting to update product with data: " + updatedProduct);
+
             Product product = productOptional.get();
 
+            //get to set the fields with the same value
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
+            product.setItemAvailableQty(product.getItemQuantity());
 
             Product savedProduct = productRepository.save(product);
 
-            LoggerUtil.info("Updating product: " + product.getItemDescription()); //create a log
+            //Log
+            LoggerUtil.info("Updating Product: " + savedProduct.toString());
 
             return ResponseEntity.ok(savedProduct);
         }
-        else
-        {
+
+        else {
             LoggerUtil.error("Product with ID: " + id + " not found"); //create a log
             return ResponseEntity.notFound().build();
         }

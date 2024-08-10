@@ -32,15 +32,19 @@ public class GlobalExceptionHandler
     public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException ex)
     {
         LoggerUtil.error("Resource Not Found Exception handled: " + ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     //Handles all other generic exceptions
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseEntity<String> handleGenericException(Exception ex)
-    {
-        LoggerUtil.error("Generic Exception handled: " + ex.getMessage(), ex);
-        return new ResponseEntity<>("Oops! There are something wrong =[", HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
+        LoggerUtil.error("Generic Exception Handled: " + ex.getMessage(), ex);
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "Oops! Something went wrong. Please report this issue! If possible with picture, date and time");
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

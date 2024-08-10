@@ -10,10 +10,13 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.RentService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,35 +44,46 @@ public class RentCreateUpdateController
 
     /** Endpoint to send rent */
     @PostMapping("/saveRent")
-    public ResponseEntity<Rent> saveRent( @RequestBody Rent rent)
-    {
+    public ResponseEntity<?> saveRent( @RequestBody Rent rent){
+    //the "?" makes the method be of the generic type or a type that can return different types of response
         try
         {
+            //Log
+            LoggerUtil.info("Starting to save Rent with data:" + rent.toString());
+
+            //Save into DB
             Rent savedRent = rentRepository.save(rent);
 
             //The stock will be subtracted based on the user's input
             //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
-            if(rent.getRentStatus().equals("New"))
-            {
-                //create a log
+            if(rent.getRentStatus().equals("New")) {
+                //log
                 LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
             }
 
-            else
-            {
+            else {
                 //When a rental is created, make a call to subtract inventory
                 rentService.subtractStockByRentalDates(rent.getRentItem(), rent.getRentQtyItem());
             }
 
-            LoggerUtil.info("Save Order Successfully, ID:" + savedRent.getId() + ", " + savedRent.getRentFirstName());
-            LoggerUtil.info("New Rent data: " + savedRent.toString());
+            LoggerUtil.info("Save Rent Successfully: " + savedRent.toString());
             return ResponseEntity.ok(savedRent);
 
         }
-        catch (Exception e)
-        {
-            LoggerUtil.error("Save Expense Failed: " + e.getMessage());
-            return ResponseEntity.internalServerError().build();
+        catch (Exception e) {
+            //Log
+            LoggerUtil.error("An error occurred while saving Rent data." +
+                    "Rent: " + rent.toString() + " | " +
+                    "Error: " + e.getMessage(), e);
+
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures." + " | " +
+                            "Error: " + e.getMessage());
+
+            ResponseEntity.internalServerError().body(errorResponse);
+
+            return ResponseEntity.internalServerError().body(errorResponse);
         }
     }
 
@@ -81,8 +95,7 @@ public class RentCreateUpdateController
                                                  @RequestParam("rentStatus") String rentStatus)
     {
         //Create a log
-        LoggerUtil.info("Updating rent status for ID: " + id);
-        LoggerUtil.info("Rent Status: " + rentStatus);
+        LoggerUtil.info("Updating rent status for ID: " + id + " with status: " + rentStatus);
 
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
@@ -103,9 +116,7 @@ public class RentCreateUpdateController
                 String itemDescription = rent.getRentItem();
 
                 //Create a log
-                LoggerUtil.info("Rent status updated successfully. ID: " + id);
-                LoggerUtil.info("Rent Item: " + rent.getRentItem());
-                LoggerUtil.info("Quantity Returned to the stock: " + quantityReturned);
+                LoggerUtil.info("Rent status updated successfully. ID: " + id + " | Qty Returned: " + quantityReturned + " | RentItem: " + itemDescription);
 
                 //Execute the method to return the qyt to the stock
                 rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
@@ -118,26 +129,22 @@ public class RentCreateUpdateController
                 int rentQtyItem = rent.getRentQtyItem();
 
                 //create a log
-                LoggerUtil.info("Rent Item: " + rentItem);
-                LoggerUtil.info("Rent Qty Item decreased: " + rentQtyItem);
-                LoggerUtil.info("Rent Status: " + rentStatus);
-                LoggerUtil.info("Rent status updated successfully. ID: " + id);
-
+                LoggerUtil.info("Rent updated successfully. ID:" + id +
+                        "Rent Item: " + rentItem +
+                        " | Qty Decreased: " + rentQtyItem +
+                        " | Rent Status: " + rentStatus);
 
                 //When a rental is created, make a call to subtract inventory
                 rentService.subtractStockByRentalDates(rentItem, rentQtyItem);
-
             }
 
             return ResponseEntity.ok(savedRent);
         }
         //Exception: ID incorrect, product was not found
-        else
-        {
+        else {
             LoggerUtil.error("Rent not found for ID: " + id);
             return ResponseEntity.notFound().build();
         }
-
     }
 
 

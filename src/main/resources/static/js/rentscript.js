@@ -302,4 +302,7 @@ function orderSaveSuccess(response)
     alert('Order added successfully!');
     console.log(response);
     loadRent(); //update the customer table
+
+    //Clear the form by resetting it
+    document.getElementById('rentForm').reset();
 }

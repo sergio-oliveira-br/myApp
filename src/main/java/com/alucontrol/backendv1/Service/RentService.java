@@ -10,10 +10,13 @@
  */
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -30,10 +33,12 @@ public class RentService
         this.productRepository = productRepository;
     }
 
-
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
     public void subtractStockByRentalDates(String itemDescription, int quantity) {
+        //log
+        LoggerUtil.info("Start subtractStockByRentalDates" + itemDescription);
+
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
@@ -48,9 +53,7 @@ public class RentService
             if(product.getItemAvailableQty() >= quantity)
             {
                 //Create a log
-                LoggerUtil.info("Renting Item: " + product.getItemDescription());
-                LoggerUtil.info("Getting the Item Available Qty: " + product.getItemAvailableQty());
-                LoggerUtil.info("Getting the quantity: " + quantity);
+                LoggerUtil.info("Renting, Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity: " + quantity);
 
                 //Take the quantity out of the stock
                 product.setItemAvailableQty(product.getItemAvailableQty() - quantity);
@@ -63,8 +66,8 @@ public class RentService
 
             //Exception: out off stock
             else {
-                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
-                        "\nYour current stock is: " + product.getItemAvailableQty() + " un.");
+                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock. " +
+                        "Your current stock is: " + product.getItemAvailableQty() + " un.");
             }
         }
         //Exception: ID incorrect, product was not found
@@ -76,17 +79,17 @@ public class RentService
 
     /** Used: Product Create Update Controller
      *  Method: Adding (item) stock when closing a rental.*/
-    public void addStockByRentalStatusFinished(String itemDescription, int quantity)
-    {
-        System.out.println("Received parameters: itemDescription={}, quantity={}" + itemDescription + quantity);
+    public void addStockByRentalStatusFinished(String itemDescription, int quantity) {
+        //Log
+        LoggerUtil.info("Start addStockByRentalStatusFinished" + itemDescription);
+
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
 
         //Check if the product was found
-        if(productOptional.isPresent())
-        {
-            //Retrieve the value contained in the Optional and allocate it to a Product product variable
+        if(productOptional.isPresent()) {
+            //Retrieve the value contained in the Optional and allocate it to a Product variable
             Product product = productOptional.get();
 
             //Add quantity to available stock
@@ -94,10 +97,8 @@ public class RentService
             productRepository.save(product);
         }
         //Exception: ID incorrect, product was not found
-        else
-        {
+        else {
             throw new ResourceNotFoundException("The product '" + itemDescription+ "' was not found");
         }
-
     }
 }

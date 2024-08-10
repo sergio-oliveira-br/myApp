@@ -37,7 +37,7 @@ public class Expense
 //    @Column(nullable = false) //cannot be null
 //    private String ExpenseType;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String expenseAdditionalNotes;
 
 
@@ -96,5 +96,17 @@ public class Expense
 
     public void setExpenseAdditionalNotes(String expenseAdditionalNotes) {
         this.expenseAdditionalNotes = expenseAdditionalNotes;
+    }
+
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "ID=" + id +
+                ", expenseDescription='" + expenseDescription + '\'' +
+                ", expenseAmount=" + expenseAmount +
+                ", expenseDate='" + expenseDate + '\'' +
+                ", expenseCategory='" + expenseCategory + '\'' +
+                ", expenseAdditionalNotes='" + expenseAdditionalNotes + '\'' +
+                '}';
     }
 }

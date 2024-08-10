@@ -174,6 +174,9 @@ function productSaveSuccess(response)
     alert('Product added successfully!');
     console.log(response);
     loadProduct(); //update the product table
+
+    //Clear the form by resetting it
+    document.getElementById('itemForm').reset();
 }
 
 

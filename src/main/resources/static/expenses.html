@@ -102,7 +102,7 @@
                 <!-- Starts the Expense's Form - Through this the user will create and edit expenses -->
                 <div class="form-floating">
 <!--                    <form id="expenseForm" action="/saveExpense" method="post" enctype="" class="row g-1 needs-validation" novalidate>-->
-                    <form id="expenseForm" class="row g-1 needs-validation" novalidate>
+                    <form id="expenseForm" class="row g-1 needs-validation">
                         <!-- Description -->
                         <div class="col-md-6">
                             <label for="expenseDescription" class="">Description</label>
@@ -151,8 +151,8 @@
                 </div> <!-- form -->
 
                 <!-- Starts Table - Display the expense in our database -->
-                <div class="table-responsive">
-                    <table class="table table-striped">
+                <div class="table-responsive" style="height: 450px">
+                    <table class="table table-striped" >
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
@@ -171,7 +171,7 @@
 
                 <!-- Link to page where the user will see all rents -->
                 <br>
-                <button type="button" onclick="goToExpenseReportPage()" class="btn btn-primary">See all them</button>
+                <button type="button" onclick="goToExpenseReportPage()" class="btn btn-primary">Go to Report</button>
 
             </div> <!-- main content -->
         </div> <!-- container -->
