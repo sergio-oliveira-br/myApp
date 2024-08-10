@@ -10,10 +10,13 @@
  */
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,7 +32,6 @@ public class RentService
     public RentService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
 
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
@@ -64,8 +66,8 @@ public class RentService
 
             //Exception: out off stock
             else {
-                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock." +
-                        "\nYour current stock is: " + product.getItemAvailableQty() + " un.");
+                throw new ResourceNotFoundException("The product '" + itemDescription + "' does not have enough in stock. " +
+                        "Your current stock is: " + product.getItemAvailableQty() + " un.");
             }
         }
         //Exception: ID incorrect, product was not found
@@ -87,7 +89,7 @@ public class RentService
 
         //Check if the product was found
         if(productOptional.isPresent()) {
-            //Retrieve the value contained in the Optional and allocate it to a Product product variable
+            //Retrieve the value contained in the Optional and allocate it to a Product variable
             Product product = productOptional.get();
 
             //Add quantity to available stock

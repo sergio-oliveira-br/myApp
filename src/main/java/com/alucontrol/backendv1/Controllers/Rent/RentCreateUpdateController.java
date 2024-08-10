@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Rent;
 
 import com.alucontrol.backendv1.Exception.ErrorResponse;
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -77,7 +78,10 @@ public class RentCreateUpdateController
 
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
+                            "Please report it to technical support with pictures." + " | " +
+                            "Error: " + e.getMessage());
+
+            ResponseEntity.internalServerError().body(errorResponse);
 
             return ResponseEntity.internalServerError().body(errorResponse);
         }
