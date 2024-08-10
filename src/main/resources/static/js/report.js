@@ -28,6 +28,7 @@ function renderRentTable(data) {
             /** '<td>' + rent.rentLastName + '</td>' + */
             '<td>' + rent.rentAddress + '</td>' +
             '<td>' + rent.rentItem + '</td>' +
+            '<td>' + rent.rentQtyItem + '</td>' +
             '<td>' + rent.rentPrice.toFixed(2) + '</td>' + // Formatting to two decimal places
             '<td>' + rent.rentStarts + '</td>' +
             '<td>' + rent.rentEnds + '</td>' +
