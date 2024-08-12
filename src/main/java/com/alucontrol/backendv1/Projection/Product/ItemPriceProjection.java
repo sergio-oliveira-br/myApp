@@ -12,6 +12,7 @@ package com.alucontrol.backendv1.Projection.Product;
 
 //This projection is used in the Sales and Rent FORM, loading the description and price
 public interface ItemPriceProjection {
+    Long getId();
     String getItemDescription();
     String getProductType();
     Double getItemPrice();

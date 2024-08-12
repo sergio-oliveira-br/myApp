@@ -16,6 +16,9 @@ $(document).ready(function () {
     //load the available customer
     loadCustomerList();
 
+    //load the items witch are classified as "Vendas" em productType
+    loadProductListByProductType("Venda")
+
 })
 
 
@@ -37,5 +40,23 @@ function loadCustomerList(){
         });
     });
 }
+
+/** Method: Create a list of all items and display it in the Product field of the Sales form*/
+function loadProductListByProductType(productType){
+    ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data)
+    {
+        //variable
+        let saleItemSelect = $('#saleItem');
+
+        //cleaning to display each item only once
+        saleItemSelect.empty();
+
+        //Iteration
+        data.forEach(function(product){
+            saleItemSelect.append('<option value="' + product.id + '">' + product.itemDescription + '</option>');
+        })
+    })
+}
+
 
 

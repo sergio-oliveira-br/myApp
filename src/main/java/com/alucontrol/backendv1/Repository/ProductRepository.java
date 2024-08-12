@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Product;
+import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -30,11 +31,13 @@ public interface ProductRepository extends JpaRepository<Product, Long>
     /** Display: in Sales.HTML through Sales Controller
      *  Method: Load the Description and Price into Sales Table
      * */
-    @Query(value = "SELECT myP.productType," +
-            "myP.itemDescription," +
-            "myP.itemPrice " +
-            "FROM Product myP WHERE myP.productType = :productType")
-    List<Product> findProductsByProductType(String productType);
+    @Query("SELECT myP.id AS id, " +
+            "myP.productType AS productType," +
+            "myP.itemDescription AS itemDescription," +
+            "myP.itemPrice AS itemPrice " +
+            "FROM Product myP " +
+            "WHERE myP.productType = :productType")
+    List<ItemPriceProjection> findProductsByProductType(String productType);
 
 
 }
