@@ -37,6 +37,9 @@ public class Product {
     @Column(nullable = false) //this field should be autofilled by js
     private String dateModified;
 
+    @Column(nullable = false) //the purpose of this is to set a unique price
+    private double itemPrice;
+
     //Getters and Setters
     public long getId() {
         return id;
@@ -73,12 +76,15 @@ public class Product {
     public void setDateCreated(String dateCreated) {this.dateCreated = dateCreated;}
     public String getDateModified() {return dateModified;}
     public void setDateModified(String dateModified) {this.dateModified = dateModified;}
+    public double getItemPrice() {return itemPrice;}
+    public void setItemPrice(double itemPrice) {this.itemPrice = itemPrice;}
 
     @Override
     public String toString() {
         return "Product {" +
                 "id= " + id +
                 ", itemDescription= " + itemDescription +
+                ", itemPrice= " + itemPrice +
                 ", itemQuantity= " + itemQuantity +
                 ", itemAvailableQty= " + itemAvailableQty +
                 ", productType= " + productType +
