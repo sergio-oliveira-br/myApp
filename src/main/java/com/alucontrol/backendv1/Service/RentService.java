@@ -10,13 +10,10 @@
  */
 package com.alucontrol.backendv1.Service;
 
-import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -35,9 +32,9 @@ public class RentService
 
     /** Used: Product Create Update Controller
      *  Method: Subtracting (item) stock when starting a rental.*/
-    public void subtractStockByRentalDates(String itemDescription, int quantity) {
+    public void subtractStock(String itemDescription, int quantity) {
         //log
-        LoggerUtil.info("Start subtractStockByRentalDates" + itemDescription);
+        LoggerUtil.info("Start subtractStock: " + itemDescription);
 
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
@@ -81,7 +78,7 @@ public class RentService
      *  Method: Adding (item) stock when closing a rental.*/
     public void addStockByRentalStatusFinished(String itemDescription, int quantity) {
         //Log
-        LoggerUtil.info("Start addStockByRentalStatusFinished" + itemDescription);
+        LoggerUtil.info("Start addStockByRentalStatusFinished: " + itemDescription);
 
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
