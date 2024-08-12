@@ -34,7 +34,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>
             "myP.itemDescription," +
             "myP.itemPrice " +
             "FROM Product myP WHERE myP.productType = :productType")
-    List<Product> findByProductType(String productType);
+    List<Product> findProductsByProductType(String productType);
 
 
 }
