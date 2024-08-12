@@ -133,7 +133,6 @@ public class Sale {
     }
 
     //ToString
-
     @Override
     public String toString() {
         return "Sale{" +
