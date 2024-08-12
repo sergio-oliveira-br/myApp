@@ -129,6 +129,16 @@
               <div class="invalid-feedback"> Enter the quantity that you have, this will help you to manage your stock </div>
             </div>
 
+            <div class="col-md-4">
+              <label for="productType" class="form-label">Product Type</label>
+              <select class="form-select" id="productType" name="productType" required>
+                <option selected disabled value="" ></option>
+                <option>Sale</option>
+                <option>Rent</option>
+              </select>
+              <div class="invalid-feedback">What type is this product?</div>
+            </div>
+
             <!-- Buttons -->
             <div class="col-12">
               <button id="submitButton" class="btn btn-primary" type="submit">Create New Item</button>
