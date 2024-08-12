@@ -11,12 +11,9 @@
 package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Product;
-import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

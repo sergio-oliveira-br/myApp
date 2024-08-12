@@ -12,9 +12,9 @@ package com.alucontrol.backendv1.Repository;
 
 
 import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
-import com.alucontrol.backendv1.Projection.ItemsTotalPriceProjection;
-import com.alucontrol.backendv1.Projection.TotalRentProjection;
+import com.alucontrol.backendv1.Projection.Rent.ItemQtyDateProjection;
+import com.alucontrol.backendv1.Projection.Rent.ItemsTotalPriceProjection;
+import com.alucontrol.backendv1.Projection.Rent.TotalRentProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.RestController;

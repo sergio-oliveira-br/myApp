@@ -8,14 +8,14 @@
  * Project Commencing May 2024
  * Version: 1.0
  */
-package com.alucontrol.backendv1.Projection;
+package com.alucontrol.backendv1.Projection.Rent;
 
 /** A Projection interface aims to determine
  * which fields of an entity or dataset
  * are to be selected or projected during a query.*/
-public interface ItemQtyDateProjection
+public interface TotalRentProjection
 {
-    String getRentItem();
-    Double getRentQtyItem();
-    String getRentStarts();
+    //Used to build the charts
+    String getRentPaymentStatus();
+    Double getRentTotalPrice();
 }
