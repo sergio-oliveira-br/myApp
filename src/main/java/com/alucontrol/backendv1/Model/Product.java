@@ -30,8 +30,10 @@ public class Product {
     @Column(nullable = false)
     private double itemAvailableQty;
 
-    //Getters and Setters
+    @Column(nullable = false)
+    private String productType;
 
+    //Getters and Setters
     public long getId() {
         return id;
     }
@@ -60,13 +62,18 @@ public class Product {
 
     public void setItemAvailableQty(double itemAvailableQty) {this.itemAvailableQty = itemAvailableQty;}
 
+    public String getProductType() {return productType;}
+
+    public void setProductType(String productType) {this.productType = productType;}
+
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", itemDescription='" + itemDescription + '\'' +
-                ", itemQuantity=" + itemQuantity +
-                ", itemAvailableQty=" + itemAvailableQty +
+        return "Product {" +
+                "id= " + id +
+                ", itemDescription= " + itemDescription +
+                ", itemQuantity= " + itemQuantity +
+                ", itemAvailableQty= " + itemAvailableQty +
+                ", productType= " + productType +
                 '}';
     }
 }
