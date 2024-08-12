@@ -23,9 +23,9 @@ $(document).ready(function () {
  Method: Create a list of all clients and display it in the client field of the form
  */
 function loadCustomerList(){
-    ajaxRequest("/customer", function (data){
+    ajaxRequest("/customers", function (data){
         //variable
-        let saleCustomerSelect = $('#saleCustomer');
+        let saleCustomerSelect = $('#saleFirstName');
 
         //cleaning to display each item only once
         saleCustomerSelect.empty();
