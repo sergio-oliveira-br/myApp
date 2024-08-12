@@ -11,7 +11,12 @@
 package com.alucontrol.backendv1.Controllers.Sale;
 
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Model.Sale;
+import com.alucontrol.backendv1.Repository.SaleRepository;
+import com.alucontrol.backendv1.Util.LoggerUtil;
+import com.mysql.cj.log.Log;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,23 +25,52 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class SaleCreateUpdateController {
     //Repository for access to Sale data
+    private final SaleRepository saleRepository;
 
     //Constructor responsible for injecting the repository
+    public SaleCreateUpdateController(SaleRepository saleRepository) {
+        this.saleRepository = saleRepository;
+    }
 
     /**Endpoint responsible to create sales*/
     @PostMapping("/saveSale") //Remember: POST is a method from CRUD used to CREATE data
     public ResponseEntity<?> saveSale(@RequestBody Sale sale){
-        //the "?" makes the method be of the generic type or a type that can return different types of response
+    //the "?" makes the method be of the generic type or a type that can return different types of response
+        try{
+            //log before saved
+            LoggerUtil.info("Starting to create a sale with data: " + sale);
 
+            //Saving the data into DB
+            Sale savedSale = saleRepository.save(sale);
 
+            //Business Logic
+
+            //log after saved
+            LoggerUtil.info("Sale created successfully: " + savedSale.toString());
+
+            return ResponseEntity.ok(savedSale);
+        }catch (Exception e){
+            LoggerUtil.error("An error occurred while saving Rent data. " +
+                    "Sale" + sale.toString() + " | " +
+                    "Error: " + e.getMessage(), e);
+
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "An error has been discovered during this operation. " +
+                            "Please report it to technical support with pictures." + " | " +
+                            "Error: " + e.getMessage());
+
+            ResponseEntity.internalServerError().body(errorResponse);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
 
-    /** Endpoint to update sales information */
-    @PutMapping("/sales/{id}") //Remember: PUT is a method from CRUD used to UPDATE data
-    public ResponseEntity<?> updateSale(@PathVariable Long id, @RequestBody Sale sale){
-
-    }
+//    /** Endpoint to update sales information */
+//    @PutMapping("/sales/{id}") //Remember: PUT is a method from CRUD used to UPDATE data
+//    public ResponseEntity<?> updateSale(@PathVariable Long id, @RequestBody Sale sale){
+//
+//    }
 
 
 }
