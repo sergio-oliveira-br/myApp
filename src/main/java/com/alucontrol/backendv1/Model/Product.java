@@ -12,8 +12,6 @@ package com.alucontrol.backendv1.Model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "products")
 public class Product {
@@ -32,6 +30,12 @@ public class Product {
 
     @Column(nullable = false)
     private String productType;
+
+    @Column(nullable = false) //this field should be autofilled by js
+    private String dateCreated;
+
+    @Column(nullable = false) //this field should be autofilled by js
+    private String dateModified;
 
     //Getters and Setters
     public long getId() {
@@ -62,9 +66,13 @@ public class Product {
 
     public void setItemAvailableQty(double itemAvailableQty) {this.itemAvailableQty = itemAvailableQty;}
 
+    //This make part of version 2.0, where I will improve the traceability, and segregate the rent and sale responsibility
     public String getProductType() {return productType;}
-
     public void setProductType(String productType) {this.productType = productType;}
+    public String getDateCreated() {return dateCreated;}
+    public void setDateCreated(String dateCreated) {this.dateCreated = dateCreated;}
+    public String getDateModified() {return dateModified;}
+    public void setDateModified(String dateModified) {this.dateModified = dateModified;}
 
     @Override
     public String toString() {
@@ -74,6 +82,8 @@ public class Product {
                 ", itemQuantity= " + itemQuantity +
                 ", itemAvailableQty= " + itemAvailableQty +
                 ", productType= " + productType +
+                ", dateCreated= " + dateCreated +
+                ", dateModified= " + dateModified +
                 '}';
     }
 }
