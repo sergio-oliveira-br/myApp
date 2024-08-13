@@ -123,13 +123,18 @@
               <div class="invalid-feedback"> Please provide some details on this new item </div>
             </div>
 
-            <div class="col-md-4">
-              <label for="itemQty" class="form-label">Item Quantity</label>
+            <div class="col-md-2">
+              <label for="itemQty" class="form-label">Qty Adquirida</label>
               <input type="number" class="form-control" id="itemQty" name="itemQuantity" required>
               <div class="invalid-feedback"> Enter the quantity that you have, this will help you to manage your stock </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-2">
+              <label for="itemPrice" class="form-label">Preço Unitario</label>
+              <input type="number" class="form-control" id="itemPrice" name="itemPrice" step="0.01" required>
+            </div>
+
+            <div class="col-md-3">
               <label for="productType" class="form-label">Product Type</label>
               <select class="form-select" id="productType" name="productType" required>
                 <option selected disabled value="" ></option>

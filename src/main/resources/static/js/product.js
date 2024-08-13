@@ -94,7 +94,7 @@ function submitEditForm()
     let itemData = {
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
-        itemQuantity: $('#editItemQty').val()
+        itemQuantity: $('#editItemQty').val(),
     };
     //Remember: PUT -> Send data to the server to update an existing resource
     $.ajax({url: "/product/" + itemData.id,
@@ -159,9 +159,15 @@ formSubmission('#itemForm', '/saveProduct', productFormData, productSaveSuccess,
 //Get the form data from the form
 function productFormData()
 {
+    let currentDate = new Date();
+
     return {
         itemDescription: $('#itemDescription').val(),
-        itemQuantity: $('#itemQty').val()
+        itemQuantity: $('#itemQty').val(),
+        productType: $('#productType').val(),
+        dateCreated: currentDate,
+        dateModified: currentDate,
+        itemPrice: $('#itemPrice').val(),
     };
 }
 
