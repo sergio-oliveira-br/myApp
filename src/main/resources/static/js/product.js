@@ -154,6 +154,13 @@ function updateLoadProductForm()
     });
 }
 
+//This is just to get a confirmation from the user, that they will change a sensitive data
+document.getElementById('editItemQtyAvailable').addEventListener('change',stockAlert);
+function stockAlert() {
+    confirm("Você tem certeza eu deseja alterar o Estoque?");
+}
+
+
 
 
 
