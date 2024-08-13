@@ -39,8 +39,7 @@ $(document).ready(function()
 /**
  Page: Products
  Item: Table
- Method: Create a table with
- all products via AJAX
+ Method: Create a table with all products via AJAX
  */
 function loadProduct()
 {
@@ -56,8 +55,10 @@ function loadProduct()
             $('#productList').append('<tr>' +
                 '<td>' + product.id + '</td>' +
                 '<td>' + product.itemDescription + '</td>' +
+                '<td>' + product.itemPrice + '</td>' +
                 '<td>' + product.itemQuantity +'</td>' +
                 '<td>' + product.itemAvailableQty + '</td>' +
+                '<td>' + product.productType + '</td>' +
                 '<td><button class="btn btn-primary" onclick="openEditModal(' + product.id + ')">Edit</button></td>'
             );
         });
