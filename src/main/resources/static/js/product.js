@@ -83,6 +83,9 @@ function openEditModal(productId)
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
         $('#editItemQty').val(product.itemQuantity);
+        $('#editItemPrice').val(product.itemPrice);
+        $('#editProductType').val(product.productType);
+        $('#editItemQtyAvailable').val(product.itemAvailableQty)
 
         //Open the modal
         let editModal = new bootstrap.Modal(document.getElementById('editModal'));
@@ -96,6 +99,9 @@ function submitEditForm()
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
         itemQuantity: $('#editItemQty').val(),
+        itemPrice: $('#editItemPrice').val(),
+        productType: $('#editProductType').val(),
+        itemAvailableQty: $('#editItemAvailableQty').val(),
     };
     //Remember: PUT -> Send data to the server to update an existing resource
     $.ajax({url: "/product/" + itemData.id,

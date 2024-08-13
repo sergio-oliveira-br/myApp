@@ -182,7 +182,7 @@
         <div class="modal-content">
           <!-- Header -->
           <div class="modal-header">
-            <h5 class="modal-title" id="editModalLabel">Edit Rent</h5>
+            <h5 class="modal-title" id="editModalLabel">Edição do Produto</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
@@ -194,14 +194,36 @@
 
               <!-- Description -->
               <div class="mb-3">
-                <label for="editItemDescription" class="form-label">Item Description</label>
+                <label for="editItemDescription" class="form-label">Descrição</label>
                 <input type="text" class="form-control" id="editItemDescription">
               </div>
 
               <!-- Quantity -->
               <div class="mb-3">
-                <label for="editItemQty" class="form-label">Item Quantity</label>
+                <label for="editItemQty" class="form-label">Qtd Total</label>
                 <input class="form-control" id="editItemQty" >
+              </div>
+
+              <!-- Quantidade Disponivel em Estoque-->
+              <div class="mb-3">
+                <label for="editItemQtyAvailable" class="form-label">Qtd em Estoque</label>
+                <input class="form-control" id="editItemQtyAvailable" >
+              </div>
+
+              <!-- Preço -->
+              <div class="mb-3">
+                <label for="editItemPrice" class="form-label">Preço</label>
+                <input class="form-control" id="editItemPrice" >
+              </div>
+
+              <!-- Tipo -->
+              <div class="mb-3">
+                <label for="editProductType" class="form-label">Tipo</label>
+                  <select class="form-select" id="editProductType" name="editProductType" required>
+                    <option selected disabled value="" ></option>
+                    <option>Aluguel</option>
+                    <option>Venda</option>
+                  </select>
               </div>
 
               <!-- Button -->

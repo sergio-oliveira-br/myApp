@@ -85,7 +85,9 @@ public class ProductCreateUpdateController
             //get to set the fields with the same value
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
-            product.setItemAvailableQty(product.getItemQuantity());
+            product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
+            product.setProductType(updatedProduct.getProductType());
+            product.setItemPrice(updatedProduct.getItemPrice());
 
             Product savedProduct = productRepository.save(product);
 
