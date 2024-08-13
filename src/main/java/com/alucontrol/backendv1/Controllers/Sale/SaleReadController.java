@@ -42,6 +42,7 @@ public class SaleReadController {
                 throw new ResourceNotFoundException("From Sales Controller: It was not possible to locate items");
             }
             return productRepository.findProductsByProductType(productType);
+
         } catch (Exception e) {
             LoggerUtil.error("Ann error occurred while fetching items." + " | " +
                     "Error: " + e.getMessage(), e);

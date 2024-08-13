@@ -53,10 +53,26 @@ function loadProductListByProductType(productType){
 
         //Iteration
         data.forEach(function(product){
-            saleItemSelect.append('<option value="' + product.id + '">' + product.itemDescription + '</option>');
-        })
-    })
+            saleItemSelect.append('<option id="' + product.id +'" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
+        });
+    });
 }
+$('#saleItem').change(function() {
+    console.log('Change event triggered');
+
+    let selectedOption = $('#saleItem option:selected');
+    console.log('Selected option:', selectedOption);
+
+    let salePriceInput = $('#salePrice');
+
+    let price = selectedOption.attr('price');
+
+
+    salePriceInput.val(price);
+
+});
+
+
 
 
 
