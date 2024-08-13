@@ -57,6 +57,8 @@ function loadProductListByProductType(productType){
         });
     });
 }
+
+//Everytime that the user change the field item, the price will be updated
 $('#saleItem').change(function() {
     console.log('Change event triggered');
 
@@ -70,7 +72,33 @@ $('#saleItem').change(function() {
     salePriceInput.val(price);
 });
 
+/** Method: Send the sales data by using AJAX */
+formSubmission('saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveError);
 
+//Get the form data from the form
+function saleFormData(){
+    return{
+        saleFirstName: $('#saleFirstName').val(),
+        saleAddress: $('#saleAddress').val(),
+        saleItem: $('#saleItem').val(),
+        saleQtyItem: $('#saleQtyItem').val(),
+        salePrice: $('#salePrice').val(),
+        saleDate: $('#saleDate').val(),
+        saleTotalPrice: $('#saleTotalPrice').val(),
+        salePaymentStatus: $('#salePaymentStatus').val(),
+        saleDetails: $('#saleDetails').val(),
+    }
+}
+
+//Callback function for success
+function saleSaveSuccess(response){
+    alert("Sale successfully saved");
+    console.log(response);
+    //need to update the table
+
+    //clear the form by resetting it
+    document.getElementById('saleForm').reset();
+}
 
 
 
