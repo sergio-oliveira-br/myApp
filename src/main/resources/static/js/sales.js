@@ -100,5 +100,25 @@ function saleSaveSuccess(response){
     //document.getElementById('saleForm').reset();
 }
 
+/** Method: Calculate the total price by multiplying (qty x unit price) */
+function loadTotalPriceSales(){
+    //Variables
+    let qty = document.getElementById('saleQtyItem').value;
+    let unitPrice = parseFloat(document.getElementById('salePrice').value);
+    let finalTotalPrice;
+
+    //Calculating
+    finalTotalPrice = parseFloat(qty * unitPrice);
+
+    //Write
+    document.getElementById('saleTotalPrice').value = finalTotalPrice.toFixed(2);
+    console.log(finalTotalPrice);
+}
+
+//Update everytime that one of these five field is changed
+document.getElementById('saleItem').addEventListener('change', loadTotalPriceSales);
+document.getElementById('saleQtyItem').addEventListener('change', loadTotalPriceSales);
+
+
 
 
