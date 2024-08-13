@@ -73,7 +73,7 @@ $('#saleItem').change(function() {
 });
 
 /** Method: Send the sales data by using AJAX */
-formSubmission('saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveError);
+formSubmission('#saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveError);
 
 //Get the form data from the form
 function saleFormData(){
@@ -82,12 +82,12 @@ function saleFormData(){
         saleAddress: $('#saleAddress').val(),
         saleItem: $('#saleItem').val(),
         saleQtyItem: $('#saleQtyItem').val(),
-        salePrice: $('#salePrice').val(),
+        salePrice: parseFloat($('#salePrice').val()),
         saleDate: $('#saleDate').val(),
-        saleTotalPrice: $('#saleTotalPrice').val(),
+        saleTotalPrice: parseFloat($('#saleTotalPrice').val()),
         salePaymentStatus: $('#salePaymentStatus').val(),
-        saleDetails: $('#saleDetails').val(),
-    }
+        saleDetails: $('#saleDetails').val()
+    };
 }
 
 //Callback function for success
@@ -97,7 +97,7 @@ function saleSaveSuccess(response){
     //need to update the table
 
     //clear the form by resetting it
-    document.getElementById('saleForm').reset();
+    //document.getElementById('saleForm').reset();
 }
 
 
