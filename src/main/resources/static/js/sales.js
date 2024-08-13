@@ -67,9 +67,7 @@ $('#saleItem').change(function() {
 
     let price = selectedOption.attr('price');
 
-
     salePriceInput.val(price);
-
 });
 
 
