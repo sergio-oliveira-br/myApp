@@ -88,6 +88,7 @@ public class ProductCreateUpdateController
             product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
             product.setProductType(updatedProduct.getProductType());
             product.setItemPrice(updatedProduct.getItemPrice());
+            product.setDateModified(updatedProduct.getDateModified());//this will get data and time when the item has been changed
 
             Product savedProduct = productRepository.save(product);
 

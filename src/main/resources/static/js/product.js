@@ -95,6 +95,8 @@ function openEditModal(productId)
 
 function submitEditForm()
 {
+    let currentDate = new Date();
+
     let itemData = {
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
@@ -102,6 +104,7 @@ function submitEditForm()
         itemPrice: $('#editItemPrice').val(),
         productType: $('#editProductType').val(),
         itemAvailableQty: $('#editItemAvailableQty').val(),
+        dateModified: currentDate,
     };
     //Remember: PUT -> Send data to the server to update an existing resource
     $.ajax({url: "/product/" + itemData.id,
