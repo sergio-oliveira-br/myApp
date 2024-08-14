@@ -12,6 +12,7 @@ package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
+import com.alucontrol.backendv1.Projection.Product.ItemQtyAvailableProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -38,6 +39,17 @@ public interface ProductRepository extends JpaRepository<Product, Long>
             "FROM Product myP " +
             "WHERE myP.productType = :productType")
     List<ItemPriceProjection> findProductsByProductType(String productType);
+
+
+    /** Display: in Sales.HTML through Sales Controller
+     *  Method: Load the Description and Price into Sales Table
+     * */
+    @Query("SELECT myP.itemDescription AS itemDescription," +
+            "myP.itemAvailableQty AS itemAvailableQty " +
+            //"myP.productType AS productType " + I DON'T NEED THE FIELD THAT I WILL USE TO SEARCH
+            "FROM Product myP " +
+            "WHERE myP.productType = :productType")
+    List<ItemQtyAvailableProjection> findProductsAndQtyByProductType(String productType);
 
 
 }

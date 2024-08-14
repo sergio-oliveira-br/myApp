@@ -134,10 +134,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Estoque</h5>
-                                <p class="card-text">Aqui você pode ver seus itens disponíveis em estoque.<br>
-                                   E criar novas vendas e/ou aluguéis.</p>
-                                <button onclick="loadCurrentStock()" class="btn btn-primary">Aluguéis</button>
-                                <button onclick="loadCurrentStock()" class="btn btn-primary">Vendas</button>
+                                <p class="card-text">Consulte seus itens disponíveis em estoque.</p>
+                                <button onclick="loadCurrentStockByType('Aluguel')" class="btn btn-primary">Aluguéis</button>
+                                <button onclick="loadCurrentStockByType('Venda')" class="btn btn-primary">Vendas</button>
                             </div>
                         </div>
                     </div>
@@ -298,7 +297,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Current Stock</h5>
+                        <h5 class="modal-title">Estoque Atual</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -319,7 +318,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="rent.html" type="button" class="btn btn-primary">Go Rent</a>
+<!--                        <a href="rent.html" type="button" class="btn btn-primary">Go Rent</a>-->
                     </div>
                 </div>
             </div>

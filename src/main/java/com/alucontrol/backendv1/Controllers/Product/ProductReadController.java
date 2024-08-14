@@ -14,6 +14,7 @@ import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
+import com.alucontrol.backendv1.Projection.Product.ItemQtyAvailableProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.HttpStatus;
@@ -47,15 +48,35 @@ public class ProductReadController
     }
 
     /**Endpoint to get back product, selecting the Product Type */
-    @GetMapping("productByType")
+    @GetMapping("/productByType")
     public List<ItemPriceProjection> getProductByType(String productType) {
         LoggerUtil.info("Starting looking for Item and Price by Product Type: " + productType);
         try {
             //handling exceptions
             if (productRepository.findProductsByProductType(productType) == null) {
-                throw new ResourceNotFoundException("From Sales Controller: It was not possible to locate items");
+                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate items");
             }
             return productRepository.findProductsByProductType(productType);
+
+        } catch (Exception e) {
+            LoggerUtil.error("An error occurred while fetching items." + " | " +
+                    "Error: " + e.getMessage(), e);
+
+            throw new ResourceNotFoundException("An error occurred while fetching items. " + " | " +
+                    "Error: " + e.getMessage());
+        }
+    }
+
+    /**Endpoint to get back product, selecting the Product Type */
+    @GetMapping("/productQtyByType")
+    public List<ItemQtyAvailableProjection> getProductQtyByType(String productType) {
+        LoggerUtil.info("Starting looking for Item and Qty Available by Product Type: " + productType);
+        try {
+            //handling exceptions
+            if (productRepository.findProductsAndQtyByProductType(productType) == null) {
+                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate items");
+            }
+            return productRepository.findProductsAndQtyByProductType(productType);
 
         } catch (Exception e) {
             LoggerUtil.error("An error occurred while fetching items." + " | " +
