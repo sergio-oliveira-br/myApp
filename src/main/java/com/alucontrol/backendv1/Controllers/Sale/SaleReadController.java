@@ -44,10 +44,10 @@ public class SaleReadController {
             return productRepository.findProductsByProductType(productType);
 
         } catch (Exception e) {
-            LoggerUtil.error("Ann error occurred while fetching items." + " | " +
+            LoggerUtil.error("An error occurred while fetching items." + " | " +
                     "Error: " + e.getMessage(), e);
 
-            throw new ResourceNotFoundException("Ann error occurred while fetching items. " + " | " +
+            throw new ResourceNotFoundException("An error occurred while fetching items. " + " | " +
                     "Error: " + e.getMessage());
         }
     }
