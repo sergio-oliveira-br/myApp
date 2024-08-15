@@ -32,7 +32,7 @@ public class Sale {
     private String saleItem;
 
     @Column(nullable = false)
-    private int salePrice;
+    private double salePrice;
 
     @Column(nullable = false)
     private int saleQtyItem;
@@ -41,7 +41,7 @@ public class Sale {
     private String saleDate;
 
     @Column(nullable = false)
-    private int saleTotalPrice;
+    private double saleTotalPrice;
 
     @Column(nullable = false)
     private String salePaymentStatus;
@@ -84,11 +84,11 @@ public class Sale {
         this.saleItem = saleItem;
     }
 
-    public int getSalePrice() {
+    public double getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(int salePrice) {
+    public void setSalePrice(double salePrice) {
         this.salePrice = salePrice;
     }
 
@@ -108,11 +108,11 @@ public class Sale {
         this.saleDate = saleDate;
     }
 
-    public int getSaleTotalPrice() {
+    public double getSaleTotalPrice() {
         return saleTotalPrice;
     }
 
-    public void setSaleTotalPrice(int saleTotalPrice) {
+    public void setSaleTotalPrice(double saleTotalPrice) {
         this.saleTotalPrice = saleTotalPrice;
     }
 

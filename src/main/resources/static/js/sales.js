@@ -66,6 +66,7 @@ formSubmission('#saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveErro
 function saleFormData(){
     return{
         saleFirstName: $('#saleFirstName').val(),
+        saleLastName: $('#saleLastName').val(),
         saleAddress: $('#saleAddress').val(),
         saleItem: $('#saleItem').val(),
         saleQtyItem: $('#saleQtyItem').val(),
