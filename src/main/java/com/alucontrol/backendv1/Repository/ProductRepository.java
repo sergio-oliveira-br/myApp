@@ -52,4 +52,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>
     List<ItemQtyAvailableProjection> findProductsAndQtyByProductType(String productType);
 
 
+    @Query("SELECT p FROM Product p") // Select all columns from the Product table
+    List<Product> findAllProducts();
+
+
 }
