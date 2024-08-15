@@ -19,6 +19,9 @@ $(document).ready(function () {
     //load the items witch are classified as "Vendas" em productType
     loadProductListByProductType("Venda")
 
+    //render the table
+    loadSales();
+
 })
 
 
@@ -104,5 +107,35 @@ document.getElementById('saleItem').addEventListener('change', loadTotalPriceSal
 document.getElementById('saleQtyItem').addEventListener('change', loadTotalPriceSales);
 
 
+/**
+ Page: Sale - Table
+ Method: The script will load all items in a table
+ */
+function loadSales()
+{
+    //Call the generic function, that perform an AJAX request
+    ajaxRequest("/sale", function(data)
+    {
+        //first clean
+        $('#saleList').empty();
+
+        //Iteration
+        data.forEach(function(sale)
+        {
+            $('#saleList').append('<tr>' +
+                '<td>' + sale.id + '</td>' +
+                '<td>' + sale.saleFirstName + '</td>' +
+                '<td>' + sale.saleAddress + '</td>' +
+                '<td>' + sale.saleItem + '</td>' +
+                '<td>' + sale.saleQtyItem + '</td>' +
+                '<td>' + sale.salePrice.toFixed(2) + '</td>' +
+                '<td>' + sale.saleDate + '</td>' +
+                '<td>' + sale.saleTotalPrice.toFixed(2) + '</td>' +
+                '<td><button class="btn btn-primary" onclick="openEditModal(' + sale.id + ')">Edit</button></td>' +
+                '</tr>'
+            )
+        });
+    });
+}
 
 
