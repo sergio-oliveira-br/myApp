@@ -31,10 +31,10 @@ public class Product {
     @Column(nullable = false)
     private String productType;
 
-    @Column(nullable = false) //this field should be autofilled by js
+    @Column(nullable = true) //this field should be autofilled by js
     private String dateCreated;
 
-    @Column(nullable = false) //this field should be autofilled by js
+    @Column(nullable = true) //this field should be autofilled by js
     private String dateModified;
 
     @Column(nullable = false) //the purpose of this is to set a unique price

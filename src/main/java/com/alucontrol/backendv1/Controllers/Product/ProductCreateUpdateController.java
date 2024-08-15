@@ -61,8 +61,9 @@ public class ProductCreateUpdateController
                     "Error: " + e.getMessage(), e);
 
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
+                    "An error has been discovered during this operation. | " +
+                            "Please report it to technical support with pictures. | " +
+                            "Error: " + e.getMessage() + e);
 
             //Return an internal error
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
