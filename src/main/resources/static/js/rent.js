@@ -42,7 +42,7 @@ $(document).ready(function()
     });
 
     //(Modal)Update total price when price or quantity change
-    $('#editRentPrice, #editRentQtyItem').on('change', function() {
+    $('#editRentPrice, #editRentQtyItem, #editRentStarts, #editRentEnds').on('change', function() {
         console.log('Price or Quantity input changed');
         updateTotalPrice();
     });
