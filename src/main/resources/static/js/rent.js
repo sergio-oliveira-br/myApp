@@ -24,7 +24,8 @@ $(document).ready(function()
     loadRentDays();
 
     //The script will load the available customers in the rental form when the page loads
-    loadCustomerForRentForm(); //This is for original form
+    // loadCustomerForRentForm(); //This is for original form
+    loadCustomers('#rentFirstName');
 
     //The script will load the available items in the rental form when the page loads
     // loadItemsForRentForm();
@@ -81,7 +82,6 @@ function loadRent()
             $('#rentList').append('<tr>' +
                 '<td>' + rent.id + '</td>' +
                 '<td>' + rent.rentFirstName + '</td>' +
-                /** '<td>' + rent.rentLastName + '</td>' + */
                 '<td>' + rent.rentAddress + '</td>' +
                 '<td>' + rent.rentItem + '</td>' +
                 '<td>' + rent.rentQtyItem + '</td>' +
@@ -103,24 +103,24 @@ function loadRent()
  Item: Form - Customer field
  Method: The script will load the available CUSTOMERS in the rental form when the page loads
  */
-function loadCustomerForRentForm()
-{
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/customers", function(data)
-    {
-        //Local variable
-        var rentCustomerSelect = $('#rentFirstName');
-
-        //cleaning
-        rentCustomerSelect.empty();
-
-        //Iteration
-        data.forEach(function(customer) {
-            rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
-                customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'</option>');
-        });
-    });
-}
+// function loadCustomerForRentForm()
+// {
+//     //Call the generic function, that perform an AJAX request
+//     ajaxRequest("/customers", function(data)
+//     {
+//         //Local variable
+//         let rentCustomerSelect = $('#rentFirstName');
+//
+//         //cleaning
+//         rentCustomerSelect.empty();
+//
+//         //Iteration
+//         data.forEach(function(customer) {
+//             rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
+//                 customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber +'</option>');
+//         });
+//     });
+// }
 
 
 
@@ -280,7 +280,7 @@ function orderFormData()
 {
     return {
         rentFirstName: $('#rentFirstName').val(),
-        rentLastName: $('#rentLastName').val(),
+        // rentLastName: $('#rentLastName').val(),
         rentAddress: $('#rentAddress').val(),
         rentItem: $('#rentItem').val(),
         rentQtyItem: $('#rentQtyItem').val(),

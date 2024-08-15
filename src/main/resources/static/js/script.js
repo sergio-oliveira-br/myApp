@@ -142,6 +142,20 @@ $('#rentItem, #editRentItem, #saleItem').change(function() {
 });
 
 
+function loadCustomers(selectId) {
+    ajaxRequest("/customers", function (data) {
+        const customerSelect = $(selectId);
+        customerSelect.empty();
+
+        data.forEach(function (customer) {
+            customerSelect.append(
+                `<option value="${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}">${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}</option>`
+            );
+        });
+    });
+}
+
+
 
 
 
