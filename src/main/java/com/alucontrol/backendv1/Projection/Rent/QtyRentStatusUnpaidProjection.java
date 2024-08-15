@@ -8,7 +8,7 @@
  * Project Commencing May 2024
  * Version: 1.0
  */
-package com.alucontrol.backendv1.Projection;
+package com.alucontrol.backendv1.Projection.Rent;
 
 
 /** A Projection interface aims to determine

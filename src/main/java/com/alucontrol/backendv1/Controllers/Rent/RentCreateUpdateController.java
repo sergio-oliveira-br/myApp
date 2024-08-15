@@ -11,7 +11,6 @@
 package com.alucontrol.backendv1.Controllers.Rent;
 
 import com.alucontrol.backendv1.Exception.ErrorResponse;
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -20,9 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 
 /**This controller is dedicated to endpoints that create and update records
@@ -49,7 +45,7 @@ public class RentCreateUpdateController
         try
         {
             //Log
-            LoggerUtil.info("Starting to save Rent with data:" + rent.toString());
+            LoggerUtil.info("Starting to save Rent with data: " + rent.toString());
 
             //Save into DB
             Rent savedRent = rentRepository.save(rent);
@@ -63,7 +59,7 @@ public class RentCreateUpdateController
 
             else {
                 //When a rental is created, make a call to subtract inventory
-                rentService.subtractStockByRentalDates(rent.getRentItem(), rent.getRentQtyItem());
+                rentService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
             }
 
             LoggerUtil.info("Save Rent Successfully: " + savedRent.toString());
@@ -129,13 +125,13 @@ public class RentCreateUpdateController
                 int rentQtyItem = rent.getRentQtyItem();
 
                 //create a log
-                LoggerUtil.info("Rent updated successfully. ID:" + id +
+                LoggerUtil.info("Rent updated successfully. ID: " + id +
                         "Rent Item: " + rentItem +
                         " | Qty Decreased: " + rentQtyItem +
                         " | Rent Status: " + rentStatus);
 
                 //When a rental is created, make a call to subtract inventory
-                rentService.subtractStockByRentalDates(rentItem, rentQtyItem);
+                rentService.subtractStock(rentItem, rentQtyItem);
             }
 
             return ResponseEntity.ok(savedRent);

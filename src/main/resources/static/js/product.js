@@ -39,8 +39,7 @@ $(document).ready(function()
 /**
  Page: Products
  Item: Table
- Method: Create a table with
- all products via AJAX
+ Method: Create a table with all products via AJAX
  */
 function loadProduct()
 {
@@ -56,8 +55,10 @@ function loadProduct()
             $('#productList').append('<tr>' +
                 '<td>' + product.id + '</td>' +
                 '<td>' + product.itemDescription + '</td>' +
+                '<td>' + product.itemPrice + '</td>' +
                 '<td>' + product.itemQuantity +'</td>' +
                 '<td>' + product.itemAvailableQty + '</td>' +
+                '<td>' + product.productType + '</td>' +
                 '<td><button class="btn btn-primary" onclick="openEditModal(' + product.id + ')">Edit</button></td>'
             );
         });
@@ -82,6 +83,9 @@ function openEditModal(productId)
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
         $('#editItemQty').val(product.itemQuantity);
+        $('#editItemPrice').val(product.itemPrice);
+        $('#editProductType').val(product.productType);
+        $('#editItemQtyAvailable').val(product.itemAvailableQty)
 
         //Open the modal
         let editModal = new bootstrap.Modal(document.getElementById('editModal'));
@@ -91,10 +95,16 @@ function openEditModal(productId)
 
 function submitEditForm()
 {
+    let currentDate = new Date();
+
     let itemData = {
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
-        itemQuantity: $('#editItemQty').val()
+        itemQuantity: $('#editItemQty').val(),
+        itemPrice: $('#editItemPrice').val(),
+        productType: $('#editProductType').val(),
+        itemAvailableQty: $('#editItemAvailableQty').val(),
+        dateModified: currentDate,
     };
     //Remember: PUT -> Send data to the server to update an existing resource
     $.ajax({url: "/product/" + itemData.id,
@@ -147,6 +157,13 @@ function updateLoadProductForm()
     });
 }
 
+//This is just to get a confirmation from the user, that they will change a sensitive data
+document.getElementById('editItemQtyAvailable').addEventListener('change',stockAlert);
+function stockAlert() {
+    confirm("Você tem certeza eu deseja alterar o Estoque?");
+}
+
+
 
 
 
@@ -159,9 +176,15 @@ formSubmission('#itemForm', '/saveProduct', productFormData, productSaveSuccess,
 //Get the form data from the form
 function productFormData()
 {
+    let currentDate = new Date();
+
     return {
         itemDescription: $('#itemDescription').val(),
-        itemQuantity: $('#itemQty').val()
+        itemQuantity: $('#itemQty').val(),
+        productType: $('#productType').val(),
+        dateCreated: currentDate,
+        dateModified: currentDate,
+        itemPrice: $('#itemPrice').val(),
     };
 }
 

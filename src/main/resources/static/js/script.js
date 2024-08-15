@@ -87,229 +87,77 @@ function handleError(errorMessage)
 }
 
 
-
-
-/**
- Page: Rent and Index
- Item: Form (modal)
- Method: This is a jQuery method that allows
- the user to make asynchronous requests to the server
- to send or receive data without having to reload the page.
- */
-
-function openEditModal(rentId)
-{
-    console.log("Open Edit Modal, ID: " + rentId);
-
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/rent/" + rentId, function(rent)
+/** Method: Create a list of all items and display it in the Product field of the Sales and Rent Form*/
+function loadProductListByProductType(productType){
+    ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data)
     {
-        //Fill in the form fields in the modal using Selectors $() to select HTML elements based on their IDs.
-        $('#editRentId').val(rent.id);
-        $('#editRentFirstName').val(rent.rentFirstName);
-        $('#editRentLastName').val(rent.rentLastName);
-        $('#editRentAddress').val(rent.rentAddress);
-        $('#editRentItem').val(rent.rentItem);
-        $('#editRentQtyItem').val(rent.rentQtyItem);
-        $('#editRentPrice').val(rent.rentPrice);
-        $('#editRentStarts').val(rent.rentStarts);
-        $('#editRentEnds').val(rent.rentEnds);
-        $('#editRentTotalDays').val(rent.rentTotalDays);
-        $('#editRentTotalPrice').val(rent.rentTotalPrice.toFixed(2));
-        $('#editRentPaymentStatus').val(rent.rentPaymentStatus);
-        $('#editRentDetails').val(rent.rentDetails);
-        $('#editRentStatus').val(rent.rentStatus);
+        //variable
+        // let saleItemSelect = $('#saleItem');
+        // let rentItemSelect = $('#rentItem');
 
-        //Open the modal
-        let editModal = new bootstrap.Modal(document.getElementById('editModal'));
-        editModal.show();
-    });
-}
+        let productSelects = [$('#saleItem'), $('#rentItem'), $('#editRentItem')]; // Array of both select elements
+        productSelects.forEach(function (selectElement) {
+            //cleaning to display each item only once
+            selectElement.empty();
 
-/**
- Page: Rent and Index
- Item: Form (modal) - > Field Customer
- Method: The script will load the available customers in the rental form when the page loads
- */
-function updateLoadCustomerForRentForm()
-{
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/customers", function(data)
-    {
-        //Local variable
-        var rentCustomerSelect = $('#editRentFirstName');
-
-        //Cleaning
-        rentCustomerSelect.empty();
-
-        //Iteration
-        data.forEach(function(customer)
-        {
-            rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
-                customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'</option>');
-        });
-    });
-}
-
-/**
- Page: Rent and Index
- Item: Form - Customer field
- Method: The script will load the available ITEMS in the rental form when the page loads
- */
-function loadEditItemsForRentFormModal()
-{
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/product", function(data)
-    {
-        //local variable
-        var rentItemSelect = $('#editRentItem');
-
-        //cleaning
-        rentItemSelect.empty();
-
-        //Iteration
-        data.forEach(function(product)
-        {
-            rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
-        });
-    });
-}
-
-
-
-/**
- Page: Rent and Index
- Item: Form (modal)
- Method: Send the data to update my database
- */
-function submitEditForm() {
-    let rentData = {
-        id: $('#editRentId').val(),
-        rentFirstName: $('#editRentFirstName').val(),
-        rentLastName: $('#editRentLastName').val(),
-        rentAddress: $('#editRentAddress').val(),
-        rentItem: $('#editRentItem').val(),
-        rentQtyItem: parseInt($('#editRentQtyItem').val()),
-        rentPrice: parseFloat($('#editRentPrice').val()),
-        rentStarts: $('#editRentStarts').val(),
-        rentEnds: $('#editRentEnds').val(),
-        rentTotalDays: parseInt($('#editRentTotalDays').val()),
-        rentTotalPrice: parseFloat($('#editRentTotalPrice').val()),
-        rentPaymentStatus: $('#editRentPaymentStatus').val(),
-        rentDetails: $('#editRentDetails').val(),
-        rentStatus: $('#editRentStatus').val()
-    };
-
-    //this is a log to check what's it will send
-    console.log(rentData);
-
-    $.ajax({ //allows updating parts of a web page without reloading the entire page
-        url: '/rent/' + rentData.id, //indicates the endpoint
-        type: 'PUT', //HTTP request methods used to INSERT data to the server (backend), indicating by the endpoint specified by the URL
-        contentType: 'application/json',
-        data: JSON.stringify(rentData),
-
-        success: function(response) {
-            alert('Rent updated successfully');
-            $('#editModal').modal('hide');
-            loadRent();
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
-            alert('Oops, something went wrong!');
-        }
-    });
-}
-
-
-
-/**
- Page: Rent and Index
- Item: Form (modal) -> Edit Rent Status
- Method: This update the stock, adding the qty in to stock available
- */
-function updateRentStatus()
-{
-    //Get the rent ID from the hidden input field in the form
-    let rentId = $('#editRentId').val();
-    console.log(rentId);
-
-    //Get the new status value from the dropdown menu
-    let status = $('#editRentStatus').val();
-    console.log(status);
-
-    $.ajax({ //allows updating parts of a web page without reloading the entire page
-        url: "/rent/status/" + rentId + "?rentStatus=" + status, //indicates the endpoint
-        type: 'PUT', //HTTP request methods used to INSERT/UPDATE data to the server (backend)
-        data: {status: status}, //The data to send in the request, here we're sending the new status
-
-        //Callback function to execute if the request is successful
-        success: function(response)
-        {
-            alert('Rent status has been changed.' +
-                '\nEnsure that you choose the correct option!');
-            console.log("Rent status has been changed", response);
-        },
-        //Callback function to execute if there's an error with the request
-        error: function(xhr, status, error) {
-            console.error("Error updating rent status" + error);
-        }
-    });
-}
-
-
-
-
-
-
-/**
- Page: Customers, bla bla bla...
- Item: Form
- Method: Send the customer data by using AJAX
- */
-function formSubmission(formId, url, formDataFunction, successCallback, errorCallback)
-{
-    $(document).ready(function()
-    {
-        //Get the form ID that contain the all data. Remember: FormID is ID from the form on HTML
-        $(formId).on('submit', function(event)
-        {
-            //Prevents the default behavior of the browser, which would reload the page and send the form data synchronously
-            event.preventDefault();
-
-            //Get the form data
-            let formData = formDataFunction();
-
-            $.ajax({
-                url: url,
-                data: JSON.stringify(formData),
-                type: 'POST',
-                contentType: 'application/json',
-                success: function(response){
-                    if(successCallback)
-                    {
-                        successCallback(response);
-                    }
-                },
-                error: function(xhr, status, error)
-                {
-                    if(errorCallback)
-                    {
-                        let errorMessage = xhr.responseText;
-                        alert("From the Server: " + errorMessage);
-                        errorCallback(error);
-                    }
-                }
+            //Iteration
+            data.forEach(function (product)
+            {
+                selectElement.append('<option id="' + product.id + '" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
             });
         });
     });
 }
 
-/**
- Item: Form
- Method: Callback function for error
- */
-function saveError(error) {
-    alert('Failed to add this form. Please try again.');
-    console.error(error);
+
+//Everytime that the user change the field item, the price will be updated
+$('#rentItem, #editRentItem, #saleItem').change(function() {
+    console.log('Change event triggered');
+
+    let selectedOption = $(this).find(':selected');
+
+    let price = selectedOption.attr('price');
+
+    if ($(this).attr('id') === 'rentItem') {
+        console.log('Selected option:', selectedOption);
+        $('#rentPrice').val(price);
+    }
+
+    else if ($(this).attr('id') === 'editRentItem') {
+        console.log('Selected option:', selectedOption);
+        $('#editRentPrice').val(price);
+        updateTotalPrice();
+    }
+
+    else if ($(this).attr('id') === 'saleItem') {
+        console.log('Selected option:', selectedOption);
+        $('#salePrice').val(price);
+
+        //any changes needed to update the total price !NEED TO PUT THIS ON MODAL
+        loadTotalPriceSales();
+    }
+
+
+
+});
+
+
+function loadCustomers(selectId) {
+    ajaxRequest("/customers", function (data) {
+        const customerSelect = $(selectId);
+        customerSelect.empty();
+
+        data.forEach(function (customer) {
+            customerSelect.append(
+                `<option value="${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}">${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}</option>`
+            );
+        });
+    });
 }
+
+
+
+
+
+
+

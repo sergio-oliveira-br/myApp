@@ -24,11 +24,14 @@ $(document).ready(function()
     loadRentDays();
 
     //The script will load the available customers in the rental form when the page loads
-    loadCustomerForRentForm(); //This is for original form
+    // loadCustomerForRentForm(); //This is for original form
+    loadCustomers('#rentFirstName');
 
     //The script will load the available items in the rental form when the page loads
-    loadItemsForRentForm();
-    loadEditItemsForRentFormModal(); //This is for edit modal
+    // loadItemsForRentForm();
+    //load the items witch are classified as "Aluguel" em productType
+    loadProductListByProductType('Aluguel');
+    // loadEditItemsForRentFormModal(); //This is for edit modal
 
     //(Modal)The script will load the available items in the rental form when the page loads
     updateLoadCustomerForRentForm();
@@ -40,7 +43,7 @@ $(document).ready(function()
     });
 
     //(Modal)Update total price when price or quantity change
-    $('#editRentPrice, #editRentQtyItem').on('change', function() {
+    $('#editRentPrice, #editRentQtyItem, #editRentStarts, #editRentEnds').on('change', function() {
         console.log('Price or Quantity input changed');
         updateTotalPrice();
     });
@@ -79,7 +82,6 @@ function loadRent()
             $('#rentList').append('<tr>' +
                 '<td>' + rent.id + '</td>' +
                 '<td>' + rent.rentFirstName + '</td>' +
-                /** '<td>' + rent.rentLastName + '</td>' + */
                 '<td>' + rent.rentAddress + '</td>' +
                 '<td>' + rent.rentItem + '</td>' +
                 '<td>' + rent.rentQtyItem + '</td>' +
@@ -101,24 +103,24 @@ function loadRent()
  Item: Form - Customer field
  Method: The script will load the available CUSTOMERS in the rental form when the page loads
  */
-function loadCustomerForRentForm()
-{
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/customers", function(data)
-    {
-        //Local variable
-        var rentCustomerSelect = $('#rentFirstName');
-
-        //cleaning
-        rentCustomerSelect.empty();
-
-        //Iteration
-        data.forEach(function(customer) {
-            rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
-                customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'</option>');
-        });
-    });
-}
+// function loadCustomerForRentForm()
+// {
+//     //Call the generic function, that perform an AJAX request
+//     ajaxRequest("/customers", function(data)
+//     {
+//         //Local variable
+//         let rentCustomerSelect = $('#rentFirstName');
+//
+//         //cleaning
+//         rentCustomerSelect.empty();
+//
+//         //Iteration
+//         data.forEach(function(customer) {
+//             rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
+//                 customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber +'</option>');
+//         });
+//     });
+// }
 
 
 
@@ -127,23 +129,23 @@ function loadCustomerForRentForm()
  Item: Form - Customer field
  Method: The script will load the available ITEMS in the rental form when the page loads
  */
-function loadItemsForRentForm()
-{
-    ajaxRequest("/product", function(data)
-    {
-        //Local Variable
-        var rentItemSelect = $('#rentItem');
-
-        //Cleaning
-        rentItemSelect.empty();
-
-        //Iteration
-        data.forEach(function(product)
-        {
-            rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
-        });
-    });
-}
+// function loadItemsForRentForm()
+// {
+//     ajaxRequest("/product", function(data)
+//     {
+//         //Local Variable
+//         var rentItemSelect = $('#rentItem');
+//
+//         //Cleaning
+//         rentItemSelect.empty();
+//
+//         //Iteration
+//         data.forEach(function(product)
+//         {
+//             rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
+//         });
+//     });
+// }
 
 
 
@@ -278,7 +280,7 @@ function orderFormData()
 {
     return {
         rentFirstName: $('#rentFirstName').val(),
-        rentLastName: $('#rentLastName').val(),
+        // rentLastName: $('#rentLastName').val(),
         rentAddress: $('#rentAddress').val(),
         rentItem: $('#rentItem').val(),
         rentQtyItem: $('#rentQtyItem').val(),
@@ -306,3 +308,4 @@ function orderSaveSuccess(response)
     //Clear the form by resetting it
     document.getElementById('rentForm').reset();
 }
+

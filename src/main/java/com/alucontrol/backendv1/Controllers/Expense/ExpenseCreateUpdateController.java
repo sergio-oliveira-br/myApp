@@ -60,7 +60,8 @@ public class ExpenseCreateUpdateController
 
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
+                            "Please report it to technical support with pictures." + " | " +
+                            "Error: " + e.getMessage());
 
             //Throw the exception (if there is an error)
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);

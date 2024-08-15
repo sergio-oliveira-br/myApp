@@ -69,36 +69,7 @@ public class ProductCreateUpdateController
         }
     }
 
-    /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
-    @GetMapping("/product/{id}")
-    public ResponseEntity<?> getProductByID(@PathVariable Long id)
-    //the "?" above makes the method be of the generic type or a type that can return different types of response
-    {
-        try
-        {
-            Optional<Product> productOptional = productRepository.findById(id);
-            if(productOptional.isPresent()) {
-                return ResponseEntity.ok(productOptional.get());
-            }
 
-            else {
-                return ResponseEntity.notFound().build();
-            }
-
-        } catch (Exception e) {
-            //Log
-            LoggerUtil.error("An error occurred while fetching product data." +
-                    "Product: " + id+ " | " +
-                    "Error: " + e.getMessage(), e);
-
-            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
-
-            //Return an internal error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
-        }
-    }
 
     /** Endpoint to update a specific rent by ID */
     @PutMapping("/product/{id}")
@@ -114,7 +85,10 @@ public class ProductCreateUpdateController
             //get to set the fields with the same value
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
-            product.setItemAvailableQty(product.getItemQuantity());
+            product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
+            product.setProductType(updatedProduct.getProductType());
+            product.setItemPrice(updatedProduct.getItemPrice());
+            product.setDateModified(updatedProduct.getDateModified());//this will get data and time when the item has been changed
 
             Product savedProduct = productRepository.save(product);
 

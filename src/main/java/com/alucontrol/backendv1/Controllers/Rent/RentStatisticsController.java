@@ -10,13 +10,8 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
-import com.alucontrol.backendv1.Projection.ItemQtyDateProjection;
 import com.alucontrol.backendv1.Repository.RentRepository;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /** This controller contains specific methods for custom operations
  *  It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses*/
