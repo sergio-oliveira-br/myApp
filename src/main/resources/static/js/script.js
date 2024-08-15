@@ -87,6 +87,28 @@ function handleError(errorMessage)
 }
 
 
+/** Method: Create a list of all items and display it in the Product field of the Sales and Rent Form*/
+function loadProductListByProductType(productType){
+    ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data)
+    {
+        //variable
+        // let saleItemSelect = $('#saleItem');
+        // let rentItemSelect = $('#rentItem');
+
+        let productSelects = [$('#saleItem'), $('#rentItem')]; // Array of both select elements
+        productSelects.forEach(function (selectElement) {
+            //cleaning to display each item only once
+            selectElement.empty();
+
+            //Iteration
+            data.forEach(function (product)
+            {
+                selectElement.append('<option id="' + product.id + '" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
+            });
+        });
+    });
+}
+
 
 
 

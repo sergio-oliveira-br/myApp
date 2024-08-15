@@ -27,7 +27,9 @@ $(document).ready(function()
     loadCustomerForRentForm(); //This is for original form
 
     //The script will load the available items in the rental form when the page loads
-    loadItemsForRentForm();
+    // loadItemsForRentForm();
+    //load the items witch are classified as "Aluguel" em productType
+    loadProductListByProductType('Aluguel');
     loadEditItemsForRentFormModal(); //This is for edit modal
 
     //(Modal)The script will load the available items in the rental form when the page loads
@@ -127,23 +129,23 @@ function loadCustomerForRentForm()
  Item: Form - Customer field
  Method: The script will load the available ITEMS in the rental form when the page loads
  */
-function loadItemsForRentForm()
-{
-    ajaxRequest("/product", function(data)
-    {
-        //Local Variable
-        var rentItemSelect = $('#rentItem');
-
-        //Cleaning
-        rentItemSelect.empty();
-
-        //Iteration
-        data.forEach(function(product)
-        {
-            rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
-        });
-    });
-}
+// function loadItemsForRentForm()
+// {
+//     ajaxRequest("/product", function(data)
+//     {
+//         //Local Variable
+//         var rentItemSelect = $('#rentItem');
+//
+//         //Cleaning
+//         rentItemSelect.empty();
+//
+//         //Iteration
+//         data.forEach(function(product)
+//         {
+//             rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
+//         });
+//     });
+// }
 
 
 
@@ -306,3 +308,18 @@ function orderSaveSuccess(response)
     //Clear the form by resetting it
     document.getElementById('rentForm').reset();
 }
+
+
+//Everytime that the user change the field item, the price will be updated
+$('#rentItem').change(function() {
+    console.log('Change event triggered');
+
+    let selectedOption = $('#rentItem option:selected');
+    console.log('Selected option:', selectedOption);
+
+    let rentPriceInput = $('#rentPrice');
+
+    let price = selectedOption.attr('price');
+
+    rentPriceInput.val(price);
+});

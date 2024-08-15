@@ -41,22 +41,6 @@ function loadCustomerList(){
     });
 }
 
-/** Method: Create a list of all items and display it in the Product field of the Sales form*/
-function loadProductListByProductType(productType){
-    ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data)
-    {
-        //variable
-        let saleItemSelect = $('#saleItem');
-
-        //cleaning to display each item only once
-        saleItemSelect.empty();
-
-        //Iteration
-        data.forEach(function(product){
-            saleItemSelect.append('<option id="' + product.id +'" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
-        });
-    });
-}
 
 //Everytime that the user change the field item, the price will be updated
 $('#saleItem').change(function() {
