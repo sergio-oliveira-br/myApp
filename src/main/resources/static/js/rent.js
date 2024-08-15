@@ -30,7 +30,7 @@ $(document).ready(function()
     // loadItemsForRentForm();
     //load the items witch are classified as "Aluguel" em productType
     loadProductListByProductType('Aluguel');
-    loadEditItemsForRentFormModal(); //This is for edit modal
+    // loadEditItemsForRentFormModal(); //This is for edit modal
 
     //(Modal)The script will load the available items in the rental form when the page loads
     updateLoadCustomerForRentForm();
@@ -309,17 +309,3 @@ function orderSaveSuccess(response)
     document.getElementById('rentForm').reset();
 }
 
-
-//Everytime that the user change the field item, the price will be updated
-$('#rentItem').change(function() {
-    console.log('Change event triggered');
-
-    let selectedOption = $('#rentItem option:selected');
-    console.log('Selected option:', selectedOption);
-
-    let rentPriceInput = $('#rentPrice');
-
-    let price = selectedOption.attr('price');
-
-    rentPriceInput.val(price);
-});

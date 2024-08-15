@@ -95,7 +95,7 @@ function loadProductListByProductType(productType){
         // let saleItemSelect = $('#saleItem');
         // let rentItemSelect = $('#rentItem');
 
-        let productSelects = [$('#saleItem'), $('#rentItem')]; // Array of both select elements
+        let productSelects = [$('#saleItem'), $('#rentItem'), $('#editRentItem')]; // Array of both select elements
         productSelects.forEach(function (selectElement) {
             //cleaning to display each item only once
             selectElement.empty();
@@ -108,6 +108,38 @@ function loadProductListByProductType(productType){
         });
     });
 }
+
+
+//Everytime that the user change the field item, the price will be updated
+$('#rentItem, #editRentItem, #saleItem').change(function() {
+    console.log('Change event triggered');
+
+    let selectedOption = $(this).find(':selected');
+
+    let price = selectedOption.attr('price');
+
+    if ($(this).attr('id') === 'rentItem') {
+        console.log('Selected option:', selectedOption);
+        $('#rentPrice').val(price);
+    }
+
+    else if ($(this).attr('id') === 'editRentItem') {
+        console.log('Selected option:', selectedOption);
+        $('#editRentPrice').val(price);
+        updateTotalPrice();
+    }
+
+    else if ($(this).attr('id') === 'saleItem') {
+        console.log('Selected option:', selectedOption);
+        $('#salePrice').val(price);
+
+        //any changes needed to update the total price !NEED TO PUT THIS ON MODAL
+        loadTotalPriceSales();
+    }
+
+
+
+});
 
 
 

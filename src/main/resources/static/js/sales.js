@@ -42,19 +42,19 @@ function loadCustomerList(){
 }
 
 
-//Everytime that the user change the field item, the price will be updated
-$('#saleItem').change(function() {
-    console.log('Change event triggered');
-
-    let selectedOption = $('#saleItem option:selected');
-    console.log('Selected option:', selectedOption);
-
-    let salePriceInput = $('#salePrice');
-
-    let price = selectedOption.attr('price');
-
-    salePriceInput.val(price);
-});
+// //Everytime that the user change the field item, the price will be updated
+// $('#saleItem').change(function() {
+//     console.log('Change event triggered');
+//
+//     let selectedOption = $('#saleItem option:selected');
+//     console.log('Selected option:', selectedOption);
+//
+//     let salePriceInput = $('#salePrice');
+//
+//     let price = selectedOption.attr('price');
+//
+//     salePriceInput.val(price);
+// });
 
 /** Method: Send the sales data by using AJAX */
 formSubmission('#saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveError);
@@ -96,7 +96,7 @@ function loadTotalPriceSales(){
 
     //Write
     document.getElementById('saleTotalPrice').value = finalTotalPrice.toFixed(2);
-    console.log(finalTotalPrice);
+    console.log("Final Price Calculated: " + finalTotalPrice);
 }
 
 //Update everytime that one of these five field is changed
