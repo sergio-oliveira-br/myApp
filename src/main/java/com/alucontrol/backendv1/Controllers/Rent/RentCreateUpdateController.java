@@ -52,7 +52,7 @@ public class RentCreateUpdateController
 
             //The stock will be subtracted based on the user's input
             //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
-            if(rent.getRentStatus().equals("New")) {
+            if(rent.getRentStatus().equals("Novo")) {
                 //log
                 LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
             }
