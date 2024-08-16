@@ -14,8 +14,8 @@ $(document).ready(function ()
 {
     //This will display a number by status within the cards
     loadNumRentUnpaid();
-    loadNumRentByStatus('New');
-    loadNumRentByStatus('InProgress');
+    loadNumRentByStatus('Novo');
+    loadNumRentByStatus('Em andamento');
 
     //(MODAL)The script will load the available items and customers in the rental form when the page loads
     loadEditItemsForRentFormModal();
@@ -69,12 +69,12 @@ function loadNumRentByStatus(status)
     let url = "/qtyRentStatus" + status; //indicates the endpoint
     let selector;
 
-    if (status === 'New')
+    if (status === 'Novo')
     {
         selector = '#loadRentStatusNew';
     }
 
-    else if (status === 'InProgress')
+    else if (status === 'Em andamento')
     {
         selector = '#loadRentStatusInProgress';
     }
