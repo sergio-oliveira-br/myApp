@@ -127,11 +127,11 @@
 
                 <!-- Rent Unpaid - Display a summary of the rentals opened  -->
                 <div class="card">
-                    <h5 class="card-header">Rent Unpaid</h5>
+                    <h5 class="card-header">Aluguéis a Receber</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Track your unpaid rentals</h5>
+                        <h5 class="card-title">Acompanhe seus aluguéis não pagos.</h5>
                         <p class="card-text" id="loadRentUnpaid">That's Good! All yours Rentals have been paid</p>
-                        <button onclick="displayRentByPaymentStatusIndex('Unpaid')" class="btn btn-primary">More Information</button>
+                        <button onclick="displayRentByPaymentStatusIndex('Unpaid')" class="btn btn-primary">Mais Informações</button>
                     </div>
                 </div>
 
@@ -152,11 +152,10 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Expenses</h5>
-                                <p class="card-text">Is there anything else you need to add?
-                                    <br>Review your expenses on the Report Page</p>
-                                <button onclick="goToExpensePage()" class="btn btn-primary">New Expenses</button>
-                                <button onclick="goToExpenseReportPage()" class="btn btn-outline-secondary">Report Page</button>
+                                <h5 class="card-title">Despesas</h5>
+                                <p class="card-text">Há mais alguma despesa que você precisa adicionar?
+                                <button onclick="goToExpensePage()" class="btn btn-primary">Nova Despesa</button>
+                                <button onclick="goToExpenseReportPage()" class="btn btn-outline-secondary">Relatório</button>
                             </div>
                         </div>
                     </div>
@@ -167,10 +166,10 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Rent Status: In Progress</h5>
-                                <p class="card-text">Monitor your rentals that are in progress.</p>
-                                <p id="loadRentStatusInProgress"> There is no Rent In Progress so far</p>
-                                <button onclick="displayRentByStatusIndex('In Progress')" class="btn btn-primary">See all them</button>
+                                <h5 class="card-title">Alugueis em andamento</h5>
+                                <p class="card-text">Monitore seus aluguéis que estão em andamento.</p>
+                                <p id="loadRentStatusInProgress">Não há nenhum aluguel em andamento por enquanto.</p>
+                                <button onclick="displayRentByStatusIndex('In Progress')" class="btn btn-primary">Confira-os</button>
                             </div>
                         </div>
                     </div>
@@ -179,10 +178,10 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Rent Status: New</h5>
-                                <p class="card-text">The rentals that haven't begun yet.</p>
-                                <p id="loadRentStatusNew"> There is no New Rent </p>
-                                <button onclick="displayRentByStatusIndex('New')" class="btn btn-primary">See all them</button>
+                                <h5 class="card-title">Aluguéis que ainda nao começaram</h5>
+                                <p class="card-text">Fique de olho nos aluguéis que começaram em breve.</p>
+                                <p id="loadRentStatusNew">Você não possui nenhum aluguel agendado.</p>
+                                <button onclick="displayRentByStatusIndex('New')" class="btn btn-primary">Saiba mais</button>
                             </div>
                         </div>
                     </div>
@@ -190,13 +189,13 @@
 
                 <!-- SOLD - Display a summary of the SOLD items  -->
                 <div class="card">
-                    <h5 class="card-header">Sales</h5>
+                    <h5 class="card-header">Vendas</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Manage Your Sales</h5>
-                        <p> You have the option to either create or view what you have already sold. </p>
-                        <button onclick="displayMsgWIP()" class="btn btn-primary">New Sale</button>
-                        <button onclick="displayRentByStatusIndex('Sold')" class="btn btn-secondary">Your Sales</button>
-                        <button onclick="goToReportPage()" class="btn btn-outline-secondary">Report Page</button>
+                        <h5 class="card-title">Gerêncie suas Vendas</h5>
+                        <p>Você tem a opção de criar ou visualizar o que já vendeu.</p>
+                        <button onclick="displayMsgWIP()" class="btn btn-primary">Nova Venda</button>
+                        <button onclick="displayMsgWIP()" class="btn btn-secondary">Itens Vendidos</button>
+                        <button onclick="goToReportPage()" class="btn btn-outline-secondary">Relatório</button>
                     </div>
                 </div>
                 <!-- Ends Cards-->
@@ -208,7 +207,7 @@
 
                             <!--- Header -->
                             <div class="modal-header">
-                                <h3 class="modal-title"> Information </h3>
+                                <h3 class="modal-title"> Informações </h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div> <!--modal-header-->
 
@@ -217,10 +216,10 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th scope="col"> Customer </th>
+                                            <th scope="col"> Cliente </th>
                                             <th scope="col"> Item </th>
-                                            <th scope="col"> Payment </th>
-                                            <th scope="col"> Total Price </th>
+                                            <th scope="col"> Pagamento </th>
+                                            <th scope="col"> Preço Total </th>
                                             <th scope="col"> Status </th>
                                         </tr>
                                     </thead>
@@ -241,7 +240,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Rent</h5>
+                        <h5 class="modal-title" id="editModalLabel">Edite os Aluguéis</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -250,37 +249,37 @@
                             <input type="hidden" id="editRentId" name="id">
 
                             <div class="mb-3">
-                                <label for="editRentFirstName" class="form-label">First Name</label>
+                                <label for="editRentFirstName" class="form-label">Cliente</label>
                                 <select class="form-control" id="editRentFirstName" name="rentFirstName" readonly></select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="editRentTotalPrice" class="form-label">Total Price</label>
+                                <label for="editRentTotalPrice" class="form-label">Preço Total</label>
                                 <input type="text" class="form-control" id="editRentTotalPrice" name="rentTotalPrice" readonly>
                             </div>
 
                             <div class="mb-3">
                                 <label for="editRentPaymentStatus" class="form-label">Status</label>
                                 <select type="text" class="form-control" id="editRentPaymentStatus" name="editRentPaymentStatus" required>
-                                    <option>Paid</option>
-                                    <option>Unpaid</option>
+                                    <option>Pago</option>
+                                    <option>A Receber</option>
                                 </select>
                                 <div class="invalid-feedback">What about the payment status?</div>
                             </div>
 
                             <div class="col-md-5">
-                                <label for="editRentStatus" class="">Rent Status</label>
+                                <label for="editRentStatus" class="">Status</label>
                                 <select class="form-select" id="editRentStatus" name="editRentStatus" required>
                                     <option selected disabled value="" ></option>
-                                    <option>New</option>
-                                    <option>In Progress</option>
-                                    <option>Finished</option>
-                                    <option>Sold</option> <!--  This option should not be available to the user -->
+                                    <option>Novo</option>
+                                    <option>Em andamento</option>
+                                    <option>Encerrado</option>
+<!--                                    <option>Sold</option> &lt;!&ndash;  This option should not be available to the user &ndash;&gt;-->
                                 </select>
                                 <div class="invalid-feedback">Could you tell me what the status of this rent is?</div>
                             </div><br>
 
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Salvar alterações</button>
                             <!-- Ends what the user can change or see -->
 
 
@@ -314,8 +313,8 @@
                                 <!-- Head table -->
                                 <thead>
                                     <tr>
-                                        <th scope="col">Item Description</th>
-                                        <th scope="col">Available Qty</th>
+                                        <th scope="col">Descrição</th>
+                                        <th scope="col">Qtd Disponível</th>
                                     </tr>
                                 </thead>
                                 <!-- Content table -->
@@ -324,7 +323,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                       <a href="products.html" type="button" class="btn btn-primary">Página dos Produtos</a>
                     </div>
                 </div>
