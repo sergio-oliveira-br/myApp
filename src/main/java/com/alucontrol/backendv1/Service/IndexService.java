@@ -30,25 +30,25 @@ public class IndexService
 
     /** Method: get back the number of rent UNPAID from DB
      *  Pointing to indexScript.js*/
-    public Long getQtyRentUnpaid()
-    {
-        try
-        {
-            //call the repository method, witch has the info about the RENT
-            Long qtyRentUnpaid = rentRepository.countUnpaidRents();
-
-            if(qtyRentUnpaid == null)
-            {
-                throw new ResourceNotFoundException("Oops! The database does not contain any Unpaid Rent");
-            }
-            return qtyRentUnpaid;
-        }
-        catch (Exception e)
-        {
-            LoggerUtil.error("While searching for unpaid rentals, an error occurred. " + e.getMessage());
-            throw new ResourceNotFoundException("Could not find a number of unpaid rentals");
-        }
-    }
+//    public Long getQtyRentUnpaid()
+//    {
+//        try
+//        {
+//            //call the repository method, witch has the info about the RENT
+//            Long qtyRentUnpaid = rentRepository.countUnpaidRents();
+//
+//            if(qtyRentUnpaid == null)
+//            {
+//                throw new ResourceNotFoundException("Oops! The database does not contain any Unpaid Rent");
+//            }
+//            return qtyRentUnpaid;
+//        }
+//        catch (Exception e)
+//        {
+//            LoggerUtil.error("While searching for unpaid rentals, an error occurred. " + e.getMessage());
+//            throw new ResourceNotFoundException("Could not find a number of unpaid rentals");
+//        }
+//    }
 
 
 
@@ -56,23 +56,23 @@ public class IndexService
      * Method: get the number of rent witch has the status "NEW"
      * Pointing to indexScript.js
      */
-    public Long getQtyRentStatusNew() {
-        try
-        {
-            //call the repository method, witch has the info about the RENT
-            Long qtyRentStatusNew = rentRepository.countRentStatusNew();
-
-            //exception handling
-            if (qtyRentStatusNew == null) {
-                throw new ResourceNotFoundException("Oops! There are no new Rents in the database");
-            }
-            return qtyRentStatusNew; //return the number of rent witch has the status "NEW"
-
-        } catch (Exception e) {
-            LoggerUtil.error("While searching for new status rentals, an error occurred. " + e.getMessage());
-            throw new ResourceNotFoundException("Could not find a number of new status rentals");
-        }
-    }
+//    public Long getQtyRentStatusNew() {
+//        try
+//        {
+//            //call the repository method, witch has the info about the RENT
+//            Long qtyRentStatusNew = rentRepository.countRentStatusNew();
+//
+//            //exception handling
+//            if (qtyRentStatusNew == null) {
+//                throw new ResourceNotFoundException("Oops! There are no new Rents in the database");
+//            }
+//            return qtyRentStatusNew; //return the number of rent witch has the status "NEW"
+//
+//        } catch (Exception e) {
+//            LoggerUtil.error("While searching for new status rentals, an error occurred. " + e.getMessage());
+//            throw new ResourceNotFoundException("Could not find a number of new status rentals");
+//        }
+//    }
 
 
 
@@ -80,25 +80,25 @@ public class IndexService
      * Method: get the number of rent witch has the status "IN PROGRESS"
      * Pointing to indexScript.js
      */
-    public Long getQtyRentStatusInProgress()
-    {
-        try
-        {
-            //Call the repository method, witch has the info about the RENT
-            Long qtyRentStatusInProgress = rentRepository.countRentStatusInProgress();
-
-            //exception handling
-            if (qtyRentStatusInProgress == null)
-            {
-                throw new ResourceNotFoundException("Oops! There are no rents in progress the database");
-            }
-
-            return qtyRentStatusInProgress; //return a number of rent witch has the status "IN PROGRESS"
-        }
-        catch (Exception e)
-        {
-            LoggerUtil.error("While searching for rentals in progress, an error occurred. " + e.getMessage());
-            throw new ResourceNotFoundException("Could not find a number of rentals in progress");
-        }
-    }
+//    public Long getQtyRentStatusInProgress()
+//    {
+//        try
+//        {
+//            //Call the repository method, witch has the info about the RENT
+//            Long qtyRentStatusInProgress = rentRepository.countRentStatusInProgress();
+//
+//            //exception handling
+//            if (qtyRentStatusInProgress == null)
+//            {
+//                throw new ResourceNotFoundException("Oops! There are no rents in progress the database");
+//            }
+//
+//            return qtyRentStatusInProgress; //return a number of rent witch has the status "IN PROGRESS"
+//        }
+//        catch (Exception e)
+//        {
+//            LoggerUtil.error("While searching for rentals in progress, an error occurred. " + e.getMessage());
+//            throw new ResourceNotFoundException("Could not find a number of rentals in progress");
+//        }
+//    }
 }

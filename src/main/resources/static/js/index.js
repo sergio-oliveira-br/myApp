@@ -13,9 +13,8 @@
 $(document).ready(function ()
 {
     //This will display a number by status within the cards
-    loadNumRentUnpaid();
     loadNumRentByStatus('Novo');
-    loadNumRentByStatus('EmAndamento');
+    loadNumRentByStatus('Em andamento');
 
     //(MODAL)The script will load the available items and customers in the rental form when the page loads
     updateLoadCustomerForRentForm();
@@ -37,51 +36,56 @@ $(document).ready(function ()
 
 /**
  Item: Card (UNPAID)
- Method: Obtain the number of rent witch the status is UNPAID
+ Method: Obtain the number of rent which the status is UNPAID
  */
-function loadNumRentUnpaid ()
-{
-    //Call the generic function, that perform an AJAX request
-    ajaxRequest("/qtyRentUnpaid", function (data)
-    {
-        if (data == 0)
-        {
-            $('#loadRentUnpaid').text("That's Good! All your rentals have been paid");
-        }
-
-        else
-        {
-            $('#loadRentUnpaid').text('You have ' + data + ' rentals unpaid.');
-            alert("You have " + data + " rentals unpaid.");
-        }
-    });
-}
+// function loadNumRentUnpaid(rentStatus)
+// {
+//     //Call the generic function, that perform an AJAX request
+//     ajaxRequest("/qtyRentByStatus" + rentStatus ,  function (data)
+//     {
+//         if (data == 0)
+//         {
+//             $('#loadRentUnpaid').text("That's Good! All your rentals have been paid");
+//         }
+//
+//         else
+//         {
+//             $('#loadRentUnpaid').text('You have ' + data + ' rentals unpaid.');
+//             alert("You have " + data + " rentals unpaid.");
+//         }
+//     });
+// }
 
 
 
 /**
- Method: Obtain the number of rent witch the status is NEW
+ Method: Obtain the number of rent which the status is
  */
 function loadNumRentByStatus(status)
 {
-    //local variable
-    let url = "/qtyRentStatus" + status; //indicates the endpoint
-    let selector;
+    //Sets the endpoint URL with the status parameter
+    //let url = "/qtyRentByStatus?rentStatus=" + (status); //indicates the endpoint
+    let url = `/qtyRentByStatus?rentStatus=${encodeURIComponent(status)}`
 
-    if (status === 'Novo')
-    {
-        selector = '#loadRentStatusNew';
-    }
+    //Set the selector based on status
+    let selectors = {
+        'Novo' : '#loadRentStatusNew',
+        'Em andamento' : '#loadRentStatusInProgress'
+    };
 
-    else if (status === 'EmAndamento')
-    {
-        selector = '#loadRentStatusInProgress';
+    //Get the appropriate selector
+    let selector = selectors[status];
+
+    //Handling Exceptions
+    if (!selector) {
+        console.warn(`No selector found for status: ${status}`);
+        return;
     }
 
     //Call the generic function, that perform an AJAX request
     ajaxRequest(url, function (data)
     {
-        $(selector).text('You have ' + data + ' Rents')
+        $(selector).text('Voce possui ' + data + ' aluguéis "' + status + '"')
     });
 }
 

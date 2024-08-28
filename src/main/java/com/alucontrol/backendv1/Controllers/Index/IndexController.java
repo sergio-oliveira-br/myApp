@@ -10,12 +10,8 @@
  */
 package com.alucontrol.backendv1.Controllers.Index;
 
-import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.IndexService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -46,28 +42,28 @@ public class IndexController
 
     /** Endpoint to get back the number of rent UNPAID from DB
      *  Pointing to indexScript.js*/
-    @GetMapping("/qtyRentUnpaid")
-    public Long getQtyRentUnpaid()
-    {
-        return indexService.getQtyRentUnpaid();
-    }
+//    @GetMapping("/qtyRentUnpaid")
+//    public Long getQtyRentUnpaid()
+//    {
+//        return indexService.getQtyRentUnpaid();
+//    }
 
-
-    /** Endpoint to get the number of rent witch has the status "NEW"
-     *  Pointing to indexScript.js */
-    @GetMapping("/qtyRentStatusNew")
-    public ResponseEntity<Long> getQtyRentStatusNew()
-    {
-        Long qtyRentStatusNew = indexService.getQtyRentStatusNew();
-        return ResponseEntity.ok(qtyRentStatusNew);
-    }
-
-    /** Endpoint to get the number of rent witch has the status "IN PROGRESS"
-     *  Pointing to indexScript.js */
-    @GetMapping("/qtyRentStatusInProgress")
-    public ResponseEntity<Long> getQtyRentStatusInProgress()
-    {
-       Long qtyRentStatusInProgress = indexService.getQtyRentStatusInProgress();
-       return ResponseEntity.ok(qtyRentStatusInProgress);
-    }
+//
+//    /** Endpoint to get the number of rent witch has the status "NEW"
+//     *  Pointing to indexScript.js */
+//    @GetMapping("/qtyRentStatusNew")
+//    public ResponseEntity<Long> getQtyRentStatusNew()
+//    {
+//        Long qtyRentStatusNew = indexService.getQtyRentStatusNew();
+//        return ResponseEntity.ok(qtyRentStatusNew);
+//    }
+//
+//    /** Endpoint to get the number of rent witch has the status "IN PROGRESS"
+//     *  Pointing to indexScript.js */
+//    @GetMapping("/qtyRentStatusInProgress")
+//    public ResponseEntity<Long> getQtyRentStatusInProgress()
+//    {
+//       Long qtyRentStatusInProgress = indexService.getQtyRentStatusInProgress();
+//       return ResponseEntity.ok(qtyRentStatusInProgress);
+//    }
 }

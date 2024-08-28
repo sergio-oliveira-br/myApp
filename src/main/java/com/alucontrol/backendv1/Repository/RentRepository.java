@@ -25,35 +25,38 @@ import java.util.List;
 @Repository
 public interface RentRepository extends JpaRepository<Rent, Long>
 {
-    /** Display: on Index.html via HomeController
-     *  Item: UNPAID RENT
-     *  Method: Counting of unpaid rented records and display on the card
-     * */
-    @Query(value = "SELECT COUNT(QtyRentStatusUnpaidProjection.rentPaymentStatus) AS rentPaymentStatus " +
-            "FROM Rent QtyRentStatusUnpaidProjection " +
-            "WHERE rentPaymentStatus = 'Unpaid'")
-    Long countUnpaidRents();
+//    /** Display: on Index.html via HomeController
+//     *  Item: UNPAID RENT
+//     *  Method: Counting of unpaid rented records and display on the card
+//     * */
+//    @Query(value = "SELECT COUNT(QtyRentStatusUnpaidProjection.rentPaymentStatus) AS rentPaymentStatus " +
+//            "FROM Rent QtyRentStatusUnpaidProjection " +
+//            "WHERE rentPaymentStatus = 'Unpaid'")
+//    Long countUnpaidRents();
+//
+//
+//
+//    /** Display: on Index.html via HomeController
+//     *  Item: NEW
+//     *  Method: Rental count with status of: "NEW"
+//     * */
+//    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
+//            "FROM Rent RentStatusProjection " +
+//            "WHERE RentStatusProjection.rentStatus = 'New'")
+//    Long countRentStatusNew();
+//
+//
+//    /** Display: on Index.html via HomeController
+//     *  Item: In Progress
+//     *  Method: Rental count with status of: "In Progress"
+//     * */
+//    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
+//            "FROM Rent RentStatusProjection " +
+//            "WHERE RentStatusProjection.rentStatus = 'In Progress'")
+//    Long countRentStatusInProgress();
 
 
 
-    /** Display: on Index.html via HomeController
-     *  Item: NEW
-     *  Method: Rental count with status of: "NEW"
-     * */
-    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
-            "FROM Rent RentStatusProjection " +
-            "WHERE RentStatusProjection.rentStatus = 'New'")
-    Long countRentStatusNew();
-
-
-    /** Display: on Index.html via HomeController
-     *  Item: In Progress
-     *  Method: Rental count with status of: "In Progress"
-     * */
-    @Query(value = "SELECT COUNT(RentStatusProjection.rentStatus) " +
-            "FROM Rent RentStatusProjection " +
-            "WHERE RentStatusProjection.rentStatus = 'In Progress'")
-    Long countRentStatusInProgress();
 
 
 

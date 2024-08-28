@@ -11,12 +11,13 @@
 package com.alucontrol.backendv1.Controllers.Rent;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Model.Rent;
+import com.alucontrol.backendv1.Repository.Rent.RentStatusRepository;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,11 +28,13 @@ public class RentReadController
 {
     //Repository for access to product data
     private final RentRepository rentRepository;
+    private final RentStatusRepository rentStatusRepository;
 
     //Constructor responsible for injecting the repository
-    public RentReadController(RentRepository rentRepository)
+    public RentReadController(RentRepository rentRepository, RentStatusRepository rentStatusRepository)
     {
         this.rentRepository = rentRepository;
+        this.rentStatusRepository = rentStatusRepository; //focus on queries related to the status of the Rent
     }
 
     /** Endpoint to get back all rent */
@@ -95,5 +98,35 @@ public class RentReadController
             throw new ResourceNotFoundException("No Rent found");
         }
         return ResponseEntity.ok(rents);
+    }
+
+    /** Endpoint to get the number (qty) of rent by selecting the status
+     * This method is pointing to indexScript.js */
+    @GetMapping("/qtyRentByStatus")
+    public ResponseEntity<Long> getQtyRentByStatus(@RequestParam String rentStatus) {
+
+        LoggerUtil.info("Fetching Rent Status: " + rentStatus);
+
+        Long countRentByStatus;
+
+        try {
+            countRentByStatus = rentStatusRepository.countRentByStatus(rentStatus);
+
+            if(countRentByStatus == null){
+                LoggerUtil.error("No Rent found for status " + rentStatus);
+
+                throw new ResourceNotFoundException("No Rent found for status " + rentStatus);
+            }
+
+        }catch (Exception e){
+            LoggerUtil.error("An error occurred while fetching the quantity of rent by status." +
+                   "Error: " + e.getMessage(), e);
+
+            throw new ResourceNotFoundException("An error occurred while fetching the quantity of rent by status. |" +
+                    "Rent Status: " + rentStatus +
+                    " | Error: " + e.getMessage() + e);
+        }
+
+        return ResponseEntity.ok(countRentByStatus);
     }
 }
