@@ -13,8 +13,10 @@
 $(document).ready(function ()
 {
     //This will display a number by status within the cards
-    loadNumRentByStatus('Novo');
-    loadNumRentByStatus('Em andamento');
+    loadQtyRentByStatus('Novo');
+    loadQtyRentByStatus('Em andamento');
+
+    loadQtyRentByPaymentStatus('Pendente');
 
     //(MODAL)The script will load the available items and customers in the rental form when the page loads
     updateLoadCustomerForRentForm();
@@ -57,11 +59,36 @@ $(document).ready(function ()
 // }
 
 
+/**
+ Method: Obtain the number of rent which the status is UNPAID
+ */
+function loadQtyRentByPaymentStatus(paymentStatus) {
+    //Sets the endpoint URL with the payment status parameter "pago" or "a receber"
+    let url = `/qtyRentByPaymentStatus?paymentStatus=${encodeURIComponent(paymentStatus)}`
+
+    //Set the selector based on payment status
+    let selectors = {
+        'Pendente' : '#loadRentUnpaid'
+    };
+
+    let selector = selectors[paymentStatus];
+
+    //Handling Exceptions
+    if (!selector) {
+        console.warn(`No selector found for status: ${paymentStatus}`);
+        return;
+    }
+
+    ajaxRequest(url, function(data) {
+        $(selector).text('Voce possui ' + data + ' aluguéis "' + paymentStatus + '".')
+    });
+}
+
 
 /**
  Method: Obtain the number of rent which the status are "Novo", "Em andamento" or "Encerrado"
  */
-function loadNumRentByStatus(status)
+function loadQtyRentByStatus(status)
 {
     //Sets the endpoint URL with the status parameter
     //let url = "/qtyRentByStatus?rentStatus=" + (status); //indicates the endpoint
@@ -85,7 +112,7 @@ function loadNumRentByStatus(status)
     //Call the generic function, that perform an AJAX request
     ajaxRequest(url, function (data)
     {
-        $(selector).text('Voce possui ' + data + ' aluguéis "' + status + '"')
+        $(selector).text('Voce possui ' + data + ' aluguéis "' + status + '".')
     });
 }
 
