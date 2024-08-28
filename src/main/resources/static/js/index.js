@@ -59,7 +59,7 @@ $(document).ready(function ()
 
 
 /**
- Method: Obtain the number of rent which the status is
+ Method: Obtain the number of rent which the status are "Novo", "Em andamento" or "Encerrado"
  */
 function loadNumRentByStatus(status)
 {
