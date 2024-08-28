@@ -78,7 +78,7 @@ function customerFormData()
  */
 function customerSaveSuccess(response)
 {
-    alert('Customer added successfully!');
+    alert('Cliente salvo com sucesso!');
     console.log(response);
     loadCustomers(); //update the customer table
 
