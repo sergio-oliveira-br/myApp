@@ -121,13 +121,13 @@ function updateRentStatus()
         //Callback function to execute if the request is successful
         success: function(response)
         {
-            alert('Rent status has been changed.' +
-                '\nEnsure that you choose the correct option!');
+            alert('O status do aluguel foi alterado.' +
+                '\nCertifique-se de que você escolhe a opção correta!');
             console.log("Rent status has been changed", response);
         },
         //Callback function to execute if there's an error with the request
         error: function(xhr, status, error) {
-            console.error("Error updating rent status" + error);
+            console.error("Erro ao atualizar o status do aluguel.| Error:" + error);
         }
     });
 }

@@ -44,7 +44,7 @@ function formSubmission(formId, url, formDataFunction, successCallback, errorCal
                     if(errorCallback)
                     {
                         let errorMessage = xhr.responseText;
-                        alert("From the Server: " + errorMessage);
+                        alert("Servidor: " + errorMessage);
                         errorCallback(error);
                     }
                 }
@@ -55,7 +55,7 @@ function formSubmission(formId, url, formDataFunction, successCallback, errorCal
 
 /** Method: Callback function for error */
 function saveError(error) {
-    alert('Failed to add this form. Please try again.');
+    alert('Não foi possível salvar este formulário. Por favor, tente novamente.');
     console.error(error);
 }
 
@@ -94,13 +94,13 @@ function submitEditForm() {
         data: JSON.stringify(rentData),
 
         success: function(response) {
-            alert('Rent updated successfully');
+            alert('Alguel salvo com sucesso.');
             $('#editModal').modal('hide');
             loadRent();
         },
         error: function(xhr, status, error) {
             console.error(error);
-            alert('Oops, something went wrong! | Error: ', error);
+            alert('Oops, algo deu errado! | Error: ', error);
         }
     });
 }
