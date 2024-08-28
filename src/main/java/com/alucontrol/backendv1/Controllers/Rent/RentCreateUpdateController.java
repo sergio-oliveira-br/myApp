@@ -62,19 +62,19 @@ public class RentCreateUpdateController
                 rentService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
             }
 
-            LoggerUtil.info("Save Rent Successfully: " + savedRent.toString());
+            LoggerUtil.info("Alguel salvo com sucesso: " + savedRent.toString());
             return ResponseEntity.ok(savedRent);
 
         }
         catch (Exception e) {
             //Log
-            LoggerUtil.error("An error occurred while saving Rent data." +
-                    "Rent: " + rent.toString() + " | " +
+            LoggerUtil.error("Ocorreu um erro ao salvar os dados de aluguel." +
+                    "Aluguel: " + rent.toString() + " | " +
                     "Error: " + e.getMessage(), e);
 
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures." + " | " +
+                    "Um erro foi descoberto durante esta operação. " +
+                            "Por favor, informe-o para o suporte técnico com fotos." + " | " +
                             "Error: " + e.getMessage());
 
             ResponseEntity.internalServerError().body(errorResponse);
@@ -104,7 +104,7 @@ public class RentCreateUpdateController
             rent.setRentStatus(rentStatus);
             Rent savedRent = rentRepository.save(rent);
 
-            if("Finished".equals(rentStatus))
+            if("Encerrado".equals(rentStatus))
             {
                 //Local Variable: These take the values passed as parameters.
                 //The values are copied, which means that if the Rent object is modified, the values of the local variables are not affected.
@@ -112,14 +112,14 @@ public class RentCreateUpdateController
                 String itemDescription = rent.getRentItem();
 
                 //Create a log
-                LoggerUtil.info("Rent status updated successfully. ID: " + id + " | Qty Returned: " + quantityReturned + " | RentItem: " + itemDescription);
+                LoggerUtil.info("O status do aluguel foi atualizado com sucesso. ID: " + id + " | Qtd retornada: " + quantityReturned + " | Item: " + itemDescription);
 
                 //Execute the method to return the qyt to the stock
                 rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
             }
 
             //If the status changed from new to in progress, then the stock have to decrease
-            else if ("In Progress".equals(rentStatus))
+            else if ("Em andamento".equals(rentStatus))
             {
                 String rentItem = rent.getRentItem();
                 int rentQtyItem = rent.getRentQtyItem();
