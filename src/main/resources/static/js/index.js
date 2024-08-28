@@ -80,7 +80,7 @@ function loadQtyRentByPaymentStatus(paymentStatus) {
     }
 
     ajaxRequest(url, function(data) {
-        $(selector).text('Voce possui ' + data + ' aluguéis "' + paymentStatus + '".')
+        $(selector).text('Voce possui ' + data + ' aluguéis com pagamentos "' + paymentStatus + '".')
     });
 }
 
@@ -112,7 +112,7 @@ function loadQtyRentByStatus(status)
     //Call the generic function, that perform an AJAX request
     ajaxRequest(url, function (data)
     {
-        $(selector).text('Voce possui ' + data + ' aluguéis "' + status + '".')
+        $(selector).text('Voce possui ' + data + ' aluguéis com o status "' + status + '".')
     });
 }
 
