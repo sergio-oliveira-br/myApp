@@ -79,3 +79,56 @@ function expenseSaveSuccess(response)
 }
 
 
+/**
+ Page: Expense
+ Item: Form (modal) -> OpenEditModal() -> SubmitEditForm()
+ Method: This is a jQuery method that allows
+ the user to make asynchronous requests to the server
+ to send or receive data without having to reload the page
+ (There is a confirmation msg method as well)
+ */
+function openEditModal(expenseId){
+ //call the ajaxRequest method
+ ajaxRequest('/expense/' + expenseId, function (expense){
+  $('#editExpenseId').val(expenseId);
+  $('#editExpenseDescription').val(expense.expenseDescription);
+  $('#editExpenseAmount').val(expense.expenseAmount);
+  $('#editExpenseDate').val(expense.expenseDate);
+  $('#editExpenseCategory').val(expense.expenseCategory);
+
+  //open the modal
+  let editModal = new bootstrap.Modal(document.getElementById('editModal'));
+  editModal.show();
+ });
+}
+
+function submitEditForm(){
+ let itemData = {
+  expenseDescription: $('#expenseDescription').val(),
+  expenseAmount: $('#expenseAmount').val(),
+  expenseDate: $('#expenseDate').val(),
+  expenseCategory: $('#expenseCategory').val(),
+ };
+
+ //Remember: PUT -> Send data to the server to update an existing resource
+ $.ajax({url:'/expense/' + itemData.id,
+  type: 'PUT',
+  contentType: 'application/json',
+  data: JSON.stringify(itemData),
+
+  success: function(response){
+   alert('Despesa alterada com sucesso!');
+   console.log('Despesa alterada com sucesso!' + response);
+   $('editModal').editModal('hide');
+   loadExpenseTable();
+  },
+
+   error: function(xhr, status, error) {
+   console.error("Error: " + error);
+   alert('Oops, algo deu errado! | Error: ' + error.message);
+  }
+ });
+}
+
+//maybe call a confirmation msg
+
