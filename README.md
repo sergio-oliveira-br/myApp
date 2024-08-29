@@ -2,7 +2,7 @@
 
 ## Sergio Vinicio da Silva Oliveira, x23170981@student.ncirl.ie
 
-**Higher Diploma in Science in Web Technologies**
+**Higher Diploma in Science in Computer**
 
 **Specialisation: Software Development**
 
