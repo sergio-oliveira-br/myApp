@@ -41,30 +41,30 @@
                 </a>
                 <ul class="dropdown-menu">
                   <!-- <li><button class="dropdown-item" onclick="displayListAllRentStatusPaid()">All Paid</button></li> -->
-                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Paid')">All Paid</button></li>
-                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Unpaid')">All Unpaid</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Pago')">Pagos</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByPaymentStatus('Pendente')">Pendente</button></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><button class="dropdown-item" onclick="getRentByStatus('New')">All New</button></li>
-                  <li><button class="dropdown-item" onclick="getRentByStatus('In Progress')">All In Progress</button></li>
-                  <li><button class="dropdown-item" onclick="getRentByStatus('Sold')">All Sold</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('Novo')">Novos</button></li>
+                  <li><button class="dropdown-item" onclick="getRentByStatus('Em andamento')">Em andamento</button></li>
+<!--                  <li><button class="dropdown-item" onclick="getRentByStatus('Venda')">Vendidos</button></li>--> 
                 </ul>
               <li class="nav-item">
-                <button class="nav-link" onclick="getAllRent()">Display All</button>
+                <button class="nav-link" onclick="getAllRent()">Mostrar todos</button>
               </li>
             </ul>
 
             <!-- Search by -->
             <div class="d-flex">
               <!-- Search by Name -->
-              <label class="col-form-label" for="nameInput">Name</label>
+              <label class="col-form-label" for="nameInput">Nome</label>
               <input type="text" id="nameInput" class="form-control me-2">
 
               <!-- Search by Date -->
-              <label class="col-form-label" for="monthInput">Month</label>
+              <label class="col-form-label" for="monthInput">Mês</label>
               <input type="number" id="monthInput" placeholder="MM" class="form-control me-2">
               <!--<div class="invalid-feedback">Enter the month in numeric format MM, please</div> -->
 
-              <label class="col-form-label" for="yearInput">Year</label>
+              <label class="col-form-label" for="yearInput">Ano</label>
               <input type="number" id="yearInput" placeholder="YYYY" class="form-control me-2">
               <!-- <div class="invalid-feedback">The year needs to be entered in numeric format YYYY.</div> -->
             </div> <!-- Ends Search by -->
@@ -87,18 +87,18 @@
             <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Customer</th>
+              <th scope="col">Cliente</th>
               <!-- <th scope="col">Second Name</th> -->
-              <th scope="col">Address</th>
+              <th scope="col">Endereço</th>
               <th scope="col">Item</th>
-              <th scope="col">Qty</th>
-              <th scope="col">Price</th>
-              <th scope="col">Starts</th>
-              <th scope="col">Ends</th>
-              <th scope="col">Total Price</th>
-              <th scope="col">Rent Status</th>
-              <th scope="col">Payment Status</th>
-              <th scope="col">Details</th>
+              <th scope="col">Qtd</th>
+              <th scope="col">Preço</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Fim</th>
+              <th scope="col">Preço Total</th>
+              <th scope="col">Status do Aluguel</th>
+              <th scope="col">Status do Pagamento</th>
+              <th scope="col">Detalhes</th>
             </tr>
             </thead>
             <!-- Table Body  -->

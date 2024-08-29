@@ -12,7 +12,7 @@
 $(document).ready(function ()
 {
     //load the table with all rent paid information from rental database
-    getRentByPaymentStatus('Paid');
+    getRentByPaymentStatus('Pago');
 })
 
 /**
