@@ -19,10 +19,9 @@ import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /** This controller is dedicated to endpoints that create and update records
  * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
@@ -65,6 +64,24 @@ public class ExpenseCreateUpdateController
 
             //Throw the exception (if there is an error)
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
+    }
+
+    /** Endpoint to update a specific expense by ID */
+    @PutMapping("/expense/{id}")
+    public ResponseEntity<?> updateExpense(@RequestBody Expense expense, @PathVariable long id) {
+        Optional<Expense> expenseOptional = expenseRepository.findById(id);
+        if (expenseOptional.isPresent()) {
+            LoggerUtil.info("Starting to update Expense with data: " + expense.toString());
+
+            Expense updatedExpense = expenseRepository.save(expense);
+            LoggerUtil.info("Expense Updated Successfully: " + updatedExpense.toString());
+            return ResponseEntity.ok(updatedExpense);
+        }
+
+        else {
+            LoggerUtil.info("Updating Expense with id " + id + " failed.");
+            return ResponseEntity.notFound().build();
         }
     }
 }
