@@ -122,7 +122,7 @@ function updateRentStatus()
         success: function(response)
         {
             alert('O status do aluguel foi alterado.' +
-                '\nCertifique-se de que você escolhe a opção correta!');
+                '\nCertifique-se de que você escolheu a opção correta!');
             console.log("Rent status has been changed", response);
         },
         //Callback function to execute if there's an error with the request
