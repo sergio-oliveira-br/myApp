@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Repository
 public interface RentRepository extends JpaRepository<Rent, Long> {
-    
+
     /** Display: on Index.html via HomeController
      * Method: Display a table with ALL Rents witch by selecting the Payment Status
      * */
