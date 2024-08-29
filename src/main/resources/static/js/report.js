@@ -103,8 +103,8 @@ function searchRent()
     if (name) {
         if(year || month) //In case that the user fill more than one option available
         {
-            alert('Sorry! I cannot combine name and date yet.' +
-                '\nPlease try to search by name or date, not both.');
+            alert('Desculpa! Não é possível combinar nome e data ainda.' +
+                '\nPor favor tente pesquisar apenas pelo nome, ou pela data composta por mês e ano.');
         }
         else{
             getRentByName(name + '%'); //Finds any values that start with "name"
@@ -116,7 +116,7 @@ function searchRent()
     }
 
     else{
-        alert("Sorry! To search, enter a Name or a Month and Year combination.")
+        alert("Desculpa! Para pesquisar, por favor entre com o Nome ou a combinacão do Mês e Ano.")
     }
 }
 
