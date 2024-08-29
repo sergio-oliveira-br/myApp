@@ -94,7 +94,7 @@ function submitEditForm() {
         data: JSON.stringify(rentData),
 
         success: function(response) {
-            alert('Alguel salvo com sucesso.');
+            alert('Aluguel salvo com sucesso.');
             $('#editModal').modal('hide');
             loadRent();
         },
