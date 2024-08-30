@@ -73,33 +73,6 @@ function updateLoadCustomerForRentForm()
 
 /**
  Page: Rent and Index
- Item: Form - Customer field
- Method: The script will load the available ITEMS in the rental form when the page loads
- */
-// function loadEditItemsForRentFormModal()
-// {
-//     //Call the generic function, that perform an AJAX request
-//     ajaxRequest("/product", function(data)
-//     {
-//         //local variable
-//         var rentItemSelect = $('#editRentItem');
-//
-//         //cleaning
-//         rentItemSelect.empty();
-//
-//         //Iteration
-//         data.forEach(function(product)
-//         {
-//             rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
-//         });
-//     });
-// }
-
-
-
-
-/**
- Page: Rent and Index
  Item: Form (modal) -> Edit Rent Status
  Method: This update the stock, adding the qty in to stock available
  */
