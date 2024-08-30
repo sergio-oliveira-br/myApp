@@ -27,12 +27,9 @@ $(document).ready(function()
     updateLoadProductForm();
 
     //Modal
-    $('#editModal').on('submit', function(e)
-    {
+    $('#editModal').on('submit', function(e) {
         e.preventDefault();
-        submitEditForm();
-    })
-
+    });
 });
 
 
@@ -93,8 +90,7 @@ function openEditModal(productId)
     });
 }
 
-function submitEditForm()
-{
+function submitEditForm() {
     let currentDate = new Date();
 
     let itemData = {
@@ -111,14 +107,13 @@ function submitEditForm()
         type: "PUT",
         contentType: 'application/json',
         data: JSON.stringify(itemData),
-        success: function(response)
-        {
+
+        success: function(response) {
             alert('Item atualizado com sucesso!');
             $('#editModal').modal('hide');
             loadProduct(); // Reload the product list after update
         },
-        error: function(xhr, status, error)
-        {
+        error: function(xhr, status, error) {
             console.error(error);
             alert('Oops, não foi possivel realizar esta atualização! Erro: ' + xhr.responseText );
         }
@@ -131,10 +126,15 @@ document.getElementById('editModal').addEventListener('submit', function(event) 
     let confirmation = confirm('Tem certeza de que deseja salvar as modificações?');
 
     //If the user cancels, do not send the form!
-    if (!confirmation) {
+    if (confirmation) {
+        submitEditForm(); //send the data after the confirmation from the user
+    }
+
+    else{
         event.preventDefault();
         console.log('Usuário cancelou a operação.')
     }
+
 });
 
 //Update
