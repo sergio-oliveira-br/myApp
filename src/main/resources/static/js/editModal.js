@@ -97,6 +97,8 @@ function updateRentStatus()
             alert('O status do aluguel foi alterado.' +
                 '\nCertifique-se de que você escolheu a opção correta!');
             console.log("Rent status has been changed", response);
+            $('#editRentForm').modal('hide');
+
         },
         //Callback function to execute if there's an error with the request
         error: function(xhr, status, error) {
