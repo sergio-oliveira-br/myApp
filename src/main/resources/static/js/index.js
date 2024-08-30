@@ -25,6 +25,7 @@ $(document).ready(function ()
     $('#editRentForm').on('submit', function(e) {
         e.preventDefault(); //Prevents the standard form submission
         submitEditForm();
+        $('#displayRentModal').modal('hide');
     });
 
     //(Modal)Update the rent status, if is "Finished", the item stock will return to total available
