@@ -36,28 +36,6 @@ $(document).ready(function ()
 });
 
 
-/**
- Item: Card (UNPAID)
- Method: Obtain the number of rent which the status is UNPAID
- */
-// function loadNumRentUnpaid(rentStatus)
-// {
-//     //Call the generic function, that perform an AJAX request
-//     ajaxRequest("/qtyRentByStatus" + rentStatus ,  function (data)
-//     {
-//         if (data == 0)
-//         {
-//             $('#loadRentUnpaid').text("That's Good! All your rentals have been paid");
-//         }
-//
-//         else
-//         {
-//             $('#loadRentUnpaid').text('You have ' + data + ' rentals unpaid.');
-//             alert("You have " + data + " rentals unpaid.");
-//         }
-//     });
-// }
-
 
 /**
  Method: Obtain the number of rent which the status is UNPAID
