@@ -109,7 +109,9 @@ function submitEditForm() {
         data: JSON.stringify(itemData),
 
         success: function(response) {
+            console.log('Item updated: ' , response);
             alert('Item atualizado com sucesso!');
+
             $('#editModal').modal('hide');
             loadProduct(); // Reload the product list after update
         },
