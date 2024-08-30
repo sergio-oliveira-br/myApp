@@ -104,6 +104,7 @@ function openEditModal(expenseId){
   $('#editExpenseAmount').val(expense.expenseAmount);
   $('#editExpenseDate').val(expense.expenseDate);
   $('#editExpenseCategory').val(expense.expenseCategory);
+  $('#editExpenseAdditionalNotes').val(expense.expenseAdditionalNotes);
 
   //open the modal
   let editModal = new bootstrap.Modal(document.getElementById('editModal'));
@@ -113,11 +114,15 @@ function openEditModal(expenseId){
 
 function submitEditForm(){
  let itemData = {
-  expenseDescription: $('#expenseDescription').val(),
-  expenseAmount: $('#expenseAmount').val(),
-  expenseDate: $('#expenseDate').val(),
-  expenseCategory: $('#expenseCategory').val(),
+  id: $('#editExpenseId').val(),
+  expenseDescription: $('#editExpenseDescription').val(),
+  expenseAmount: parseFloat($('#editExpenseAmount').val()),
+  expenseDate: $('#editExpenseDate').val(),
+  expenseCategory: $('#editExpenseCategory').val(),
+  expenseAdditionalNotes: $('#editExpenseAdditionalNotes').val()
  };
+
+ console.log(itemData);
 
  //Remember: PUT -> Send data to the server to update an existing resource
  $.ajax({url:'/expense/' + itemData.id,
@@ -128,13 +133,15 @@ function submitEditForm(){
   success: function(response){
    alert('Despesa alterada com sucesso!');
    console.log('Despesa alterada com sucesso!' + response);
-   $('editModal').editModal('hide');
+
+   $('#editModal').modal('hide');
+
    loadExpenseTable();
   },
 
    error: function(xhr, status, error) {
    console.error("Error: " + error);
-   alert('Oops, algo deu errado! | Error: ' + error.message);
+   alert('Error: ' + xhr.responseText + " | Mensage: " + error.responseText );
   }
  });
 }

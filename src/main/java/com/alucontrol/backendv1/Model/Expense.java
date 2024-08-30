@@ -20,7 +20,7 @@ public class Expense
 {
     @Id //Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment by the database
-    private long id;
+    private Long id;
 
     @Column(nullable = false) //cannot be null
     private String expenseDescription;

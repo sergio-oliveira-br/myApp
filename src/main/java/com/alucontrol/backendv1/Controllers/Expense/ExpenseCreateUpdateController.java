@@ -12,10 +12,8 @@ package com.alucontrol.backendv1.Controllers.Expense;
 
 
 import com.alucontrol.backendv1.Exception.ErrorResponse;
-import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
-import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,16 +67,18 @@ public class ExpenseCreateUpdateController
 
     /** Endpoint to update a specific expense by ID */
     @PutMapping("/expense/{id}")
-    public ResponseEntity<Expense> updateExpense(@RequestBody Expense expense, @PathVariable long id) {
+    public ResponseEntity<Expense> updateExpense(@RequestBody Expense expenseUpdated, @PathVariable Long id) {
+
         Optional<Expense> expenseOptional = expenseRepository.findById(id);
+
         if (expenseOptional.isPresent()) {
-            LoggerUtil.info("Starting to update Expense with data: " + expense.toString());
+            LoggerUtil.info("Starting to update Expense with data: " + expenseOptional.toString());
 
-            Expense updatedExpense = expenseRepository.save(expense);
-            LoggerUtil.info("Expense Updated Successfully: " + updatedExpense.toString());
-            return ResponseEntity.ok(updatedExpense);
+            Expense savedExpense = expenseRepository.save(expenseUpdated);
+
+            LoggerUtil.info("Expense Updated Successfully: " + savedExpense.toString());
+            return ResponseEntity.ok(savedExpense);
         }
-
         else {
             LoggerUtil.info("Updating Expense with id " + id + " failed.");
             return ResponseEntity.notFound().build();
