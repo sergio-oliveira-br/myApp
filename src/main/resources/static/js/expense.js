@@ -14,6 +14,13 @@ $(document).ready(function () {
  //load the table with all expenses
  loadExpenseTable();
 
+ //Modal
+ $('#editModal').on('submit', function(e)
+ {
+  e.preventDefault();
+  submitEditForm();
+ })
+
 });
 
 
@@ -88,8 +95,10 @@ function expenseSaveSuccess(response)
  (There is a confirmation msg method as well)
  */
 function openEditModal(expenseId){
- //call the ajaxRequest method
+ //call the ajaxRequest method, and the GET approach will retrieve the data
  ajaxRequest('/expense/' + expenseId, function (expense){
+  console.log(expense);
+
   $('#editExpenseId').val(expenseId);
   $('#editExpenseDescription').val(expense.expenseDescription);
   $('#editExpenseAmount').val(expense.expenseAmount);

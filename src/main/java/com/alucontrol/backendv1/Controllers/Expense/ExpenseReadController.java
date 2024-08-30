@@ -10,17 +10,21 @@
  */
 package com.alucontrol.backendv1.Controllers.Expense;
 
+import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /** This controller is dedicated to endpoints that read data */
 @RestController
@@ -50,6 +54,30 @@ public class ExpenseReadController {
 
         //Returns a 200 OK HTTP response with the list of expenses in the body.
         return ResponseEntity.ok(expenses);
+    }
+
+    /** Endpoint to GET a specific product by ID */
+    @GetMapping("/expense/{id}")
+    public ResponseEntity<?> getExpenseById(@PathVariable Long id){
+        try{
+            Optional<Expense> expense = expenseRepository.findById(id);
+            if (expense.isPresent()) {
+                return ResponseEntity.ok(expense.get());
+            }
+
+            else {
+                LoggerUtil.error("No expense found");
+                return ResponseEntity.notFound().build();
+            }
+        }catch (Exception e){
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    "Ocorreu um erro ao buscar dados da despesa. Por favor, informe-o para o suporte técnico com fotos. " +
+                            "Despesa : " + id + " | Error: " + e.getMessage() + e);
+
+            LoggerUtil.error("Error: " + errorResponse);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
     }
 
     /** Endpoint to get back expenses by selecting the "Category" */

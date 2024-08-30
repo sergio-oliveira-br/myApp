@@ -69,7 +69,7 @@ public class ExpenseCreateUpdateController
 
     /** Endpoint to update a specific expense by ID */
     @PutMapping("/expense/{id}")
-    public ResponseEntity<?> updateExpense(@RequestBody Expense expense, @PathVariable long id) {
+    public ResponseEntity<Expense> updateExpense(@RequestBody Expense expense, @PathVariable long id) {
         Optional<Expense> expenseOptional = expenseRepository.findById(id);
         if (expenseOptional.isPresent()) {
             LoggerUtil.info("Starting to update Expense with data: " + expense.toString());
