@@ -66,13 +66,12 @@ public class ExpenseReadController {
             }
 
             else {
-                LoggerUtil.error("No expense found");
-                return ResponseEntity.notFound().build();
+                throw new ResourceNotFoundException("From Expenses Controller: It was not possible to locate any items");
             }
         }catch (Exception e){
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "Ocorreu um erro ao buscar dados da despesa. Por favor, informe-o para o suporte técnico com fotos. " +
-                            "Despesa : " + id + " | Error: " + e.getMessage() + e);
+                            "Despesa: " + id + " | Error: " + e.getMessage() + e);
 
             LoggerUtil.error("Error: " + errorResponse);
 

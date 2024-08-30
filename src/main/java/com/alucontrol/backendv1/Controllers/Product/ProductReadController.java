@@ -93,26 +93,22 @@ public class ProductReadController
     public ResponseEntity<?> getProductByID(@PathVariable Long id)
     //the "?" above makes the method be of the generic type or a type that can return different types of response
     {
-        try
-        {
+        try {
             Optional<Product> productOptional = productRepository.findById(id);
             if(productOptional.isPresent()) {
                 return ResponseEntity.ok(productOptional.get());
             }
 
             else {
-                return ResponseEntity.notFound().build();
+                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate any items");
             }
 
         } catch (Exception e) {
-            //Log
-            LoggerUtil.error("An error occurred while fetching product data." +
-                    "Product: " + id+ " | " +
-                    "Error: " + e.getMessage(), e);
-
             ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
+                    "Ocorreu um erro ao buscar os dados do produto. Por favor, informe-o para o suporte técnico com fotos." +
+                            "Produto: " + id + " | Error: " + e.getMessage() + e);
+
+            LoggerUtil.error("Error: " + errorResponse);
 
             //Return an internal error
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
