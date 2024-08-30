@@ -23,16 +23,15 @@ $(document).ready(function ()
 
     //(Modal)
     $('#editRentForm').on('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); //Prevents the standard form submission
         submitEditForm();
     });
 
     //(Modal)Update the rent status, if is "Finished", the item stock will return to total available
     $('#editRentStatus').on('change', function() {
-        console.log('Rent Status Changed');
-        updateRentStatus();
+        alert('O status do aluguel foi alterado.' +
+            '\nCertifique-se de que você escolheu a opção correta!');
     });
-
 });
 
 

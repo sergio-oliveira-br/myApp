@@ -76,8 +76,7 @@ function updateLoadCustomerForRentForm()
  Item: Form (modal) -> Edit Rent Status
  Method: This update the stock, adding the qty in to stock available
  */
-function updateRentStatus()
-{
+function updateRentStatus() {
     //Get the rent ID from the hidden input field in the form
     let rentId = $('#editRentId').val();
     console.log(rentId);
@@ -92,13 +91,9 @@ function updateRentStatus()
         data: {status: status}, //The data to send in the request, here we're sending the new status
 
         //Callback function to execute if the request is successful
-        success: function(response)
-        {
-            alert('O status do aluguel foi alterado.' +
-                '\nCertifique-se de que você escolheu a opção correta!');
-            console.log("Rent status has been changed", response);
+        success: function(response) {
+            console.log(response);
             $('#editRentForm').modal('hide');
-
         },
         //Callback function to execute if there's an error with the request
         error: function(xhr, status, error) {
