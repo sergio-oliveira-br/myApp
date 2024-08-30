@@ -113,14 +113,14 @@ function submitEditForm()
         data: JSON.stringify(itemData),
         success: function(response)
         {
-            alert('Item updated successfully');
+            alert('Item atualizado com sucesso!');
             $('#editModal').modal('hide');
             loadProduct(); // Reload the product list after update
         },
         error: function(xhr, status, error)
         {
             console.error(error);
-            alert('Oops, something went wrong!');
+            alert('Oops, não foi possivel realizar esta atualização! Erro: ' + xhr.responseText );
         }
     })
 }
@@ -128,12 +128,12 @@ function submitEditForm()
 //Confirmation msg
 document.getElementById('editModal').addEventListener('submit', function(event) {
     //Displays the confirmation msg
-    let confirmation = confirm('Are you sure you want to save the modifications?');
+    let confirmation = confirm('Tem certeza de que deseja salvar as modificações?');
 
     //If the user cancels, do not send the form!
     if (!confirmation) {
         event.preventDefault();
-        console.log('User cancel the operation')
+        console.log('Usuário cancelou a operação.')
     }
 });
 
@@ -194,7 +194,7 @@ function productFormData()
  */
 function productSaveSuccess(response)
 {
-    alert('Product added successfully!');
+    alert('Produto adicionado com sucesso!');
     console.log(response);
     loadProduct(); //update the product table
 
