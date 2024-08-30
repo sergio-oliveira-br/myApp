@@ -11,6 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Product;
 
 import com.alucontrol.backendv1.Exception.ErrorResponse;
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -79,7 +80,7 @@ public class ProductCreateUpdateController
         Optional<Product> productOptional = productRepository.findById(id);
         if(productOptional.isPresent()){
             //Log
-            LoggerUtil.info("Starting to update product with data: " + updatedProduct);
+            LoggerUtil.info("Starting to update product with data: " + productOptional.toString());
 
             Product product = productOptional.get();
 
@@ -93,15 +94,13 @@ public class ProductCreateUpdateController
 
             Product savedProduct = productRepository.save(product);
 
-            //Log
-            LoggerUtil.info("Updating Product: " + savedProduct.toString());
-
+            LoggerUtil.info("Product Updated Successfully: " + savedProduct.toString());
             return ResponseEntity.ok(savedProduct);
         }
-
         else {
-            LoggerUtil.error("Product with ID: " + id + " not found"); //create a log
-            return ResponseEntity.notFound().build();
+            String errorMsg = "Product with id: " + id + " not found";
+            LoggerUtil.error(errorMsg);
+            throw new ResourceNotFoundException(errorMsg);
         }
     }
 }
