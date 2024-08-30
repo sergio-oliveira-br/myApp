@@ -77,7 +77,7 @@ function expenseFormData()
  */
 function expenseSaveSuccess(response)
 {
- alert('Expense added successfully!');
+ alert('Despesa adicionada com sucesso!');
  console.log(response);
  loadExpenseTable(); //update the customer table
 
@@ -131,8 +131,9 @@ function submitEditForm(){
   data: JSON.stringify(itemData),
 
   success: function(response){
-   alert('Despesa alterada com sucesso!');
-   console.log('Despesa alterada com sucesso!' + response);
+  let msg = "Despesa alterada com sucesso";
+   alert(msg);
+   console.log(msg + response);
 
    $('#editModal').modal('hide');
 
@@ -141,7 +142,7 @@ function submitEditForm(){
 
    error: function(xhr, status, error) {
    console.error("Error: " + error);
-   alert('Error: ' + xhr.responseText + " | Mensage: " + error.responseText );
+   alert('Error: ' + xhr.responseText + " | Mensagem: " + error.responseText );
   }
  });
 }
