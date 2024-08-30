@@ -99,7 +99,7 @@ function submitEditForm() {
         itemQuantity: $('#editItemQty').val(),
         itemPrice: $('#editItemPrice').val(),
         productType: $('#editProductType').val(),
-        itemAvailableQty: $('#editItemAvailableQty').val(),
+        itemAvailableQty: $('#editItemQtyAvailable').val(),
         dateModified: currentDate,
     };
     //Remember: PUT -> Send data to the server to update an existing resource
@@ -160,10 +160,16 @@ function updateLoadProductForm()
 //This is just to get a confirmation from the user, that they will change a sensitive data
 document.getElementById('editItemQtyAvailable').addEventListener('change',stockAlert);
 function stockAlert() {
-    confirm("Você tem certeza eu deseja alterar o Estoque?");
+    let confirmationMsg = "Você tem certeza eu deseja alterar o Estoque?"
+
+    if (confirm(confirmationMsg)) {
+        submitEditForm(); //send the data after the confirmation from the user
+    }
+    else{
+        alert('Operação cancelada!')
+    }
+
 }
-
-
 
 
 
