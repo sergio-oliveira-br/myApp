@@ -34,3 +34,17 @@ function loadProduct() {
     });
 }
 
+/**
+ * Update
+ * Method: Populate product select dropdown in the edit modal form
+ */
+function updateLoadProductForm() {
+    ajaxRequest("/product", function(data) {
+        let productSelect = $('#editItemQty');
+        productSelect.empty();
+        data.forEach(function(product) {
+            productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
+        });
+    });
+}
+
