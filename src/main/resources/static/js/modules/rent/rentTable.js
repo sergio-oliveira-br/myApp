@@ -38,3 +38,48 @@ function loadRent() {
         });
     });
 }
+
+/**
+ * Function to render rent table
+ */
+function renderIndexRentTable(data) {
+    $('#rentListIndex').empty();
+
+    data.forEach(function(rent) {
+        $('#rentListIndex').append('<tr>' +
+            '<td>' + rent.rentFirstName + '</td>' +
+            '<td>' + rent.rentItem + '</td>' +
+            '<td>' + rent.rentPaymentStatus + '</td>' +
+            '<td>' + rent.rentTotalPrice + '</td>' +
+            '<td>' + rent.rentStatus + '</td>' +
+            '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
+            '</tr>');
+        console.log(rent.id);
+    });
+}
+
+/**
+ * Page: Index
+ * Method: To display a modal and load the rent list
+ */
+function displayRentByPaymentStatusIndex(status) {
+    let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
+    modal.show();
+
+    let url = `/rentByPaymentStatus?paymentStatus=${encodeURIComponent(status)}`;
+
+    ajaxRequest(url, renderIndexRentTable);
+}
+
+/**
+ * Page: Index
+ * Method: To display a modal and load the rent list
+ */
+function displayRentByStatusIndex(status) {
+    let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
+    modal.show();
+
+    let url = `/rentByStatus?rentStatus=${encodeURIComponent(status)}`;
+
+    ajaxRequest(url, renderIndexRentTable);
+}

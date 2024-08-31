@@ -48,3 +48,28 @@ function orderSaveSuccess(response) {
     // Clear the form by resetting it
     document.getElementById('rentForm').reset();
 }
+
+
+/**
+ * (Modal) Update the rent status, if is "Finished", the item stock will return to total available
+ */
+$('#editRentStatus').on('change', function() {
+    alert('O status do aluguel foi alterado.' +
+        '\nCertifique-se de que você escolheu a opção correta!');
+});
+
+/**
+ * (Modal) The script will load the available items and customers in the rental form when the page loads
+ */
+function updateLoadCustomerForRentForm() {
+    // Implementação da função para carregar clientes disponíveis
+}
+
+/**
+ * (MODAL) The script will load the available items and customers in the rental form when the page loads
+ */
+$('#editRentForm').on('submit', function(e) {
+    e.preventDefault(); // Prevents the standard form submission
+    submitEditForm();
+    $('#displayRentModal').modal('hide');
+});
