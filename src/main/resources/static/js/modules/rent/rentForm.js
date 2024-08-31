@@ -73,3 +73,48 @@ $('#editRentForm').on('submit', function(e) {
     submitEditForm();
     $('#displayRentModal').modal('hide');
 });
+
+
+/**
+ * Page: Rent and Index
+ * Item: Form (modal) -> Field Customer
+ * Method: The script will load the available customers in the rental form when the page loads
+ */
+function updateLoadCustomerForRentForm() {
+    ajaxRequest("/customers", function(data) {
+        var rentCustomerSelect = $('#editRentFirstName');
+        rentCustomerSelect.empty();
+
+        data.forEach(function(customer) {
+            rentCustomerSelect.append('<option value="' + customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '">' +
+                customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '</option>');
+        });
+    });
+}
+
+/**
+ * Page: Rent and Index
+ * Item: Form (modal) -> Edit Rent Status
+ * Method: This update the stock, adding the qty in to stock available
+ */
+function updateRentStatus() {
+    let rentId = $('#editRentId').val();
+    console.log(rentId);
+
+    let status = $('#editRentStatus').val();
+    console.log(status);
+
+    $.ajax({
+        url: "/rent/status/" + rentId + "?rentStatus=" + status,
+        type: 'PUT',
+        data: { status: status },
+
+        success: function(response) {
+            console.log(response);
+            $('#editRentForm').modal('hide');
+        },
+        error: function(xhr, status, error) {
+            console.error("Erro ao atualizar o status do aluguel.| Error:" + error);
+        }
+    });
+}
