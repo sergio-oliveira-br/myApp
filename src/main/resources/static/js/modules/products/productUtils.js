@@ -25,3 +25,35 @@ function stockAlert() {
     }
 }
 
+/**
+ * Method: loadProductListByProductType(productType)
+ * Info: Create a list of all items and display it in the Product field of the Sales and Rent Form
+ */
+function loadProductListByProductType(productType) {
+    ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data) {
+        let productSelects = [$('#saleItem'), $('#rentItem'), $('#editRentItem')]; // Array of select elements
+        productSelects.forEach(function (selectElement) {
+            selectElement.empty();
+            data.forEach(function (product) {
+                selectElement.append('<option id="' + product.id + '" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
+            });
+        });
+    });
+}
+
+// Update price when the user changes the item field
+$('#rentItem, #editRentItem, #saleItem').change(function() {
+    console.log('Change event triggered');
+    let selectedOption = $(this).find(':selected');
+    let price = selectedOption.attr('price');
+
+    if ($(this).attr('id') === 'rentItem') {
+        $('#rentPrice').val(price);
+    } else if ($(this).attr('id') === 'editRentItem') {
+        $('#editRentPrice').val(price);
+        updateTotalPrice();
+    } else if ($(this).attr('id') === 'saleItem') {
+        $('#salePrice').val(price);
+        loadTotalPriceSales(); // Update the total price for sales
+    }
+});
