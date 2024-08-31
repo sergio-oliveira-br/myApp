@@ -27,6 +27,7 @@ $(document).ready(function() {
 
     //General settings
     setupEventListeners();
+
 });
 
 //Function to configure event listeners
