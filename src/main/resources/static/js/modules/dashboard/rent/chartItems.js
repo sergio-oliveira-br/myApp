@@ -18,11 +18,13 @@
  * Method: Display chart of total price grouped by item
  */
 function renderItemsChart(data) {
-    var items = data.map(rent => rent.rentItem);
-    var price = data.map(rent => rent.rentTotalPrice);
+    //variables
+    let items = data.map(function(rent){return rent.rentItem});
+    let price = data.map(function(rent){return rent.rentTotalPrice})
 
-    const ctx = document.getElementById('myTotalPriceItemsChart');
-    new Chart(ctx, {
+    // Graphs
+    const ctx = document.getElementById('myTotalPriceItemsChart')
+    const myChart = new Chart(ctx,{
         type: 'bar',
         data: {
             labels: items,
@@ -31,22 +33,25 @@ function renderItemsChart(data) {
                 label: 'Total Price',
                 lineTension: 0,
                 borderWidth: 4,
-                pointBackgroundColor: '#007bff',
-                backgroundColor: '#007bff20' // Adding a slight background color for better visualization
+                pointBackgroundColor: '#007bff'
             }],
         },
-        options: {
-            plugins: {
-                legend: {
+        options:{
+            plugins:{
+                legend:{
                     display: false,
                 },
-                tooltip: {
+                tooltip:{
                     boxPadding: '5px',
                 },
-                datalabels: {
+            }
+        },
+        options:{
+            plugins:{
+                datalabels:{
                     enabled: true,
                 }
             }
-        }
+        },
     });
 }

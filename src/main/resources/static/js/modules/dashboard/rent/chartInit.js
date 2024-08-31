@@ -12,13 +12,13 @@
 //Method to initialize the dashboard and make AJAX calls to load the data.
 //src/main/resources/static/js/modules/dashboard/chartInit.js
 
-/**
- * Page: Dashboard
- * Item: Initialization
- * Method: Load data and render charts
- */
-$(document).ready(function () {
-    ajaxRequest('/items-total-price', renderItemsChart);
-    ajaxRequest('/rent-payment-status', renderPaymentChart);
-    ajaxRequest('/item-quantity', renderQtyItemsChart);
-});
+// /**
+//  * Page: Dashboard
+//  * Item: Initialization
+//  * Method: Load data and render charts
+//  */
+// $(document).ready(function () {
+//     ajaxRequest('/items-total-price', renderItemsChart);
+//     ajaxRequest('/rent-payment-status', renderPaymentChart);
+//     ajaxRequest('/item-quantity', renderQtyItemsChart);
+// });

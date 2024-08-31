@@ -18,30 +18,41 @@
  * Method: Display chart of payment status
  */
 function renderPaymentChart(data) {
-    var status = data.map(rent => rent.rentPaymentStatus);
-    var price = data.map(rent => rent.rentTotalPrice);
+    //variables
+    let status = data.map(function(rent){return rent.rentPaymentStatus});
+    let price = data.map(function(rent){return rent.rentTotalPrice})
 
-    const ctx3 = document.getElementById('myPaymentChart');
-    new Chart(ctx3, {
+    // Graphs
+    const ctx3 = document.getElementById('myPaymentChart')
+    const myRentChart = new Chart(ctx3,{
         type: 'pie',
         data: {
             labels: status,
             datasets: [{
                 data: price,
                 label: 'Values',
+                lineTension: 0,
+                borderWidth: 4,
                 backgroundColor: ['#FF6384', 'rgba(62,198,104,0.66)'],
                 pointBackgroundColor: '#007bff'
             }],
         },
-        options: {
-            plugins: {
-                legend: {
+        options:{
+            //responsive: true,           //allows responsiveness
+            //maintainAspectRatio: false, //disables the maintenance of the aspect
+            //aspectRatio: 1,             //ratio between width and height
+            plugins:{
+                legend:{
                     display: true,
                 },
-                tooltip: {
+                tooltip:{
                     boxPadding: '5px',
                 },
-                datalabels: {
+            }
+        },
+        options:{
+            plugins:{
+                datalabels:{
                     enabled: true,
                 }
             }

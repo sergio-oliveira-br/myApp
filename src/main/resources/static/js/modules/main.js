@@ -15,28 +15,60 @@
 //src/main/resources/static/js/modules/main.js
 
 //Import functions from modules
-import { loadProductListByProductType } from './sales/salesForm.js';
-import { loadCustomers } from './customer/customerUtils.js';
 
+/**
+ * Function to initialize the application on document ready.
+ */
+$(document).ready(function () {
+    // Initialize the application
+    initializeApp();
 
-//Main function for initialization
-$(document).ready(function() {
-    //Load initial data
-    // loadProductListByProductType('default'); // Exemplo de uso inicial
-    // loadCustomers('#customerSelect'); // Exemplo de uso inicial
-
-    //General settings
+    // Setup event listeners for user interactions
     setupEventListeners();
-
 });
+
+
+// //Main function for initialization
+// $(document).ready(function() {
+//     //Load initial data
+//     // loadProductListByProductType('default'); // Exemplo de uso inicial
+//     // loadCustomers('#customerSelect'); // Exemplo de uso inicial
+//
+//     //General settings
+//     setupEventListeners();
+//
+// });
 
 //Function to configure event listeners
 function setupEventListeners() {
-    // Adiciona ouvintes de eventos globais, se necessário
-    $('#exampleButton').on('click', function() {
-        alert('Button clicked!');
-    });
 
-    // Outras configurações ou inicializações
-    // Por exemplo, configurações de plugins, eventos personalizados, etc.
+}
+
+
+//*********
+
+
+
+
+/**
+ * Initialization function for setting up the application.
+ */
+function initializeApp() {
+    // Initialize dashboard charts
+    initializeDashboard();
+
+    // Other initialization tasks can be added here
+    console.log("Application initialized.");
+}
+
+
+/**
+ * Function to initialize the dashboard by loading data and rendering charts.
+ */
+function initializeDashboard() {
+    //Load and render charts on the dashboard
+    ajaxRequest('/items-total-price', renderItemsChart);
+    ajaxRequest('/item-quantity', renderQtyItemsChart);
+    ajaxRequest('/rent-payment-status', renderPaymentChart);
+
 }
