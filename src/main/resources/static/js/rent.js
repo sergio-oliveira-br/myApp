@@ -68,17 +68,14 @@ $(document).ready(function()
  Item: Table
  Method: The script will load all items in a table
  */
-function loadRent()
-{
+function loadRent() {
     //Call the generic function, that perform an AJAX request
-    ajaxRequest("/rent", function(data)
-    {
+    ajaxRequest("/rent", function(data) {
         //first clean
         $('#rentList').empty();
 
         //Iteration
-        data.forEach(function(rent)
-        {
+        data.forEach(function(rent) {
             $('#rentList').append('<tr>' +
                 '<td>' + rent.id + '</td>' +
                 '<td>' + rent.rentFirstName + '</td>' +
@@ -100,63 +97,10 @@ function loadRent()
 
 /**
  Page: Rent
- Item: Form - Customer field
- Method: The script will load the available CUSTOMERS in the rental form when the page loads
- */
-// function loadCustomerForRentForm()
-// {
-//     //Call the generic function, that perform an AJAX request
-//     ajaxRequest("/customers", function(data)
-//     {
-//         //Local variable
-//         let rentCustomerSelect = $('#rentFirstName');
-//
-//         //cleaning
-//         rentCustomerSelect.empty();
-//
-//         //Iteration
-//         data.forEach(function(customer) {
-//             rentCustomerSelect.append('<option value="' + customer.firstName + " "+ customer.lastName + " - " + customer.phoneNumber +'">' +
-//                 customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber +'</option>');
-//         });
-//     });
-// }
-
-
-
-/**
- Page: Rent
- Item: Form - Customer field
- Method: The script will load the available ITEMS in the rental form when the page loads
- */
-// function loadItemsForRentForm()
-// {
-//     ajaxRequest("/product", function(data)
-//     {
-//         //Local Variable
-//         var rentItemSelect = $('#rentItem');
-//
-//         //Cleaning
-//         rentItemSelect.empty();
-//
-//         //Iteration
-//         data.forEach(function(product)
-//         {
-//             rentItemSelect.append('<option value="' + product.itemDescription + '">' + product.itemDescription + '</option>');
-//         });
-//     });
-// }
-
-
-
-
-/**
- Page: Rent
  Item: Form -> Days = (End - Start)
  Method: Simple math to calculate the days
  */
-function mathDays(end, start)
-{
+function mathDays(end, start) {
     let start_Date = new Date(start);
     let end_Date = new Date(end);
     let diffTime = Math.abs(end_Date - start_Date);
@@ -172,8 +116,7 @@ function mathDays(end, start)
  Item: Form -> Days = (End - Start)
  Method: applying the mathDays method
  */
-function loadRentDays()
-{
+function loadRentDays() {
     //Variables
     let newStart = document.getElementById('rentStarts').value;
     let newEnd = document.getElementById('rentEnds').value;
@@ -187,8 +130,6 @@ function loadRentDays()
 
     //update the rentTotalPrice every time that any date has been changed
     loadTotalPrice();
-
-
 }
 
 
@@ -197,8 +138,7 @@ function loadRentDays()
  Item: Form -> Total Price = (Days * Qty * UnitPrice)
  Method: Simple math to calculate the total price and update
  */
-function loadTotalPrice()
-{
+function loadTotalPrice() {
     //Variable
     let newTotalDays = parseInt(document.getElementById('rentTotalDays').value);
     let newTotalQty = parseInt(document.getElementById('rentQtyItem').value);
@@ -226,8 +166,7 @@ document.getElementById('rentEnds').addEventListener('change',loadRentDays);
  Item: Form (modal)
  Method: Calculates the difference of the days
  */
-function updateRentDays()
-{
+function updateRentDays() {
     //Get the variables from the modal
     let newStart = $('#editRentStarts').val();
     let newEnd = $('#editRentEnds').val();
@@ -251,8 +190,7 @@ document.getElementById('editRentEnds').addEventListener('change',updateRentDays
  Item: Form (modal)
  Method: Calculates the total price on Modal
  */
-function updateTotalPrice()
-{
+function updateTotalPrice() {
     //Get the variables
     let newRentPriceModal = parseFloat($('#editRentPrice').val().replace(',', '.')) || 0;
     let newRentQtyItemModal = parseInt($('#editRentQtyItem').val()) || 0;
@@ -276,8 +214,7 @@ function updateTotalPrice()
 formSubmission('#rentForm', '/saveRent', orderFormData, orderSaveSuccess, saveError);
 
 //Get the form data from the form
-function orderFormData()
-{
+function orderFormData() {
     return {
         rentFirstName: $('#rentFirstName').val(),
         // rentLastName: $('#rentLastName').val(),
@@ -299,8 +236,7 @@ function orderFormData()
  Item: Form
  Method: Callback function for success
  */
-function orderSaveSuccess(response)
-{
+function orderSaveSuccess(response) {
     alert('Order added successfully!');
     console.log(response);
     loadRent(); //update the customer table
