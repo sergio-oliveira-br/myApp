@@ -17,14 +17,20 @@
  * Item: Table
  * Method: Create a table with all customers via AJAX
  */
-function loadCustomers() {
+function loadCustomersTable() {
     ajaxRequest("/customers", function (data) {
-        $('#customerList').empty(); // First clean
+        // First clean
+        $('#customerList').empty();
+
+        console.log('There are ' + data.length + ' customers in your customers DB.');
+
+        //Iteration
         data.forEach(function (customer) {
             $('#customerList').append('<tr>' +
                 '<td>' + customer.id + '</td>' +
                 '<td>' + customer.firstName + '</td>' +
                 '<td>' + customer.lastName + '</td>' +
+                '<td>' + customer.phoneNumber + '</td>' +
                 '<td>' + customer.city + '</td>' +
                 '<td>' + customer.additionalInfo + '</td>' +
                 '</tr>');

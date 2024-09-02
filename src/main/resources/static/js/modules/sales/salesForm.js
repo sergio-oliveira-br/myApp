@@ -17,7 +17,7 @@
  */
 $(document).ready(function () {
     // Load the available customers
-    loadCustomers('#saleFirstName');
+    loadCustomersTable('#saleFirstName');
 
     // Load the items classified as "Vendas" in productType
     loadProductListByProductType("Venda");
