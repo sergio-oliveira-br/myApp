@@ -16,7 +16,7 @@
  * Item: Form
  * Method: Send the expense data by using AJAX
  */
-formSubmission('#expenseForm', '/saveExpense', expenseFormData, expenseSaveSuccess, saveError);
+formSubmission('#expenseForm', '/saveExpense', expenseFormData, expenseSaveSuccess);
 
 /**
  * Get the form data from the form

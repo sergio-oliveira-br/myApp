@@ -17,7 +17,7 @@
  Item: Form
  Method: Send the customer data by using AJAX
  */
-function formSubmission(formId, url, formDataFunction, successCallback, errorCallback)
+function formSubmission(formId, url, formDataFunction, successCallback)
 {
     $(document).ready(function()
     {
@@ -41,22 +41,23 @@ function formSubmission(formId, url, formDataFunction, successCallback, errorCal
                         successCallback(response);
                     }
                 },
-                error: function(xhr, status, error)
-                {
-                    if(errorCallback)
-                    {
-                        let errorMessage = xhr.responseText;
-                        alert("Servidor: " + errorMessage);
-                        errorCallback(error);
+                error: function(xhr, status, error) {
+                    let errorMessage = 'Não foi possível salvar este formulário. Por favor, tente novamente. ' + error;
+
+                    alert(errorMessage);
+                    console.error(errorMessage);
+
+                    if(xhr.status === 400){
+                        //O erro 400, ou "Bad Request", indica que o servidor não conseguiu entender a solicitação enviada pelo cliente.
+                        //Isso geralmente ocorre quando há algum problema com a formatação da requisição,
+                        //como dados ausentes, inválidos ou com um formato inesperado.
+                        alert('Erro 400: Verifique os dados preenchidos.');
+                    }
+                    else{
+                        console.error("Erro: " + xhr.responseText);
                     }
                 }
             });
         });
     });
-}
-
-/** Method: Callback function for error */
-function saveError(error) {
-    alert('Não foi possível salvar este formulário. Por favor, tente novamente.');
-    console.error(error);
 }

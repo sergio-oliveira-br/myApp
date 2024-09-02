@@ -29,7 +29,7 @@ $(document).ready(function () {
 /**
  * Method: Send the sales data by using AJAX
  */
-formSubmission('#saleForm', '/saveSale', saleFormData, saleSaveSuccess, saveError);
+formSubmission('#saleForm', '/saveSale', saleFormData, saleSaveSuccess);
 
 /**
  * Get the form data from the form
