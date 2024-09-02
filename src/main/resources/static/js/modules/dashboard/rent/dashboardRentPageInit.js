@@ -10,7 +10,7 @@
  */
 
 // Method to initialize the dashboard and make AJAX calls to load the data.
-// src/main/resources/static/js/modules/dashboard/chartInit.js
+// src/main/resources/static/js/modules/dashboard/dashboardRentPageInit.js
 
 /**
  * Page: Dashboard
