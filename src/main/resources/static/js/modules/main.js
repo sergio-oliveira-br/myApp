@@ -14,18 +14,24 @@
 //to ensure that your application’s functionality is well structured and easy to maintain.
 //src/main/resources/static/js/modules/main.js
 
-//Import functions from modules
+//
 
 /**
- * Function to initialize the application on document ready.
+ * Import functions from modules, to initialize the application on document ready.
  */
 $(document).ready(function () {
     // Initialize the application
     initializeApp();
 
-    // Setup event listeners for user interactions
-    setupEventListeners();
 });
+
+/**
+ * Initialization function for setting up the application.
+ */
+function initializeApp() {
+    // Other initialization tasks can be added here
+    console.log("Application initialized.");
+}
 
 
 // //Main function for initialization
@@ -38,37 +44,3 @@ $(document).ready(function () {
 //     setupEventListeners();
 //
 // });
-
-//Function to configure event listeners
-function setupEventListeners() {
-
-}
-
-
-//*********
-
-
-
-
-/**
- * Initialization function for setting up the application.
- */
-function initializeApp() {
-    // Initialize dashboard charts
-    initializeDashboard();
-
-    // Other initialization tasks can be added here
-    console.log("Application initialized.");
-}
-
-
-/**
- * Function to initialize the dashboard by loading data and rendering charts.
- */
-function initializeDashboard() {
-    //Load and render charts on the dashboard
-    ajaxRequest('/items-total-price', renderItemsChart);
-    ajaxRequest('/item-quantity', renderQtyItemsChart);
-    ajaxRequest('/rent-payment-status', renderPaymentChart);
-
-}
