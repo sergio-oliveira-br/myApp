@@ -24,9 +24,25 @@ function ajaxRequest(url, successCallback) {
         success: successCallback,
 
         error: function(xhr, status, error) {
-            console.error(error);
-            let errorMessage = xhr.responseText;
-            alert("From the Server: " + errorMessage);
+            try{
+                let response = JSON.parse(xhr.responseText);
+                alert('Opps! Ocorreu um erro. ' + response.message);
+
+            }catch(parseError){
+                console.log('Análise do erro: ', parseError);
+
+                if (xhr.status === 500){
+                    // Problema no lado do servidor (erro de programação, configuração, etc.)
+                    alert('Erro 500: O servidor encontrou um erro interno e não pôde completar sua solicitação.');
+                }
+                else if(xhr.status === 404){
+                    // Problema no lado do cliente (URL incorreta, recurso removido).
+                    alert('Erro 404: Página não encontrada.')
+                }
+                else{
+                    alert('Ocorreu um erro inesperado. Por favor, entre em contato com o suporte');
+                }
+            }
         }
     });
 }

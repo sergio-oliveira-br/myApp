@@ -53,7 +53,7 @@ function submitEditForm() {
             console.log('Item updated: ', response);
             alert('Item atualizado com sucesso!');
             $('#editModal').modal('hide');
-            loadProduct(); // Reload the product list after update
+            loadProductTable(); // Reload the product list after update
         },
         error: function(xhr, status, error) {
             console.error(error);

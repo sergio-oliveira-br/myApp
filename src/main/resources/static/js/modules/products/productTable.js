@@ -10,16 +10,19 @@
  */
 
 //This file will contain functions that deal with the creation and updating of the product table on the page
-//src/main/resources/static/js/product.js
+//src/main/resources/static/js/modules/products/productTable.js
 
 /**
  * Page: Products
  * Info: Creates a table with all products via AJAX
  */
-function loadProduct() {
+function loadProductTable() {
     ajaxRequest("/product", function(data) {
         $('#productList').empty();
 
+        console.log("There are " + data.length + " products in your DB");
+
+        //Iteration
         data.forEach(function(product) {
             $('#productList').append('<tr>' +
                 '<td>' + product.id + '</td>' +
@@ -39,6 +42,8 @@ function loadProduct() {
  * Method: Populate product select dropdown in the edit modal form
  */
 function updateLoadProductForm() {
+    console.log("Here where the method updateLoadProductForm() is used. !IMPORTANT: CHECK THE NEED");
+
     ajaxRequest("/product", function(data) {
         let productSelect = $('#editItemQty');
         productSelect.empty();

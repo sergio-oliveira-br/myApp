@@ -12,6 +12,10 @@
 //This file will contain functions related to the product form, including submission handling and form events.
 //src/main/resources/static/js/modules/products/productForm.js
 
+
+/** Method: Send the Product data by using AJAX*/
+ formSubmission('#itemForm', '/saveProduct', productFormData, productSaveSuccess, saveError);
+
 /**
  * Page: Products
  * Method: productFormData()
@@ -38,7 +42,7 @@ function productFormData() {
 function productSaveSuccess(response) {
     alert('Produto adicionado com sucesso!');
     console.log(response);
-    loadProduct(); //update the product table
+    loadProductTable(); //update the product table
 
     // Clear the form by resetting it
     document.getElementById('itemForm').reset();
