@@ -70,7 +70,7 @@ function updateLoadCustomerForRentForm() {
  */
 $('#editRentForm').on('submit', function(e) {
     e.preventDefault(); // Prevents the standard form submission
-    submitEditForm();
+    // submitExpenseEditForm(); refatorei o nome incluido a palavraExpense para separar os metodos que estao misturados
     $('#displayRentModal').modal('hide');
 });
 

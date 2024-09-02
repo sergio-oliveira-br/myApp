@@ -18,7 +18,7 @@
  * Method: This is a jQuery method that allows the user to make asynchronous requests to the server
  * to send or receive data without having to reload the page
  */
-function openEditModal(expenseId) {
+function openExpenseEditModal(expenseId) {
     ajaxRequest('/expense/' + expenseId, function (expense) {
         console.log(expense);
 
@@ -40,7 +40,9 @@ function openEditModal(expenseId) {
  * Item: Form (modal) -> Submit
  * Method: Submit the form with updated expense data
  */
-function submitEditForm() {
+function submitExpenseEditForm() {
+    let currentDate = new Date();
+
     let itemData = {
         id: $('#editExpenseId').val(),
         expenseDescription: $('#editExpenseDescription').val(),
@@ -59,18 +61,42 @@ function submitEditForm() {
         data: JSON.stringify(itemData),
 
         success: function (response) {
-            let msg = "Despesa alterada com sucesso";
-            alert(msg);
-            console.log(msg + response);
+            let successMsg = "Despesa alterada com sucesso";
 
-            $('#editModal').modal('hide');
+            alert(successMsg);
+            console.log(successMsg, currentDate);
 
-            loadExpenseTable();
+            $('#editModal').modal('hide');//close the modal
+
+            loadExpenseTable();//Reload the table
         },
 
         error: function (xhr, status, error) {
-            console.error("Error: " + error);
-            alert('Error: ' + xhr.responseText + " | Mensagem: " + error.responseText);
+            try {
+                let response = JSON.parse(xhr.responseText);
+                alert('Oops! Ocorreu um erro. ' + response);
+            }
+            catch (parseError) {
+                console.log('Análise do erro: ', parseError);
+            }
         }
     });
 }
+
+//Confirmation message for form submission
+document.getElementById('editModal').addEventListener('submit', function (event) {
+    let confirmationMsg = confirm('Tem certeza de que deseja salvar as modificações?');
+
+    if(confirmationMsg){
+        submitExpenseEditForm();
+    }
+    else {
+        event.preventDefault();//The method cancels the event if it is cancelable
+        $('#editModal').modal('hide');//close the modal
+
+        //Build and print a message
+        let cancelMsg = 'Operaçao cancelada pelo usuario! \nOs dados não foram alterados.';
+        alert(cancelMsg)
+        console.log(cancelMsg);
+    }
+})

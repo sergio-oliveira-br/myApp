@@ -32,7 +32,7 @@ function loadRent() {
                 '<td>' + rent.rentEnds + '</td>' +
                 '<td>' + rent.rentTotalDays + '</td>' +
                 '<td>' + rent.rentTotalPrice.toFixed(2) + '</td>' + // Formatting to two decimal places
-                '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
+                '<td><button class="btn btn-primary" onclick="???(' + rent.id + ')">Edit</button></td>' +
                 '</tr>'
             );
         });
@@ -52,7 +52,7 @@ function renderIndexRentTable(data) {
             '<td>' + rent.rentPaymentStatus + '</td>' +
             '<td>' + rent.rentTotalPrice + '</td>' +
             '<td>' + rent.rentStatus + '</td>' +
-            '<td><button class="btn btn-primary" onclick="openEditModal(' + rent.id + ')">Edit</button></td>' +
+            '<td><button class="btn btn-primary" onclick="???(' + rent.id + ')">Edit</button></td>' +
             '</tr>');
         console.log(rent.id);
     });

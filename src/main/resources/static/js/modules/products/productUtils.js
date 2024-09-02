@@ -19,7 +19,7 @@ document.getElementById('editItemQtyAvailable').addEventListener('change', stock
 function stockAlert() {
     let confirmationMsg = "Você tem certeza eu deseja alterar o Estoque?";
     if (confirm(confirmationMsg)) {
-        submitEditForm(); // Send the data after confirmation from the user
+        submitExpenseEditForm(); // Send the data after confirmation from the user
     } else {
         alert('Operação cancelada!');
     }

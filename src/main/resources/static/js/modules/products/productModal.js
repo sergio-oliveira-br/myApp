@@ -17,7 +17,7 @@
  * Item: Form (modal) -> OpenEditModal() -> SubmitEditForm()
  * Method: Open modal and load product data
  */
-function openEditModal(productId) {
+function openProductEditModal(productId) {
     ajaxRequest("/product/" + productId, function(product) {
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
@@ -33,7 +33,7 @@ function openEditModal(productId) {
 /**
  * Method: Submit the edit form
  */
-function submitEditForm() {
+function submitProductEditForm() {
     let currentDate = new Date();
     let itemData = {
         id: $('#editProductId').val(),
@@ -66,7 +66,7 @@ function submitEditForm() {
 document.getElementById('editModal').addEventListener('submit', function(event) {
     let confirmation = confirm('Tem certeza de que deseja salvar as modificações?');
     if (confirmation) {
-        submitEditForm();
+        submitProductEditForm();
     } else {
         event.preventDefault();
         console.log('Usuário cancelou a operação.')

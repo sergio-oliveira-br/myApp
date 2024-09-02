@@ -21,6 +21,8 @@ function loadExpenseTable() {
     ajaxRequest("/expense", function (data) {
         $('#expenseTable').empty();
 
+        console.log('There are ' + data.length + ' expenses in your expenses DB.');
+
         data.forEach(function (expense) {
             $('#expenseTable').append('<tr>' +
                 '<td>' + expense.id + '</td>' +
@@ -29,7 +31,7 @@ function loadExpenseTable() {
                 '<td>' + expense.expenseDate + '</td>' +
                 '<td>' + expense.expenseCategory + '</td>' +
                 '<td>' + expense.expenseAdditionalNotes + '</td>' +
-                '<td><button class="btn btn-primary" onclick="openEditModal(' + expense.id + ')">Edit</button></td>' +
+                '<td><button class="btn btn-primary" onclick="openExpenseEditModal(' + expense.id + ')">Edit</button></td>' +
                 '</tr>'
             );
         });

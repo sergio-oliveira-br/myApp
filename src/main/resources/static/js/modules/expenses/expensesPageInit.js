@@ -14,4 +14,12 @@
 
 $(document).ready(function () {
     //Load the table
+    loadExpenseTable();
+
+    //(Modal) Send the data by clicking on submit button
+    $('#editModal').on('submit', function(e) {
+        //The preventDefault() method cancels the event if it is cancelable,
+        //meaning that the default action that belongs to the event will not occur.
+        e.preventDefault();
+    });
 })

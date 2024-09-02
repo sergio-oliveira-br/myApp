@@ -26,7 +26,7 @@ function ajaxRequest(url, successCallback) {
         error: function(xhr, status, error) {
             try{
                 let response = JSON.parse(xhr.responseText);
-                alert('Opps! Ocorreu um erro. ' + response.message);
+                alert('Oops! Ocorreu um erro. ' + response.message);
 
             }catch(parseError){
                 console.log('Análise do erro: ', parseError);

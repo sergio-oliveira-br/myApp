@@ -31,7 +31,7 @@ function loadProductTable() {
                 '<td>' + product.itemQuantity +'</td>' +
                 '<td>' + product.itemAvailableQty + '</td>' +
                 '<td>' + product.productType + '</td>' +
-                '<td><button class="btn btn-primary" onclick="openEditModal(' + product.id + ')">Edit</button></td>' +
+                '<td><button class="btn btn-primary" onclick="openProductEditModal(' + product.id + ')">Edit</button></td>' +
                 '</tr>');
         });
     });
