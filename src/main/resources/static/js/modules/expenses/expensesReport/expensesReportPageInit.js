@@ -9,14 +9,10 @@
  * Refactoring & New Features - Aug 2024 | Version: 2.0
  */
 
-//Methods for loading all expenses no filter
-//src/main/resources/static/js/modules/expenses/expensesReport/expensesAllDataFilter.js
+//This file centralizes all boot calls in one place, making it easy to understand and maintain.
+//src/main/resources/static/js/modules/expenses/expensesReport/expensesReportPageInit.js
 
-/**
- * Page: Expense Report
- * Item: Table
- * Method: Load all expenses into the table without filtering
- */
-function getAllExpenses() {
-    loadFilteredExpenses("/expense");
-}
+$(document).ready(function () {
+    //load the page with all expenses
+    getAllExpenses();
+})

@@ -19,17 +19,5 @@
  */
 function getExpensesByMonth(year, month) {
     let url = "/expensesByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
-    ajaxRequest(url, function (data) {
-        $('#expensesListReport').empty();
-        data.forEach(function (expense) {
-            $('#expensesListReport').append('<tr>' +
-                '<td>' + expense.id + '</td>' +
-                '<td>' + expense.expenseDescription + '</td>' +
-                '<td>' + expense.expenseAmount + '</td>' +
-                '<td>' + expense.expenseDate + '</td>' +
-                '<td>' + expense.expenseCategory + '</td>' +
-                '<td>' + expense.expenseAdditionalNotes + '</td>' +
-                '</tr>');
-        });
-    });
+    loadFilteredExpenses(url);
 }
