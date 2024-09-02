@@ -12,8 +12,6 @@
 //This file handles the submission of the client form and updating the client table.
 //src/main/resources/static/js/modules/customers/customerForm.js
 
-// customerForm.js
-
 /**
  * Method: Send the customer data by using AJAX
  */

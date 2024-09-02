@@ -64,16 +64,4 @@ function updateLoadProductForm() {
     });
 }
 
-// Stock alert confirmation before change
-document.getElementById('editItemQtyAvailable').addEventListener('change', stockAlert);
-function stockAlert() {
-    let confirmationMsg = "Você tem certeza eu deseja alterar o Estoque?"
-
-    if (confirm(confirmationMsg)) {
-        submitEditForm(); //send the data after the confirmation from the user
-    } else {
-        alert('Operação cancelada!');
-    }
-}
-
 
