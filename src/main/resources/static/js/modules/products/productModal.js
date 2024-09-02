@@ -35,6 +35,7 @@ function openProductEditModal(productId) {
  */
 function submitProductEditForm() {
     let currentDate = new Date();
+
     let itemData = {
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
@@ -44,20 +45,33 @@ function submitProductEditForm() {
         itemAvailableQty: $('#editItemQtyAvailable').val(),
         dateModified: currentDate,
     };
+
+    console.log(itemData);
+
     $.ajax({
         url: "/product/" + itemData.id,
         type: "PUT",
         contentType: 'application/json',
         data: JSON.stringify(itemData),
+
         success: function(response) {
-            console.log('Item updated: ', response);
-            alert('Item atualizado com sucesso!');
+            let successMsg = "Produto alterado com sucesso.";
+
+            alert(successMsg);
+            console.log(successMsg, currentDate);
+
             $('#editModal').modal('hide');
+
             loadProductTable(); // Reload the product list after update
         },
         error: function(xhr, status, error) {
-            console.error(error);
-            alert('Oops, não foi possivel realizar esta atualização! Erro: ' + xhr.responseText );
+            try {
+                let response = JSON.parse(xhr.responseText);
+                alert('Oops! Ocorreu um erro. ' + response);
+            }
+            catch (parseError) {
+                console.log('Análise do erro:', parseError);
+            }
         }
     });
 }
@@ -65,10 +79,17 @@ function submitProductEditForm() {
 // Confirmation message for form submission
 document.getElementById('editModal').addEventListener('submit', function(event) {
     let confirmation = confirm('Tem certeza de que deseja salvar as modificações?');
+
     if (confirmation) {
         submitProductEditForm();
-    } else {
+    }
+    else {
         event.preventDefault();
-        console.log('Usuário cancelou a operação.')
+        $('#editModal').modal('hide');//close the modal
+
+        //Build and print a message
+        let cancelMsg = 'Operaçao cancelada pelo usuario! \nOs dados não foram alterados.';
+        alert(cancelMsg)
+        console.log(cancelMsg);
     }
 });
