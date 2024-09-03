@@ -18,7 +18,7 @@
  */
 function errorHandler(error) {
     //Treat the error generically
-    alert('Oops! Infelizmente ocorreu um erro!' + error);
+    alert('Oops! Infelizmente ocorreu um erro! ' );
 
     //Specific treatment for different types of errors
     if(error instanceof TypeError){
@@ -27,7 +27,7 @@ function errorHandler(error) {
         alert('Houve um erro inesperado no tipo de dado. Por favor, tente novamente.');
     }
 
-    if(error instanceof Range){
+    if(error instanceof RangeError){
         //Um RangeError ocorre quando um valor numérico está fora do intervalo válido para uma determinada operação.
         console.error('Erro no intervalo: ', error.message);
         alert('O valor inserido está fora do intervalo permitido.')

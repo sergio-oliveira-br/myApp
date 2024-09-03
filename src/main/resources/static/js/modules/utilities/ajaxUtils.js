@@ -24,8 +24,14 @@ function ajaxRequest(url, successCallback) {
         success: successCallback,
 
         error: function(xhr, status, error) {
+            //build the object
+            const ajaxError = {
+                message: error, // Mensagem de erro genérica
+                response: xhr,  // Inclui o objeto xhr para informações detalhadas
+                status: status  // Status da resposta
+            };
             //call the function from errorHandling.js file
-            errorHandler(error);
+            errorHandler(ajaxError);
         }
     });
 }
