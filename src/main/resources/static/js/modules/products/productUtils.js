@@ -18,7 +18,11 @@
  */
 function loadProductListByProductType(productType) {
     ajaxRequest("/productByType?productType=" + encodeURIComponent(productType), function(data) {
-        let productSelects = [$('#saleItem'), $('#rentItem'), $('#editRentItem')]; // Array of select elements
+
+        // Array of select elements
+        let productSelects = [$('#rentItem'), $('#editRentItem'),        //rent
+            $('#saleItem'), $('#editSaleItem')];                               //sales
+
         productSelects.forEach(function (selectElement) {
             selectElement.empty();
             data.forEach(function (product) {
@@ -29,7 +33,7 @@ function loadProductListByProductType(productType) {
 }
 
 // Update price when the user changes the item field
-$('#rentItem, #editRentItem, #saleItem').change(function() {
+$('#rentItem, #editRentItem, #saleItem, #editSaleItem').change(function() {
     console.log('Change event triggered');
 
     let selectedOption = $(this).find(':selected');
@@ -37,14 +41,21 @@ $('#rentItem, #editRentItem, #saleItem').change(function() {
 
     if ($(this).attr('id') === 'rentItem') {
         $('#rentPrice').val(price);
+    }
 
-    } else if ($(this).attr('id') === 'editRentItem') {
+    else if ($(this).attr('id') === 'editRentItem') {
         $('#editRentPrice').val(price);
         updateTotalPrice();
+    }
 
-    } else if ($(this).attr('id') === 'saleItem') {
+    else if ($(this).attr('id') === 'saleItem') {
         $('#salePrice').val(price);
-        loadTotalPriceSales(); // Update the total price for sales
+        //loadTotalPriceSales(); // Update the total price for sales
+    }
+
+    else if ($(this).attr('id') === 'editSaleItem') {
+        $('#editSalePrice').val(price);
+        updateTotalPriceSaleModal();
     }
 });
 

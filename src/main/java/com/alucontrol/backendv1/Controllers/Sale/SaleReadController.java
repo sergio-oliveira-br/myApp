@@ -18,10 +18,10 @@ import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Repository.SaleRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /** This controller is dedicated to endpoints that read data related a Sales */
 @RestController
@@ -49,5 +49,18 @@ public class SaleReadController {
         LoggerUtil.info("Fetched " + sale.size() + " sales records"); //Create a log
 
         return ResponseEntity.ok(sale);
+    }
+
+    /** Endpoint to get a specific SALE by ID (by clicking on Edit into the table)*/
+    @GetMapping("/sale/{id}")
+    public ResponseEntity<Sale> getSaleById(@PathVariable Long id) {
+        LoggerUtil.info("Looking for sale record with id: " + id);
+
+        Optional<Sale> sale = saleRepository.findById(id);
+        if (sale.isPresent()) {
+            LoggerUtil.info("Fetched sale record with id: " + id);
+            return ResponseEntity.ok(sale.get());
+        }
+        return ResponseEntity.notFound().build();
     }
 }

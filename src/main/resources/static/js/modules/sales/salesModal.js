@@ -22,7 +22,7 @@
 function populateSaleModal(saleId) {
     console.log("Open Edit Modal, ID: " + saleId);
 
-    ajaxRequest('/sales/' + saleId, function (sale){
+    ajaxRequest('/sale/' + saleId, function (sale){
         $('#editSaleId').val(sale.id);
         $('#editSaleFirstName').val(sale.saleFirstName);
         $('#editSaleAddress').val(sale.saleAddress);

@@ -26,3 +26,27 @@ function loadTotalPriceSales() {
 // Update the total price when these fields change
 document.getElementById('saleItem').addEventListener('change', loadTotalPriceSales);
 document.getElementById('saleQtyItem').addEventListener('change', loadTotalPriceSales);
+
+/**
+ * Page: Sales
+ * Item: Form (modal)
+ * Method: Calculates the total price on Modal
+ */
+
+function updateTotalPriceSaleModal() {
+    let newSalePrice = parseFloat($('#editSalePrice').val());
+    let newSaleQty = parseInt($('#editSaleQtyItem').val());
+
+    console.log("Preco: " + newSalePrice);
+    console.log("Qty: " + newSaleQty);
+
+    if (isNaN(newSalePrice) || isNaN(newSaleQty)) {
+        console.error("Invalid input: Please enter valid numbers for price and quantity.");
+        return; // Or handle the error in another way
+    }
+
+    let newTotalPriceModal = (newSalePrice * newSaleQty);
+    console.log('Novo preço calculado: ' + newTotalPriceModal);
+
+    $('#editSaleTotalPrice').val(newTotalPriceModal.toFixed(2));
+}

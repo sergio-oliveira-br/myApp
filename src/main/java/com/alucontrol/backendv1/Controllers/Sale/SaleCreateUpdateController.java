@@ -19,6 +19,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 /**This controller is dedicated to endpoints that create and update records
  * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses.*/
 @RestController
@@ -64,12 +66,20 @@ public class SaleCreateUpdateController {
         }
     }
 
+    /** Endpoint to update a specific Sale by ID */
+    @PutMapping("/sale/{id}")
+    public ResponseEntity<Sale> updateSale(@PathVariable Long id, @RequestBody Sale sale) {
+        LoggerUtil.info("Updating sale record with id: " + id);
+        Optional<Sale> existingSale = saleRepository.findById(id);
+        if (existingSale.isPresent()) {
+            LoggerUtil.info("Updating sale record with id: " + id);
+            Sale updatedSale = saleRepository.save(sale);
 
-//    /** Endpoint to update sales information */
-//    @PutMapping("/sales/{id}") //Remember: PUT is a method from CRUD used to UPDATE data
-//    public ResponseEntity<?> updateSale(@PathVariable Long id, @RequestBody Sale sale){
-//
-//    }
-
-
+            LoggerUtil.info("Sale updated successfully: " + updatedSale.toString());
+            return ResponseEntity.ok(updatedSale);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

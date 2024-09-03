@@ -16,10 +16,11 @@
  * Method: When the page is loaded or reloaded, the methods here will be updated
  */
 $(document).ready(function () {
-    console.log('Rent Page initialized');
+    console.log('Sale Page initialized');
 
     //load customers created in the form as a list
     loadCustomersListForm('#saleFirstName'); //original form
+    loadCustomersListForm('#editSaleFirstName'); //modal edit
 
     // Load the items classified as "Vendas" in productType
     loadProductListByProductType('Venda');
@@ -32,5 +33,11 @@ $(document).ready(function () {
         e.preventDefault();
         $('#editModal').modal('hide');
         saleFormSubmissionModal(); //Used to update an existing resource on the server.
+    });
+
+    //(Modal)Update total price when price or quantity change
+    $('#editSaleQtyItem, #editSaleItem').on('change', function() {
+        console.log('Sale: Price or Quantity input changed');
+        updateTotalPriceSaleModal();
     });
 });
