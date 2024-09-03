@@ -48,20 +48,6 @@ function productSaveSuccess(response) {
     document.getElementById('itemForm').reset();
 }
 
-/**
- * Page: Products
- * Method: updateLoadProductForm()
- * Info: Update the product form dropdown with available products
- */
-function updateLoadProductForm() {
-    ajaxRequest("/product", function(data) {
-        let productSelect = $('#editItemQty');
-        productSelect.empty();
 
-        data.forEach(function(product) {
-            productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
-        });
-    });
-}
 
 

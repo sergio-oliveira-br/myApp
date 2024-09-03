@@ -21,11 +21,14 @@ function updateRentDays() {
     let newStart = $('#editRentStarts').val();
     let newEnd = $('#editRentEnds').val();
 
-    let newRentTotalDays = mathDays(newStart, newEnd);
+    let newRentTotalDays = calculateRentDuration(newStart, newEnd);
     console.log("New Total Days has been calculated: " + newRentTotalDays);
 
     $('#editRentTotalDays').val(newRentTotalDays);
 }
+//Update everytime that one of these two field is changed
+document.getElementById('editRentStarts').addEventListener('change',updateRentDays);
+document.getElementById('editRentEnds').addEventListener('change',updateRentDays);
 
 /**
  * Page: Rent
@@ -48,7 +51,7 @@ function updateTotalPrice() {
  * Method: This is a jQuery method that allows the user to make asynchronous requests to the server
  * to send or receive data without having to reload the page.
  */
-function openEditModal(rentId) {
+function populateRentModal(rentId) {
     console.log("Open Edit Modal, ID: " + rentId);
 
     ajaxRequest("/rent/" + rentId, function(rent) {
@@ -69,5 +72,49 @@ function openEditModal(rentId) {
 
         let editModal = new bootstrap.Modal(document.getElementById('editModal'));
         editModal.show();
+    });
+}
+
+/**
+ Page: Rent and Index
+ Item: Form (modal)
+ Method: Send the data to update my database
+ */
+function formSubmissionModal() {
+    let rentData = {
+        id: $('#editRentId').val(),
+        rentFirstName: $('#editRentFirstName').val(),
+        rentLastName: $('#editRentLastName').val(),
+        rentAddress: $('#editRentAddress').val(),
+        rentItem: $('#editRentItem').val(),
+        rentQtyItem: parseInt($('#editRentQtyItem').val()),
+        rentPrice: parseFloat($('#editRentPrice').val()),
+        rentStarts: $('#editRentStarts').val(),
+        rentEnds: $('#editRentEnds').val(),
+        rentTotalDays: parseInt($('#editRentTotalDays').val()),
+        rentTotalPrice: parseFloat($('#editRentTotalPrice').val()),
+        rentPaymentStatus: $('#editRentPaymentStatus').val(),
+        rentDetails: $('#editRentDetails').val(),
+        rentStatus: $('#editRentStatus').val()
+    };
+
+    //this is a log to check what's it will send
+    console.log(rentData);
+
+    $.ajax({ //allows updating parts of a web page without reloading the entire page
+        url: '/rent/' + rentData.id, //indicates the endpoint
+        type: 'PUT', //HTTP request methods used to INSERT data to the server (backend), indicating by the endpoint specified by the URL
+        contentType: 'application/json',
+        data: JSON.stringify(rentData),
+
+        success: function (response) {
+            alert('Aluguel alterado com sucesso.');
+            $('#editModal').modal('hide');
+            loadRentTable();
+        },
+        error: function(xhr, status, error) {
+            //call the function from errorHandling.js file
+            errorHandler(error);
+        }
     });
 }

@@ -30,4 +30,52 @@ function ajaxRequest(url, successCallback) {
     });
 }
 
+/**
+ * Method: ajaxRequest(url, successCallback)
+ * Info: Generic function to perform an AJAX request and handle success and error responses
+ */
+function ajaxRequestTypePut(url, successCallback) {
+    $.ajax({
+        url: url,
+        type: "PUT", //Used to update an existing resource on the server.
+        contentType: 'application/json',
+        success: successCallback,
+
+        error: function(xhr, status, error) {
+            //call the function from errorHandling.js file
+            errorHandler(error);
+        }
+    });
+}
+
+/**
+ * Method: ajaxRequest(url, successCallback)
+ * Info: Generic function to perform an AJAX request and handle success and error responses
+ */
+function ajaxRequestTypePost(url, successCallback) {
+    $.ajax({
+        url: url,
+        type: "POST", //Used to submit new data to a server.
+        contentType: 'application/json',
+        success: successCallback,
+
+        error: function(xhr, status, error) {
+            //call the function from errorHandling.js file
+            errorHandler(error);
+        }
+    });
+}
+
+
+/** THIS WILL BE THE FUTERE
+ * function ajaxRequest(url, method, data, successCallback, failureCallback) {
+ *     $.ajax({
+ *         url: url,                   //O endereço URL para a requisição.
+ *         type: method,               //O método HTTP a ser utilizado (GET, POST, PUT, DELETE, etc.).
+ *         data: data,                 //Os dados a serem enviados no corpo da requisição (opcional).
+ *         success: successCallback,   //A função a ser chamada em caso de sucesso.
+ *         error: failureCallback      //A função a ser chamada em caso de erro.
+ *     });
+ * }
+ */
 

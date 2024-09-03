@@ -16,11 +16,9 @@ $(document).ready(function () {
     //Load the table
     loadProductTable();
 
-    //(Modal) The script will load the available/saved items in the Product Form Modal
-    updateLoadProductForm(); //!IMPORTANTE EU NAO TENHO CERTEZA SE ELE ESTA ALOCADO NO LUGAR CORRETO
-
     //(Modal) Send the data by clicking on submit button
     $('#editModal').on('submit', function(e) {
         e.preventDefault();
     });
-})
+});
+

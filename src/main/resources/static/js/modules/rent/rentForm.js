@@ -41,29 +41,14 @@ function orderFormData() {
  * Callback function for success
  */
 function orderSaveSuccess(response) {
-    alert('Order added successfully!');
+    alert('Aluguel criado com sucesso!');
     console.log(response);
-    loadRent(); // Update the rent table
+    loadRentTable(); // Update the rent table
 
     // Clear the form by resetting it
     document.getElementById('rentForm').reset();
 }
 
-
-/**
- * (Modal) Update the rent status, if is "Finished", the item stock will return to total available
- */
-$('#editRentStatus').on('change', function() {
-    alert('O status do aluguel foi alterado.' +
-        '\nCertifique-se de que você escolheu a opção correta!');
-});
-
-/**
- * (Modal) The script will load the available items and customers in the rental form when the page loads
- */
-function updateLoadCustomerForRentForm() {
-    // Implementação da função para carregar clientes disponíveis
-}
 
 /**
  * (MODAL) The script will load the available items and customers in the rental form when the page loads
@@ -75,22 +60,22 @@ $('#editRentForm').on('submit', function(e) {
 });
 
 
-/**
- * Page: Rent and Index
- * Item: Form (modal) -> Field Customer
- * Method: The script will load the available customers in the rental form when the page loads
- */
-function updateLoadCustomerForRentForm() {
-    ajaxRequest("/customers", function(data) {
-        var rentCustomerSelect = $('#editRentFirstName');
-        rentCustomerSelect.empty();
-
-        data.forEach(function(customer) {
-            rentCustomerSelect.append('<option value="' + customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '">' +
-                customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '</option>');
-        });
-    });
-}
+// /**
+//  * Page: Rent and Index
+//  * Item: Form (modal) -> Field Customer
+//  * Method: The script will load the available customers in the rental form when the page loads
+//  */
+// function updateLoadCustomerForRentForm() {
+//     ajaxRequest("/customers", function(data) {
+//         var rentCustomerSelect = $('#editRentFirstName');
+//         rentCustomerSelect.empty();
+//
+//         data.forEach(function(customer) {
+//             rentCustomerSelect.append('<option value="' + customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '">' +
+//                 customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '</option>');
+//         });
+//     });
+// }
 
 /**
  * Page: Rent and Index

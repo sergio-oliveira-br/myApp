@@ -9,17 +9,14 @@
  * Refactoring & New Features - Aug 2024 | Version: 2.0
  */
 
-//Methods to filter rentals by payment status.
-//src/main/resources/static/js/modules/rent/rentReport/rentPaymentStatusFilter.js
+//This file is responsible for loading and rendering the rent table on RENT REPORT PAGE.
+//src/main/resources/static/js/modules/rent/rentReport/rentGetAllData.js
 
 /**
- * Page: Rent
+ * Page: Rent Report
  * Item: Table
- * Method: Filter rents by payment status
+ * Method: Load all rent records
  */
-function getRentByPaymentStatus(status) {
-    let url = "/rentByPaymentStatus?paymentStatus=" + encodeURIComponent(status);
-    ajaxRequest(url, renderRentTableReport);
+function getAllRent() {
+    ajaxRequest("/rent", renderRentTableReport);
 }
-
-

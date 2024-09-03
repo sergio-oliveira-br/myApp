@@ -17,7 +17,7 @@
  * Item: Form -> Days = (End - Start)
  * Method: Simple math to calculate the days
  */
-function mathDays(end, start) {
+function calculateRentDuration(end, start) {
     let start_Date = new Date(start);
     let end_Date = new Date(end);
     let diffTime = Math.abs(end_Date - start_Date);
@@ -35,12 +35,16 @@ function loadRentDays() {
     let newStart = document.getElementById('rentStarts').value;
     let newEnd = document.getElementById('rentEnds').value;
 
-    let rentTotalDays = mathDays(newEnd, newStart);
+    let rentTotalDays = calculateRentDuration(newEnd, newStart);
     document.getElementById('rentTotalDays').value = rentTotalDays;
     console.log("The days have been calculated", rentTotalDays);
 
     loadTotalPrice();
 }
+
+//Update everytime that one of these five field is changed
+document.getElementById('rentStarts').addEventListener('change',loadRentDays);
+document.getElementById('rentEnds').addEventListener('change',loadRentDays);
 
 /**
  * Page: Rent
@@ -56,3 +60,10 @@ function loadTotalPrice() {
     document.getElementById('rentTotalPrice').value = newRentTotalPrice.toFixed(2);
     console.log("The Rent Total Price was calculated by loadTotalPrice(). Result: " + newRentTotalPrice.toFixed(2));
 }
+
+//Update everytime that one of these five field is changed
+document.getElementById('rentTotalDays').addEventListener('change', loadTotalPrice);
+document.getElementById('rentQtyItem').addEventListener('change', loadTotalPrice);
+document.getElementById('rentPrice').addEventListener('change', loadTotalPrice);
+
+

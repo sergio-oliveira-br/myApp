@@ -16,14 +16,29 @@
  * Function: loadCustomers(selectId)
  * Info: Load customers and populate the select dropdown
  */
-function loadCustomers(selectId) {
+function loadCustomersListForm(selectId) {
     ajaxRequest("/customers", function(data) {
-        const customerSelect = $(selectId);
-        customerSelect.empty();
+        const rentCustomerSelect = $(selectId);
+
+        rentCustomerSelect.empty();
         data.forEach(function(customer) {
-            customerSelect.append(
-                `<option value="${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}">${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}</option>`
+            rentCustomerSelect.append(`<option value="${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}">
+                ${customer.firstName} ${customer.lastName} - ${customer.phoneNumber}</option>`
             );
         });
     });
 }
+
+//PRECISA SER VALIDADO, MAS ACREDITO QUE PODE SER UTILIZADO DENTRO DO MODAL TAMBEM!
+// function loadCustomersListModal() {
+//     ajaxRequest("/customers", function(data) {
+//         const rentCustomerSelect = $('#editRentFirstName');
+//
+//         rentCustomerSelect.empty();
+//
+//         data.forEach(function(customer) {
+//             rentCustomerSelect.append('<option value="' + customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '">' +
+//                 customer.firstName + " " + customer.lastName + " - " + customer.phoneNumber + '</option>');
+//         });
+//     });
+// }

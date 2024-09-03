@@ -43,7 +43,7 @@ function searchRent() {
  */
 function getRentByMonth(year, month) {
     let url = "/rentByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
-    ajaxRequest(url, renderRentTable);
+    ajaxRequest(url, renderRentTableReport);
 }
 
 /**
@@ -53,5 +53,5 @@ function getRentByMonth(year, month) {
  */
 function getRentByName(name) {
     let url = "/rentByName?name=" + encodeURIComponent(name);
-    ajaxRequest(url, renderRentTable);
+    ajaxRequest(url, renderRentTableReport);
 }

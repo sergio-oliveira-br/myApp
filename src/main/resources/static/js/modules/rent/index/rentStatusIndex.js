@@ -10,7 +10,7 @@
  */
 
 //Methods related to the status and amount of rents.
-//src/main/resources/static/js/modules/rent/rentStatus.js
+//src/main/resources/static/js/modules/rent/rentStatusIndex.js
 
 /**
  * Method: Obtain the number of rent which the status is UNPAID
