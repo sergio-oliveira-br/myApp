@@ -80,7 +80,9 @@ function populateRentModal(rentId) {
  Item: Form (modal)
  Method: Send the data to update my database
  */
-function formSubmissionModal() {
+function rentFormSubmissionModal() {
+    let currentDate = new Date();
+
     let rentData = {
         id: $('#editRentId').val(),
         rentFirstName: $('#editRentFirstName').val(),
@@ -108,8 +110,13 @@ function formSubmissionModal() {
         data: JSON.stringify(rentData),
 
         success: function (response) {
-            alert('Aluguel alterado com sucesso.');
+            let successMsg = "Aluguel alterado com sucesso";
+            alert(successMsg);
+
             $('#editModal').modal('hide');
+
+            console.log(successMsg, currentDate);
+
             loadRentTable();
         },
         error: function(xhr, status, error) {

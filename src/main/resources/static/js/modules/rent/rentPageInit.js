@@ -29,7 +29,7 @@ $(document).ready(function () {
     $('#editRentForm').on('submit', function(e) {
         e.preventDefault();
         $('#displayRentModal').modal('hide');
-        formSubmissionModal(); //Used to update an existing resource on the server.
+        rentFormSubmissionModal(); //Used to update an existing resource on the server.
     });
 
     //(Modal)Update the rent status, if is "Finished", the item stock will return to total available

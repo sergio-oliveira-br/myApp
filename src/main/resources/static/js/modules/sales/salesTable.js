@@ -30,7 +30,7 @@ function loadSalesTable() {
                 '<td>' + sale.salePrice.toFixed(2) + '</td>' +
                 '<td>' + sale.saleDate + '</td>' +
                 '<td>' + sale.saleTotalPrice.toFixed(2) + '</td>' +
-                '<td><button class="btn btn-primary" onclick="???(' + sale.id + ')">Edit</button></td>' +
+                '<td><button class="btn btn-primary" onclick="populateSaleModal(' + sale.id + ')">Edit</button></td>' +
                 '</tr>'
             );
         });
