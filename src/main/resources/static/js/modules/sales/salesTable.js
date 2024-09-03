@@ -17,7 +17,7 @@
  * Page: Sale - Table
  * Method: Load all sales items into a table
  */
-function loadSales() {
+function loadSalesTable() {
     ajaxRequest("/sale", function (data) {
         $('#saleList').empty();
         data.forEach(function (sale) {

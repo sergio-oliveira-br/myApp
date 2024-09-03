@@ -12,19 +12,6 @@
 //This file handles the sales form, including the calculation of the total price and sending the data.
 //src/main/resources/static/js/modules/sales/salesForm.js
 
-/**
- * Method: When the page is loaded or reloaded, the methods here will be updated
- */
-$(document).ready(function () {
-    // Load the available customers
-    loadCustomersTable('#saleFirstName');
-
-    // Load the items classified as "Vendas" in productType
-    loadProductListByProductType("Venda");
-
-    // Render the sales table
-    loadSales();
-});
 
 /**
  * Method: Send the sales data by using AJAX
@@ -53,27 +40,12 @@ function saleFormData() {
  * Callback function for success
  */
 function saleSaveSuccess(response) {
-    alert("Sale successfully saved");
+    alert("Venda salva com sucesso!");
     console.log(response);
-    // Update the sales table
-    loadSales();
+    loadSalesTable();    // Update the sales table
 
-    // Clear the form
+    //Clear the form by resetting it
     document.getElementById('saleForm').reset();
 }
 
-/**
- * Method: Calculate the total price by multiplying (qty x unit price)
- */
-function loadTotalPriceSales() {
-    let qty = document.getElementById('saleQtyItem').value;
-    let unitPrice = parseFloat(document.getElementById('salePrice').value);
-    let finalTotalPrice = parseFloat(qty * unitPrice);
 
-    document.getElementById('saleTotalPrice').value = finalTotalPrice.toFixed(2);
-    console.log("Final Price Calculated: " + finalTotalPrice);
-}
-
-// Update the total price when these fields change
-document.getElementById('saleItem').addEventListener('change', loadTotalPriceSales);
-document.getElementById('saleQtyItem').addEventListener('change', loadTotalPriceSales);

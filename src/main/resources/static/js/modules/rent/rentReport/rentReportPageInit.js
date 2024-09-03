@@ -10,7 +10,7 @@
  */
 
 //This file centralizes all boot calls in one place, making it easy to understand and maintain.
-//src/main/resources/static/js/modules/rent/rentReport/rentReportInit.js
+//src/main/resources/static/js/modules/rent/rentReport/rentReportPageInit.js
 
 $(document).ready(function () {
     //load the page with all data, no filter so far
