@@ -26,4 +26,11 @@ $(document).ready(function () {
 
     // Render the sales table
     loadSalesTable();
+
+    //(Modal) Submit the data updated by using the method PUT
+    $('#editSaleForm').on('submit', function(e) {
+        e.preventDefault();
+        $('#editModal').modal('hide');
+        saleFormSubmissionModal(); //Used to update an existing resource on the server.
+    });
 });
