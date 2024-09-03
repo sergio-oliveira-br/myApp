@@ -15,12 +15,12 @@
 /**
  * Method: Send the order (rent or sale) data by using AJAX
  */
-formSubmission('#rentForm', '/saveRent', orderFormData, orderSaveSuccess);
+formSubmission('#rentForm', '/saveRent', rentFormData, rentSaveSuccess);
 
 /**
  * Get the form data from the form
  */
-function orderFormData() {
+function rentFormData() {
     return {
         rentFirstName: $('#rentFirstName').val(),
         rentAddress: $('#rentAddress').val(),
@@ -40,7 +40,7 @@ function orderFormData() {
 /**
  * Callback function for success
  */
-function orderSaveSuccess(response) {
+function rentSaveSuccess(response) {
     alert('Aluguel criado com sucesso!');
     console.log(response);
     loadRentTable(); // Update the rent table
@@ -48,17 +48,6 @@ function orderSaveSuccess(response) {
     // Clear the form by resetting it
     document.getElementById('rentForm').reset();
 }
-
-
-/**
- * (MODAL) The script will load the available items and customers in the rental form when the page loads
- */
-$('#editRentForm').on('submit', function(e) {
-    e.preventDefault(); // Prevents the standard form submission
-    // submitExpenseEditForm(); refatorei o nome incluido a palavraExpense para separar os metodos que estao misturados
-    $('#displayRentModal').modal('hide');
-});
-
 
 // /**
 //  * Page: Rent and Index
@@ -77,29 +66,29 @@ $('#editRentForm').on('submit', function(e) {
 //     });
 // }
 
-/**
- * Page: Rent and Index
- * Item: Form (modal) -> Edit Rent Status
- * Method: This update the stock, adding the qty in to stock available
- */
-function updateRentStatus() {
-    let rentId = $('#editRentId').val();
-    console.log(rentId);
-
-    let status = $('#editRentStatus').val();
-    console.log(status);
-
-    $.ajax({
-        url: "/rent/status/" + rentId + "?rentStatus=" + status,
-        type: 'PUT',
-        data: { status: status },
-
-        success: function(response) {
-            console.log(response);
-            $('#editRentForm').modal('hide');
-        },
-        error: function(xhr, status, error) {
-            console.error("Erro ao atualizar o status do aluguel.| Error:" + error);
-        }
-    });
-}
+// /** NAO ESTA SENDO USUADO! PORQUE????
+//  * Page: Rent and Index
+//  * Item: Form (modal) -> Edit Rent Status
+//  * Method: This update the stock, adding the qty in to stock available
+//  */
+// function updateRentStatus() {
+//     let rentId = $('#editRentId').val();
+//     console.log(rentId);
+//
+//     let status = $('#editRentStatus').val();
+//     console.log(status);
+//
+//     $.ajax({
+//         url: "/rent/status/" + rentId + "?rentStatus=" + status,
+//         type: 'PUT',
+//         data: { status: status },
+//
+//         success: function(response) {
+//             console.log(response);
+//             $('#editRentForm').modal('hide');
+//         },
+//         error: function(xhr, status, error) {
+//             console.error("Erro ao atualizar o status do aluguel.| Error:" + error);
+//         }
+//     });
+// }
