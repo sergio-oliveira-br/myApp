@@ -41,7 +41,6 @@ function productFormData() {
  */
 function productSaveSuccess(response) {
     alert('Produto adicionado com sucesso!');
-    console.log(response);
     loadProductTable(); //update the product table
 
     // Clear the form by resetting it

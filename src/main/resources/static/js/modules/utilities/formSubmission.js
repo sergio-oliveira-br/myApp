@@ -19,8 +19,9 @@
  */
 function formSubmission(formId, url, formDataFunction, successCallback)
 {
-    $(document).ready(function()
-    {
+    $(document).ready(function() {
+        let currentDate = new Date();
+
         //Get the form ID that contain the all data. Remember: FormID is ID from the form on HTML
         $(formId).on('submit', function(event)
         {
@@ -36,26 +37,13 @@ function formSubmission(formId, url, formDataFunction, successCallback)
                 type: 'POST',
                 contentType: 'application/json',
                 success: function(response){
-                    if(successCallback)
-                    {
+                    if(successCallback) {
                         successCallback(response);
+                        console.log(formData, currentDate);
                     }
                 },
                 error: function(xhr, status, error) {
-                    let errorMessage = 'Não foi possível salvar este formulário. Por favor, tente novamente. ' + error;
-
-                    alert(errorMessage);
-                    console.error(errorMessage);
-
-                    if(xhr.status === 400){
-                        //O erro 400, ou "Bad Request", indica que o servidor não conseguiu entender a solicitação enviada pelo cliente.
-                        //Isso geralmente ocorre quando há algum problema com a formatação da requisição,
-                        //como dados ausentes, inválidos ou com um formato inesperado.
-                        alert('Erro 400: Verifique os dados preenchidos.');
-                    }
-                    else{
-                        console.error("Erro: " + xhr.responseText);
-                    }
+                    errorHandler(error);
                 }
             });
         });

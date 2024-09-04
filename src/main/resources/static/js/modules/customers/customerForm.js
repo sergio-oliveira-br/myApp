@@ -35,7 +35,6 @@ function customerFormData() {
  */
 function customerSaveSuccess(response) {
     alert('Cliente salvo com sucesso!');
-    console.log(response);
     loadCustomersTable(); // Update the customer table
 
     // Clear the form by resetting it

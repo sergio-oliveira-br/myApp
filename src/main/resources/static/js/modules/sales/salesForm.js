@@ -41,7 +41,6 @@ function saleFormData() {
  */
 function saleSaveSuccess(response) {
     alert("Venda salva com sucesso!");
-    console.log(response);
     loadSalesTable();    // Update the sales table
 
     //Clear the form by resetting it

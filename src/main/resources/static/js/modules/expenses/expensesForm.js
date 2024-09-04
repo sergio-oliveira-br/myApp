@@ -37,7 +37,6 @@ function expenseFormData() {
  */
 function expenseSaveSuccess(response) {
     alert('Despesa adicionada com sucesso!');
-    console.log(response);
     loadExpenseTable(); // update the expense table
 
     // Clear the form by resetting it

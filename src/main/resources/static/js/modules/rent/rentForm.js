@@ -42,7 +42,6 @@ function rentFormData() {
  */
 function rentSaveSuccess(response) {
     alert('Aluguel criado com sucesso!');
-    console.log(response);
     loadRentTable(); // Update the rent table
 
     // Clear the form by resetting it
