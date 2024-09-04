@@ -37,7 +37,29 @@ $(document).ready(function () {
 
     //(Modal)Update total price when price or quantity change
     $('#editSaleQtyItem, #editSaleItem').on('change', function() {
-        console.log('Sale: Price or Quantity input changed');
+        //Personalizing Messages Based on Changes
+        let qtyChangedMsg = 'O campo quantidade foi alterado! O preço total foi atualizado.'
+        let itemChangedMsg = 'O campo item foi alterado! O preço total foi atualizado.'
+
+        //Verifica qual campo foi alterado e exibe uma mensagem personalizada
+        //Ao usar $(this).attr('id'), obtemos o ID do elemento que disparou o evento
+        if($(this).attr('id') === "editSaleQtyItem") {
+            alert(qtyChangedMsg);
+            console.log(qtyChangedMsg);
+        }
+        else if ($(this).attr('id') === "editSaleItem") {
+            alert(itemChangedMsg);
+            console.log(itemChangedMsg);
+        }
         updateTotalPriceSaleModal();
     });
+
+    //(Modal)Presenting a message because of the significance of the field (payment)
+    $('#editSalePaymentStatus').on('change', function() {
+        let paymentStatusChangedMsg = 'Status do pagamento alterado!'
+
+        alert(paymentStatusChangedMsg);
+        console.log(paymentStatusChangedMsg);
+    })
+
 });
