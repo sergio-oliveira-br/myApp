@@ -108,7 +108,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot des
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -164,7 +164,7 @@ Your current stock is: 0.0 un.
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -327,7 +327,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot des
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -562,7 +562,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot des
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -741,7 +741,7 @@ Your current stock is: 0.0 un.
 2024-08-10 10:03:27 INFO  c.a.backendv1.Util.LoggerUtil - Start subtractStockByRentalDatesScaffolds
 2024-08-10 10:03:27 ERROR c.a.backendv1.Util.LoggerUtil - An error occurred while saving Rent data.Rent: Rent{id=83, rentFirstName='John Otto - 34998055902', rentLastName='null', rentAddress='BR', rentItem='Scaffolds', rentPrice=10.22, rentQtyItem=999, rentStarts='2024-08-10', rentEnds='2024-08-17', rentTotalDays=7, rentTotalPrice=71468.46, rentDetails='Test', rentPaymentStatus='Paid', rentStatus='In Progress'} | Error: The product 'Scaffolds' does not have enough in stock. Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock. Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -980,7 +980,7 @@ java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because th
 2024-08-10 10:11:56 INFO  c.a.backendv1.Util.LoggerUtil - Start subtractStockByRentalDatesScaffolds
 2024-08-10 10:11:56 ERROR c.a.backendv1.Util.LoggerUtil - An error occurred while saving Rent data.Rent: Rent{id=88, rentFirstName='John Otto - 34998055902', rentLastName='null', rentAddress='', rentItem='Scaffolds', rentPrice=1.22, rentQtyItem=10, rentStarts='2024-08-10', rentEnds='2024-08-11', rentTotalDays=1, rentTotalPrice=12.2, rentDetails='', rentPaymentStatus='Paid', rentStatus='Sold'} | Error: The product 'Scaffolds' does not have enough in stock. Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock. Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:70)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:70)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)

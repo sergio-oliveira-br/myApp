@@ -14,7 +14,7 @@ import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
-import com.alucontrol.backendv1.Service.RentService;
+import com.alucontrol.backendv1.Service.StockService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,13 +29,13 @@ public class RentCreateUpdateController
     //Repository for access to product data
     private final RentRepository rentRepository;
 
-    private final RentService rentService;
+    private final StockService stockService;
 
     //Constructor responsible for injecting the repository
-    public RentCreateUpdateController(RentRepository rentRepository, RentService rentService)
+    public RentCreateUpdateController(RentRepository rentRepository, StockService stockService)
     {
         this.rentRepository = rentRepository;
-        this.rentService = rentService;
+        this.stockService = stockService;
     }
 
     /** Endpoint to send rent */
@@ -59,7 +59,7 @@ public class RentCreateUpdateController
 
             else {
                 //When a rental is created, make a call to subtract inventory
-                rentService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
+                stockService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
             }
 
             LoggerUtil.info("Alguel salvo com sucesso: " + savedRent.toString());
@@ -188,11 +188,11 @@ public class RentCreateUpdateController
 
             else if (updatedRent.getRentStatus().equals("Em andamento")) {
                  //If the status changed from new to in progress, then the stock have to decrease
-                rentService.subtractStock(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
+                stockService.subtractStock(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
             }
             else if (updatedRent.getRentStatus().equals("Encerrado")) {
                 //Execute the method to return the qyt to the stock
-                rentService.addStockByRentalStatusFinished(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
+                stockService.addStockByRentalStatusFinished(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
             }
             Rent savedRent = rentRepository.save(rent);
             LoggerUtil.info("Rent updated: " + savedRent.toString());

@@ -1848,7 +1848,7 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2024-08-28 10:44:37 INFO  c.a.backendv1.Util.LoggerUtil - Start subtractStock: Produto AxA
 2024-08-28 10:44:37 ERROR c.a.backendv1.Util.LoggerUtil - An error occurred while saving Rent data.Rent: Rent{id=97, rentFirstName='Sergio Oliveira - 353862721772', rentLastName='null', rentAddress='IE', rentItem='Produto AxA', rentPrice=1.99, rentQtyItem=10, rentStarts='2024-08-28', rentEnds='2024-08-30', rentTotalDays=2, rentTotalPrice=39.8, rentDetails='Isto é apenas um teste', rentPaymentStatus='Pago', rentStatus='Em andamento'} | Error: The product 'Produto AxA' does not exist.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Produto AxA' does not exist.
-	at com.alucontrol.backendv1.Service.RentService.subtractStock(RentService.java:72)
+	at com.alucontrol.backendv1.Service.StockService.subtractStock(RentService.java:72)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:62)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -1914,7 +1914,7 @@ com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Produ
 2024-08-28 10:46:56 INFO  c.a.backendv1.Util.LoggerUtil - Start subtractStock: Produto AxA
 2024-08-28 10:46:56 ERROR c.a.backendv1.Util.LoggerUtil - An error occurred while saving Rent data.Rent: Rent{id=99, rentFirstName='Sergio Oliveira - 353862721772', rentLastName='null', rentAddress='IE', rentItem='Produto AxA', rentPrice=1.99, rentQtyItem=1, rentStarts='2024-08-28', rentEnds='2024-09-01', rentTotalDays=4, rentTotalPrice=7.96, rentDetails='', rentPaymentStatus='Pago', rentStatus='Em andamento'} | Error: The product 'Produto AxA' does not exist.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Produto AxA' does not exist.
-	at com.alucontrol.backendv1.Service.RentService.subtractStock(RentService.java:72)
+	at com.alucontrol.backendv1.Service.StockService.subtractStock(RentService.java:72)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:62)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -2160,7 +2160,7 @@ com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Produ
 2024-08-28 11:38:21 INFO  c.a.backendv1.Util.LoggerUtil - Start subtractStock: Produto AxA
 2024-08-28 11:38:21 ERROR c.a.backendv1.Util.LoggerUtil - Ocorreu um erro ao salvar os dados de aluguel.Aluguel: Rent{id=104, rentFirstName='Sergio Oliveira - 353862721772', rentLastName='null', rentAddress='BR', rentItem='Produto AxA', rentPrice=1.99, rentQtyItem=1, rentStarts='2024-08-29', rentEnds='2024-08-31', rentTotalDays=2, rentTotalPrice=3.98, rentDetails='', rentPaymentStatus='Pago', rentStatus='Em andamento'} | Error: The product 'Produto AxA' does not exist.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Produto AxA' does not exist.
-	at com.alucontrol.backendv1.Service.RentService.subtractStock(RentService.java:72)
+	at com.alucontrol.backendv1.Service.StockService.subtractStock(RentService.java:72)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:62)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)

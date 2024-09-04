@@ -20,13 +20,13 @@ import java.util.Optional;
 
 /**This Service Class has methods that contain business logic.*/
 @Service
-public class RentService
+public class StockService
 {
     //Repository for access to Rent data
     private final ProductRepository productRepository;
 
     //Constructor responsible for injecting the repository
-    public RentService(ProductRepository productRepository) {
+    public StockService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 

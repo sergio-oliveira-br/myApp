@@ -2199,7 +2199,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot des
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:68)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:68)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:65)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -2255,7 +2255,7 @@ Your current stock is: 0.0 un.
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:68)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:68)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:65)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -2377,7 +2377,7 @@ Your current stock is: 0.0 un.
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:76)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:76)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -2467,7 +2467,7 @@ Your current stock is: 0.0 un.
 Your current stock is: 0.0 un.
 com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'Scaffolds' does not have enough in stock.
 Your current stock is: 0.0 un.
-	at com.alucontrol.backendv1.Service.RentService.subtractStockByRentalDates(RentService.java:71)
+	at com.alucontrol.backendv1.Service.StockService.subtractStockByRentalDates(RentService.java:71)
 	at com.alucontrol.backendv1.Controllers.Rent.RentCreateUpdateController.saveRent(RentCreateUpdateController.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
