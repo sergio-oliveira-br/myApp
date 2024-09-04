@@ -85,63 +85,64 @@ public class RentCreateUpdateController
 
 
 
-    /** Endpoint to update rent status (by selecting the option "Finished" on Rent.html)*/
-    @PutMapping("/rent/status/{id}")
-    public ResponseEntity<Rent> updateRentStatus(@PathVariable Long id,
-                                                 @RequestParam("rentStatus") String rentStatus)
-    {
-        //Create a log
-        LoggerUtil.info("Updating rent status for ID: " + id + " with status: " + rentStatus);
-
-        //Search the product by ID
-        //Optional: Used to imply that a value may be present or absent in a given circumstance
-        Optional<Rent> rentOptional = rentRepository.findById(id);
-
-        //Check if the product was found
-        if(rentOptional.isPresent())
-        {
-            Rent rent = rentOptional.get();
-            rent.setRentStatus(rentStatus);
-            Rent savedRent = rentRepository.save(rent);
-
-            if("Encerrado".equals(rentStatus))
-            {
-                //Local Variable: These take the values passed as parameters.
-                //The values are copied, which means that if the Rent object is modified, the values of the local variables are not affected.
-                int quantityReturned = rent.getRentQtyItem();
-                String itemDescription = rent.getRentItem();
-
-                //Create a log
-                LoggerUtil.info("O status do aluguel foi atualizado com sucesso. ID: " + id + " | Qtd retornada: " + quantityReturned + " | Item: " + itemDescription);
-
-                //Execute the method to return the qyt to the stock
-                rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
-            }
-
-            //If the status changed from new to in progress, then the stock have to decrease
-            else if ("Em andamento".equals(rentStatus))
-            {
-                String rentItem = rent.getRentItem();
-                int rentQtyItem = rent.getRentQtyItem();
-
-                //create a log
-                LoggerUtil.info("Rent updated successfully. ID: " + id +
-                        "Rent Item: " + rentItem +
-                        " | Qty Decreased: " + rentQtyItem +
-                        " | Rent Status: " + rentStatus);
-
-                //When a rental is created, make a call to subtract inventory
-                rentService.subtractStock(rentItem, rentQtyItem);
-            }
-
-            return ResponseEntity.ok(savedRent);
-        }
-        //Exception: ID incorrect, product was not found
-        else {
-            LoggerUtil.error("Rent not found for ID: " + id);
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    /** Endpoint to update rent status (by selecting the option "Finished" on Rent.html)*/
+//    @PutMapping("/rent/status/{id}")
+//    public ResponseEntity<Rent> updateRentStatus(@PathVariable Long id,
+//                                                 @RequestParam("rentStatus") String rentStatus)
+//    {
+//        //Create a log
+//        LoggerUtil.info("Updating rent status for ID: " + id + " with status: " + rentStatus);
+//
+//        //Search the product by ID
+//        //Optional: Used to imply that a value may be present or absent in a given circumstance
+//        Optional<Rent> rentOptional = rentRepository.findById(id);
+//
+//        //Check if the product was found
+//        if(rentOptional.isPresent())
+//        {
+//            Rent rent = rentOptional.get();
+//            rent.setRentStatus(rentStatus);
+//            Rent savedRent = rentRepository.save(rent);
+//            LoggerUtil.info("Dados antes de ser salvo: " + rent);
+//
+//            if("Encerrado".equals(rentStatus))
+//            {
+//                //Local Variable: These take the values passed as parameters.
+//                //The values are copied, which means that if the Rent object is modified, the values of the local variables are not affected.
+//                int quantityReturned = rent.getRentQtyItem();
+//                String itemDescription = rent.getRentItem();
+//
+//                //Create a log
+//                LoggerUtil.info("O status do aluguel foi atualizado com sucesso. ID: " + id + " | Qtd retornada: " + quantityReturned + " | Item: " + itemDescription);
+//
+//                //Execute the method to return the qyt to the stock
+//                rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
+//            }
+//
+//            //If the status changed from new to in progress, then the stock have to decrease
+//            else if ("Em andamento".equals(rentStatus))
+//            {
+//                String rentItem = rent.getRentItem();
+//                int rentQtyItem = rent.getRentQtyItem();
+//
+//                //create a log
+//                LoggerUtil.info("Rent updated successfully. ID: " + id +
+//                        "Rent Item: " + rentItem +
+//                        " | Qty Decreased: " + rentQtyItem +
+//                        " | Rent Status: " + rentStatus);
+//
+//                //When a rental is created, make a call to subtract inventory
+//                rentService.subtractStock(rentItem, rentQtyItem);
+//            }
+//            LoggerUtil.info("Dados apos serem salvos: " + savedRent);
+//            return ResponseEntity.ok(savedRent);
+//        }
+//        //Exception: ID incorrect, product was not found
+//        else {
+//            LoggerUtil.error("Rent not found for ID: " + id);
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
 
     /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
@@ -159,9 +160,13 @@ public class RentCreateUpdateController
     /** Endpoint to update a specific rent by ID */
     @PutMapping("/rent/{id}")
     public ResponseEntity<Rent> updateRent(@PathVariable Long id, @RequestBody Rent updatedRent) {
+        LoggerUtil.info("Starting to update rent with data: " + updatedRent.toString());
+
         Optional<Rent> rentOptional = rentRepository.findById(id);
         if (rentOptional.isPresent()) {
+
             Rent rent = rentOptional.get();
+
             rent.setRentFirstName(updatedRent.getRentFirstName());
             //rent.setRentLastName(updatedRent.getRentLastName());
             rent.setRentAddress(updatedRent.getRentAddress());
@@ -176,14 +181,24 @@ public class RentCreateUpdateController
             rent.setRentPaymentStatus(updatedRent.getRentPaymentStatus());
             rent.setRentStatus(updatedRent.getRentStatus());
 
+            if(updatedRent.getRentStatus().equals("Novo")) {
+                //Create a log
+                LoggerUtil.info("Status: Novo -> Nenhuma alteraçao no estoque foi realizada!");
+            }
+
+            else if (updatedRent.getRentStatus().equals("Em andamento")) {
+                 //If the status changed from new to in progress, then the stock have to decrease
+                rentService.subtractStock(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
+            }
+            else if (updatedRent.getRentStatus().equals("Encerrado")) {
+                //Execute the method to return the qyt to the stock
+                rentService.addStockByRentalStatusFinished(updatedRent.getRentItem(), updatedRent.getRentQtyItem());
+            }
             Rent savedRent = rentRepository.save(rent);
-
-            //Log
-            LoggerUtil.info("Rent updated successfully. ID: " + id);
-            LoggerUtil.info("New update data:" + savedRent.toString());
-
+            LoggerUtil.info("Rent updated: " + savedRent.toString());
             return ResponseEntity.ok(savedRent);
-        } else {
+        }
+        else {
             return ResponseEntity.notFound().build();
         }
     }

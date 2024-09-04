@@ -50,7 +50,7 @@ public class RentService
             if(product.getItemAvailableQty() >= quantity)
             {
                 //Create a log
-                LoggerUtil.info("Renting, Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity: " + quantity);
+                LoggerUtil.info("Renting, Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity reduced: " + quantity);
 
                 //Take the quantity out of the stock
                 product.setItemAvailableQty(product.getItemAvailableQty() - quantity);
@@ -78,7 +78,7 @@ public class RentService
      *  Method: Adding (item) stock when closing a rental.*/
     public void addStockByRentalStatusFinished(String itemDescription, int quantity) {
         //Log
-        LoggerUtil.info("Start addStockByRentalStatusFinished: " + itemDescription);
+        LoggerUtil.info("Start addStockByRentalStatusFinished: " + itemDescription + " Quantity: " + quantity);
 
         //Search the product by ID
         //Optional: Used to imply that a value may be present or absent in a given circumstance
@@ -91,6 +91,7 @@ public class RentService
 
             //Add quantity to available stock
             product.setItemAvailableQty(product.getItemAvailableQty() + quantity);
+            LoggerUtil.info("The new Qty Available is: " + product.getItemAvailableQty());
             productRepository.save(product);
         }
         //Exception: ID incorrect, product was not found
