@@ -14,6 +14,7 @@ package com.alucontrol.backendv1.Controllers.Sale;
 import com.alucontrol.backendv1.Exception.ErrorResponse;
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
+import com.alucontrol.backendv1.Service.RentService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +28,12 @@ import java.util.Optional;
 public class SaleCreateUpdateController {
     //Repository for access to Sale data
     private final SaleRepository saleRepository;
+    private final RentService rentService;
 
     //Constructor responsible for injecting the repository
-    public SaleCreateUpdateController(SaleRepository saleRepository) {
+    public SaleCreateUpdateController(SaleRepository saleRepository, RentService rentService) {
         this.saleRepository = saleRepository;
+        this.rentService = rentService;
     }
 
     /**Endpoint responsible to create sales*/
@@ -41,10 +44,11 @@ public class SaleCreateUpdateController {
             //log before saved
             LoggerUtil.info("Starting to create a sale with data: " + sale);
 
+            //Business Logic - subtract the stock
+            rentService.subtractStock(sale.getSaleItem(), sale.getSaleQtyItem());
+
             //Saving the data into DB
             Sale savedSale = saleRepository.save(sale);
-
-            //Business Logic
 
             //log after saved
             LoggerUtil.info("Sale created successfully: " + savedSale.toString());

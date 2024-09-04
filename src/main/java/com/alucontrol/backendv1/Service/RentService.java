@@ -50,7 +50,7 @@ public class RentService
             if(product.getItemAvailableQty() >= quantity)
             {
                 //Create a log
-                LoggerUtil.info("Renting, Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity reduced: " + quantity);
+                LoggerUtil.info("Item: " + product.getItemDescription() +" Available Qty: " + product.getItemAvailableQty() + " Quantity reduced: " + quantity);
 
                 //Take the quantity out of the stock
                 product.setItemAvailableQty(product.getItemAvailableQty() - quantity);
