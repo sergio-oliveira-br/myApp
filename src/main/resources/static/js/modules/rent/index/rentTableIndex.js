@@ -26,7 +26,7 @@ function renderRentTableIndexPage(data) {
             '<td>' + rent.rentPaymentStatus + '</td>' +
             '<td>' + rent.rentTotalPrice + '</td>' +
             '<td>' + rent.rentStatus + '</td>' +
-            '<td><button class="btn btn-primary" onclick="???(' + rent.id + ')">Edit</button></td>' +
+            '<td><button class="btn btn-primary" onclick="populateRentModal(' + rent.id + ')">Edit</button></td>' +
             '</tr>');
         console.log(rent.id);
     });

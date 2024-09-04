@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     //(Modal)Presenting a message because of the significance of the field (payment)
     $('#editSalePaymentStatus').on('change', function() {
-        let paymentStatusChangedMsg = 'Status do pagamento alterado!'
+        let paymentStatusChangedMsg = 'Status do pagamento da venda foi alterado!'
 
         alert(paymentStatusChangedMsg);
         console.log(paymentStatusChangedMsg);

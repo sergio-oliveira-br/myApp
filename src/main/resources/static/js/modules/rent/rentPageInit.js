@@ -42,7 +42,28 @@ $(document).ready(function () {
 
     //(Modal)Update total price when price or quantity change
     $('#editRentPrice, #editRentQtyItem, #editRentStarts, #editRentEnds').on('change', function() {
-        console.log('Rent: Price or Quantity input changed');
+
+        //Personalizing Messages Based on Changes
+        let qtyChangedMsg = 'A quantidade foi alterada! O preço total foi atualizado.'
+        let itemChangedMsg = 'O item foi alterado! O preço total foi atualizado.'
+        let dateChangedMsg = 'A data foi alterada! O preço total foi atualizado.'
+
+        //Verifica qual campo foi alterado e exibe uma mensagem personalizada
+        //Ao usar $(this).attr('id'), obtemos o ID do elemento que disparou o evento
+        if($(this).attr('id') === "editRentStarts" || $(this).attr('id') === "editRentEnds") {
+            alert(dateChangedMsg);
+            console.log(dateChangedMsg);
+        }
+
+        else if ($(this).attr('id') === "editRentQtyItem") {
+            alert(qtyChangedMsg);
+            console.log(qtyChangedMsg);
+        }
+
+        else if ($(this).attr('id') === "editRentPrice") {
+            alert(itemChangedMsg);
+            console.log(itemChangedMsg);
+        }
         updateTotalPrice();
     });
 });
