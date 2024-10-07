@@ -10,6 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.Rent.RentPaymentStatusRepository;
 import com.alucontrol.backendv1.Repository.Rent.RentStatusRepository;
