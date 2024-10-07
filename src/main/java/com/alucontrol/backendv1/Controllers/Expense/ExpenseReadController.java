@@ -58,25 +58,17 @@ public class ExpenseReadController {
 
     /** Endpoint to GET a specific product by ID */
     @GetMapping("/expense/{id}")
-    public ResponseEntity<?> getExpenseById(@PathVariable Long id){
-        try{
-            Optional<Expense> expense = expenseRepository.findById(id);
-            if (expense.isPresent()) {
-                return ResponseEntity.ok(expense.get());
-            }
+    public ResponseEntity<Expense> getExpenseById(@PathVariable Long id){
 
-            else {
-                throw new ResourceNotFoundException("From Expenses Controller: It was not possible to locate any items");
-            }
-        }catch (Exception e){
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "Ocorreu um erro ao buscar dados da despesa. Por favor, informe-o para o suporte técnico com fotos. " +
-                            "Despesa: " + id + " | Error: " + e.getMessage() + e);
-
-            LoggerUtil.error("Error: " + problemDetails);
-
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
+        Optional<Expense> expense = expenseRepository.findById(id);
+        if (expense.isPresent()) {
+            return ResponseEntity.ok(expense.get());
         }
+
+        else {
+            throw new ResourceNotFoundException("From Expenses Controller: It was not possible to locate any items");
+        }
+
     }
 
     /** Endpoint to get back expenses by selecting the "Category" */
