@@ -40,109 +40,30 @@ public class RentCreateUpdateController
 
     /** Endpoint to send rent */
     @PostMapping("/saveRent")
-    public ResponseEntity<?> saveRent( @RequestBody Rent rent){
-    //the "?" makes the method be of the generic type or a type that can return different types of response
-        try
-        {
-            //Log
-            LoggerUtil.info("Starting to save Rent with data: " + rent.toString());
+    public ResponseEntity<Rent> saveRent( @RequestBody Rent rent){
 
-            //Save into DB
-            Rent savedRent = rentRepository.save(rent);
+        //Log
+        LoggerUtil.info("Starting to save Rent with data: " + rent.toString());
 
-            //The stock will be subtracted based on the user's input
-            //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
-            if(rent.getRentStatus().equals("Novo")) {
-                //log
-                LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
-            }
+        //Save into DB
+        Rent savedRent = rentRepository.save(rent);
 
-            else {
-                //When a rental is created, make a call to subtract inventory
-                stockService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
-            }
-
-            LoggerUtil.info("Alguel salvo com sucesso: " + savedRent.toString());
-            return ResponseEntity.ok(savedRent);
-
+        //The stock will be subtracted based on the user's input
+        //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
+        if(rent.getRentStatus().equals("Novo")) {
+            //log
+            LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
         }
-        catch (Exception e) {
-            //Log
-            LoggerUtil.error("Ocorreu um erro ao salvar os dados de aluguel." +
-                    "Aluguel: " + rent.toString() + " | " +
-                    "Error: " + e.getMessage(), e);
 
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "Um erro foi descoberto durante esta operação. " +
-                            "Por favor, informe-o para o suporte técnico com fotos." + " | " +
-                            "Error: " + e.getMessage());
-
-            ResponseEntity.internalServerError().body(problemDetails);
-
-            return ResponseEntity.internalServerError().body(problemDetails);
+        else {
+            //When a rental is created, make a call to subtract inventory
+            stockService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
         }
+
+        LoggerUtil.info("Alguel salvo com sucesso: " + savedRent.toString());
+        return ResponseEntity.ok(savedRent);
     }
 
-
-
-//    /** Endpoint to update rent status (by selecting the option "Finished" on Rent.html)*/
-//    @PutMapping("/rent/status/{id}")
-//    public ResponseEntity<Rent> updateRentStatus(@PathVariable Long id,
-//                                                 @RequestParam("rentStatus") String rentStatus)
-//    {
-//        //Create a log
-//        LoggerUtil.info("Updating rent status for ID: " + id + " with status: " + rentStatus);
-//
-//        //Search the product by ID
-//        //Optional: Used to imply that a value may be present or absent in a given circumstance
-//        Optional<Rent> rentOptional = rentRepository.findById(id);
-//
-//        //Check if the product was found
-//        if(rentOptional.isPresent())
-//        {
-//            Rent rent = rentOptional.get();
-//            rent.setRentStatus(rentStatus);
-//            Rent savedRent = rentRepository.save(rent);
-//            LoggerUtil.info("Dados antes de ser salvo: " + rent);
-//
-//            if("Encerrado".equals(rentStatus))
-//            {
-//                //Local Variable: These take the values passed as parameters.
-//                //The values are copied, which means that if the Rent object is modified, the values of the local variables are not affected.
-//                int quantityReturned = rent.getRentQtyItem();
-//                String itemDescription = rent.getRentItem();
-//
-//                //Create a log
-//                LoggerUtil.info("O status do aluguel foi atualizado com sucesso. ID: " + id + " | Qtd retornada: " + quantityReturned + " | Item: " + itemDescription);
-//
-//                //Execute the method to return the qyt to the stock
-//                rentService.addStockByRentalStatusFinished(itemDescription, quantityReturned);
-//            }
-//
-//            //If the status changed from new to in progress, then the stock have to decrease
-//            else if ("Em andamento".equals(rentStatus))
-//            {
-//                String rentItem = rent.getRentItem();
-//                int rentQtyItem = rent.getRentQtyItem();
-//
-//                //create a log
-//                LoggerUtil.info("Rent updated successfully. ID: " + id +
-//                        "Rent Item: " + rentItem +
-//                        " | Qty Decreased: " + rentQtyItem +
-//                        " | Rent Status: " + rentStatus);
-//
-//                //When a rental is created, make a call to subtract inventory
-//                rentService.subtractStock(rentItem, rentQtyItem);
-//            }
-//            LoggerUtil.info("Dados apos serem salvos: " + savedRent);
-//            return ResponseEntity.ok(savedRent);
-//        }
-//        //Exception: ID incorrect, product was not found
-//        else {
-//            LoggerUtil.error("Rent not found for ID: " + id);
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 
 
     /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
