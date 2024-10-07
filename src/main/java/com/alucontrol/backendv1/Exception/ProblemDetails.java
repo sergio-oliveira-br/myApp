@@ -8,14 +8,13 @@ public class ProblemDetails {
     private String type;
     private String title;
     private String details;
-    private String instance;
 
-    public ProblemDetails(int status, String type, String title, String details, String instance) {
+
+    public ProblemDetails(int status, String type, String title, String details) {
         this.status = status;
         this.type = type;
         this.title = title;
         this.details = details;
-        this.instance = instance;
     }
 
     // Getters and setters
@@ -49,14 +48,6 @@ public class ProblemDetails {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public String getInstance() {
-        return instance;
-    }
-
-    public void setInstance(String instance) {
-        this.instance = instance;
     }
 }
 
