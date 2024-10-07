@@ -34,32 +34,18 @@ public class CustomerCreateUpdateController
 
     /** Endpoint to send customers */
     @PostMapping("/saveCustomer")
-    //the "?" makes the method be of the generic type or a type that can return different types of response
-    public ResponseEntity<?> saveCustomer( @RequestBody Customer customer) {
-        try {
-            //Log
-            LoggerUtil.info("Starting to save customer with data: " + customer.toString());
+    public ResponseEntity<Customer> saveCustomer( @RequestBody Customer customer) {
 
-            //Save the customer in the database
-            Customer savedCustomer = customerRepository.save(customer);
+        //Log
+        LoggerUtil.info("Starting to save customer with data: " + customer.toString());
 
-            //Create a log
-            LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
+        //Save the customer in the database
+        Customer savedCustomer = customerRepository.save(customer);
 
-            return ResponseEntity.ok(savedCustomer); //return the saved customer data
-        }
-        catch (Exception e) {
-            //Log
-            LoggerUtil.error("An error occurred while saving customer data." +
-                            "Customer: " + customer.toString() + " | " +
-                            "Error: " + e.getMessage(), e);
+        //Create a log
+        LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
 
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures.");
+        return ResponseEntity.ok(savedCustomer); //return the saved customer data
 
-            //Return of an HTTP response with the error body and status
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
-        }
     }
 }
