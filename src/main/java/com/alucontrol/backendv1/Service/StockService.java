@@ -10,7 +10,6 @@
  */
 package com.alucontrol.backendv1.Service;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;

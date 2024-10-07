@@ -10,7 +10,6 @@
  */
 package com.alucontrol.backendv1.Controllers.Dashboard;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Projection.Rent.ItemQtyDateProjection;
 import com.alucontrol.backendv1.Projection.Rent.ItemsTotalPriceProjection;
 import com.alucontrol.backendv1.Projection.Rent.TotalRentProjection;

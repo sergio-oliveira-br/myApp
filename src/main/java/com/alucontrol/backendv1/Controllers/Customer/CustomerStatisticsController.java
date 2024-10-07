@@ -10,7 +10,6 @@
  */
 package com.alucontrol.backendv1.Controllers.Customer;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;

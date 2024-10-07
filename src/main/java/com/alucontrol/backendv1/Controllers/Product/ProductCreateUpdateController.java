@@ -10,12 +10,9 @@
  */
 package com.alucontrol.backendv1.Controllers.Product;
 
-import com.alucontrol.backendv1.Exception.ProblemDetails;
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

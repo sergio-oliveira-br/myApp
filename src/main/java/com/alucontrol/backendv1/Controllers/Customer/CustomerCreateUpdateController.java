@@ -11,11 +11,9 @@
 
 package com.alucontrol.backendv1.Controllers.Customer;
 
-import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
