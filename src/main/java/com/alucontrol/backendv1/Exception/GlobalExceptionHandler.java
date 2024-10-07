@@ -11,12 +11,13 @@
 
 package com.alucontrol.backendv1.Exception;
 
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.UUID;
 
 /** Capture exceptions thrown anywhere in the application
  *                  ---
@@ -29,14 +30,13 @@ public class GlobalExceptionHandler {
     //Metodo auxiliar para construir a resposta de erro ProblemDetails na qual será apresentado ao usuario.
     public ResponseEntity<ProblemDetails> buildErrorResponse  (HttpStatus status,
                                                                String title,
-                                                               String details,
-                                                               String instance) {
-        ProblemDetails problemDetails = new ProblemDetails(
+                                                               String details
+                                                              ) {
+        ProblemDetails problemDetails = new ProblemDetails (
                 status.value(),
                 "https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status/" + status.value(),
                 title,
-                details,
-                instance
+                details
         );
         return new ResponseEntity<>(problemDetails, status);
     }
@@ -50,8 +50,7 @@ public class GlobalExceptionHandler {
         return buildErrorResponse (
                 HttpStatus.NOT_FOUND,
                 "Recurso não encontrado. ",
-                ex.getMessage(),
-                ex.getLocalizedMessage()
+                ex.getMessage()
         );
     }
 
@@ -63,8 +62,7 @@ public class GlobalExceptionHandler {
         return buildErrorResponse (
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 "Erro interno do servidor.",
-                ex.getMessage(),
-                ex.getLocalizedMessage()
+                ex.getMessage()
         );
     }
 }
