@@ -38,36 +38,20 @@ public class SaleCreateUpdateController {
 
     /**Endpoint responsible to create sales*/
     @PostMapping("/saveSale") //Remember: POST is a method from CRUD used to CREATE data
-    public ResponseEntity<?> saveSale(@RequestBody Sale sale){
-    //the "?" makes the method be of the generic type or a type that can return different types of response
-        try{
-            //log before saved
-            LoggerUtil.info("Starting to create a sale with data: " + sale);
+    public ResponseEntity<Sale> saveSale(@RequestBody Sale sale){
 
-            //Business Logic - subtract the stock
-            stockService.subtractStock(sale.getSaleItem(), sale.getSaleQtyItem());
+        //log before saved
+        LoggerUtil.info("Starting to create a sale with data: " + sale);
 
-            //Saving the data into DB
-            Sale savedSale = saleRepository.save(sale);
+        //Business Logic - subtract the stock
+        stockService.subtractStock(sale.getSaleItem(), sale.getSaleQtyItem());
 
-            //log after saved
-            LoggerUtil.info("Sale created successfully: " + savedSale.toString());
+        //Saving the data into DB
+        Sale savedSale = saleRepository.save(sale);
 
-            return ResponseEntity.ok(savedSale);
-        }catch (Exception e){
-            LoggerUtil.error("An error occurred while saving Rent data. " +
-                    "Sale" + sale.toString() + " | " +
-                    "Error: " + e.getMessage(), e);
-
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures." + " | " +
-                            "Error: " + e.getMessage());
-
-            ResponseEntity.internalServerError().body(problemDetails);
-
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
-        }
+        //log after saved and return
+        LoggerUtil.info("Sale created successfully: " + savedSale.toString());
+        return ResponseEntity.ok(savedSale);
     }
 
     /** Endpoint to update a specific Sale by ID */
