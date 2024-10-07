@@ -36,39 +36,20 @@ public class ProductCreateUpdateController
 
     /** Endpoint to send Products to my DB*/
     @PostMapping("/saveProduct")
-    public ResponseEntity<?> saveProduct(@RequestBody Product product)
-    //the "?" above makes the method be of the generic type or a type that can return different types of response
-    {
-        try
-        {
-            //Log
-            LoggerUtil.info("Starting to save product with data: " + product);
+    public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
 
-            //Initialize itemAvailableQty with the same itemQuantity value
-            product.setItemAvailableQty(product.getItemQuantity());
+        //Log
+        LoggerUtil.info("Starting to save product with data: " + product);
 
-            //Save
-            Product savedProduct = productRepository.save(product);
+        //Initialize itemAvailableQty with the same itemQuantity value
+        product.setItemAvailableQty(product.getItemQuantity());
 
-            //Log
-            LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
+        //Save
+        Product savedProduct = productRepository.save(product);
 
-            return ResponseEntity.ok(savedProduct);
-        }
-        catch (Exception e) {
-            //Log
-            LoggerUtil.error("An error occurred while saving product data." +
-                    "Product: " + product.toString() + " | " +
-                    "Error: " + e.getMessage(), e);
-
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. | " +
-                            "Please report it to technical support with pictures. | " +
-                            "Error: " + e.getMessage() + e);
-
-            //Return an internal error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
-        }
+        //Log and Return
+        LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
+        return ResponseEntity.ok(savedProduct);
     }
 
 
