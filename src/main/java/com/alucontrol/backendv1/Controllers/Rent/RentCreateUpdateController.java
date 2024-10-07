@@ -10,12 +10,10 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
-import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.StockService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
