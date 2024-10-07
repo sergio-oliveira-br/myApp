@@ -35,34 +35,17 @@ public class ExpenseCreateUpdateController
 
     /** Endpoint to sent Expenses to DB */
     @PostMapping("/saveExpense")
-    public ResponseEntity<?> saveExpense(@RequestBody Expense expense) {
-    //the "?" makes the method be of the generic type or a type that can return different types of response
-        try {
-            //Log
-            LoggerUtil.info("Starting to save Expense with data: " + expense.toString());
+    public ResponseEntity<Expense> saveExpense(@RequestBody Expense expense) {
 
-            //Save the customer in the database
-            Expense savedExpense = expenseRepository.save(expense);
+        //Log
+        LoggerUtil.info("Starting to save Expense with data: " + expense.toString());
 
-            //Log
-            LoggerUtil.info("Expense Saved Successfully: " + savedExpense.toString());
+        //Save the customer in the database
+        Expense savedExpense = expenseRepository.save(expense);
 
-            //Return a response HTTP 200 - OK - saving the expense
-            return ResponseEntity.ok(savedExpense);
-        }
-        catch (Exception e) {
-            LoggerUtil.error("An error occurred while saving Expense data." +
-                    "Expense: " + expense.toString() + " | " +
-                    "Error: " + e.getMessage(), e);
-
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "An error has been discovered during this operation. " +
-                            "Please report it to technical support with pictures." + " | " +
-                            "Error: " + e.getMessage());
-
-            //Throw the exception (if there is an error)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
-        }
+        //Log and Return a response HTTP 200 - OK - saving the expense
+        LoggerUtil.info("Expense Saved Successfully: " + savedExpense.toString());
+        return ResponseEntity.ok(savedExpense);
     }
 
     /** Endpoint to update a specific expense by ID */
