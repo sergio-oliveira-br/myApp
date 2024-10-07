@@ -45,7 +45,6 @@ public class GlobalExceptionHandler {
 
     //Handles exceptions from resources not found
     @ExceptionHandler(ResourceNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ProblemDetails> handleResourceNotFoundException(ResourceNotFoundException ex, HttpServletRequest request) {
 
         //Correlation ID and Log
@@ -62,7 +61,6 @@ public class GlobalExceptionHandler {
 
     //Handles all other generic exceptions
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<ProblemDetails> handleGenericException(Exception ex, HttpServletRequest request) {
 
         //Correlation ID and Log
