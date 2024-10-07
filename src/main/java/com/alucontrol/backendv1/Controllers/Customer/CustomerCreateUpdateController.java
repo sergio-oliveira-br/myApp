@@ -11,7 +11,7 @@
 
 package com.alucontrol.backendv1.Controllers.Customer;
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -54,12 +54,12 @@ public class CustomerCreateUpdateController
                             "Customer: " + customer.toString() + " | " +
                             "Error: " + e.getMessage(), e);
 
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. " +
                             "Please report it to technical support with pictures.");
 
             //Return of an HTTP response with the error body and status
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiErrorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
         }
     }
 }

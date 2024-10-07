@@ -10,7 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Product;
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
@@ -61,13 +61,13 @@ public class ProductCreateUpdateController
                     "Product: " + product.toString() + " | " +
                     "Error: " + e.getMessage(), e);
 
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. | " +
                             "Please report it to technical support with pictures. | " +
                             "Error: " + e.getMessage() + e);
 
             //Return an internal error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiErrorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
         }
     }
 

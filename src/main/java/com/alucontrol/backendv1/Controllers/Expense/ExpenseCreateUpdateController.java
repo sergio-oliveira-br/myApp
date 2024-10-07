@@ -11,7 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -55,13 +55,13 @@ public class ExpenseCreateUpdateController
                     "Expense: " + expense.toString() + " | " +
                     "Error: " + e.getMessage(), e);
 
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. " +
                             "Please report it to technical support with pictures." + " | " +
                             "Error: " + e.getMessage());
 
             //Throw the exception (if there is an error)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiErrorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
         }
     }
 

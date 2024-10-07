@@ -32,19 +32,19 @@ public class GlobalExceptionHandler
     public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException ex)
     {
         LoggerUtil.error("Recurso não encontrado! Exception handled: " + ex.getMessage());
-        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
+        ProblemDetails problemDetails = new ProblemDetails(HttpStatus.NOT_FOUND.value(), ex.getMessage());
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     //Handles all other generic exceptions
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseEntity<ApiErrorResponse> handleGenericException(Exception ex) {
+    public ResponseEntity<ProblemDetails> handleGenericException(Exception ex) {
         LoggerUtil.error("Generic Exception Handled: " + ex.getMessage(), ex);
-        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(
+        ProblemDetails problemDetails = new ProblemDetails(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Oops! Algo deu errado. Por favor reporte este problema! Se possível com foto, data e hora. ");
 
-        return new ResponseEntity<>(apiErrorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(problemDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

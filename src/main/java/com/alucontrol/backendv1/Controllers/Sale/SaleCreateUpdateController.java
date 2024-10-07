@@ -11,7 +11,7 @@
 package com.alucontrol.backendv1.Controllers.Sale;
 
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
 import com.alucontrol.backendv1.Service.StockService;
@@ -59,14 +59,14 @@ public class SaleCreateUpdateController {
                     "Sale" + sale.toString() + " | " +
                     "Error: " + e.getMessage(), e);
 
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "An error has been discovered during this operation. " +
                             "Please report it to technical support with pictures." + " | " +
                             "Error: " + e.getMessage());
 
-            ResponseEntity.internalServerError().body(apiErrorResponse);
+            ResponseEntity.internalServerError().body(problemDetails);
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiErrorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
         }
     }
 

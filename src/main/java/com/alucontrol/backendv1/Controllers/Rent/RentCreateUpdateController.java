@@ -10,7 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Rent;
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -72,14 +72,14 @@ public class RentCreateUpdateController
                     "Aluguel: " + rent.toString() + " | " +
                     "Error: " + e.getMessage(), e);
 
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "Um erro foi descoberto durante esta operação. " +
                             "Por favor, informe-o para o suporte técnico com fotos." + " | " +
                             "Error: " + e.getMessage());
 
-            ResponseEntity.internalServerError().body(apiErrorResponse);
+            ResponseEntity.internalServerError().body(problemDetails);
 
-            return ResponseEntity.internalServerError().body(apiErrorResponse);
+            return ResponseEntity.internalServerError().body(problemDetails);
         }
     }
 

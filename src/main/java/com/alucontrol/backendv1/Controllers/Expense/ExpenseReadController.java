@@ -10,7 +10,7 @@
  */
 package com.alucontrol.backendv1.Controllers.Expense;
 
-import com.alucontrol.backendv1.Exception.ApiErrorResponse;
+import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
@@ -69,13 +69,13 @@ public class ExpenseReadController {
                 throw new ResourceNotFoundException("From Expenses Controller: It was not possible to locate any items");
             }
         }catch (Exception e){
-            ApiErrorResponse apiErrorResponse = new ApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "Ocorreu um erro ao buscar dados da despesa. Por favor, informe-o para o suporte técnico com fotos. " +
                             "Despesa: " + id + " | Error: " + e.getMessage() + e);
 
-            LoggerUtil.error("Error: " + apiErrorResponse);
+            LoggerUtil.error("Error: " + problemDetails);
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiErrorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
         }
     }
 
