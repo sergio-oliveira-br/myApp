@@ -90,29 +90,14 @@ public class ProductReadController
 
     /** Endpoint to get a specific product by ID*/
     @GetMapping("/product/{id}")
-    public ResponseEntity<?> getProductByID(@PathVariable Long id)
-    //the "?" above makes the method be of the generic type or a type that can return different types of response
-    {
-        try {
-            Optional<Product> productOptional = productRepository.findById(id);
-            if(productOptional.isPresent()) {
-                return ResponseEntity.ok(productOptional.get());
-            }
+    public ResponseEntity<?> getProductByID(@PathVariable Long id){
 
-            else {
-                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate any items");
-            }
-
-        } catch (Exception e) {
-            ProblemDetails problemDetails = new ProblemDetails(HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                    "Ocorreu um erro ao buscar os dados do produto. Por favor, informe-o para o suporte técnico com fotos." +
-                            "Produto: " + id + " | Error: " + e.getMessage() + e);
-
-            LoggerUtil.error("Error: " + problemDetails);
-
-            //Return an internal error
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problemDetails);
+        Optional<Product> productOptional = productRepository.findById(id);
+        if(productOptional.isPresent()) {
+            return ResponseEntity.ok(productOptional.get());
+        }
+        else {
+            throw new ResourceNotFoundException("From Product Controller: It was not possible to locate any items");
         }
     }
-
 }
