@@ -1,6 +1,5 @@
 package com.alucontrol.backendv1.Exception;
 
-import java.time.Instant;
 
 //Esta classe é uma classe de transferencia (DTO),
 //na qual estrutura os dados e envia para o cliente. - Essa abordagem é inspirado no RFC 7807
