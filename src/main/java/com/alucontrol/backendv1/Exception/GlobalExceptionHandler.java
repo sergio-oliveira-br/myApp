@@ -13,6 +13,7 @@ package com.alucontrol.backendv1.Exception;
 
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -53,7 +54,22 @@ public class GlobalExceptionHandler {
 
         return buildErrorResponse (
                 HttpStatus.NOT_FOUND,
-                "Recurso não encontrado. ",
+                "Recurso não encontrado.",
+                ex.getMessage()
+        );
+    }
+
+    //Handles DataAccessException
+    @ExceptionHandler(DataAccessException.class)
+    public ResponseEntity<ProblemDetails> handleDataAccessException(DataAccessException ex, HttpServletRequest request) {
+
+        //Correlation ID and Log
+        String correlationId = UUID.randomUUID().toString();
+        LoggerUtil.error("Error occurred on path: " + request.getRequestURI() + ", with CorrelationId: " + correlationId + ", Error: " + ex.getMessage());
+
+        return buildErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                "Erro ao acessar os dados.",
                 ex.getMessage()
         );
     }
