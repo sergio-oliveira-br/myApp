@@ -7,6 +7,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
@@ -16,6 +18,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    //Metodo de Salvamento
     public ResponseEntity<Customer> saveCustomer (Customer customer) {
         try {
             Customer savedCustomer = customerRepository.save(customer);
@@ -24,7 +27,19 @@ public class CustomerService {
 
         }catch (DataAccessException e){
             LoggerUtil.error("Error while saving customer: "  + customer.toString());
-          throw e;
+            throw e;
+        }
+    }
+
+    //Metodo de Leitura
+    public ResponseEntity<List<Customer>> getAllCustomers () {
+        try{
+            List<Customer> customers = customerRepository.findAll();
+            return ResponseEntity.ok(customers);
+
+        }catch (DataAccessException e){
+            LoggerUtil.error("Error while getting all customer: "  + e.getMessage(), e);
+            throw e;
         }
     }
 }
