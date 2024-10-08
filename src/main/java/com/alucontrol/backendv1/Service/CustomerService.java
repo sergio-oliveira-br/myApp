@@ -20,26 +20,14 @@ public class CustomerService {
 
     //Metodo de Salvamento
     public ResponseEntity<Customer> saveCustomer (Customer customer) {
-        try {
-            Customer savedCustomer = customerRepository.save(customer);
-            LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
-            return ResponseEntity.ok(savedCustomer);
-
-        }catch (DataAccessException e){
-            LoggerUtil.error("Error while saving customer: "  + customer.toString());
-            throw e;
-        }
+        Customer savedCustomer = customerRepository.save(customer);
+        LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
+        return ResponseEntity.ok(savedCustomer);
     }
 
     //Metodo de Leitura
     public ResponseEntity<List<Customer>> getAllCustomers () {
-        try{
-            List<Customer> customers = customerRepository.findAll();
-            return ResponseEntity.ok(customers);
-
-        }catch (DataAccessException e){
-            LoggerUtil.error("Error while getting all customer: "  + e.getMessage(), e);
-            throw e;
-        }
+        List<Customer> customers = customerRepository.findAll();
+        return ResponseEntity.ok(customers);
     }
 }
