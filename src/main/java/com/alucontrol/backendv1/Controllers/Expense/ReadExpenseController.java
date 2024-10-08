@@ -1,7 +1,6 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
 import com.alucontrol.backendv1.Model.Expense;
-import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
