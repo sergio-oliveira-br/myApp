@@ -18,5 +18,5 @@
  * Method: Load all expenses into the table without filtering
  */
 function getAllExpenses() {
-    loadFilteredExpenses("/expense");
+    loadFilteredExpenses("/api/v1/expense");
 }
