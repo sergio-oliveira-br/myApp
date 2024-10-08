@@ -29,19 +29,10 @@ public class ReadExpenseController {
         return expenseService.getAllExpenses();
     }
 
-    /** Endpoint to GET a specific product by ID */
-    @GetMapping("/expense/{id}")
+    //Method para buscar uma despesa específica atraves do id.
+    @GetMapping("/{id}")
     public ResponseEntity<Expense> getExpenseById(@PathVariable Long id){
-
-        Optional<Expense> expense = expenseRepository.findById(id);
-        if (expense.isPresent()) {
-            return ResponseEntity.ok(expense.get());
-        }
-
-        else {
-            throw new ResourceNotFoundException("From Expenses Controller: It was not possible to locate any items");
-        }
-
+        return expenseService.findExpenseById(id);
     }
 
     /** Endpoint to get back expenses by selecting the "Category" */
