@@ -12,11 +12,9 @@ import java.util.List;
 @RequestMapping("/api/v1/expense")
 public class ReadExpenseController {
 
-    private final ExpenseRepository expenseRepository;
     private final ExpenseService expenseService;
 
-    public ReadExpenseController(ExpenseRepository expenseRepository, ExpenseService expenseService) {
-        this.expenseRepository = expenseRepository;
+    public ReadExpenseController(ExpenseService expenseService) {
         this.expenseService = expenseService;
     }
 
