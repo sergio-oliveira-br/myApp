@@ -60,4 +60,17 @@ public class ExpenseService {
         LoggerUtil.error("Updating Expense with id " + id + " failed.");
         return ResponseEntity.notFound().build();
     }
+
+    //Metodo para encontrar despesas selecionando a "Category"
+    public ResponseEntity<List<Expense>> findExpenseByCategory (String expenseCategory) {
+
+        List<Expense> expensesByCategory = expenseRepository.findByExpenseCategory(expenseCategory);
+
+        if (expensesByCategory.isEmpty()) {
+            LoggerUtil.error("Category " + expenseCategory + " not found or is empty.");
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(expensesByCategory);
+    }
 }
