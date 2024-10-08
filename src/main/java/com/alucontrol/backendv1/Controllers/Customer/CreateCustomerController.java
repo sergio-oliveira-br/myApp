@@ -16,7 +16,7 @@ public class CreateCustomerController {
     }
 
     //This endpoint is responsible to create a new Customer into a DB
-    @PostMapping("/api/v1/createCustomer")
+    @PostMapping("/api/v1/create-customer")
     public ResponseEntity<Customer> createCustomer(@Validated @RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
     }
