@@ -28,7 +28,7 @@ public class ExpenseService {
     }
 
     //Metodo de Leitura, buscando todos as despesas existentes na base de dados
-    public ResponseEntity<List<Expense>> getAllExpenses() {
+    public ResponseEntity<List<Expense>> findAllExpenses() {
 
         List<Expense> expenses = expenseRepository.findAll();
         return ResponseEntity.ok(expenses);

@@ -21,7 +21,7 @@ public class ReadCustomerController {
     //endpoint para obter todos os clientes presente na base de dados
     @GetMapping
     public ResponseEntity<List<Customer>> getCustomers() {
-        return customerService.getAllCustomers();
+        return customerService.findAllCustomers();
     }
 
     //endpoint para obter um cliente expecifico atraves do ID

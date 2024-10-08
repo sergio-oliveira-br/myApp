@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/expense")
@@ -26,7 +25,7 @@ public class ReadExpenseController {
     //Endpoit para buscar todos as despesas presentes no banco de dados.
     @GetMapping()
     public ResponseEntity<List<Expense>> getExpense() {
-        return expenseService.getAllExpenses();
+        return expenseService.findAllExpenses();
     }
 
     //Method para buscar uma despesa específica atraves do id.

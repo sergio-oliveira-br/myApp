@@ -3,7 +3,6 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,7 @@ public class CustomerService {
     }
 
     //Metodo de Leitura
-    public ResponseEntity<List<Customer>> getAllCustomers () {
+    public ResponseEntity<List<Customer>> findAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
         return ResponseEntity.ok(customers);
     }
