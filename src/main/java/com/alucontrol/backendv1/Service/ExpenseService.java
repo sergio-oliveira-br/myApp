@@ -73,4 +73,17 @@ public class ExpenseService {
 
         return ResponseEntity.ok(expensesByCategory);
     }
+
+    //Metodo para encontrar despesas informando o mes e o ano.
+    public ResponseEntity<List<Expense>> findExpenseByDate (String year, String month) {
+
+        List<Expense> expensesByDate = expenseRepository.findByYearAndMonth(year, month);
+
+        if (expensesByDate.isEmpty()) {
+            LoggerUtil.error("Year " + year + " and month " + month + " not found or is empty.");
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(expensesByDate);
+    }
 }
