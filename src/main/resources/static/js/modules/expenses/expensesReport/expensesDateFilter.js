@@ -18,6 +18,6 @@
  * Method: Filter expenses by date (Month and Year)
  */
 function getExpensesByMonth(year, month) {
-    let url = "/expensesByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
+    let url = "/api/v1/expense/year-month?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
     loadFilteredExpenses(url);
 }
