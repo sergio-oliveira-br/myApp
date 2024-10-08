@@ -26,14 +26,14 @@ import java.util.Optional;
 
 /** This controller is dedicated to endpoints that read data */
 @RestController
-public class ExpenseReadController {
+public class ReadExpenseController {
 
     //Repository for access to Expense data
     private final ExpenseRepository expenseRepository;
     private final ExpenseService expenseService;
 
     //Constructor responsible for injecting the repository
-    public ExpenseReadController(ExpenseRepository expenseRepository, ExpenseService expenseService) {
+    public ReadExpenseController(ExpenseRepository expenseRepository, ExpenseService expenseService) {
         this.expenseRepository = expenseRepository;
         this.expenseService = expenseService;
     }
