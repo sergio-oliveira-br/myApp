@@ -11,11 +11,9 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
 
-import com.alucontrol.backendv1.Exception.ProblemDetails;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +22,12 @@ import java.util.Optional;
 /** This controller is dedicated to endpoints that create and update records
  * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
 @RestController
-public class ExpenseCreateUpdateController
+public class CreateExpenseController
 {
     private final ExpenseRepository expenseRepository;
 
     //Constructor responsible for injecting the repository
-    private ExpenseCreateUpdateController (ExpenseRepository expenseRepository) {
+    private CreateExpenseController(ExpenseRepository expenseRepository) {
         this.expenseRepository = expenseRepository;
     }
 
