@@ -22,13 +22,13 @@ import java.util.Optional;
 /**This controller is dedicated to endpoints that create and update records
  * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
 @RestController
-public class ProductCreateUpdateController
+public class CreateProductController
 {
     //Repository for access to product data
     private final ProductRepository productRepository;
 
     //Constructor responsible for injecting the repository
-    public ProductCreateUpdateController(ProductRepository productRepository) {
+    public CreateProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
