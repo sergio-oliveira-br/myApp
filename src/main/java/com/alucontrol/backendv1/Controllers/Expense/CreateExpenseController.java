@@ -25,7 +25,7 @@ public class CreateExpenseController {
 
 
 
-//
+
 //    /** Endpoint to update a specific expense by ID */
 //    @PutMapping("/expense/{id}")
 //    public ResponseEntity<Expense> updateExpense(@RequestBody Expense expenseUpdated, @PathVariable Long id) {
