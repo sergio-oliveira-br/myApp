@@ -20,6 +20,6 @@
 function getExpensesByCategory(category) {
     console.log("Category selected: " + category);
 
-    let url = "/expensesByCategory?expenseCategory=" + encodeURIComponent(category);
+    let url = "/api/v1/expense/category?expenseCategory=" + encodeURIComponent(category);
     loadFilteredExpenses(url);
 }
