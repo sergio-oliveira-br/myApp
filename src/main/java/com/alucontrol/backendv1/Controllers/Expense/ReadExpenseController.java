@@ -34,17 +34,18 @@ public class ReadExpenseController {
         return expenseService.findExpenseById(id);
     }
 
-    /** Endpoint to get back expenses by selecting the "Category" */
-    @GetMapping("/expensesByCategory")
-    public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory)
-    {
-        List<Expense> expenses = expenseRepository.findByExpenseCategory(expenseCategory);
-        if (expenses.isEmpty()) {
-            LoggerUtil.error("No expenses found for category " + expenseCategory);
-            throw new ResourceNotFoundException("No expenses found");
-        }
-        return ResponseEntity.ok(expenses);
+    //Metodo para buscar uma lista de despesas atraves da categoria.
+    @GetMapping("/category")
+    public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory) {
+        return expenseService.findExpenseByCategory(expenseCategory);
     }
+
+
+
+
+
+
+
 
     /** Endpoint to retrieve expenses by selecting the "Month" and "Year" in expenseDate field */
     @GetMapping("/expensesByDate")
