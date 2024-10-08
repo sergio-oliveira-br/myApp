@@ -6,6 +6,9 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ExpenseService {
 
@@ -17,8 +20,18 @@ public class ExpenseService {
 
     //Method para Salvar novas Despesas
     public ResponseEntity<Expense> saveExpense(Expense expense) {
+
         Expense savedExpense = expenseRepository.save(expense);
         LoggerUtil.info("Expense saved successfully: " + savedExpense.toString());
+
         return ResponseEntity.ok(savedExpense);
     }
+
+    //Metodo de Leitura, buscando todos os clientes existentes na base de dados
+    public ResponseEntity<List<Expense>> getAllExpenses() {
+
+        List<Expense> expenses = expenseRepository.findAll();
+        return ResponseEntity.ok(expenses);
+    }
+
 }
