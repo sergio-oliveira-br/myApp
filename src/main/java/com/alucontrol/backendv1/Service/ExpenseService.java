@@ -45,4 +45,19 @@ public class ExpenseService {
         return ResponseEntity.notFound().build();
     }
 
+
+    //Metodo para atualizar uma Despesas ja existente por meio do ID
+    public ResponseEntity<Expense> saveExepenseChanges(Expense expense, Long id) {
+
+        Optional<Expense> expenseOptional = expenseRepository.findById(id);
+
+        if (expenseOptional.isPresent()) {
+            Expense savedExpense = expenseRepository.save(expense);
+            LoggerUtil.info("Expense saved successfully: " + savedExpense.toString());
+            return ResponseEntity.ok(savedExpense);
+        }
+
+        LoggerUtil.error("Updating Expense with id " + id + " failed.");
+        return ResponseEntity.notFound().build();
+    }
 }
