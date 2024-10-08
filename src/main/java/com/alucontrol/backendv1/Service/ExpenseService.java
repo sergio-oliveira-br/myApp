@@ -27,11 +27,22 @@ public class ExpenseService {
         return ResponseEntity.ok(savedExpense);
     }
 
-    //Metodo de Leitura, buscando todos os clientes existentes na base de dados
+    //Metodo de Leitura, buscando todos as despesas existentes na base de dados
     public ResponseEntity<List<Expense>> getAllExpenses() {
 
         List<Expense> expenses = expenseRepository.findAll();
         return ResponseEntity.ok(expenses);
+    }
+
+    //Method de Leitura, buscando uma despesa especifica
+    public ResponseEntity<Expense> findExpenseById(Long id) {
+        Optional<Expense> expense = expenseRepository.findById(id);
+
+        if (expense.isPresent()) {
+            return ResponseEntity.ok(expense.get());
+        }
+
+        return ResponseEntity.notFound().build();
     }
 
 }
