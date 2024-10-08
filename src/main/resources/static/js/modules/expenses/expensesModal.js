@@ -55,7 +55,7 @@ function submitExpenseEditForm() {
     console.log(itemData);
 
     $.ajax({
-        url: '/expense/' + itemData.id,
+        url: '/api/v1/update-expense/' + itemData.id,
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(itemData),
