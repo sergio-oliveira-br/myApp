@@ -1,13 +1,3 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Controllers.Expense;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
@@ -16,42 +6,27 @@ import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-/** This controller is dedicated to endpoints that read data */
 @RestController
+@RequestMapping("/api/v1/expense")
 public class ReadExpenseController {
 
-    //Repository for access to Expense data
     private final ExpenseRepository expenseRepository;
     private final ExpenseService expenseService;
 
-    //Constructor responsible for injecting the repository
     public ReadExpenseController(ExpenseRepository expenseRepository, ExpenseService expenseService) {
         this.expenseRepository = expenseRepository;
         this.expenseService = expenseService;
     }
 
-    /** Endpoint to get back all expenses */
-    @GetMapping("/expense")
-    public ResponseEntity<List<Expense>> getAllExpenses()
-    {
-        //findAll() is method inherited from CrudRepository
-        List<Expense> expenses = expenseRepository.findAll();
-
-        if (expenses.isEmpty()) {
-            LoggerUtil.error("No expenses found");
-            throw new ResourceNotFoundException("No expenses found");
-        }
-
-        //Returns a 200 OK HTTP response with the list of expenses in the body.
-        return ResponseEntity.ok(expenses);
+    //Endpoit para buscar todos os clientes presentes no banco de dados.
+    @GetMapping()
+    public ResponseEntity<List<Expense>> getExpense() {
+        return expenseService.getAllExpenses();
     }
 
     /** Endpoint to GET a specific product by ID */
