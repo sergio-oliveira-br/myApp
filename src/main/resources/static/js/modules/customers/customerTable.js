@@ -18,7 +18,7 @@
  * Method: Create a table with all customers via AJAX
  */
 function loadCustomersTable() {
-    ajaxRequest("/customers", function (data) {
+    ajaxRequest("/api/v1/customers", function (data) {
         // First clean
         $('#customerList').empty();
 
