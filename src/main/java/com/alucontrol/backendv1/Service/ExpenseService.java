@@ -18,7 +18,7 @@ public class ExpenseService {
         this.expenseRepository = expenseRepository;
     }
 
-    //Method para Salvar novas Despesas
+    //Metodo para Salvar novas Despesas
     public ResponseEntity<Expense> saveExpense(Expense expense) {
 
         Expense savedExpense = expenseRepository.save(expense);
@@ -27,14 +27,14 @@ public class ExpenseService {
         return ResponseEntity.ok(savedExpense);
     }
 
-    //Metodo de Leitura, buscando todos as despesas existentes na base de dados
+    //Metodo de Leitura buscando todos as despesas existentes na base de dados
     public ResponseEntity<List<Expense>> findAllExpenses() {
 
         List<Expense> expenses = expenseRepository.findAll();
         return ResponseEntity.ok(expenses);
     }
 
-    //Method de Leitura, buscando uma despesa especifica
+    //Method de Leitura buscando uma despesa especifica
     public ResponseEntity<Expense> findExpenseById(Long id) {
         Optional<Expense> expense = expenseRepository.findById(id);
 
@@ -46,7 +46,7 @@ public class ExpenseService {
     }
 
 
-    //Metodo para atualizar uma Despesas ja existente por meio do ID
+    //Metodo de Atualização de Despesas ja existente por meio do ID
     public ResponseEntity<Expense> saveExepenseChanges(Expense expense, Long id) {
 
         Optional<Expense> expenseOptional = expenseRepository.findById(id);
@@ -61,7 +61,7 @@ public class ExpenseService {
         return ResponseEntity.notFound().build();
     }
 
-    //Metodo para encontrar despesas selecionando a "Category"
+    //Metodo de Leitura para encontrar despesas selecionando a "Category"
     public ResponseEntity<List<Expense>> findExpenseByCategory (String expenseCategory) {
 
         List<Expense> expensesByCategory = expenseRepository.findByExpenseCategory(expenseCategory);
@@ -74,7 +74,7 @@ public class ExpenseService {
         return ResponseEntity.ok(expensesByCategory);
     }
 
-    //Metodo para encontrar despesas informando o mes e o ano.
+    //Metodo Leitura para encontrar despesas informando o mes e o ano.
     public ResponseEntity<List<Expense>> findExpenseByDate (String year, String month) {
 
         List<Expense> expensesByDate = expenseRepository.findByYearAndMonth(year, month);
