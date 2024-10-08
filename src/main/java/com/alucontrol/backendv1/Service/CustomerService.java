@@ -1,4 +1,4 @@
-package com.alucontrol.backendv1.Service.Customer;
+package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Repository.CustomerRepository;

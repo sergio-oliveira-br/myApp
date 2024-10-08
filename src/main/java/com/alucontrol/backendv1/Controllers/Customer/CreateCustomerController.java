@@ -1,7 +1,7 @@
 package com.alucontrol.backendv1.Controllers.Customer;
 
 import com.alucontrol.backendv1.Model.Customer;
-import com.alucontrol.backendv1.Service.Customer.CustomerService;
+import com.alucontrol.backendv1.Service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
