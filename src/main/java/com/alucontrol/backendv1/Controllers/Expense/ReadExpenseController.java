@@ -1,10 +1,8 @@
 package com.alucontrol.backendv1.Controllers.Expense;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Service.ExpenseService;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,24 +38,10 @@ public class ReadExpenseController {
         return expenseService.findExpenseByCategory(expenseCategory);
     }
 
-
-
-
-
-
-
-
-    /** Endpoint to retrieve expenses by selecting the "Month" and "Year" in expenseDate field */
-    @GetMapping("/expensesByDate")
-    public ResponseEntity<List<Expense>> getExpensesByDate(String year, String month)
-    {
-        List<Expense> expenses = expenseRepository.findByYearAndMonth(year, month);
-
-        if (expenses.isEmpty()) {
-            LoggerUtil.error("No expenses found for year " + year + " and month " + month);
-            throw new ResourceNotFoundException("No expenses found");
-        }
-        return ResponseEntity.ok(expenses);
+    //Metodo para buscar/filtrar a lista de despesas atraves do "Month" e "Year"
+    @GetMapping("/year-month")
+    public ResponseEntity<List<Expense>> getExpenseByDate(String year, String month) {
+      return expenseService.findExpenseByDate(year, month);
     }
 
 }
