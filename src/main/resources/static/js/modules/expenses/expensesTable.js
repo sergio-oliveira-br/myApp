@@ -18,7 +18,7 @@
  * Method: The script will load all expenses in a table
  */
 function loadExpenseTable() {
-    ajaxRequest("/expense", function (data) {
+    ajaxRequest("/api/v1/expense", function (data) {
         $('#expenseTable').empty();
 
         console.log('There are ' + data.length + ' expenses in your expenses DB.');
