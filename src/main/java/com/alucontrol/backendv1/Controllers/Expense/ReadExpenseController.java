@@ -23,7 +23,7 @@ public class ReadExpenseController {
         this.expenseService = expenseService;
     }
 
-    //Endpoit para buscar todos os clientes presentes no banco de dados.
+    //Endpoit para buscar todos as despesas presentes no banco de dados.
     @GetMapping()
     public ResponseEntity<List<Expense>> getExpense() {
         return expenseService.getAllExpenses();
