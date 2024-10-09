@@ -19,12 +19,10 @@ import java.util.List;
 @RequestMapping("/api/v1/product")
 public class ReadProductController {
 
-    private final ProductRepository productRepository;
     private final ProductService productService;
 
-    public ReadProductController(ProductRepository productRepository, ProductService productService) {
+    public ReadProductController(ProductService productService) {
         this.productService = productService;
-        this.productRepository = productRepository;
     }
 
     @GetMapping("")
