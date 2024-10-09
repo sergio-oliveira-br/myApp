@@ -50,15 +50,14 @@ public class ProductService {
             return ResponseEntity.ok(product.get());
         }
 
-        return ResponseEntity.notFound().build();
+        throw new ResourceNotFoundException("Product " + product + " not found.");
     }
 
     //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
     public ResponseEntity<List<ItemPriceProjection>> findProductByType(String productType) {
 
         if (productRepository.findProductsByProductType(productType) == null){
-            LoggerUtil.error("Product type " + productType + " not found.");
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Product type " + productType + " not found.");
         }
 
         List<ItemPriceProjection> products = productRepository.findProductsByProductType(productType);
