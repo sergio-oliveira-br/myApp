@@ -1,9 +1,9 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Model.Product;
+import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -51,5 +51,16 @@ public class ProductService {
     }
 
     //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
+    public ResponseEntity<List<ItemPriceProjection>> findProductByType(String productType) {
+
+        if (productRepository.findProductsByProductType(productType) == null){
+            LoggerUtil.error("Product type " + productType + " not found.");
+            return ResponseEntity.notFound().build();
+        }
+
+        List<ItemPriceProjection> products = productRepository.findProductsByProductType(productType);
+        return ResponseEntity.ok(products);
+
+    }
 
 }
