@@ -26,13 +26,13 @@ import java.util.Optional;
 
 /** This controller is dedicated to endpoints that read data */
 @RestController
-public class ProductReadController
+public class ReadProductController
 {
     //Repository for access to product data
     private final ProductRepository productRepository;
 
     //Constructor responsible for injecting the repository
-    public ProductReadController(ProductRepository productRepository)
+    public ReadProductController(ProductRepository productRepository)
     {
         this.productRepository = productRepository;
     }
