@@ -37,24 +37,9 @@ public class ReadProductController {
         return productService.findProductById(id);
     }
 
-    /**Endpoint to get back product, selecting the Product Type */
-    @GetMapping("/productByType")
-    public List<ItemPriceProjection> getProductByType(String productType) {
-        LoggerUtil.info("Starting looking for Item and Price by Product Type: " + productType);
-        try {
-            //handling exceptions
-            if (productRepository.findProductsByProductType(productType) == null) {
-                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate items");
-            }
-            return productRepository.findProductsByProductType(productType);
-
-        } catch (Exception e) {
-            LoggerUtil.error("An error occurred while fetching items." + " | " +
-                    "Error: " + e.getMessage(), e);
-
-            throw new ResourceNotFoundException("An error occurred while fetching items. " + " | " +
-                    "Error: " + e.getMessage());
-        }
+    @GetMapping("/product-by-type")
+    public ResponseEntity<List<ItemPriceProjection>> getProductByType(String productType) {
+        return productService.findProductByType(productType);
     }
 
     /**Endpoint to get back product, selecting the Product Type */
