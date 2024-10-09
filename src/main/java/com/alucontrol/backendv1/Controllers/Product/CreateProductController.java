@@ -1,53 +1,32 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Controllers.Product;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
+import com.alucontrol.backendv1.Service.ProductService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-/**This controller is dedicated to endpoints that create and update records
- * It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses */
 @RestController
-public class CreateProductController
-{
-    //Repository for access to product data
-    private final ProductRepository productRepository;
+@RequestMapping("/api/v1/create-product")
+public class CreateProductController {
 
-    //Constructor responsible for injecting the repository
-    public CreateProductController(ProductRepository productRepository) {
+    private final ProductRepository productRepository;
+    private final ProductService productService;
+
+    public CreateProductController(ProductRepository productRepository, ProductService productService) {
+        this.productService = productService;
         this.productRepository = productRepository;
     }
 
-    /** Endpoint to send Products to my DB*/
-    @PostMapping("/saveProduct")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
 
-        //Log
-        LoggerUtil.info("Starting to save product with data: " + product);
-
-        //Initialize itemAvailableQty with the same itemQuantity value
-        product.setItemAvailableQty(product.getItemQuantity());
-
-        //Save
-        Product savedProduct = productRepository.save(product);
-
-        //Log and Return
-        LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
-        return ResponseEntity.ok(savedProduct);
+    @PostMapping()
+    public ResponseEntity<Product> createProduct(@Validated @RequestBody Product product) {
+        return productService.saveProduct(product);
     }
 
 
