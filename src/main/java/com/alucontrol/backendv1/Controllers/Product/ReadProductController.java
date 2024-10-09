@@ -30,9 +30,7 @@ public class ReadProductController {
 
     @GetMapping("")
     public ResponseEntity<List<Product>> getAllProduct() {
-
-        List<Product> products = productRepository.findAll();
-        return ResponseEntity.ok(products);
+        return productService.findAllProducts();
     }
 
     /**Endpoint to get back product, selecting the Product Type */
