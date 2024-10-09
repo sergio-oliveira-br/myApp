@@ -1,13 +1,3 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Controllers.Product;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
@@ -15,33 +5,33 @@ import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ItemQtyAvailableProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
+import com.alucontrol.backendv1.Service.ProductService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
-/** This controller is dedicated to endpoints that read data */
 @RestController
-public class ReadProductController
-{
-    //Repository for access to product data
-    private final ProductRepository productRepository;
+@RequestMapping("/api/v1/product")
+public class ReadProductController {
 
-    //Constructor responsible for injecting the repository
-    public ReadProductController(ProductRepository productRepository)
-    {
+    private final ProductRepository productRepository;
+    private final ProductService productService;
+
+    public ReadProductController(ProductRepository productRepository, ProductService productService) {
+        this.productService = productService;
         this.productRepository = productRepository;
     }
 
-    /** Endpoint to get back all products */
-    @GetMapping("/product")
-    public ResponseEntity<List<Product>> getAllProduct()
-    {
-        List<Product> products = productRepository.findAll(); //findAll() is method inherited from CrudRepository
+    @GetMapping("")
+    public ResponseEntity<List<Product>> getAllProduct() {
+
+        List<Product> products = productRepository.findAll();
         return ResponseEntity.ok(products);
     }
 
