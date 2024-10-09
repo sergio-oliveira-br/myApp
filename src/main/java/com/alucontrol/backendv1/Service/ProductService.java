@@ -1,9 +1,12 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
+import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -60,7 +63,16 @@ public class ProductService {
 
         List<ItemPriceProjection> products = productRepository.findProductsByProductType(productType);
         return ResponseEntity.ok(products);
-
     }
 
+    //Method de leitura que busca os produtos por meio da seleção do tipo do cadastro e retorna a quantidade
+    public ResponseEntity<List<ProductStockProjection>> findProductStockByType(String productType) {
+
+        if (productRepository.findProductsAndQtyByProductType(productType) == null){
+            throw new ResourceNotFoundException("Product type " + productType + " not found.");
+        }
+
+        List<ProductStockProjection> products = productRepository.findProductsAndQtyByProductType(productType);
+        return ResponseEntity.ok(products);
+    }
 }
