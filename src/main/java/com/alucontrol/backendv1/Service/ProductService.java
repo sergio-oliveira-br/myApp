@@ -6,7 +6,6 @@ import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +33,29 @@ public class ProductService {
     }
 
     //Metodo de Atualização de Produtos que ja existentem por meio do ID
+    public ResponseEntity<Product> saveProductChanges(Product updatedProduct, Long id) {
+
+        Optional<Product> productOptional = productRepository.findById(id);
+        LoggerUtil.info("Starting updating product: " + productOptional.toString());
+
+        if (productOptional.isPresent()) {
+
+            Product product = productOptional.get();
+
+            product.setItemDescription(updatedProduct.getItemDescription());
+            product.setItemQuantity(updatedProduct.getItemQuantity());
+            product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
+            product.setProductType(updatedProduct.getProductType());
+            product.setItemPrice(updatedProduct.getItemPrice());
+            product.setDateModified(updatedProduct.getDateModified());//this will get data and time when the item has been changed
+
+            Product savedProduct = productRepository.save(product);
+            LoggerUtil.info("Product Updated Successfully: " + savedProduct.toString());
+            return ResponseEntity.ok(savedProduct);
+        }
+
+        throw new ResourceNotFoundException("Product with id " + id + " not found");
+    }
 
     //Metodo de Leitura buscando todos os produtos existentes na base de dados
     public ResponseEntity<List<Product>> findAllProducts() {
