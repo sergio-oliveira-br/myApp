@@ -3,10 +3,12 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -37,6 +39,17 @@ public class ProductService {
         return ResponseEntity.ok(products);
     }
 
-    //Method de Leitura buscando uma despesa especifica
+    //Metodo de Leitura buscando um produto específico por meio do ID.
+    public ResponseEntity<Product> findProductById(Long id) {
+
+        Optional<Product> product = productRepository.findById(id);
+        if (product.isPresent()) {
+            return ResponseEntity.ok(product.get());
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+    //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
 
 }
