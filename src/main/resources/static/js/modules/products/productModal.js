@@ -49,7 +49,7 @@ function submitProductEditForm() {
     console.log(itemData);
 
     $.ajax({
-        url: "/product/" + itemData.id,
+        url: "/api/v1/update-product/" + itemData.id,
         type: "PUT",
         contentType: 'application/json',
         data: JSON.stringify(itemData),
