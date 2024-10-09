@@ -12,7 +12,7 @@ package com.alucontrol.backendv1.Repository;
 
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
-import com.alucontrol.backendv1.Projection.Product.ItemQtyAvailableProjection;
+import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -49,7 +49,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>
             //"myP.productType AS productType " + I DON'T NEED THE FIELD THAT I WILL USE TO SEARCH
             "FROM Product myP " +
             "WHERE myP.productType = :productType")
-    List<ItemQtyAvailableProjection> findProductsAndQtyByProductType(String productType);
+    List<ProductStockProjection> findProductsAndQtyByProductType(String productType);
 
 
     @Query("SELECT p FROM Product p") // Select all columns from the Product table
