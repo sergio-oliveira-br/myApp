@@ -17,7 +17,7 @@
  * Info: Creates a table with all products via AJAX
  */
 function loadProductTable() {
-    ajaxRequest("/product", function(data) {
+    ajaxRequest("/api/v1/product", function(data) {
         $('#productList').empty();
 
         console.log("There are " + data.length + " products in your DB");
