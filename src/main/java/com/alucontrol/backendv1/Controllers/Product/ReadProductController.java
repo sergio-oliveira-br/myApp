@@ -3,7 +3,7 @@ package com.alucontrol.backendv1.Controllers.Product;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
-import com.alucontrol.backendv1.Projection.Product.ItemQtyAvailableProjection;
+import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Service.ProductService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -42,26 +42,8 @@ public class ReadProductController {
         return productService.findProductByType(productType);
     }
 
-    /**Endpoint to get back product, selecting the Product Type */
-    @GetMapping("/productQtyByType")
-    public List<ItemQtyAvailableProjection> getProductQtyByType(String productType) {
-        LoggerUtil.info("Starting looking for Item and Qty Available by Product Type: " + productType);
-        try {
-            //handling exceptions
-            if (productRepository.findProductsAndQtyByProductType(productType) == null) {
-                throw new ResourceNotFoundException("From Product Controller: It was not possible to locate items");
-            }
-            return productRepository.findProductsAndQtyByProductType(productType);
-
-        } catch (Exception e) {
-            LoggerUtil.error("An error occurred while fetching items." + " | " +
-                    "Error: " + e.getMessage(), e);
-
-            throw new ResourceNotFoundException("An error occurred while fetching items. " + " | " +
-                    "Error: " + e.getMessage());
-        }
+    @GetMapping("/qty/product-by-type")
+    public ResponseEntity<List<ProductStockProjection>> getProductQtyByType(String productType) {
+        return productService.findProductStockByType(productType);
     }
-
-
-
 }
