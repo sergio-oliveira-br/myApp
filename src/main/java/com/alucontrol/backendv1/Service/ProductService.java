@@ -6,6 +6,8 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -25,4 +27,16 @@ public class ProductService {
 
         return ResponseEntity.ok(savedProduct);
     }
+
+    //Metodo de Atualização de Produtos que ja existentem por meio do ID
+
+    //Metodo de Leitura buscando todos os produtos existentes na base de dados
+    public ResponseEntity<List<Product>> findAllProducts() {
+
+        List<Product> products = productRepository.findAll();
+        return ResponseEntity.ok(products);
+    }
+
+    //Method de Leitura buscando uma despesa especifica
+
 }
