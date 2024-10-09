@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/product")
@@ -31,6 +30,11 @@ public class ReadProductController {
     @GetMapping("")
     public ResponseEntity<List<Product>> getAllProduct() {
         return productService.findAllProducts();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id){
+        return productService.findProductById(id);
     }
 
     /**Endpoint to get back product, selecting the Product Type */
@@ -74,16 +78,5 @@ public class ReadProductController {
     }
 
 
-    /** Endpoint to get a specific product by ID*/
-    @GetMapping("/product/{id}")
-    public ResponseEntity<?> getProductByID(@PathVariable Long id){
 
-        Optional<Product> productOptional = productRepository.findById(id);
-        if(productOptional.isPresent()) {
-            return ResponseEntity.ok(productOptional.get());
-        }
-        else {
-            throw new ResourceNotFoundException("From Product Controller: It was not possible to locate any items");
-        }
-    }
 }
