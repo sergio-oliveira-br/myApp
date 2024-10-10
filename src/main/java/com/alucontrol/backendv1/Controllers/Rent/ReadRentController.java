@@ -1,9 +1,7 @@
 package com.alucontrol.backendv1.Controllers.Rent;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Service.RentServices;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,50 +44,13 @@ public class ReadRentController {
     }
 
     @GetMapping("/qty/rent-by-status")
-    public ResponseEntity<Long> getRentByStatus(String status) {
+    public ResponseEntity<Long> getRentQtyByStatus(String status) {
         return rentServices.findQtyRentByRentStatus(status);
     }
 
+    @GetMapping("/qty/rent-by-payment-status")
+    public ResponseEntity<Long> getRentQtyByPaymentStatus(String paymentStatus) {
+        return rentServices.findQtyRentByPaymentStatus(paymentStatus);
+    }
 
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    /** Endpoint to get the number (qty) of rent by selecting the payment status
-//     * This method is pointing to indexScript.js */
-//    @GetMapping("/qtyRentByPaymentStatus")
-//    public ResponseEntity<Long> getQtyRentByPaymentStatus(@RequestParam String paymentStatus) {
-//        LoggerUtil.info("Fetching Rent Payment Status: " + paymentStatus);
-//        Long countRentByPaymentStatus;
-//
-//        try {
-//            countRentByPaymentStatus = rentPaymentStatusRepository.countRentByPaymentStatus(paymentStatus);
-//
-//            if(countRentByPaymentStatus == null){
-//                LoggerUtil.error("No Rent found for payment status: " + paymentStatus);
-//                throw new ResourceNotFoundException("No Rent found for payment status: " + paymentStatus);
-//
-//            }
-//        }catch (Exception e){
-//            LoggerUtil.error("An error occurred while fetching the quantity of rent by payment status. | " +
-//                    "Error: " + e.getMessage(), e);
-//
-//            throw new ResourceNotFoundException("An error occurred while fetching the quantity of rent by payment status. |" +
-//                    "Rent Payment Status: " + paymentStatus +
-//                    " | Error: " + e.getMessage() + e);
-//        }
-//
-//        LoggerUtil.debug("Rent Payment Status: " + paymentStatus);
-//        return ResponseEntity.ok(countRentByPaymentStatus);
-//    }
 }
