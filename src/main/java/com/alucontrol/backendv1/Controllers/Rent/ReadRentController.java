@@ -35,6 +35,13 @@ public class ReadRentController {
         return rentServices.findRentByDate(year, month);
     }
 
+    @GetMapping("/rent-by-name")
+    public ResponseEntity<List<Rent>> getRentByName(String customerName) {
+        return rentServices.findRentByName(customerName);
+    }
+
+
+
 
 //
 //
@@ -66,18 +73,7 @@ public class ReadRentController {
 //        return ResponseEntity.ok(rents);
 //    }
 //
-//    /** Endpoint to retrieve Rent by searching the customer name */
-//    @GetMapping("/rentByName")
-//    public ResponseEntity<List<Rent>> getRentByName(String name)
-//    {
-//        List<Rent> rents = rentRepository.findRentByFirstName(name);
 //
-//        if (rents.isEmpty()) {
-//            LoggerUtil.error("No Rent found for name: " + name);
-//            throw new ResourceNotFoundException("No Rent found");
-//        }
-//        return ResponseEntity.ok(rents);
-//    }
 //
 //    /** Endpoint to get the number (qty) of rent by selecting the status
 //     * This method is pointing to indexScript.js */
