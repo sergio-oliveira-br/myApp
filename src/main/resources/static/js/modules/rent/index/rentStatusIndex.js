@@ -38,7 +38,7 @@ function loadQtyRentByPaymentStatus(paymentStatus) {
  * Method: Obtain the number of rent which the status are "Novo", "Em andamento" or "Encerrado"
  */
 function loadQtyRentByStatus(status) {
-    let url = `/qtyRentByStatus?rentStatus=${encodeURIComponent(status)}`;
+    let url = `/api/v1/rent/qty/rent-by-status?rentStatus=${encodeURIComponent(status)}`;
 
     let selectors = {
         'Novo': '#loadRentStatusNew',
