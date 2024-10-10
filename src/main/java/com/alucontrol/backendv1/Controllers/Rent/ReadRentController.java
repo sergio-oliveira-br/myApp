@@ -2,9 +2,6 @@ package com.alucontrol.backendv1.Controllers.Rent;
 
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
-import com.alucontrol.backendv1.Repository.Rent.RentPaymentStatusRepository;
-import com.alucontrol.backendv1.Repository.Rent.RentStatusRepository;
-import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.RentServices;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +13,9 @@ import java.util.List;
 @RequestMapping("/api/v1/rent")
 public class ReadRentController {
 
-    //Repository for access to product data
-    private final RentRepository rentRepository;
-    private final RentStatusRepository rentStatusRepository;
-    private final RentPaymentStatusRepository rentPaymentStatusRepository;
     private final RentServices rentServices;
-
-    //Constructor responsible for injecting the repository
-    public ReadRentController(RentServices rentServices, RentRepository rentRepository, RentStatusRepository rentStatusRepository, RentPaymentStatusRepository rentPaymentStatusRepository) {
-        this.rentRepository = rentRepository;
-        this.rentStatusRepository = rentStatusRepository; //focus on queries related to the status of the Rent
-        this.rentPaymentStatusRepository = rentPaymentStatusRepository;
+    
+    public ReadRentController(RentServices rentServices) {
         this.rentServices = rentServices;
     }
 
