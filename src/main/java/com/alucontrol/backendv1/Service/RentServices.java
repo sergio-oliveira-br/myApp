@@ -7,7 +7,11 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -81,7 +85,22 @@ public class RentServices {
       throw new ResourceNotFoundException("Rent with id" + id + " not found");
     }
 
+    //Metodo de Leitura, buscando todos os algueis existentes na base de dados
+    public ResponseEntity<List<Rent>> findAllRents() {
 
-    //Metodo de Leitura,
+        List<Rent> rents = rentRepository.findAll();
+        return ResponseEntity.ok(rents);
+    }
 
+    //Metodo de leitura para buscar um alguel especifico atraves do ID
+    public ResponseEntity<Rent> findRentById (@RequestParam Long id) {
+
+        Optional<Rent> rentOptional = rentRepository.findById(id);
+
+        if (rentOptional.isPresent()) {
+            return ResponseEntity.ok(rentOptional.get());
+        }
+
+        throw new ResourceNotFoundException("Rent with id" + id + " not found");
+    }
 }
