@@ -40,25 +40,19 @@ public class ReadRentController {
         return rentServices.findRentByName(customerName);
     }
 
+    @GetMapping("/rent-by-payment-status")
+    public ResponseEntity<List<Rent>> getRentByPaymentStatus(String paymentStatus) {
+        return rentServices.findRentByPaymentStatus(paymentStatus);
+    }
 
 
 
+
 //
 //
 //
 //
-//    /** Endpoint to retrieve Rent by selecting the Rent Payment Status */
-//    @GetMapping("/rentByPaymentStatus")
-//    public ResponseEntity<List<Rent>> getRentByPaymentStatus(String paymentStatus)
-//    {
-//        List<Rent> rents = rentRepository.findRentByPaymentStatus(paymentStatus);
 //
-//        if (rents.isEmpty()) {
-//            LoggerUtil.error("No Rent found for payment status " + paymentStatus);
-//            throw new ResourceNotFoundException("No Rent found");
-//        }
-//        return ResponseEntity.ok(rents);
-//    }
 //
 //    /** Endpoint to retrieve Rent by selecting the Rent Payment Status */
 //    @GetMapping("/rentByStatus")
