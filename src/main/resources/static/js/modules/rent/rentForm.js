@@ -15,7 +15,7 @@
 /**
  * Method: Send the order (rent or sale) data by using AJAX
  */
-formSubmission('#rentForm', '/saveRent', rentFormData, rentSaveSuccess);
+formSubmission('#rentForm', '/api/v1/rent/create-rent', rentFormData, rentSaveSuccess);
 
 /**
  * Get the form data from the form
