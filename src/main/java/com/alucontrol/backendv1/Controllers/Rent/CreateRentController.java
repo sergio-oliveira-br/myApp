@@ -1,5 +1,6 @@
 package com.alucontrol.backendv1.Controllers.Rent;
 
+import com.alucontrol.backendv1.Service.RentServices;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -15,35 +16,17 @@ public class CreateRentController {
 
     private final RentRepository rentRepository;
     private final StockService stockService;
+    private final RentServices rentServices;
 
-    public CreateRentController(RentRepository rentRepository, StockService stockService) {
+    public CreateRentController(RentRepository rentRepository, StockService stockService, RentServices rentServices) {
         this.rentRepository = rentRepository;
         this.stockService = stockService;
+        this.rentServices = rentServices;
     }
 
-
-    public ResponseEntity<Rent> saveRent( @RequestBody Rent rent){
-
-        //Log
-        LoggerUtil.info("Starting to save Rent with data: " + rent.toString());
-
-        //Save into DB
-        Rent savedRent = rentRepository.save(rent);
-
-        //The stock will be subtracted based on the user's input
-        //Status "New" will not subtract the stock, 'cause supposedly it has not started yet
-        if(rent.getRentStatus().equals("Novo")) {
-            //log
-            LoggerUtil.info("Rent Status: NEW. Your Rent has not started yet, so your stock has not been changed.");
-        }
-
-        else {
-            //When a rental is created, make a call to subtract inventory
-            stockService.subtractStock(rent.getRentItem(), rent.getRentQtyItem());
-        }
-
-        LoggerUtil.info("Alguel salvo com sucesso: " + savedRent.toString());
-        return ResponseEntity.ok(savedRent);
+    @PostMapping
+    public ResponseEntity<Rent> createRent (@RequestBody Rent rent) {
+        return rentServices.saveRent(rent);
     }
 
 
