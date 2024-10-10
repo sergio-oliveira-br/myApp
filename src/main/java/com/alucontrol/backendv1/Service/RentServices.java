@@ -115,12 +115,22 @@ public class RentServices {
         return ResponseEntity.ok(rents);
     }
 
-    //Method de leitura para buscar algueis atraves do nome do cliente
+    //Metodo de leitura para buscar alugueis atraves do nome do cliente
     public ResponseEntity<List<Rent>> findRentByName (String customerName) {
 
         List<Rent> rents = rentRepository.findRentByFirstName(customerName);
         if (rents.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for customer " + customerName);
+        }
+        return ResponseEntity.ok(rents);
+    }
+
+    //Metodo de leitura para buscar alugueis atraves do status do pagamento
+    public ResponseEntity<List<Rent>> findRentByPaymentStatus (String paymentStatus) {
+
+        List<Rent> rents = rentRepository.findRentByPaymentStatus(paymentStatus);
+        if (rents.isEmpty()) {
+            throw new ResourceNotFoundException("No Rent found for payment status " + paymentStatus);
         }
         return ResponseEntity.ok(rents);
     }
