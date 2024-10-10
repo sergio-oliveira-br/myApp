@@ -65,6 +65,27 @@ public interface RentRepository extends JpaRepository<Rent, Long> {
     List<Rent> findRentByFirstName(String name);
 
 
+    /**
+     * Display: Index Page
+     * Focus: status of the payment of the rent
+     * Method: count the number of rent according the PAYMENT STATUS selected
+     */
+    @Query("SELECT COUNT(myR) " +
+            "FROM Rent myR " +
+            "WHERE myR.rentPaymentStatus = :rentPaymentStatus")
+    Long countRentByPaymentStatus(String rentPaymentStatus); //two options: "pago" and "a receber"
+
+
+    /**
+     * Display: Index Page
+     * Focus: status of the rent
+     * Method: count the number of rent according the status selected
+     */
+    @Query("SELECT COUNT(myR.rentStatus) AS rentStatus " +
+            "FROM Rent myR " +
+            "WHERE myR.rentStatus = :rentStatus")
+    Long countRentByStatus(String rentStatus);
+
 }
 
 
