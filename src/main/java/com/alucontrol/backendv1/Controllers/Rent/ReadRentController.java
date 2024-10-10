@@ -25,7 +25,7 @@ import java.util.List;
 
 /** This controller is dedicated to endpoints that read data */
 @RestController
-public class RentReadController
+public class ReadRentController
 {
     //Repository for access to product data
     private final RentRepository rentRepository;
@@ -33,7 +33,7 @@ public class RentReadController
     private final RentPaymentStatusRepository rentPaymentStatusRepository;
 
     //Constructor responsible for injecting the repository
-    public RentReadController(RentRepository rentRepository, RentStatusRepository rentStatusRepository, RentPaymentStatusRepository rentPaymentStatusRepository)
+    public ReadRentController(RentRepository rentRepository, RentStatusRepository rentStatusRepository, RentPaymentStatusRepository rentPaymentStatusRepository)
     {
         this.rentRepository = rentRepository;
         this.rentStatusRepository = rentStatusRepository; //focus on queries related to the status of the Rent
