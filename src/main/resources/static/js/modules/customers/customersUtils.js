@@ -17,7 +17,7 @@
  * Info: Load customers and populate the select dropdown
  */
 function loadCustomersListForm(selectId) {
-    ajaxRequest("/customers", function(data) {
+    ajaxRequest("/api/v1/customers", function(data) {
         const rentCustomerSelect = $(selectId);
 
         rentCustomerSelect.empty();
