@@ -45,48 +45,23 @@ public class ReadRentController {
         return rentServices.findRentByPaymentStatus(paymentStatus);
     }
 
+    @GetMapping("/qty/rent-by-status")
+    public ResponseEntity<Long> getRentByStatus(String status) {
+        return rentServices.findQtyRentByRentStatus(status);
+    }
 
 
 
+
 //
 //
 //
 //
 //
 //
-//    
 //
 //
 //
-//    /** Endpoint to get the number (qty) of rent by selecting the status
-//     * This method is pointing to indexScript.js */
-//    @GetMapping("/qtyRentByStatus")
-//    public ResponseEntity<Long> getQtyRentByStatus(@RequestParam String rentStatus) {
-//
-//        LoggerUtil.info("Fetching Rent Status: " + rentStatus);
-//
-//        Long countRentByStatus;
-//
-//        try {
-//            countRentByStatus = rentStatusRepository.countRentByStatus(rentStatus);
-//
-//            if(countRentByStatus == null){
-//                LoggerUtil.error("No Rent found for status " + rentStatus);
-//
-//                throw new ResourceNotFoundException("No Rent found for status " + rentStatus);
-//            }
-//
-//        }catch (Exception e){
-//            LoggerUtil.error("An error occurred while fetching the quantity of rent by status." +
-//                   "Error: " + e.getMessage(), e);
-//
-//            throw new ResourceNotFoundException("An error occurred while fetching the quantity of rent by status. |" +
-//                    "Rent Status: " + rentStatus +
-//                    " | Error: " + e.getMessage() + e);
-//        }
-//
-//        return ResponseEntity.ok(countRentByStatus);
-//    }
 //
 //
 //
