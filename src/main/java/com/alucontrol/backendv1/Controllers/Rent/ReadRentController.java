@@ -14,7 +14,7 @@ import java.util.List;
 public class ReadRentController {
 
     private final RentServices rentServices;
-    
+
     public ReadRentController(RentServices rentServices) {
         this.rentServices = rentServices;
     }
