@@ -17,8 +17,8 @@ public class UpdateRentController {
         this.rentServices = rentServices;
     }
 
-    @PutMapping
-    public ResponseEntity<Rent> updateRent(@RequestBody Rent rent, @RequestParam Long id) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Rent> updateRent(@RequestBody Rent rent, @PathVariable("id") Long id) {
         return rentServices.saveRentChanges(rent, id);
     }
 }
