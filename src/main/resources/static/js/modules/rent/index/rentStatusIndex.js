@@ -16,7 +16,7 @@
  * Method: Obtain the number of rent which the status is UNPAID
  */
 function loadQtyRentByPaymentStatus(paymentStatus) {
-    let url = `/qtyRentByPaymentStatus?paymentStatus=${encodeURIComponent(paymentStatus)}`;
+    let url = `/api/v1/rent/qty/rent-by-payment-status?paymentStatus=${encodeURIComponent(paymentStatus)}`;
 
     let selectors = {
         'Pendente': '#loadRentUnpaid'
