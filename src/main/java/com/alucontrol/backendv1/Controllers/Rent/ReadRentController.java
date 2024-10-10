@@ -54,18 +54,7 @@ public class ReadRentController {
 //
 //
 //
-//    /** Endpoint to retrieve Rent by selecting the Rent Payment Status */
-//    @GetMapping("/rentByStatus")
-//    public ResponseEntity<List<Rent>> getRentByStatus(String rentStatus)
-//    {
-//        List<Rent> rents = rentRepository.findRentByStatus(rentStatus);
-//
-//        if (rents.isEmpty()) {
-//            LoggerUtil.error("No Rent found for status " + rentStatus);
-//            throw new ResourceNotFoundException("No Rent found");
-//        }
-//        return ResponseEntity.ok(rents);
-//    }
+//    
 //
 //
 //
