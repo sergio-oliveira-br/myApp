@@ -30,14 +30,5 @@ public class CreateRentController {
     }
 
 
-    /** Endpoint to get a specific rent by ID (by clicking on Edit into the table)*/
-    @GetMapping("/rent/{id}")
-    public ResponseEntity<Rent> getRentById(@PathVariable Long id) {
-        Optional<Rent> rentOptional = rentRepository.findById(id);
-        if (rentOptional.isPresent()) {
-            return ResponseEntity.ok(rentOptional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+
 }
