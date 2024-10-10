@@ -52,6 +52,6 @@ function getRentByMonth(year, month) {
  * Method: Filter rents by name
  */
 function getRentByName(name) {
-    let url = "/rentByName?name=" + encodeURIComponent(name);
+    let url = "/api/v1/rent/rent-by-name?customerName=" + encodeURIComponent(name);
     ajaxRequest(url, renderRentTableReport);
 }
