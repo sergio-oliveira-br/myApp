@@ -1,5 +1,6 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -38,8 +39,7 @@ public class ExpenseService {
             return ResponseEntity.ok(savedExpense);
         }
 
-        LoggerUtil.error("Updating Expense with id " + id + " failed.");
-        return ResponseEntity.notFound().build();
+       throw new ResourceNotFoundException("Expense ID " + id + " not found");
     }
 
     //Metodo de Leitura buscando todos as despesas existentes na base de dados
@@ -57,7 +57,7 @@ public class ExpenseService {
             return ResponseEntity.ok(expense.get());
         }
 
-        return ResponseEntity.notFound().build();
+        throw new ResourceNotFoundException("Expense ID " + id + " not found");
     }
 
     //Metodo de Leitura para encontrar despesas selecionando a "Category"
@@ -66,8 +66,7 @@ public class ExpenseService {
         List<Expense> expensesByCategory = expenseRepository.findByExpenseCategory(expenseCategory);
 
         if (expensesByCategory.isEmpty()) {
-            LoggerUtil.error("Category " + expenseCategory + " not found or is empty.");
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Expense category " + expenseCategory + " not found");
         }
 
         return ResponseEntity.ok(expensesByCategory);
@@ -79,8 +78,7 @@ public class ExpenseService {
         List<Expense> expensesByDate = expenseRepository.findByYearAndMonth(year, month);
 
         if (expensesByDate.isEmpty()) {
-            LoggerUtil.error("Year " + year + " and month " + month + " not found or is empty.");
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Expense " + year + "-" + month + " not found");
         }
 
         return ResponseEntity.ok(expensesByDate);
