@@ -103,4 +103,17 @@ public class RentServices {
 
         throw new ResourceNotFoundException("Rent with id" + id + " not found");
     }
+
+    //Method de leitura para buscar algueis atraves da data "mes" e "ano"
+    public ResponseEntity<List<Rent>> findRentByDate (String year, String month) {
+
+        List<Rent> rents = rentRepository.findByYearAndMonth(year, month);
+
+        if (rents.isEmpty()) {
+            LoggerUtil.error("No Rent found for year " + year + " and month " + month);
+            throw new ResourceNotFoundException("No Rent found");
+        }
+        return ResponseEntity.ok(rents);
+    }
+
 }
