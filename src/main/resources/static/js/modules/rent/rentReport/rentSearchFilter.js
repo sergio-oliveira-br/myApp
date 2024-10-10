@@ -42,7 +42,7 @@ function searchRent() {
  * Method: Filter rents by selecting month and year
  */
 function getRentByMonth(year, month) {
-    let url = "/rentByDate?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
+    let url = "/api/v1/rent/rent-by-date?year=" + encodeURIComponent(year) + "&month=" + encodeURIComponent(month);
     ajaxRequest(url, renderRentTableReport);
 }
 
