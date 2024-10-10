@@ -104,16 +104,24 @@ public class RentServices {
         throw new ResourceNotFoundException("Rent with id" + id + " not found");
     }
 
-    //Method de leitura para buscar algueis atraves da data "mes" e "ano"
+    //Metodo de leitura para buscar algueis atraves da data "mes" e "ano"
     public ResponseEntity<List<Rent>> findRentByDate (String year, String month) {
 
         List<Rent> rents = rentRepository.findByYearAndMonth(year, month);
 
         if (rents.isEmpty()) {
-            LoggerUtil.error("No Rent found for year " + year + " and month " + month);
-            throw new ResourceNotFoundException("No Rent found");
+            throw new ResourceNotFoundException("No Rent found for year" + year + " and month"  + month);
         }
         return ResponseEntity.ok(rents);
     }
 
+    //Method de leitura para buscar algueis atraves do nome do cliente
+    public ResponseEntity<List<Rent>> findRentByName (String customerName) {
+
+        List<Rent> rents = rentRepository.findRentByFirstName(customerName);
+        if (rents.isEmpty()) {
+            throw new ResourceNotFoundException("No Rent found for customer " + customerName);
+        }
+        return ResponseEntity.ok(rents);
+    }
 }
