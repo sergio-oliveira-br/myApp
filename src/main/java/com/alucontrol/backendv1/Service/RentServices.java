@@ -59,30 +59,32 @@ public class RentServices {
 
         if(rentOptional.isPresent()) {
 
-            Rent rent = rentOptional.get();
-
-            String rentStatus = rent.getRentStatus();
-            String product = rent.getRentItem();
-            int productQty = rent.getRentQtyItem();
+            String rentStatus = updatedRent.getRentStatus();
+            String product = updatedRent.getRentItem();
+            int productQty = updatedRent.getRentQtyItem();
 
             //Verifica o status do rent para substração ou adição do estoque
             if(rentStatus.equals("Em andamento")) {
                 decreaseStockService.decreaseStockAfterRental(product, productQty);
+                Rent savedRent = rentRepository.save(updatedRent);
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
-                return ResponseEntity.ok(updatedRent);
+                return ResponseEntity.ok(savedRent);
             }
 
             else if(rentStatus.equals("Encerrado")) {
                 returnStockService.returnStockAfterRental(product, productQty);
+                Rent savedRent = rentRepository.save(updatedRent);
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
-                return ResponseEntity.ok(updatedRent);
+                return ResponseEntity.ok(savedRent);
             }
 
             //Este considereda que o status é "novo"
+            Rent savedRent = rentRepository.save(updatedRent);
             LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
-            return ResponseEntity.ok(updatedRent);
+
+            return ResponseEntity.ok(savedRent);
         }
 
       throw new ResourceNotFoundException("Rent with id" + id + " not found");
