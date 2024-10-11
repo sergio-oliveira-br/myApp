@@ -13,7 +13,6 @@ package com.alucontrol.backendv1.Controllers.Sale;
 
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
-import com.alucontrol.backendv1.Service.StockService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
