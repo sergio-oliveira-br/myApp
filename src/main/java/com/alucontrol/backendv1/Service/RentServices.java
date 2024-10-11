@@ -8,8 +8,6 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -67,7 +65,7 @@ public class RentServices {
 
             //Verifica o status do rent para substração ou adição do estoque
             if(rentStatus.equals("Em andamento")) {
-
+                stockManagerService.decreaseStockAfterRental(product, productQty);
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
                 return ResponseEntity.ok(updatedRent);
