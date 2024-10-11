@@ -42,7 +42,7 @@ public class SaleCreateUpdateController {
         LoggerUtil.info("Starting to create a sale with data: " + sale);
 
         //Business Logic - subtract the stock
-        stockService.subtractStock(sale.getSaleItem(), sale.getSaleQtyItem());
+        //stockService.subtractStock(sale.getSaleItem(), sale.getSaleQtyItem());
 
         //Saving the data into DB
         Sale savedSale = saleRepository.save(sale);
