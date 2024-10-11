@@ -3,7 +3,6 @@ package com.alucontrol.backendv1.Service.Inventory;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Repository.ProductRepository;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
