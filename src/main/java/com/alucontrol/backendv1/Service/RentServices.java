@@ -4,6 +4,7 @@ import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.Inventory.DecreaseStockService;
+import com.alucontrol.backendv1.Service.Inventory.ReturnStockService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +18,15 @@ import java.util.Optional;
 public class RentServices {
 
     private final RentRepository rentRepository;
-    private final StockService stockService;
     private final DecreaseStockService decreaseStockService;
+    private final ReturnStockService returnStockService;
+
 
     @Autowired
-    public RentServices(RentRepository rentRepository, StockService stockService, DecreaseStockService decreaseStockService) {
+    public RentServices(RentRepository rentRepository, DecreaseStockService decreaseStockService, ReturnStockService returnStockService) {
         this.rentRepository = rentRepository;
-        this.stockService = stockService;
         this.decreaseStockService = decreaseStockService;
+        this.returnStockService = returnStockService;
     }
 
 
@@ -72,7 +74,7 @@ public class RentServices {
             }
 
             else if(rentStatus.equals("Encerrado")) {
-                stockService.addStockByRentalStatusFinished(product, productQty);
+                returnStockService.returnStockAfterRental(product, productQty);
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
                 return ResponseEntity.ok(updatedRent);
