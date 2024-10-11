@@ -3,6 +3,7 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
+import com.alucontrol.backendv1.Service.Inventory.StockManagerService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,13 @@ public class RentServices {
 
     private final RentRepository rentRepository;
     private final StockService stockService;
+    private final StockManagerService stockManagerService;
 
     @Autowired
-    public RentServices(RentRepository rentRepository, StockService stockService) {
+    public RentServices(RentRepository rentRepository, StockService stockService, StockManagerService stockManagerService) {
         this.rentRepository = rentRepository;
         this.stockService = stockService;
+        this.stockManagerService = stockManagerService;
     }
 
 
@@ -38,7 +41,7 @@ public class RentServices {
 
         //Verifica o status do rent para substração do estoque,
         if(rentStatus.equals("Em andamento")) {
-            stockService.subtractStock(product, productQty);
+            stockManagerService.decreaseStockAfterRental(product, productQty);
             LoggerUtil.info("Rent saved successfully: " + savedRent.toString());
 
             return ResponseEntity.ok(savedRent);
@@ -64,7 +67,7 @@ public class RentServices {
 
             //Verifica o status do rent para substração ou adição do estoque
             if(rentStatus.equals("Em andamento")) {
-                stockService.subtractStock(product, productQty);
+
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
                 return ResponseEntity.ok(updatedRent);
