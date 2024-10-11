@@ -10,7 +10,7 @@
  */
 
 /**
- Page: Stock
+ Page: Inventory
  Item: Chart
  Method: Display Chart -
  Reference: https://www.chartjs.org/docs/latest/samples/line/multi-axis.html
