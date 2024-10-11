@@ -25,12 +25,11 @@ import java.util.Optional;
 public class SaleCreateUpdateController {
     //Repository for access to Sale data
     private final SaleRepository saleRepository;
-    private final StockService stockService;
+
 
     //Constructor responsible for injecting the repository
-    public SaleCreateUpdateController(SaleRepository saleRepository, StockService stockService) {
+    public SaleCreateUpdateController(SaleRepository saleRepository) {
         this.saleRepository = saleRepository;
-        this.stockService = stockService;
     }
 
     /**Endpoint responsible to create sales*/
