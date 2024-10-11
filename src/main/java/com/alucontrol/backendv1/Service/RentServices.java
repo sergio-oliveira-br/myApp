@@ -3,7 +3,7 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
-import com.alucontrol.backendv1.Service.Inventory.StockManagerService;
+import com.alucontrol.backendv1.Service.Inventory.DecreaseStockService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +18,13 @@ public class RentServices {
 
     private final RentRepository rentRepository;
     private final StockService stockService;
-    private final StockManagerService stockManagerService;
+    private final DecreaseStockService decreaseStockService;
 
     @Autowired
-    public RentServices(RentRepository rentRepository, StockService stockService, StockManagerService stockManagerService) {
+    public RentServices(RentRepository rentRepository, StockService stockService, DecreaseStockService decreaseStockService) {
         this.rentRepository = rentRepository;
         this.stockService = stockService;
-        this.stockManagerService = stockManagerService;
+        this.decreaseStockService = decreaseStockService;
     }
 
 
@@ -39,7 +39,7 @@ public class RentServices {
 
         //Verifica o status do rent para substração do estoque,
         if(rentStatus.equals("Em andamento")) {
-            stockManagerService.decreaseStockAfterRental(product, productQty);
+            decreaseStockService.decreaseStockAfterRental(product, productQty);
             LoggerUtil.info("Rent saved successfully: " + savedRent.toString());
 
             return ResponseEntity.ok(savedRent);
@@ -65,7 +65,7 @@ public class RentServices {
 
             //Verifica o status do rent para substração ou adição do estoque
             if(rentStatus.equals("Em andamento")) {
-                stockManagerService.decreaseStockAfterRental(product, productQty);
+                decreaseStockService.decreaseStockAfterRental(product, productQty);
                 LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
 
                 return ResponseEntity.ok(updatedRent);

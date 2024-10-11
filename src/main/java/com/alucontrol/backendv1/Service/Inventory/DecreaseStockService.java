@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class StockManagerService {
+public class DecreaseStockService {
 
     private final ProductRepository productRepository;
 
     @Autowired
-    public StockManagerService(ProductRepository productRepository) {
+    public DecreaseStockService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
