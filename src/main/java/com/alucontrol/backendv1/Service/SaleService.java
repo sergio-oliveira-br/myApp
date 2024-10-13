@@ -48,4 +48,15 @@ public class SaleService {
         return ResponseEntity.ok(sales);
     }
 
+    //Metodo de leiteura responsavel por buscar uma venda específica atraves do ID.
+    public ResponseEntity<Sale> findSaleById(Long id) {
+
+        Optional<Sale> optionalSale = saleRepository.findById(id);
+        if (optionalSale.isPresent()) {
+            return ResponseEntity.ok(optionalSale.get());
+        }
+
+        throw new ResourceNotFoundException("Venda com ID: " + id + "não encontrada.");
+    }
+
 }
