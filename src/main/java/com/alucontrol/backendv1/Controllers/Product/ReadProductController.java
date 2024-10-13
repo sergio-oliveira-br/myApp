@@ -25,7 +25,7 @@ public class ReadProductController {
         this.productService = productService;
     }
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Product>> getAllProduct() {
         return productService.findAllProducts();
     }

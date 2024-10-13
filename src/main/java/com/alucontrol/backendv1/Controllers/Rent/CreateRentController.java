@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/rent/create-rent")
+@RequestMapping("/api/v1/rent")
 public class CreateRentController {
 
     private final RentServices rentServices;
@@ -15,7 +15,7 @@ public class CreateRentController {
         this.rentServices = rentServices;
     }
 
-    @PostMapping
+    @PostMapping("/create-rent")
     public ResponseEntity<Rent> createRent (@RequestBody Rent rent) {
         return rentServices.saveRent(rent);
     }

@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/rent/update-rent")
+@RequestMapping("/api/v1/rent")
 public class UpdateRentController {
 
     private final RentServices rentServices;
@@ -17,7 +17,7 @@ public class UpdateRentController {
         this.rentServices = rentServices;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-rent/{id}")
     public ResponseEntity<Rent> updateRent(@RequestBody Rent rent, @PathVariable("id") Long id) {
         return rentServices.saveRentChanges(rent, id);
     }

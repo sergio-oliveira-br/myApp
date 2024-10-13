@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/v1/create-product")
+@RequestMapping("/api/v1/product")
 public class CreateProductController {
 
     private final ProductService productService;
@@ -17,7 +17,7 @@ public class CreateProductController {
         this.productService = productService;
     }
 
-    @PostMapping()
+    @PostMapping("/create-product")
     public ResponseEntity<Product> createProduct(@Validated @RequestBody Product product) {
         return productService.saveProduct(product);
     }

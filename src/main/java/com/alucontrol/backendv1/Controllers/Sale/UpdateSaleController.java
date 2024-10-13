@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/sales")
+@RequestMapping("/api/v1/sale")
 public class UpdateSaleController {
 
     private final SaleService saleService;
@@ -18,7 +18,7 @@ public class UpdateSaleController {
         this.saleService = saleService;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-sale/{id}")
     public ResponseEntity<Sale> updateSale(@Validated @RequestBody Sale sale, @PathVariable("id") Long id){
         return saleService.saveSaleChanges(sale, id);
     }

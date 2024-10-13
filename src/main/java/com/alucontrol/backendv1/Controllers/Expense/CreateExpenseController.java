@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/v1/create-expense")
+@RequestMapping("/api/v1/expense")
 public class CreateExpenseController {
 
     private final ExpenseService expenseService;
@@ -17,7 +17,7 @@ public class CreateExpenseController {
         this.expenseService = expenseService;
     }
 
-    @PostMapping()
+    @PostMapping("/create-expense")
     public ResponseEntity<Expense> createExpense(@RequestBody Expense expense) {
         return expenseService.saveExpense(expense);
     }

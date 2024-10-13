@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/update-product")
+@RequestMapping("/api/v1/product")
 public class UpdateProductController {
 
     private final ProductService productService;
@@ -15,7 +15,7 @@ public class UpdateProductController {
         this.productService = productService;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-product/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable("id") Long id, @RequestBody Product product) {
         return productService.saveProductChanges(product, id);
     }

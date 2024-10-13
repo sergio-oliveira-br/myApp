@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1/customer")
 public class CreateCustomerController {
 
     private final CustomerService customerService;
@@ -16,7 +17,7 @@ public class CreateCustomerController {
     }
 
     //This endpoint is responsible to create a new Customer into a DB
-    @PostMapping("/api/v1/create-customer")
+    @PostMapping("/create-customer")
     public ResponseEntity<Customer> createCustomer(@Validated @RequestBody Customer customer) {
         return customerService.saveCustomer(customer);
     }
