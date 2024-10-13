@@ -7,6 +7,7 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,4 +40,12 @@ public class SaleService {
 
        throw new ResourceNotFoundException("Venda ID: " + id + " não encontrada.");
     }
+
+    //Metodo de leitura, buscando todos as vendas na base de dados
+    public ResponseEntity<List<Sale>> findAllSales () {
+
+        List<Sale> sales = saleRepository.findAll();
+        return ResponseEntity.ok(sales);
+    }
+
 }
