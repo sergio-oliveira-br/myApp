@@ -3,8 +3,7 @@ package com.alucontrol.backendv1.Service;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
-import com.alucontrol.backendv1.Service.Inventory.DecreaseStockService;
-import com.alucontrol.backendv1.Service.Inventory.ReturnStockService;
+import com.alucontrol.backendv1.Service.RentStatus.RentStatusHandler;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,21 +11,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class RentServices {
 
     private final RentRepository rentRepository;
-    private final DecreaseStockService decreaseStockService;
-    private final ReturnStockService returnStockService;
-
+    private final Map<String, RentStatusHandler> rentStatusHandlers;
 
     @Autowired
-    public RentServices(RentRepository rentRepository, DecreaseStockService decreaseStockService, ReturnStockService returnStockService) {
+    public RentServices(RentRepository rentRepository, Map<String, RentStatusHandler> handlerMap) {
         this.rentRepository = rentRepository;
-        this.decreaseStockService = decreaseStockService;
-        this.returnStockService = returnStockService;
+        this.rentStatusHandlers = handlerMap;
     }
 
 
@@ -34,22 +31,19 @@ public class RentServices {
     public ResponseEntity<Rent> saveRent(Rent rent) {
 
         String rentStatus = rent.getRentStatus();
-        String product = rent.getRentItem();
-        int productQty = rent.getRentQtyItem();
+        RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
 
         Rent savedRent = rentRepository.save(rent);
 
-        //Verifica o status do rent para substração do estoque,
-        if(rentStatus.equals("Em andamento")) {
-            decreaseStockService.decreaseStockAfterRental(product, productQty);
-            LoggerUtil.info("Rent saved successfully: " + savedRent.toString());
+        //Verifica o rentStatus do rent para substração do estoque,
+        if(rentStatusHandler != null ){
+            rentStatusHandler.handleRentStatusUpdate(rent);
 
+            LoggerUtil.info("Aluguel salvo com sucesso: " + savedRent.toString());
             return ResponseEntity.ok(savedRent);
         }
 
-        LoggerUtil.info("Rent saved successfully: " + savedRent.toString());
-
-        return ResponseEntity.ok(savedRent);
+        throw new IllegalArgumentException("Erro ao salvar o aluguel.");
     }
 
     //Metodo de Atualização de algueis que ja existentem na DB buscando o ID.
@@ -59,35 +53,21 @@ public class RentServices {
 
         if(rentOptional.isPresent()) {
 
+            Rent savedRent = rentRepository.save(updatedRent);
+
             String rentStatus = updatedRent.getRentStatus();
-            String product = updatedRent.getRentItem();
-            int productQty = updatedRent.getRentQtyItem();
+            RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
 
             //Verifica o status do rent para substração ou adição do estoque
-            if(rentStatus.equals("Em andamento")) {
-                decreaseStockService.decreaseStockAfterRental(product, productQty);
-                Rent savedRent = rentRepository.save(updatedRent);
-                LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
+            if(rentStatusHandler != null) {
+                rentStatusHandler.handleRentStatusUpdate(savedRent);
 
+                LoggerUtil.info("Aluguel salvo com sucesso: " + updatedRent.toString());
                 return ResponseEntity.ok(savedRent);
             }
-
-            else if(rentStatus.equals("Encerrado")) {
-                returnStockService.returnStockAfterRental(product, productQty);
-                Rent savedRent = rentRepository.save(updatedRent);
-                LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
-
-                return ResponseEntity.ok(savedRent);
-            }
-
-            //Este considereda que o status é "novo"
-            Rent savedRent = rentRepository.save(updatedRent);
-            LoggerUtil.info("Rent saved successfully: " + updatedRent.toString());
-
-            return ResponseEntity.ok(savedRent);
         }
 
-      throw new ResourceNotFoundException("Rent with id" + id + " not found");
+      throw new ResourceNotFoundException("O aluguel com id" + id + " não foi encontrado");
     }
 
     //Metodo de Leitura, buscando todos os algueis existentes na base de dados
