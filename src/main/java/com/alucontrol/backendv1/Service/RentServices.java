@@ -35,7 +35,7 @@ public class RentServices {
 
         Rent savedRent = rentRepository.save(rent);
 
-        //Verifica o rentStatus do rent para substração do estoque,
+        //Verifica o rentStatus do rent para para fazer o ajuste necessario
         if(rentStatusHandler != null ){
             rentStatusHandler.handleRentStatusUpdate(rent);
 
