@@ -18,7 +18,7 @@
  * Method: Load all sales items into a table
  */
 function loadSalesTable() {
-    ajaxRequest("/api/v1/sales", function (data) {
+    ajaxRequest("/api/v1/sale", function (data) {
         $('#saleList').empty();
         data.forEach(function (sale) {
             $('#saleList').append('<tr>' +
