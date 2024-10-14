@@ -22,7 +22,7 @@ public class InProgressRentHandler implements RentStatusHandler {
         int productQty = rent.getRentQtyItem();
         String status = rent.getRentStatus();
 
-        decreaseStockService.decreaseStockAfterRental(product, productQty);
+        decreaseStockService.decreaseStock(product, productQty);
 
         LoggerUtil.info("O estoque do produto '" + product + "' foi reduzido em " + productQty + " un " +
                 "devido ao status '" + status + "' . " +

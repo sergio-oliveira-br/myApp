@@ -19,7 +19,7 @@ public class DecreaseStockService {
     }
 
     //Este metodo é responsavel por realizar a subtração do item quando um aluguel for realizado
-    public void decreaseStockAfterRental (String itemDescription, int requestedQuantity) {
+    public void decreaseStock(String itemDescription, int requestedQuantity) {
 
         Optional<Product> productOptional = productRepository.findByItemDescription(itemDescription);
 
