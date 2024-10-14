@@ -43,7 +43,7 @@ function formSubmission(formId, url, formDataFunction, successCallback)
                     }
                 },
                 error: function(xhr, status, error) {
-                    errorHandler(error);
+                    errorHandler(xhr);
                 }
             });
         });

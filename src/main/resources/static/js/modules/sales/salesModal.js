@@ -22,7 +22,7 @@
 function populateSaleModal(saleId) {
     console.log("Open Edit Modal, ID: " + saleId);
 
-    ajaxRequest('/sale/' + saleId, function (sale){
+    ajaxRequest('/api/v1/sale/' + saleId, function (sale){
         $('#editSaleId').val(sale.id);
         $('#editSaleFirstName').val(sale.saleFirstName);
         $('#editSaleAddress').val(sale.saleAddress);
@@ -64,7 +64,7 @@ function saleFormSubmissionModal(){
     //this is a log to check what's it will send
     console.log(saleData);
     $.ajax({
-        url: '/sale/' + saleData.id,
+        url: '/api/v1/sale/update-sale/' + saleData.id,
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(saleData),

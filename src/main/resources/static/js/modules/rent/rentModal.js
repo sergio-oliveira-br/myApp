@@ -54,7 +54,7 @@ function updateTotalPrice() {
 function populateRentModal(rentId) {
     console.log("Open Edit Modal, ID: " + rentId);
 
-    ajaxRequest("/rent/" + rentId, function(rent) {
+    ajaxRequest("/api/v1/rent/" + rentId, function(rent) {
         $('#editRentId').val(rent.id);
         $('#editRentFirstName').val(rent.rentFirstName);
         $('#editRentLastName').val(rent.rentLastName);
@@ -104,7 +104,7 @@ function rentFormSubmissionModal() {
     console.log(rentData);
 
     $.ajax({ //allows updating parts of a web page without reloading the entire page
-        url: '/rent/' + rentData.id, //indicates the endpoint
+        url: '/api/v1/rent/update-rent/' + rentData.id, //indicates the endpoint
         type: 'PUT', //HTTP request methods used to INSERT data to the server (backend), indicating by the endpoint specified by the URL
         contentType: 'application/json',
         data: JSON.stringify(rentData),

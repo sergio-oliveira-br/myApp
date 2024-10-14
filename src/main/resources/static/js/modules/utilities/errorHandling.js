@@ -12,64 +12,42 @@
 //This file contain error handling functions.
 //src/main/resources/static/js/modules/utilities/errorHandling.js
 
-/**
- * Function: handleError(errorMessage)
- * Info: Handle errors by showing the error message to the user
- */
-function errorHandler(error) {
+function errorHandler(xhr) {
     //Treat the error generically
-    alert('Oops! Infelizmente ocorreu um erro! ' );
+    alert('Oops! Infelizmente ocorreu um erro!' );
 
-    //Specific treatment for different types of errors
-    if(error instanceof TypeError){
-        //Um TypeError é lançado quando você tenta realizar uma operação em um valor que não é do tipo esperado.
-        console.error('Erro de tipo: ', error.message);
-        alert('Houve um erro inesperado no tipo de dado. Por favor, tente novamente.');
-    }
+    // Verifica se a resposta contém dados de erro
+    if (xhr && xhr.responseJSON) {
+        const problemDetails = xhr.responseJSON;
 
-    if(error instanceof RangeError){
-        //Um RangeError ocorre quando um valor numérico está fora do intervalo válido para uma determinada operação.
-        console.error('Erro no intervalo: ', error.message);
-        alert('O valor inserido está fora do intervalo permitido.')
-    }
+        // Exibir uma mensagem baseada nos detalhes do problema retornado pelo backend
+        if (problemDetails.title && problemDetails.status && problemDetails.details) {
+            alert(`Erro: ${problemDetails.title}
+                    \nStatus: ${problemDetails.status}
+                    \nDetalhes: ${problemDetails.details}
+                    \nType: ${problemDetails.type}`);
 
-    else if (typeof error === 'string'){
-        alert(error);
-    }
+            console.error(`Erro: ${problemDetails.title} Detalhes: ${problemDetails.details}`);
 
-    else if (error && error.response && error.response.status){
-        switch (error.response.status){
-            case 400:
-                alert('400: Solicitação inválida. Verifique os dados enviados.');
-                break;
+        // Mensagem genérica para quando não temos todas as informações
+        } else {
+            alert(`Erro: ${problemDetails.status || 'Erro Desconhecido'}
+                    \nDetalhes: ${problemDetails.details || 'Sem detalhes disponíveis.'}`);
 
-            case 404:
-                alert('404: Página não encontrada.');
-                break;
-
-            case 500:
-                alert('Erro 500: O servidor encontrou um erro interno e não pôde completar sua solicitação.');
-                break;
-
-            default:
-                alert('Error status: ' + error.response.status +
-                    '\nOcorreu um erro inesperado. Por favor, tente novamente.');
+            console.error(`Erro não específico: ${JSON.stringify(problemDetails)}`);
         }
     }
 }
 
-
-/**
- * Lembrete: INSTANCEOF
- *
- * O operador instanceof é uma ferramenta poderosa
- * para verificar tipos de objetos em JavaScript.
- * Ele permite que você trate diferentes tipos de erros de forma específica,
- * tornando seu código mais robusto e fácil de manter.
- *
- * Retorno: True ou False
- *
- * Beneficio: Tratamento personalizado
- * Permite tratar diferentes tipos de erros de forma específica,
- * oferecendo mensagens mais precisas ao usuário.
- */
+//Lembrete: INSTANCEOF
+//
+// O operador instanceof é uma ferramenta poderosa
+// para verificar tipos de objetos em JavaScript.
+// Ele permite que você trate diferentes tipos de erros de forma específica,
+// tornando seu código mais robusto e fácil de manter.
+//
+// Retorno: True ou False
+//
+// Beneficio: Tratamento personalizado
+// Permite tratar diferentes tipos de erros de forma específica,
+// oferecendo mensagens mais precisas ao usuário.

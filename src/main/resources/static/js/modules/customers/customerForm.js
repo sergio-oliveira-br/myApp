@@ -15,7 +15,7 @@
 /**
  * Method: Send the customer data by using AJAX
  */
-formSubmission('#customerForm', '/saveCustomer', customerFormData, customerSaveSuccess);
+formSubmission('#customerForm', '/api/v1/create-customer', customerFormData, customerSaveSuccess);
 
 /**
  * Get the form data from the form

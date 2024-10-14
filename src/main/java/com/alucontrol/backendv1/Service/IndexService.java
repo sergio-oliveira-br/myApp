@@ -10,9 +10,6 @@
  */
 package com.alucontrol.backendv1.Service;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
-import com.alucontrol.backendv1.Repository.RentRepository;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.stereotype.Service;
 
 /**This Service Class has methods that contain business logic.*/

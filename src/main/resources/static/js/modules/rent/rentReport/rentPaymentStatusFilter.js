@@ -18,7 +18,7 @@
  * Method: Filter rents by payment status
  */
 function getRentByPaymentStatus(status) {
-    let url = "/rentByPaymentStatus?paymentStatus=" + encodeURIComponent(status);
+    let url = "/api/v1/rent/rent-by-payment-status?paymentStatus=" + encodeURIComponent(status);
     ajaxRequest(url, renderRentTableReport);
 }
 

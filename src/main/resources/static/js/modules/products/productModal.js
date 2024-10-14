@@ -18,7 +18,7 @@
  * Method: Open modal and load product data
  */
 function openProductEditModal(productId) {
-    ajaxRequest("/product/" + productId, function(product) {
+    ajaxRequest("/api/v1/product/" + productId, function(product) {
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
         $('#editItemQty').val(product.itemQuantity);
@@ -49,7 +49,7 @@ function submitProductEditForm() {
     console.log(itemData);
 
     $.ajax({
-        url: "/product/" + itemData.id,
+        url: "/api/v1/product/update-product/" + itemData.id,
         type: "PUT",
         contentType: 'application/json',
         data: JSON.stringify(itemData),

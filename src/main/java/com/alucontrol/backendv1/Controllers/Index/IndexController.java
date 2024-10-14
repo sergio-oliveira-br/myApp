@@ -14,8 +14,6 @@ import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.IndexService;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 /** This controller is dedicated to endpoints that will display information on indexPage
  *  It is the responsibility of this layer to receive requests, call methods from the service layer, and return HTTP responses*/
 @RestController
