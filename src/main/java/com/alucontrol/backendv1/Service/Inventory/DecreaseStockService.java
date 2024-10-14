@@ -30,7 +30,7 @@ public class DecreaseStockService {
             if(isStockSufficient(itemDescription, requestedQuantity)) {
                 product.setItemAvailableQty(product.getItemAvailableQty() - requestedQuantity);
 
-                LoggerUtil.info("O produto " + itemDescription + " foi reduzido em " + requestedQuantity + "un.");
+                LoggerUtil.info("O produto '" + itemDescription + "' foi reduzido em " + requestedQuantity + "un.");
 
                 productRepository.save(product);
                 return;
