@@ -4,6 +4,7 @@ import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
 import com.alucontrol.backendv1.Service.RentStatus.RentStatusHandler;
+import com.alucontrol.backendv1.Service.RentStatus.StatusComparator;
 import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,14 @@ public class RentServices {
 
     private final RentRepository rentRepository;
     private final Map<String, RentStatusHandler> rentStatusHandlers;
+    private final StatusComparator statusComparator;
+
 
     @Autowired
     public RentServices(RentRepository rentRepository, Map<String, RentStatusHandler> handlerMap) {
         this.rentRepository = rentRepository;
         this.rentStatusHandlers = handlerMap;
+        this.statusComparator = new StatusComparator();
     }
 
 
@@ -53,18 +57,24 @@ public class RentServices {
 
         if(rentOptional.isPresent()) {
 
-            Rent savedRent = rentRepository.save(updatedRent);
+            Rent existingRent = rentOptional.get(); //Carrega o aluguel existente, sem a alteração
 
-            String rentStatus = updatedRent.getRentStatus();
-            RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
+            if(statusComparator.hasStatusChangedRent(existingRent, updatedRent)){
+                String updatedRentStatus = updatedRent.getRentStatus();
+                RentStatusHandler rentStatusHandler = rentStatusHandlers.get(updatedRentStatus);
 
-            //Verifica o status do rent para substração ou adição do estoque
-            if(rentStatusHandler != null) {
-                rentStatusHandler.handleRentStatusUpdate(savedRent);
+                //Verifica o status do rent para substração ou adição do estoque
+                if(rentStatusHandler != null) {
+                    rentStatusHandler.handleRentStatusUpdate(updatedRent);
+                }
 
-                LoggerUtil.info("Aluguel salvo com sucesso: " + updatedRent.toString());
-                return ResponseEntity.ok(savedRent);
+            } else {
+                LoggerUtil.info("Nenhuma mudança no status foi realizada no aluguel ID: " + id);
             }
+
+            Rent savedRent = rentRepository.save(updatedRent);
+            LoggerUtil.info("Aluguel salvo com sucesso: " + updatedRent.toString());
+            return ResponseEntity.ok(savedRent);
         }
 
       throw new ResourceNotFoundException("O aluguel com id" + id + " não foi encontrado");
