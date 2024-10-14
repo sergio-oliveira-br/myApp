@@ -53,7 +53,7 @@ The AluControl application was developed as part of the final project for the Hi
 ## Technology Stack
 
 - **Frontend Development:**
-  - HTML & CSS: Structuring and styling the user interface, with responsive design supported by Bootstrap. 
+  - **HTML** & CSS: Structuring and styling the user interface, with responsive design supported by Bootstrap. 
 
 - **Backend Development:**
  
