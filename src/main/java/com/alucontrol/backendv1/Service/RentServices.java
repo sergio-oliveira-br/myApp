@@ -130,6 +130,18 @@ public class RentServices {
         return ResponseEntity.ok(rents);
     }
 
+    //Metodo de leitura para buscar alugueis atraves do status do aluguel
+    public ResponseEntity<List<Rent>> findRentByStatus (String rentStatus) {
+
+        List<Rent> rents = rentRepository.findRentByStatus(rentStatus);
+        if (rents.isEmpty()) {
+            throw new ResourceNotFoundException("Não foi encontrado nenhum aluguel para status " + rentStatus);
+        }
+
+        return ResponseEntity.ok(rents);
+    }
+
+
     //Metodo de leitura para buscar a quantidade/contar os alugueis de acordo com o status do alugel
     public ResponseEntity<Long> findQtyRentByRentStatus (String rentStatus) {
 

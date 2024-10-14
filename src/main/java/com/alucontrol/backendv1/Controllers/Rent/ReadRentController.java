@@ -43,6 +43,11 @@ public class ReadRentController {
         return rentServices.findRentByPaymentStatus(paymentStatus);
     }
 
+    @GetMapping("/rent-by-status")
+    public ResponseEntity<List<Rent>> getRentByStatus(String rentStatus) {
+        return rentServices.findRentByStatus(rentStatus);
+    }
+
     @GetMapping("/qty/rent-by-status")
     public ResponseEntity<Long> getRentQtyByStatus(String status) {
         return rentServices.findQtyRentByRentStatus(status);

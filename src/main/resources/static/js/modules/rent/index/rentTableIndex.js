@@ -40,7 +40,7 @@ function displayRentByPaymentStatusIndex(status) {
     let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
     modal.show();
 
-    let url = `/rentByPaymentStatus?paymentStatus=${encodeURIComponent(status)}`;
+    let url = `/api/v1/rent/rent-by-payment-status?paymentStatus=${encodeURIComponent(status)}`;
 
     ajaxRequest(url, renderRentTableIndexPage);
 }
@@ -53,7 +53,7 @@ function displayRentByStatusIndex(status) {
     let modal = new bootstrap.Modal(document.getElementById('displayRentModal'));
     modal.show();
 
-    let url = `/rentByStatus?rentStatus=${encodeURIComponent(status)}`;
+    let url = `/api/v1/rent/rent-by-status?rentStatus=${encodeURIComponent(status)}`;
 
     ajaxRequest(url, renderRentTableIndexPage);
 }
