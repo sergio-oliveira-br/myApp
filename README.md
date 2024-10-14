@@ -1,6 +1,6 @@
-# Rental Management Application
+# AluControl Application
 
-## Sergio Vinicio da Silva Oliveira, x23170981@student.ncirl.ie
+## Sergio Oliveira, x23170981@student.ncirl.ie
 
 **Higher Diploma in Science in Computer**
 
@@ -12,28 +12,55 @@
 
 ## Objectives
 
-The objective is to develop an application that will manage the rental process by offering a comprehensive set of features that allow equipment owners to efficiently manage the rental process. The main features are:
+The AluControl application was developed as part of the final project for the Higher Diploma in Science in Computing at the National College of Ireland (NCI). The primary goal of this project is to create a centralized business automation system that optimizes the management of sales and inventory operations, improving efficiency and supporting decision-making through real-time reporting and automation.
 
-### Main Features
+### Key Features
 
-- **Managing Rental Records:**
-  - Allows for the addition and editing of rental records, as well as providing detailed control over the rented items.
+- **Inventory Management:**
+  - Automates the tracking and management of stock, simplifying inventory control.
 
-- **Monitoring of Inventory:**
-  - Facilitates the visualization and monitoring of the rental equipment stock.
+- **Sales and Rental Reports:**
+  - Generates comprehensive reports on sales and rental activities, providing insights into business performance.
 
-- **Management of Customers:**
-  - Keeps a comprehensive list of customers, which includes contact information and rental history.
+- **Real-Time Dashboards:**
+  - Offers data visualization tools like charts and dashboards to monitor real-time performance metrics.
 
-- **Expense Tracking:**
-  - Keeps track of all expenses linked to renting and maintaining equipment, generating detailed financial reports.
+- **Automation of Business Processes:**
+  - Reduces manual work and minimizes errors, leading to improved operational efficiency.
 
-- **Reports and Analyzes:**
-  - Uses graphs to present periodic reports and assist in analysis for informed decision-making.
+- **Increased Productivity**
+  - Removes repetitive tasks, allowing more focus on value-driven activities.
 
-This project will enable the integration of frontend and backend technologies, as well as databases for data storage and processing.
+- **Decision-Making Support:**
+  - Provides access to advanced analytics and real-time reporting to aid strategic decisions.
 
-**Note:** This application is a closed system for internal exclusive use, accessible only by the equipment owner and authorized personnel. External users, such as customers or third parties, will not have access to the application, ensuring the security and confidentiality of managed information.
+- **Financial Reporting:**
+  - Delivers detailed financial reports, including expense tracking and cash flow management.
+
+- **Cash Flow Control:**
+  - Ensures effective financial oversight by managing both receivables and payables.
+
+### Future Enhancements
+
+- **Stock Level Optimization:**
+  - Implement advanced algorithms to maintain precise stock levels, avoiding shortages and overstocking.
+
+- **Expanded Financial Control:**
+  - Introduce additional features for managing revenues and expenses, with enhanced financial reporting capabilities.
+
+---
+
+## Technology Stack
+
+- **Frontend Development:**
+  - HTML & CSS: Structuring and styling the user interface, with responsive design supported by Bootstrap. 
+
+- **Backend Development:**
+ 
+- **Database:**
+
+- **Hosting:**
+  - 
 
 ---
 
@@ -44,6 +71,8 @@ This project will enable the integration of frontend and backend technologies, a
 3. [Technology Stack](#technology-stack)
 
 ---
+
+
 
 ## Introduction
 
