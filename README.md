@@ -58,58 +58,39 @@ The AluControl application was developed as part of the final project for the Hi
 
 - **Backend Development:**
   - **Java:** The application’s core is built in Java, leveraging its modularity and reusability.
+  - **Spring Boot:** A framework that simplifies backend configuration and enables the development of standalone applications with minimal setup.
+  - **Maven:** Used for dependency management and project building.
+  - **Jakarta:** Facilitates the creation of entities and business models.
+  - **JPA (Java Persistence API):** Manages the creation and manipulation of database tables.
+  - **RESTful API:** Facilitates communication between frontend and backend through RESTful services for data operations (CRUD).
  
 - **Database:**
+  - **PostgreSQL:** The application uses PostgreSQL in production. PostgreSQL is known for its reliability, efficiency, and robustness in managing data, providing secure storage and fast retrieval of information.
 
 - **Hosting:**
-  - 
+  - **Heroku:** The application is hosted on Heroku, providing a scalable and reliable cloud infrastructure with a simplified deployment process.
 
 ---
+
+## Deployed Application
+
+- The AluControl Application is live and accessible at:
+https://intense-garden-41996-d66e1ac1514c.herokuapp.com
+
+
+---
+
+## Version History
+- **1.1.0 (14 October 2024):**
+  - **Refactor:** Backend code refactored to improve performance and modularity.
+  - **Enhancement:** Optimized service and repository layers for better data handling.
+  - **Minor improvements:** Enhanced business logic for rental and inventory management.
+
+- **1.0.0 (Initial Release):**
+  - Initial release with features for rental management, customer management, inventory monitoring, financial tracking, and reporting. 
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Technology Stack](#technology-stack)
-
----
-
-
-
-## Introduction
-
-The Rental Management Application is designed to provide equipment owners with a comprehensive tool to manage their rental process efficiently. By incorporating features such as rental record management, inventory monitoring, customer management, expense tracking, and detailed reporting, the application aims to streamline operations and ensure data security and confidentiality.
-
-## Features
-
-### Managing Rental Records
-
-- Add and edit rental records
-- Detailed control over rented items
-
-### Monitoring of Inventory
-
-- Visualize and monitor rental equipment stock
-
-### Management of Customers
-
-- Maintain a comprehensive list of customers
-- Includes contact information and rental history
-
-### Expense Tracking
-
-- Track all expenses related to renting and maintaining equipment
-- Generate detailed financial reports
-
-### Reports and Analyzes
-
-- Use graphs to present periodic reports
-- Assist in analysis for informed decision-making
-
-## Technology Stack
-
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Java, Spring Boot
-- **Database:** MySQL
-
-
