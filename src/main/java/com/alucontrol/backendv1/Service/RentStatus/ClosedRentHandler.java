@@ -21,12 +21,7 @@ public class ClosedRentHandler implements RentStatusHandler {
 
         String product = rent.getRentItem();
         int productQty = rent.getRentQtyItem();
-        String status = rent.getRentStatus();
 
         returnStockService.returnStockAfterRental(product, productQty);
-
-        LoggerUtil.info("O estoque do produto '" + product + "' foi retornado em " + productQty + " un " +
-                "devido ao status '" + status + "' . " +
-                "Aluguel ID:" + rent.getId());
     }
 }
