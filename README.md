@@ -10,6 +10,16 @@
 
 ---
 
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Technology Stack](#technology-stack)
+4. [Deployed Application](#deployed-application)
+5. [Version History](#version-history)
+
+---
+
 ## Objectives
 
 The AluControl application was developed as part of the final project for the Higher Diploma in Science in Computing at the National College of Ireland (NCI). The primary goal of this project is to create a centralized business automation system that optimizes the management of sales and inventory operations, improving efficiency and supporting decision-making through real-time reporting and automation.
@@ -75,8 +85,7 @@ The AluControl application was developed as part of the final project for the Hi
 ## Deployed Application
 
 - The AluControl Application is live and accessible at:
-https://intense-garden-41996-d66e1ac1514c.herokuapp.com
-
+[https://intense-garden-41996-d66e1ac1514c.herokuapp.com](https://intense-garden-41996-d66e1ac1514c.herokuapp.com)
 
 ---
 
@@ -86,13 +95,7 @@ https://intense-garden-41996-d66e1ac1514c.herokuapp.com
   - **Enhancement:** Optimized service and repository layers for better data handling.
   - **Minor improvements:** Enhanced business logic for rental and inventory management.
 
-- **1.0.0 (Initial Release):**
-  - Initial release with features for rental management, customer management, inventory monitoring, financial tracking, and reporting. 
+- **1.0.0 (5 June 2024):**
+  - **Initial release** with features for rental management, customer management, inventory monitoring, financial tracking, and reporting. 
 
-## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Technology Stack](#technology-stack)
-4. [Deployed Application](#deployed-application)
-5. [Version History](#version-history)
