@@ -94,3 +94,5 @@ https://intense-garden-41996-d66e1ac1514c.herokuapp.com
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Technology Stack](#technology-stack)
+4. [Deployed Application](#deployed-application)
+5. [Version History](#version-history)
