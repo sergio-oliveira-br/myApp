@@ -58,16 +58,22 @@ function ajaxRequestTypePut(url, successCallback) {
  * Method: ajaxRequest(url, successCallback)
  * Info: Generic function to perform an AJAX request and handle success and error responses
  */
-function ajaxRequestTypePost(url, successCallback) {
+function ajaxRequestTypePost(url, formData, successCallback) {
     $.ajax({
         url: url,
         type: "POST", //Used to submit new data to a server.
         contentType: 'application/json',
-        success: successCallback,
+        data: JSON.stringify(formData),
+        success: function(response){
+            if(successCallback) {
+                successCallback(response);
+                let currentDate = new Date();
+                console.log(formData, currentDate);
+            }
+        },
 
-        error: function(xhr, status, error) {
-            //call the function from errorHandling.js file
-            errorHandler(error);
+        error: function(xhr) {
+            errorHandler(xhr);
         }
     });
 }
