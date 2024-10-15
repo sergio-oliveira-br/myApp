@@ -12,13 +12,12 @@
 //This file contain error handling functions.
 //src/main/resources/static/js/modules/utilities/errorHandling.js
 
-function errorHandler(xhr) {
-    //Treat the error generically
-    alert('Oops! Infelizmente ocorreu um erro!' );
+function errorHandler(error) {
+    alert('Oops... Infelizmente ocorreu um erro!' );
 
     // Verifica se a resposta contém dados de erro
-    if (xhr && xhr.responseJSON) {
-        const problemDetails = xhr.responseJSON;
+    if (error && error.responseJSON) {
+        const problemDetails = error.responseJSON;
 
         // Exibir uma mensagem baseada nos detalhes do problema retornado pelo backend
         if (problemDetails.title && problemDetails.status && problemDetails.details) {
@@ -36,6 +35,10 @@ function errorHandler(xhr) {
 
             console.error(`Erro não específico: ${JSON.stringify(problemDetails)}`);
         }
+    } else {
+        // Caso o erro não seja um objeto xhr
+        alert(`Erro não tratado: ${error.message || 'Um erro desconhecido ocorreu.'}`);
+        console.error('Erro não tratado:', error);
     }
 }
 
