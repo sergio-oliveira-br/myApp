@@ -60,17 +60,3 @@ function ajaxRequestTypePost(url, formData, successCallback) {
         }
     });
 }
-
-
-/** THIS WILL BE THE FUTERE
- * function ajaxRequest(url, method, data, successCallback, failureCallback) {
- *     $.ajax({
- *         url: url,                   //O endereço URL para a requisição.
- *         type: method,               //O método HTTP a ser utilizado (GET, POST, PUT, DELETE, etc.).
- *         data: data,                 //Os dados a serem enviados no corpo da requisição (opcional).
- *         success: successCallback,   //A função a ser chamada em caso de sucesso.
- *         error: failureCallback      //A função a ser chamada em caso de erro.
- *     });
- * }
- */
-
