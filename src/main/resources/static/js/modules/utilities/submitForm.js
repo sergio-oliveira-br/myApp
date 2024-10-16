@@ -12,14 +12,13 @@ function submitForm(formId, url, formDataFunction, successCallback) {
 
             if(validateForm (formElement)) {
                 ajaxRequestTypePost(url, formData, successCallback);
-                cleanFormAfterSubmission(formData);
+                cleanFormAfterSubmission(formElement);
             }
         });
     });
 }
 
-function cleanFormAfterSubmission(formData) {
-    formData = document.getElementById('customerForm');
-    formData.reset();
-    formData.classList.remove('was-validated');
+function cleanFormAfterSubmission(formElement) {
+    formElement.reset();
+    formElement.classList.remove('was-validated');
 }
