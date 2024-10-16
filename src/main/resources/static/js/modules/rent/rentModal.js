@@ -54,7 +54,7 @@ function updateTotalPrice() {
 function populateRentModal(rentId) {
     console.log("Open Edit Modal, ID: " + rentId);
 
-    ajaxRequest("/api/v1/rent/" + rentId, function(rent) {
+    ajaxRequestTypeGet("/api/v1/rent/" + rentId, function(rent) {
         $('#editRentId').val(rent.id);
         $('#editRentFirstName').val(rent.rentFirstName);
         $('#editRentLastName').val(rent.rentLastName);

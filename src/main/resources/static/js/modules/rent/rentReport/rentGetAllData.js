@@ -18,5 +18,5 @@
  * Method: Load all rent records
  */
 function getAllRent() {
-    ajaxRequest("/rent", renderRentTableReport);
+    ajaxRequestTypeGet("/rent", renderRentTableReport);
 }

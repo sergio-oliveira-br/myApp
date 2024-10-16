@@ -19,7 +19,7 @@ function loadCurrentStockByType(productType) {
     let stockModal = new bootstrap.Modal(document.getElementById('stockModal'));
     stockModal.show();
 
-    ajaxRequest(`/api/v1/product/qty/product-by-type?productType=${encodeURIComponent(productType)}`, function(data) {
+    ajaxRequestTypeGet(`/api/v1/product/qty/product-by-type?productType=${encodeURIComponent(productType)}`, function(data) {
         let productItemSelect = $('#productList');
         productItemSelect.empty();
 

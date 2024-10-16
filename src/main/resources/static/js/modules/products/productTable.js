@@ -17,7 +17,7 @@
  * Info: Creates a table with all products via AJAX
  */
 function loadProductTable() {
-    ajaxRequest("/api/v1/product", function(data) {
+    ajaxRequestTypeGet("/api/v1/product", function(data) {
         $('#productList').empty();
 
         console.log("There are " + data.length + " products in your DB");
@@ -44,7 +44,7 @@ function loadProductTable() {
 function updateLoadProductForm() {
     console.log("Here where the method updateLoadProductForm() is used. !IMPORTANT: CHECK THE NEED");
 
-    ajaxRequest("/product", function(data) {
+    ajaxRequestTypeGet("/product", function(data) {
         let productSelect = $('#editItemQty');
         productSelect.empty();
         data.forEach(function(product) {

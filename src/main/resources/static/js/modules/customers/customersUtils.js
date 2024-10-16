@@ -1,7 +1,7 @@
 //src/main/resources/static/js/modules/customers/customersUtils.js
 
 function loadCustomersListForm(selectId) {
-    ajaxRequest("/api/v1/customer", function(data) {
+    ajaxRequestTypeGet("/api/v1/customer", function(data) {
         const rentCustomerSelect = $(selectId);
 
         rentCustomerSelect.empty();

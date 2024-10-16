@@ -17,7 +17,7 @@
  * Info: Create a list of all items and display it in the Product field of the Sales and Rent Form
  */
 function loadProductListByProductType(productType) {
-    ajaxRequest("/api/v1/product/product-by-type?productType=" + encodeURIComponent(productType), function(data) {
+    ajaxRequestTypeGet("/api/v1/product/product-by-type?productType=" + encodeURIComponent(productType), function(data) {
 
         // Array of select elements
         let productSelects = [$('#rentItem'), $('#editRentItem'),        //rent

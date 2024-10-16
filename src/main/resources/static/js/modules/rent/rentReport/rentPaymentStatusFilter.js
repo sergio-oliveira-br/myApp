@@ -19,7 +19,7 @@
  */
 function getRentByPaymentStatus(status) {
     let url = "/api/v1/rent/rent-by-payment-status?paymentStatus=" + encodeURIComponent(status);
-    ajaxRequest(url, renderRentTableReport);
+    ajaxRequestTypeGet(url, renderRentTableReport);
 }
 
 

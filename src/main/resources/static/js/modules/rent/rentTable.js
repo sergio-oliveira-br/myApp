@@ -18,7 +18,7 @@
  * Method: The script will load all items in a table
  */
 function loadRentTable() {
-    ajaxRequest("/api/v1/rent", function(data) {
+    ajaxRequestTypeGet("/api/v1/rent", function(data) {
         $('#rentList').empty(); // First clean
         data.forEach(function(rent) {
             $('#rentList').append('<tr>' +

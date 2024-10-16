@@ -19,7 +19,7 @@
  * to send or receive data without having to reload the page
  */
 function openExpenseEditModal(expenseId) {
-    ajaxRequest('/api/v1/expense/' + expenseId, function (expense) {
+    ajaxRequestTypeGet('/api/v1/expense/' + expenseId, function (expense) {
         console.log(expense);
 
         $('#editExpenseId').val(expenseId);

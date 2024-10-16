@@ -19,5 +19,5 @@
  */
 function getRentByStatus(status) {
     let url = "/rentByStatus?rentStatus=" + encodeURIComponent(status);
-    ajaxRequest(url, renderRentTableReport);
+    ajaxRequestTypeGet(url, renderRentTableReport);
 }

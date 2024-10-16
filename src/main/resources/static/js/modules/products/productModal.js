@@ -18,7 +18,7 @@
  * Method: Open modal and load product data
  */
 function openProductEditModal(productId) {
-    ajaxRequest("/api/v1/product/" + productId, function(product) {
+    ajaxRequestTypeGet("/api/v1/product/" + productId, function(product) {
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
         $('#editItemQty').val(product.itemQuantity);

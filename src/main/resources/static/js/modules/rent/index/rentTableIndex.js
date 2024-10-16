@@ -42,7 +42,7 @@ function displayRentByPaymentStatusIndex(status) {
 
     let url = `/api/v1/rent/rent-by-payment-status?paymentStatus=${encodeURIComponent(status)}`;
 
-    ajaxRequest(url, renderRentTableIndexPage);
+    ajaxRequestTypeGet(url, renderRentTableIndexPage);
 }
 
 /**
@@ -55,5 +55,5 @@ function displayRentByStatusIndex(status) {
 
     let url = `/api/v1/rent/rent-by-status?rentStatus=${encodeURIComponent(status)}`;
 
-    ajaxRequest(url, renderRentTableIndexPage);
+    ajaxRequestTypeGet(url, renderRentTableIndexPage);
 }

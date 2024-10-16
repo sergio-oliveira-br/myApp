@@ -1,7 +1,7 @@
 //src/main/resources/static/js/modules/utilities/ajaxUtils.js
 
 
-function ajaxRequest(url, successCallback) {
+function ajaxRequestTypeGet(url, successCallback) {
     $.ajax({
         url: url,
         type: "GET",  // HTTP request methods used to RETRIEVE data from the server

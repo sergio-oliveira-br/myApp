@@ -15,7 +15,7 @@
 
 /** This function will take arguments for filtering criteria and handle the AJAX request and table population. */
 function loadFilteredExpenses(url, successCallback) {
-    ajaxRequest(url, function(data) {
+    ajaxRequestTypeGet(url, function(data) {
         $('#expensesListReport').empty();
 
         data.forEach(function(expense) {

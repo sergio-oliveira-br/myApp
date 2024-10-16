@@ -1,7 +1,7 @@
 //src/main/resources/static/js/modules/customers/customerTable.js
 
 function loadCustomersTable() {
-    ajaxRequest("/api/v1/customer", function (data) {
+    ajaxRequestTypeGet("/api/v1/customer", function (data) {
         // First clean
         $('#customerList').empty();
 
