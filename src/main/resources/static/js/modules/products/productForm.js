@@ -14,7 +14,7 @@
 
 
 /** Method: Send the Product data by using AJAX*/
- formSubmission('#itemForm', '/api/v1/product/create-product', productFormData, productSaveSuccess);
+ submitForm('#itemForm', '/api/v1/product/create-product', productFormData, productSaveSuccess);
 
 /**
  * Page: Products

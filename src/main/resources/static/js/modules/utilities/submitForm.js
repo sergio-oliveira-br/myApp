@@ -1,6 +1,6 @@
 //src/main/resources/static/js/modules/utilities/formSubmission.js
 
-function formSubmission(formId, url, formDataFunction, successCallback) {
+function submitForm(formId, url, formDataFunction, successCallback) {
 
     $(document).ready(function() {
         $(formId).on('submit', function(event) {

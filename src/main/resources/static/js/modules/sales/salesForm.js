@@ -16,7 +16,7 @@
 /**
  * Method: Send the sales data by using AJAX
  */
-formSubmission('#saleForm', '/api/v1/sale/create-sale', saleFormData, saleSaveSuccess);
+submitForm('#saleForm', '/api/v1/sale/create-sale', saleFormData, saleSaveSuccess);
 
 /**
  * Get the form data from the form
