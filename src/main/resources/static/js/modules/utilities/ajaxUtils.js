@@ -39,10 +39,7 @@ function ajaxRequestTypePut(url, successCallback) {
     });
 }
 
-/**
- * Method: ajaxRequest(url, successCallback)
- * Info: Generic function to perform an AJAX request and handle success and error responses
- */
+
 function ajaxRequestTypePost(url, formData, successCallback) {
     $.ajax({
         url: url,
@@ -58,8 +55,8 @@ function ajaxRequestTypePost(url, formData, successCallback) {
             }
         },
 
-        error: function(xhr) {
-            errorHandler(xhr);
+        error: function(error) {
+            errorHandler(error);
         }
     });
 }
