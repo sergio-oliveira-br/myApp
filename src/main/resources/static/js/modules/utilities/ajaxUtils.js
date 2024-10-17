@@ -25,15 +25,22 @@ function ajaxRequestTypeGet(url, successCallback) {
  * Method: ajaxRequest(url, successCallback)
  * Info: Generic function to perform an AJAX request and handle success and error responses
  */
-function ajaxRequestTypePut(url, successCallback) {
+function ajaxRequestTypePut(url, formData, successCallback) {
     $.ajax({
         url: url,
         type: "PUT", //Used to update an existing resource on the server.
         contentType: 'application/json',
-        success: successCallback,
+        data: JSON.stringify(formData),
+
+        success: function(response){
+            if(successCallback) {
+                successCallback(response);
+                let currentDate = new Date();
+                console.log(formData, currentDate);
+            }
+        },
 
         error: function(xhr, status, error) {
-            //call the function from errorHandling.js file
             errorHandler(error);
         }
     });
