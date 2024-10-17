@@ -58,21 +58,3 @@ $('#rentItem, #editRentItem, #saleItem, #editSaleItem').change(function() {
         updateTotalPriceSaleModal();
     }
 });
-
-
-// /**
-//  * Page: Products
-//  * Method: updateLoadProductForm()
-//  * Info: Update the product form dropdown with available products
-//  */
-// function loadProductListForm(selectId) {
-//     ajaxRequest("/product", function(data) {
-//         const htmlId = $(selectId);
-//
-//         //clean
-//         htmlId.empty();
-//         data.forEach(function(product) {
-//             htmlId.append('<option value="' + product.id + '">' + product.name + '</option>');
-//         });
-//     });
-// }
