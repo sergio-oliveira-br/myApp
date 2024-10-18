@@ -12,8 +12,8 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Features](#features)
+1. [Objectives](#objectives)
+2. [Key Features](#key-features)
 3. [Technology Stack](#technology-stack)
 4. [Deployed Application](#deployed-application)
 5. [Version History](#version-history)
@@ -71,11 +71,11 @@ The AluControl application was developed as part of the final project for the Hi
   - **Spring Boot:** A framework that simplifies backend configuration and enables the development of standalone applications with minimal setup.
   - **Maven:** Used for dependency management and project building.
   - **Jakarta:** Facilitates the creation of entities and business models.
-  - **JPA (Java Persistence API):** Manages the creation and manipulation of database tables.
+  - **JPA (Java Persistence API):** Manages creating and manipulating database tables.
   - **RESTful API:** Facilitates communication between frontend and backend through RESTful services for data operations (CRUD).
  
 - **Database:**
-  - **PostgreSQL:** The application uses PostgreSQL in production. PostgreSQL is known for its reliability, efficiency, and robustness in managing data, providing secure storage and fast retrieval of information.
+  - **PostgreSQL:** The application uses PostgreSQL in production. PostgreSQL is known for its reliability, efficiency, and robustness in managing data, providing secure storage and fast information retrieval.
 
 - **Hosting:**
   - **Heroku:** The application is hosted on Heroku, providing a scalable and reliable cloud infrastructure with a simplified deployment process.
@@ -90,10 +90,18 @@ The AluControl application was developed as part of the final project for the Hi
 ---
 
 ## Version History
+- **1.2.0 (18 October 2024)**
+  - **Focus:** On Clean Code practices, applying SOLID principles. Specifically, the DRY (Don’t Repeat) principle and the Single Responsibility Principle were implemented. 
+  - **Refactor:** The frontend code has been refactored to ensure that each method in JavaScript has a single responsibility. This resulted in a more readable, maintainable and efficient code, improving the performance and reliability of the application.
+  - **Minor improvements:** Minor UI adjustments and usability improvements to provide a more intuitive experience.
+  - **Bug fixed:**
+    - Adjustments to forms, including improvements in responsiveness, visual feedback and input validation.
+    - Fixed a bug that caused incorrect adjustments in product stock when editing a rental. 
+  
 - **1.1.0 (14 October 2024):**
   - **Refactor:** Backend code refactored to improve performance and modularity.
   - **Enhancement:** Optimized service and repository layers for better data handling.
-  - **Minor improvements:** Enhanced business logic for rental and inventory management.
+  - **Minor improvements:** Enhanced rental and inventory management business logic.
 
 - **1.0.0 (5 June 2024):**
   - **Initial release** with features for rental management, customer management, inventory monitoring, financial tracking, and reporting. 
