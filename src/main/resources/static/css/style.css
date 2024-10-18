@@ -1,60 +1,25 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
-
-
-/* Page: All
-* The styles defined within the @media (max-width: 'X' px)
-* rule will only be applied when the viewport
-*
-* This is a common technique used in responsive web design
-* to apply different styles depending on the device or screen size.*/
-@media (max-width: 1280px)
-{
-    .sidebar
-    {
+/* Rule set screen maximum size 1280px */
+@media (max-width: 1280px) {
+    .sidebar {
         display: none; /*hides the side menu side bar*/
         overflow-y: scroll;
     }
 
-    .content
-    {
+    .content {
         margin-left: 0;
         margin-top: 2%;
     }
 }
 
-
-/* Rule to set screen minimum size 1280px */
-@media (min-width: 1280px)
-{
-    #menuBTN {
-        display: none; /*hides the menu btn*/
-    }
-
-    .content
-    {
+/* Rule to set screen which is bigger than 1280px */
+@media (min-width: 1280px) {
+    .content {
         margin-left: 18%;
         margin-right: -3%;
     }
-
 }
 
-
-/*
- * Page: All
- * Topic: Menu
- * Details: This set the position of the sidebar
- */
-.sidebar
-{
+.sidebar {
     position: fixed;
     width: 20%;
     height: 100%;
@@ -62,36 +27,19 @@
     top: 0; /*Overlap the Menu button*/
 }
 
-/* ---------------------------------------------
- * Page: Index
- * Topic: Card
- * Details: Set the responsive
-*/
-.card
-{
+
+.card {
     margin-bottom: 20px;
-    flex: 0 0 calc(33.333% - 20px); /* Display 3 cards per line */
+    margin-right: 10px;
+    box-sizing: border-box;
 }
 
-
-
-/* ---------------------------------------------
- * Page: Rent
- * Topic: Table
- * Details:
-*/
-
-.table-responsive
-{
+.table-responsive {
     height: 400px; /*The size of the list on screen*/
     box-sizing: border-box;
 }
 
-.table-responsive th
-{
+.table-responsive th {
     top: 0;
     position: sticky;
 }
-
-
-
