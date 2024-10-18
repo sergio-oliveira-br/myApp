@@ -38,7 +38,7 @@ function saleFormSubmissionModal(){
 
     ajaxRequestTypePut('/api/v1/sale/update-sale/' + saleData.id, saleData, function (response) {
 
-        alert('Venda alterado com sucesso!');
+        alert("Venda 'ID: " + saleData.id +  ", "  +  saleData.saleFirstName + "' alterada com sucesso!");
         $('#editModal').modal('hide');
         loadSalesTable();
     })
