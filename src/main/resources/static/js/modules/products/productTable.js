@@ -18,17 +18,3 @@ function loadProductTable() {
         });
     });
 }
-
-
-// function updateLoadProductForm() {
-//     console.log("Here where the method updateLoadProductForm() is used. !IMPORTANT: CHECK THE NEED");
-//
-//     ajaxRequestTypeGet("/product", function(data) {
-//         let productSelect = $('#editItemQty');
-//         productSelect.empty();
-//         data.forEach(function(product) {
-//             productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
-//         });
-//     });
-// }
-
