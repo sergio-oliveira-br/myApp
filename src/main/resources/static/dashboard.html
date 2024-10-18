@@ -13,114 +13,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
 
-    <!-- Favicons -->
-
   </head>
 
   <body>
     <div class="container">
-      <!-- Starts Dropdown - The user can access the other page through this -->
-      <!-- This will be displayed when the screen is not large enough to display the sidebar -->
-      <div class="btn-group">
-        <button id="menuBTN" class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Menu
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="index.html">Página Inicial</a></li>
-          <li><a class="dropdown-item" href="dashboard.html">Gráficos</a></li>
-          <li><a class="dropdown-item" href="rent.html">Aluguel</a></li>
-          <li><a class="dropdown-item" href="sale.html">Vendas</a></li>
-          <li><a class="dropdown-item" href="products.html">Produtos</a></li>
-          <li><a class="dropdown-item" href="customers.html">Clientes</a></li>
-          <li><a class="dropdown-item" href="expenses.html">Despesas</a></li>
-          <li><a class="dropdown-item" href="stock.html">Estoque</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-      </div>
-      <!-- Ends Menu for small screen -->
 
-      <!-- Starts Sidebar - The user can access the other page through this -->
-      <!-- This will be displayed when the screen is large enough to display it -->
-      <div class="sidebar">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh">
-          <a href="/static" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Gráficos</span>
-          </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <a href="index.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                Página Inicial
-              </a>
-            </li>
-            <li>
-              <a href="dashboard.html" class="nav-link active" aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Gráficos
-              </a>
-            </li>
-            <li>
-              <a href="rent.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                Aluguéis
-              </a>
-            </li>
-            <li>
-              <a href="sale.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                Vendas
-              </a>
-            </li>
-            <li>
-              <a href="products.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Produtos
-              </a>
-            </li>
-            <li>
-              <a href="customers.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Clientes
-              </a>
-            </li>
-            <li>
-              <a href="expenses.html" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Despesas
-              </a>
-            </li>
-            <li>
-              <a onclick="displayMsgWIP()" href="" class="nav-link text-white">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Estoque
-              </a>
-            </li>
-          </ul>
-          <hr>
-
-          <!-- Checking the usability of this -->
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Ends Sidebar - Menu -->
+      <!-- Invokes the menu-sidebar -->
+      <div id="menu-sidebar"></div>
 
       <!-- Starts Main Content -->
       <div class="content">
+
+        <br>
 
         <!-- This chart displays the item and your respective total price (Columns) -->
         <canvas class="my-4 w-100" id="myTotalPriceItemsChart" style="display: block; box-sizing: border-box; height: 300px; width: 300px;"></canvas>
@@ -156,6 +60,8 @@
 
     <!-- Common Script for all pages -->
     <script src="/js/modules/main.js"></script>
+
+    <script src="/js/modules/templates/include-menu.js"></script>
 
   </body>
 </html>
