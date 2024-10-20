@@ -16,7 +16,7 @@ function loadQtyRentByPaymentStatus(paymentStatus) {
     }
 
     ajaxRequestTypeGet(url, function(data) {
-        $(selector).text('Voce possui ' + data + ' aluguéis com pagamentos "' + paymentStatus + '".');
+        $(selector).text('Voce possui '+ data + ' aluguéis com pagamentos "' + paymentStatus + '".');
     });
 }
 
