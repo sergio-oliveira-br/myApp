@@ -1,33 +1,28 @@
 /* --------------------------------------------- */
 /* ---------------- TEST ------------ */
 /* --------------------------------------------- */
-.container
-{
+.container {
     background-color: blue;
 }
 
 
-.content
-{
+.content {
     padding-left: 230px;
     background-color: #0a3622;
     color: white;
 }
 
-.form-floating
-{
+.form-floating {
     background-color: lightcoral;
 }
 
-.table-responsive
-{
+.table-responsive {
     background-color: #3dd5f3;
 }
 
 
 
-@media (max-width: 1200px)
-{
+@media (max-width: 1200px) {
     .sidebar{
         display: none;
     }

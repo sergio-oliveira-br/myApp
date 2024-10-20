@@ -1,23 +1,8 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie, oliveira-sergio@outlook.com
- * Project Commencing May 2024 | Version: 1.0
- * Refactoring & New Features - Aug 2024 | Version: 2.0
- */
-
-//This file contain product-related utility functions.
 //src/main/resources/static/js/modules/products/productUtils.js
 
-/**
- * Method: loadProductListByProductType(productType)
- * Info: Create a list of all items and display it in the Product field of the Sales and Rent Form
- */
+
 function loadProductListByProductType(productType) {
-    ajaxRequest("/api/v1/product/product-by-type?productType=" + encodeURIComponent(productType), function(data) {
+    ajaxRequestTypeGet("/api/v1/product/product-by-type?productType=" + encodeURIComponent(productType), function(data) {
 
         // Array of select elements
         let productSelects = [$('#rentItem'), $('#editRentItem'),        //rent
@@ -26,7 +11,8 @@ function loadProductListByProductType(productType) {
         productSelects.forEach(function (selectElement) {
             selectElement.empty();
             data.forEach(function (product) {
-                selectElement.append('<option id="' + product.id + '" price="' + product.itemPrice + '">' + product.itemDescription + '</option>');
+                selectElement.append('<option id="' + product.id + '" price="' + product.itemPrice + '">'
+                    + product.itemDescription + '</option>');
             });
         });
     });
@@ -50,7 +36,6 @@ $('#rentItem, #editRentItem, #saleItem, #editSaleItem').change(function() {
 
     else if ($(this).attr('id') === 'saleItem') {
         $('#salePrice').val(price);
-        //loadTotalPriceSales(); // Update the total price for sales
     }
 
     else if ($(this).attr('id') === 'editSaleItem') {
@@ -58,21 +43,3 @@ $('#rentItem, #editRentItem, #saleItem, #editSaleItem').change(function() {
         updateTotalPriceSaleModal();
     }
 });
-
-
-// /**
-//  * Page: Products
-//  * Method: updateLoadProductForm()
-//  * Info: Update the product form dropdown with available products
-//  */
-// function loadProductListForm(selectId) {
-//     ajaxRequest("/product", function(data) {
-//         const htmlId = $(selectId);
-//
-//         //clean
-//         htmlId.empty();
-//         data.forEach(function(product) {
-//             htmlId.append('<option value="' + product.id + '">' + product.name + '</option>');
-//         });
-//     });
-// }

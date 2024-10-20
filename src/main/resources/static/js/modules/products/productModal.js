@@ -1,24 +1,7 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie, oliveira-sergio@outlook.com
- * Project Commencing May 2024 | Version: 1.0
- * Refactoring & New Features - Aug 2024 | Version: 2.0
- */
-
-//This file deal with the logic related to the modality of editing products.
 //src/main/resources/static/js/modules/products/productModal.js
 
-/**
- * Page: Products
- * Item: Form (modal) -> OpenEditModal() -> SubmitEditForm()
- * Method: Open modal and load product data
- */
 function openProductEditModal(productId) {
-    ajaxRequest("/api/v1/product/" + productId, function(product) {
+    ajaxRequestTypeGet("/api/v1/product/" + productId, function(product) {
         $('#editProductId').val(productId);
         $('#editItemDescription').val(product.itemDescription);
         $('#editItemQty').val(product.itemQuantity);
@@ -30,13 +13,11 @@ function openProductEditModal(productId) {
     });
 }
 
-/**
- * Method: Submit the edit form
- */
+
 function submitProductEditForm() {
     let currentDate = new Date();
 
-    let itemData = {
+    let formData = {
         id: $('#editProductId').val(),
         itemDescription: $('#editItemDescription').val(),
         itemQuantity: $('#editItemQty').val(),
@@ -46,33 +27,10 @@ function submitProductEditForm() {
         dateModified: currentDate,
     };
 
-    console.log(itemData);
-
-    $.ajax({
-        url: "/api/v1/product/update-product/" + itemData.id,
-        type: "PUT",
-        contentType: 'application/json',
-        data: JSON.stringify(itemData),
-
-        success: function(response) {
-            let successMsg = "Produto alterado com sucesso.";
-
-            alert(successMsg);
-            console.log(successMsg, currentDate);
-
-            $('#editModal').modal('hide');
-
-            loadProductTable(); // Reload the product list after update
-        },
-        error: function(xhr, status, error) {
-            try {
-                let response = JSON.parse(xhr.responseText);
-                alert('Oops! Ocorreu um erro. ' + response);
-            }
-            catch (parseError) {
-                console.log('Análise do erro:', parseError);
-            }
-        }
+    ajaxRequestTypePut("/api/v1/product/update-product/" + formData.id, formData, function(response) {
+        alert('Produto alterado com sucesso!');
+        $('#editModal').modal('hide');
+        loadProductTable(); // Reload the product list after update
     });
 }
 
@@ -90,6 +48,5 @@ document.getElementById('editModal').addEventListener('submit', function(event) 
         //Build and print a message
         let cancelMsg = 'Operaçao cancelada pelo usuario! \nOs dados não foram alterados.';
         alert(cancelMsg)
-        console.log(cancelMsg);
     }
 });

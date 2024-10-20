@@ -18,9 +18,9 @@
  * Method: Load data and render charts
  */
 $(document).ready(function () {
-    ajaxRequest('/items-total-price', renderItemsChart);
-    ajaxRequest('/rent-payment-status', renderPaymentChart);
-    ajaxRequest('/item-quantity', renderQtyItemsChart);
+    ajaxRequestTypeGet('/items-total-price', renderItemsChart);
+    ajaxRequestTypeGet('/rent-payment-status', renderPaymentChart);
+    ajaxRequestTypeGet('/item-quantity', renderQtyItemsChart);
 });
 
 /**
