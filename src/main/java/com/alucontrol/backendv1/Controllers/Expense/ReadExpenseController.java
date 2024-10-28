@@ -31,14 +31,17 @@ public class ReadExpenseController {
     public ResponseEntity<Expense> getExpenseById(@PathVariable Long id){
 
         Expense expenseFound = expenseService.findExpenseById(id);
-        
+
         return ResponseEntity.ok(expenseFound);
     }
 
     //Metodo para buscar uma lista de despesas atraves da categoria.
     @GetMapping("/category")
     public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory) {
-        return expenseService.findExpenseByCategory(expenseCategory);
+
+        List<Expense> expensesFound =  expenseService.findExpenseByCategory(expenseCategory);
+
+        return ResponseEntity.ok(expensesFound);
     }
 
     //Metodo para buscar/filtrar a lista de despesas atraves do "Month" e "Year"
