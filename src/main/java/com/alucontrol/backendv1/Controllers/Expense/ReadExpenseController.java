@@ -47,7 +47,9 @@ public class ReadExpenseController {
     //Metodo para buscar/filtrar a lista de despesas atraves do "Month" e "Year"
     @GetMapping("/year-month")
     public ResponseEntity<List<Expense>> getExpenseByDate(String year, String month) {
-      return expenseService.findExpenseByDate(year, month);
-    }
 
+        List<Expense> expensesFound =  expenseService.findExpenseByDate(year, month);
+
+        return ResponseEntity.ok(expensesFound);
+    }
 }
