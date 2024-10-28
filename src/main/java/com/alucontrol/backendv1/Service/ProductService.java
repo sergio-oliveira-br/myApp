@@ -40,10 +40,10 @@ public class ProductService {
     }
 
     //Metodo de Atualização de Produtos que ja existentem por meio do ID
-    public ResponseEntity<Product> saveProductChanges(Product updatedProduct, Long id) {
+    public Product saveProductChanges(Product updatedProduct, Long id) {
 
         Optional<Product> productOptional = productRepository.findById(id);
-        LoggerUtil.info("Starting updating product: " + productOptional.toString());
+        LoggerUtil.info("Starting updating product: " + productOptional);
 
         if (productOptional.isPresent()) {
 
@@ -51,17 +51,18 @@ public class ProductService {
 
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
-            product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
+            product.setItemAvailableQty(updatedProduct.getItemAvailableQty());
             product.setProductType(updatedProduct.getProductType());
             product.setItemPrice(updatedProduct.getItemPrice());
             product.setDateModified(updatedProduct.getDateModified());//this will get data and time when the item has been changed
 
             Product savedProduct = productRepository.save(product);
+
             LoggerUtil.info("Product Updated Successfully: " + savedProduct.toString());
-            return ResponseEntity.ok(savedProduct);
+            return savedProduct;
         }
 
-        throw new ResourceNotFoundException("Product with id " + id + " not found");
+        throw new ResourceNotFoundException("Product ID:" + id + " not found");
     }
 
     //Metodo de Leitura buscando todos os produtos existentes na base de dados
