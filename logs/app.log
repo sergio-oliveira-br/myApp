@@ -482,3 +482,14 @@ Caused by: java.lang.NumberFormatException: For input string: "${PORT}"
 2024-10-28 20:08:50 INFO  o.s.t.w.s.TestDispatcherServlet - [] Initializing Servlet ''
 2024-10-28 20:08:50 INFO  o.s.t.w.s.TestDispatcherServlet - [] Completed initialization in 0 ms
 2024-10-28 20:08:50 INFO  c.a.b.C.CustomerControllerTest - [] Started CustomerControllerTest in 1.037 seconds (process running for 1.497)
+2024-10-28 21:38:04 INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [] Could not detect default configuration classes for test class [com.alucontrol.backendv1.ControllerTest.CustomerControllerTest]: CustomerControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-10-28 21:38:04 INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [] Found @SpringBootConfiguration com.alucontrol.backendv1.Backendv1Application for test class com.alucontrol.backendv1.ControllerTest.CustomerControllerTest
+2024-10-28 21:38:04 INFO  o.s.b.d.r.RestartApplicationListener - [] Restart disabled due to context in which it is running
+2024-10-28 21:38:05 INFO  o.h.validator.internal.util.Version - [] HV000001: Hibernate Validator 8.0.1.Final
+2024-10-28 21:38:05 INFO  c.a.b.C.CustomerControllerTest - [] Starting CustomerControllerTest using Java 22.0.1 with PID 19724 (started by sergiovinicio in /Users/sergiovinicio/Documents/GitHub/myApp)
+2024-10-28 21:38:05 INFO  c.a.b.C.CustomerControllerTest - [] No active profile set, falling back to 1 default profile: "default"
+2024-10-28 21:38:05 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - [] Adding welcome page: class path resource [static/index.html]
+2024-10-28 21:38:06 INFO  o.s.b.t.m.w.SpringBootMockServletContext - [] Initializing Spring TestDispatcherServlet ''
+2024-10-28 21:38:06 INFO  o.s.t.w.s.TestDispatcherServlet - [] Initializing Servlet ''
+2024-10-28 21:38:06 INFO  o.s.t.w.s.TestDispatcherServlet - [] Completed initialization in 0 ms
+2024-10-28 21:38:06 INFO  c.a.b.C.CustomerControllerTest - [] Started CustomerControllerTest in 1.093 seconds (process running for 1.625)
