@@ -1,11 +1,11 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,11 +30,12 @@ public class ExpenseService {
             return savedExpense;
 
         }catch (DataAccessException e){
-            throw new ResourceNotFoundException(e.getMessage());
+            LoggerUtil.error("Failed to save expense: " + e.getMessage(), e);
+            throw new InternalServerException("Failed to save expense data", e);
         }
     }
 
-    //Metodo de Atualização de Despesas ja existente por meio do ID
+    //Metodo de Atualização de Despesas ja existente por meio do "ID"
     public Expense saveExepenseChanges(Expense expense, Long id) {
 
         Optional<Expense> expenseOptional = expenseRepository.findById(id);
