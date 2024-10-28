@@ -82,6 +82,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Fornece suporte para validação de dados em aplicativos Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
