@@ -1,5 +1,6 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
@@ -22,14 +23,20 @@ public class ProductService {
     }
 
     //Metodo de Salvamento
-    public ResponseEntity<Product> saveProduct(Product product) {
+    public Product saveProduct(Product product) {
 
-        //Confitura o campo 'itemAvailableQty' com a mesma quantidade do campo 'itemQuantity'
-        product.setItemAvailableQty(product.getItemQuantity());
-        Product savedProduct = productRepository.save(product);
-        LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
+        try{
+            //Confitura o campo 'itemAvailableQty' com a mesma quantidade do campo 'itemQuantity'
+            product.setItemAvailableQty(product.getItemQuantity());
 
-        return ResponseEntity.ok(savedProduct);
+            Product savedProduct = productRepository.save(product);
+
+            LoggerUtil.info("Product saved successfully: " + savedProduct);
+            return savedProduct;
+
+        }catch (DataAccessException e){
+            throw new DataAccessException(e.getMessage());
+        }
     }
 
     //Metodo de Atualização de Produtos que ja existentem por meio do ID
