@@ -66,10 +66,9 @@ public class ProductService {
     }
 
     //Metodo de Leitura buscando todos os produtos existentes na base de dados
-    public ResponseEntity<List<Product>> findAllProducts() {
+    public List<Product> findAllProducts() {
 
-        List<Product> products = productRepository.findAll();
-        return ResponseEntity.ok(products);
+        return productRepository.findAll();
     }
 
     //Metodo de Leitura buscando um produto específico por meio do ID.

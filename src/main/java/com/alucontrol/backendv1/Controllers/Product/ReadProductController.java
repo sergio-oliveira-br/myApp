@@ -1,12 +1,9 @@
 package com.alucontrol.backendv1.Controllers.Product;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
-import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Service.ProductService;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +24,10 @@ public class ReadProductController {
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProduct() {
-        return productService.findAllProducts();
+
+        List<Product> productsFound = productService.findAllProducts();
+
+        return ResponseEntity.ok(productsFound);
     }
 
     @GetMapping("/{id}")
