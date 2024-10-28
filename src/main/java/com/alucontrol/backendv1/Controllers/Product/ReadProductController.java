@@ -48,6 +48,9 @@ public class ReadProductController {
 
     @GetMapping("/qty/product-by-type")
     public ResponseEntity<List<ProductStockProjection>> getProductQtyByType(String productType) {
-        return productService.findProductStockByType(productType);
+
+        List<ProductStockProjection> productsFound = productService.findProductStockByType(productType);
+
+        return ResponseEntity.ok(productsFound);
     }
 }
