@@ -33,6 +33,25 @@ public class Customer {
     }
 
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Customer{" +
