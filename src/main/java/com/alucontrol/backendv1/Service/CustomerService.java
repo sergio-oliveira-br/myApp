@@ -1,7 +1,6 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.DataAccessException;
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
