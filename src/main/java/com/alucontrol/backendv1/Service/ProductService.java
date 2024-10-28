@@ -84,14 +84,15 @@ public class ProductService {
     }
 
     //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
-    public ResponseEntity<List<ItemPriceProjection>> findProductByType(String productType) {
+    public List<ItemPriceProjection> findProductByType(String productType) {
 
-        if (productRepository.findProductsByProductType(productType) == null){
-            throw new ResourceNotFoundException("Product type " + productType + " not found.");
+        List<ItemPriceProjection> productsByType = productRepository.findProductsByProductType(productType);
+
+        if (productsByType == null){
+            throw new ResourceNotFoundException("Product Type:" + productType + " not found.");
         }
 
-        List<ItemPriceProjection> products = productRepository.findProductsByProductType(productType);
-        return ResponseEntity.ok(products);
+        return productsByType;
     }
 
     //Method de leitura que busca os produtos por meio da seleção do tipo do cadastro e retorna a quantidade
