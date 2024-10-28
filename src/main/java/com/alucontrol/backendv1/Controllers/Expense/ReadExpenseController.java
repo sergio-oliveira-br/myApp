@@ -19,8 +19,11 @@ public class ReadExpenseController {
 
     //Endpoit para buscar todos as despesas presentes no banco de dados.
     @GetMapping()
-    public ResponseEntity<List<Expense>> getExpense() {
-        return expenseService.findAllExpenses();
+    public ResponseEntity<List<Expense>> getAllExpenses() {
+
+        List<Expense> allExpenses = expenseService.findAllExpenses();
+
+        return ResponseEntity.ok(allExpenses);
     }
 
     //Method para buscar uma despesa específica atraves do id.
