@@ -1,6 +1,7 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Repository.CustomerRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
@@ -27,7 +28,8 @@ public class CustomerService {
             return savedCustomer;
 
         }catch (DataAccessException e){
-            throw new DataAccessException("Attempting to save client data was unsuccessful");
+            LoggerUtil.error("Failed to save customer: " + e.getMessage(), e);
+            throw new InternalServerException("Failed to save customer data", e);
         }
     }
 
