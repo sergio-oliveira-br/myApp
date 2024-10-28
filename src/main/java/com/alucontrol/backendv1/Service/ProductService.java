@@ -72,14 +72,15 @@ public class ProductService {
     }
 
     //Metodo de Leitura buscando um produto específico por meio do ID.
-    public ResponseEntity<Product> findProductById(Long id) {
+    public Product findProductById(Long id) {
 
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            return ResponseEntity.ok(product.get());
+        Optional<Product> productFound = productRepository.findById(id);
+
+        if (productFound.isPresent()) {
+            return productFound.get();
         }
 
-        throw new ResourceNotFoundException("Product " + product + " not found.");
+        throw new ResourceNotFoundException("Product ID:" +  id + " not found.");
     }
 
     //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
