@@ -1,5 +1,6 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Expense;
 import com.alucontrol.backendv1.Repository.ExpenseRepository;
@@ -20,12 +21,17 @@ public class ExpenseService {
     }
 
     //Metodo para Salvar novas Despesas
-    public ResponseEntity<Expense> saveExpense(Expense expense) {
+    public Expense saveExpense(Expense expense) {
 
-        Expense savedExpense = expenseRepository.save(expense);
-        LoggerUtil.info("Expense saved successfully: " + savedExpense.toString());
+        try{
+            Expense savedExpense = expenseRepository.save(expense);
 
-        return ResponseEntity.ok(savedExpense);
+            LoggerUtil.info("Expense saved successfully: " + savedExpense);
+            return savedExpense;
+
+        }catch (DataAccessException e){
+            throw new ResourceNotFoundException(e.getMessage());
+        }
     }
 
     //Metodo de Atualização de Despesas ja existente por meio do ID
