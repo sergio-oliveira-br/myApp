@@ -11,7 +11,6 @@
 package com.alucontrol.backendv1.Controllers.Index;
 
 import com.alucontrol.backendv1.Repository.RentRepository;
-import com.alucontrol.backendv1.Service.IndexService;
 import org.springframework.web.bind.annotation.RestController;
 
 /** This controller is dedicated to endpoints that will display information on indexPage
