@@ -68,7 +68,7 @@ public class ExpenseService {
     }
 
     //Metodo de Leitura para encontrar despesas selecionando a "Category"
-    public ResponseEntity<List<Expense>> findExpenseByCategory (String expenseCategory) {
+    public List<Expense> findExpenseByCategory (String expenseCategory) {
 
         List<Expense> expensesByCategory = expenseRepository.findByExpenseCategory(expenseCategory);
 
@@ -76,7 +76,7 @@ public class ExpenseService {
             throw new ResourceNotFoundException("Expense category " + expenseCategory + " not found");
         }
 
-        return ResponseEntity.ok(expensesByCategory);
+        return expensesByCategory;
     }
 
     //Metodo Leitura para encontrar despesas informando o mes e o ano.
