@@ -7,7 +7,6 @@ import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class ProductService {
         }
     }
 
-    //Metodo de Atualização de Produtos que ja existentem por meio do ID
+    //Metodo de Atualização de Produtos que ja existentem por meio do "ID"
     public Product saveProductChanges(Product updatedProduct, Long id) {
 
         Optional<Product> productOptional = productRepository.findById(id);
@@ -71,7 +70,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    //Metodo de Leitura buscando um produto específico por meio do ID.
+    //Metodo de Leitura buscando um produto específico por meio do "ID"
     public Product findProductById(Long id) {
 
         Optional<Product> productFound = productRepository.findById(id);
