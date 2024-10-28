@@ -50,10 +50,9 @@ public class ExpenseService {
     }
 
     //Metodo de Leitura buscando todos as despesas existentes na base de dados
-    public ResponseEntity<List<Expense>> findAllExpenses() {
+    public List<Expense> findAllExpenses() {
 
-        List<Expense> expenses = expenseRepository.findAll();
-        return ResponseEntity.ok(expenses);
+        return expenseRepository.findAll();
     }
 
     //Method de Leitura buscando uma despesa especifica
