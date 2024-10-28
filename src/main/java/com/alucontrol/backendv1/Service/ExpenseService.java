@@ -80,7 +80,7 @@ public class ExpenseService {
     }
 
     //Metodo Leitura para encontrar despesas informando o mes e o ano.
-    public ResponseEntity<List<Expense>> findExpenseByDate (String year, String month) {
+    public List<Expense> findExpenseByDate (String year, String month) {
 
         List<Expense> expensesByDate = expenseRepository.findByYearAndMonth(year, month);
 
@@ -88,6 +88,6 @@ public class ExpenseService {
             throw new ResourceNotFoundException("Expense " + year + "-" + month + " not found");
         }
 
-        return ResponseEntity.ok(expensesByDate);
+        return expensesByDate;
     }
 }
