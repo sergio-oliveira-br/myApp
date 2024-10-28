@@ -29,7 +29,10 @@ public class ReadExpenseController {
     //Method para buscar uma despesa específica atraves do id.
     @GetMapping("/{id}")
     public ResponseEntity<Expense> getExpenseById(@PathVariable Long id){
-        return expenseService.findExpenseById(id);
+
+        Expense expenseFound = expenseService.findExpenseById(id);
+        
+        return ResponseEntity.ok(expenseFound);
     }
 
     //Metodo para buscar uma lista de despesas atraves da categoria.
