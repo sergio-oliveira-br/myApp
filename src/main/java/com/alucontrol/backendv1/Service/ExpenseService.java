@@ -35,17 +35,18 @@ public class ExpenseService {
     }
 
     //Metodo de Atualização de Despesas ja existente por meio do ID
-    public ResponseEntity<Expense> saveExepenseChanges(Expense expense, Long id) {
+    public Expense saveExepenseChanges(Expense expense, Long id) {
 
         Optional<Expense> expenseOptional = expenseRepository.findById(id);
 
         if (expenseOptional.isPresent()) {
             Expense savedExpense = expenseRepository.save(expense);
-            LoggerUtil.info("Expense saved successfully: " + savedExpense.toString());
-            return ResponseEntity.ok(savedExpense);
+
+            LoggerUtil.info("Expense saved successfully: " + savedExpense);
+            return savedExpense;
         }
 
-       throw new ResourceNotFoundException("Expense ID " + id + " not found");
+       throw new ResourceNotFoundException("Expense ID:" + id + " not found");
     }
 
     //Metodo de Leitura buscando todos as despesas existentes na base de dados
