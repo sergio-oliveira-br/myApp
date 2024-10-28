@@ -17,11 +17,13 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    //Metodo de Salvamento
-    public ResponseEntity<Customer> saveCustomer (Customer customer) {
+    //Metodo de Salvamento, utilizado na criacao de um novo cliente
+    public Customer saveCustomer (Customer customer) {
+
         Customer savedCustomer = customerRepository.save(customer);
-        LoggerUtil.info("Customer saved successfully: "  + savedCustomer.toString());
-        return ResponseEntity.ok(savedCustomer);
+
+        LoggerUtil.info("Customer saved successfully: "  + savedCustomer);
+        return savedCustomer;
     }
 
     //Metodo de Leitura
