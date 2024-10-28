@@ -58,7 +58,7 @@ public class ProductService {
 
             Product savedProduct = productRepository.save(product);
 
-            LoggerUtil.info("Product Updated Successfully: " + savedProduct.toString());
+            LoggerUtil.info("Product Updated Successfully: " + savedProduct);
             return savedProduct;
         }
 
