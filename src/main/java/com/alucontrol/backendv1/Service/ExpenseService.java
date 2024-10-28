@@ -56,14 +56,15 @@ public class ExpenseService {
     }
 
     //Method de Leitura buscando uma despesa especifica
-    public ResponseEntity<Expense> findExpenseById(Long id) {
+    public Expense findExpenseById(Long id) {
+
         Optional<Expense> expense = expenseRepository.findById(id);
 
         if (expense.isPresent()) {
-            return ResponseEntity.ok(expense.get());
+            return expense.get();
         }
 
-        throw new ResourceNotFoundException("Expense ID " + id + " not found");
+        throw new ResourceNotFoundException("Expense ID:" + id + " not found");
     }
 
     //Metodo de Leitura para encontrar despesas selecionando a "Category"
