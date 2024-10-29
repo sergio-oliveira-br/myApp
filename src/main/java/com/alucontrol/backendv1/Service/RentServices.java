@@ -1,5 +1,7 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -35,19 +37,25 @@ public class RentServices {
     public Rent saveRent(Rent rent) {
 
         String rentStatus = rent.getRentStatus();
-        RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
 
-        Rent savedRent = rentRepository.save(rent);
+        try{
+            RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
+            Rent savedRent = rentRepository.save(rent);
 
-        //Verifica o rentStatus do rent para para fazer o ajuste necessario
-        if(rentStatusHandler != null ){
-            rentStatusHandler.handleRentStatusUpdate(rent);
+            //Verifica o rentStatus do rent para para fazer o ajuste necessario
+            if(rentStatusHandler != null ){
+                rentStatusHandler.handleRentStatusUpdate(rent);
 
-            LoggerUtil.info("Aluguel salvo com sucesso: " + savedRent);
-            return savedRent;
+                LoggerUtil.info("Rent saved successfully: " + savedRent);
+                return savedRent;
+            }
+
+            throw new InternalServerException("Não foi possivel salvar o aluguel. Erro relacioado ao Status");
+
+        }catch (DataAccessException e){
+            LoggerUtil.error("Failed to save rent: " + e.getMessage(), e);
+            throw new InternalServerException("Erro ao salvar o aluguel " + e);
         }
-
-        throw new IllegalArgumentException("Erro ao salvar o aluguel.");
     }
 
     //Metodo de Atualização de algueis que ja existentem na DB buscando o ID.
