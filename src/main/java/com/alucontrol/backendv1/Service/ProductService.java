@@ -1,6 +1,7 @@
 package com.alucontrol.backendv1.Service;
 
 import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
@@ -34,7 +35,8 @@ public class ProductService {
             return savedProduct;
 
         }catch (DataAccessException e){
-            throw new DataAccessException(e.getMessage());
+            LoggerUtil.error("Error while saving product: " + product, e);
+            throw new InternalServerException("Failed to save product data. " + e.getMessage());
         }
     }
 
