@@ -28,8 +28,8 @@ public class CustomerService {
             return savedCustomer;
 
         }catch (DataAccessException e){
-            LoggerUtil.error("Failed to save customer: " + e.getMessage(), e);
-            throw new InternalServerException("Failed to save customer data", e);
+            LoggerUtil.error("Error while saving customer: " + customer, e);
+            throw new InternalServerException("Failed to save customer data. " + e.getMessage());
         }
     }
 
