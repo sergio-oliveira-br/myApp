@@ -76,7 +76,9 @@ public class ReadRentController {
 
     @GetMapping("/qty/rent-by-payment-status")
     public ResponseEntity<Long> getRentQtyByPaymentStatus(String paymentStatus) {
-        return rentServices.findQtyRentByPaymentStatus(paymentStatus);
-    }
 
+        Long countRents = rentServices.findQtyRentByPaymentStatus(paymentStatus);
+
+        return ResponseEntity.ok(countRents);
+    }
 }

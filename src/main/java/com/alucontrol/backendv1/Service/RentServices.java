@@ -158,9 +158,8 @@ public class RentServices {
     }
 
     //Metodo de leitura para buscar a quantidade/contar os alugueis de acordo com o status do pagamento
-    public ResponseEntity<Long> findQtyRentByPaymentStatus (String paymentStatus) {
+    public Long findQtyRentByPaymentStatus (String paymentStatus) {
 
-        Long countRent = rentRepository.countRentByPaymentStatus(paymentStatus);
-        return ResponseEntity.ok(countRent);
+        return rentRepository.countRentByPaymentStatus(paymentStatus);
     }
 }
