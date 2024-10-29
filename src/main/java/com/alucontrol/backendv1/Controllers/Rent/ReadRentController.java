@@ -28,7 +28,10 @@ public class ReadRentController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Rent> getRentById(@PathVariable Long id) {
-        return rentServices.findRentById(id);
+
+        Rent rentFound = rentServices.findRentById(id);
+
+        return ResponseEntity.ok(rentFound);
     }
 
     @GetMapping("/rent-by-date")

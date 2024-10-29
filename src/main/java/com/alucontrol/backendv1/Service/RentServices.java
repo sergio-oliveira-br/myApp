@@ -96,15 +96,15 @@ public class RentServices {
     }
 
     //Metodo de leitura para buscar um alguel especifico atraves do ID
-    public ResponseEntity<Rent> findRentById (@RequestParam Long id) {
+    public Rent findRentById (Long id) {
 
         Optional<Rent> rentOptional = rentRepository.findById(id);
 
         if (rentOptional.isPresent()) {
-            return ResponseEntity.ok(rentOptional.get());
+            return rentOptional.get();
         }
 
-        throw new ResourceNotFoundException("Rent with id" + id + " not found");
+        throw new ResourceNotFoundException("Rent ID:" + id + " not found");
     }
 
     //Metodo de leitura para buscar algueis atraves da data "mes" e "ano"
