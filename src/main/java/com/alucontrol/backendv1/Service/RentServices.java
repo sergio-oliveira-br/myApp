@@ -32,7 +32,7 @@ public class RentServices {
 
 
     //Metodo de Salvamento,
-    public ResponseEntity<Rent> saveRent(Rent rent) {
+    public Rent saveRent(Rent rent) {
 
         String rentStatus = rent.getRentStatus();
         RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
@@ -43,8 +43,8 @@ public class RentServices {
         if(rentStatusHandler != null ){
             rentStatusHandler.handleRentStatusUpdate(rent);
 
-            LoggerUtil.info("Aluguel salvo com sucesso: " + savedRent.toString());
-            return ResponseEntity.ok(savedRent);
+            LoggerUtil.info("Aluguel salvo com sucesso: " + savedRent);
+            return savedRent;
         }
 
         throw new IllegalArgumentException("Erro ao salvar o aluguel.");
