@@ -37,9 +37,9 @@ public class ReadRentController {
     @GetMapping("/rent-by-date")
     public ResponseEntity<List<Rent>> getRentByDate(String year, String month) {
 
-        List<Rent> rendFound = rentServices.findRentByDate(year, month);
+        List<Rent> rentsFound = rentServices.findRentByDate(year, month);
 
-        return ResponseEntity.ok(rendFound);
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/rent-by-name")
