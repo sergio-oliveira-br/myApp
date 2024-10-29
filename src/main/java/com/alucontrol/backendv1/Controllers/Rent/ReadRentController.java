@@ -44,7 +44,10 @@ public class ReadRentController {
 
     @GetMapping("/rent-by-name")
     public ResponseEntity<List<Rent>> getRentByName(String customerName) {
-        return rentServices.findRentByName(customerName);
+
+        List<Rent> rentsFound = rentServices.findRentByName(customerName);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/rent-by-payment-status")

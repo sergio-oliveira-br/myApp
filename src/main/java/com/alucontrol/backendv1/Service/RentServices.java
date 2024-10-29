@@ -11,7 +11,6 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -119,13 +118,14 @@ public class RentServices {
     }
 
     //Metodo de leitura para buscar alugueis atraves do nome do cliente
-    public ResponseEntity<List<Rent>> findRentByName (String customerName) {
+    public List<Rent> findRentByName (String customerName) {
 
-        List<Rent> rents = rentRepository.findRentByFirstName(customerName);
-        if (rents.isEmpty()) {
+        List<Rent> rentsFound = rentRepository.findRentByFirstName(customerName);
+
+        if (rentsFound.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for customer " + customerName);
         }
-        return ResponseEntity.ok(rents);
+        return rentsFound;
     }
 
     //Metodo de leitura para buscar alugueis atraves do status do pagamento
