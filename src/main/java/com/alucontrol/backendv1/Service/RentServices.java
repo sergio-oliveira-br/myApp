@@ -90,10 +90,9 @@ public class RentServices {
     }
 
     //Metodo de Leitura, buscando todos os algueis existentes na base de dados
-    public ResponseEntity<List<Rent>> findAllRents() {
+    public List<Rent> findAllRents() {
 
-        List<Rent> rents = rentRepository.findAll();
-        return ResponseEntity.ok(rents);
+        return rentRepository.findAll();
     }
 
     //Metodo de leitura para buscar um alguel especifico atraves do ID

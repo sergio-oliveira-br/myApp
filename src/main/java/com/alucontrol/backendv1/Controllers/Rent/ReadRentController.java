@@ -20,7 +20,10 @@ public class ReadRentController {
 
     @GetMapping
     public ResponseEntity<List<Rent>> getAllRent() {
-        return rentServices.findAllRents();
+
+        List<Rent> allRentsFound = rentServices.findAllRents();
+
+        return ResponseEntity.ok(allRentsFound);
     }
 
     @GetMapping("/{id}")
