@@ -60,7 +60,10 @@ public class ReadRentController {
 
     @GetMapping("/rent-by-status")
     public ResponseEntity<List<Rent>> getRentByStatus(String rentStatus) {
-        return rentServices.findRentByStatus(rentStatus);
+
+        List<Rent> rentsFound = rentServices.findRentByStatus(rentStatus);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/qty/rent-by-status")
