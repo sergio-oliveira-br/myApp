@@ -59,7 +59,7 @@ public class RentServices {
     }
 
     //Metodo de Atualização de algueis que ja existentem na DB buscando o ID.
-    public ResponseEntity<Rent> saveRentChanges(Rent updatedRent, Long id) {
+    public Rent saveRentChanges(Rent updatedRent, Long id) {
 
         Optional<Rent> rentOptional = rentRepository.findById(id);
 
@@ -77,15 +77,16 @@ public class RentServices {
                 }
 
             } else {
-                LoggerUtil.info("Nenhuma mudança no status foi realizada no aluguel ID: " + id);
+                LoggerUtil.info("There has been no modification to the status of the rental ID: " + id);
             }
 
             Rent savedRent = rentRepository.save(updatedRent);
-            LoggerUtil.info("Aluguel salvo com sucesso: " + updatedRent.toString());
-            return ResponseEntity.ok(savedRent);
+
+            LoggerUtil.info("Rent updated successfully: " + updatedRent);
+            return savedRent;
         }
 
-      throw new ResourceNotFoundException("O aluguel com id" + id + " não foi encontrado");
+      throw new ResourceNotFoundException("Rent ID:" + id + " not found");
     }
 
     //Metodo de Leitura, buscando todos os algueis existentes na base de dados
