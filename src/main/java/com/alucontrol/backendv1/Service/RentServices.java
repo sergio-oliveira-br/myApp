@@ -53,8 +53,8 @@ public class RentServices {
             throw new InternalServerException("Não foi possivel salvar o aluguel. Erro relacioado ao Status");
 
         }catch (DataAccessException e){
-            LoggerUtil.error("Failed to save rent: " + e.getMessage(), e);
-            throw new InternalServerException("Erro ao salvar o aluguel " + e);
+            LoggerUtil.error("Error while saving rent: " + rent, e);
+            throw new InternalServerException("Failed to save rent data. " + e.getMessage());
         }
     }
 
