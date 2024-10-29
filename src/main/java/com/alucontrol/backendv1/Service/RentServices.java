@@ -108,14 +108,14 @@ public class RentServices {
     }
 
     //Metodo de leitura para buscar algueis atraves da data "mes" e "ano"
-    public ResponseEntity<List<Rent>> findRentByDate (String year, String month) {
+    public List<Rent> findRentByDate (String year, String month) {
 
         List<Rent> rents = rentRepository.findByYearAndMonth(year, month);
 
         if (rents.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for year" + year + " and month"  + month);
         }
-        return ResponseEntity.ok(rents);
+        return rents;
     }
 
     //Metodo de leitura para buscar alugueis atraves do nome do cliente
