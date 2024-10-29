@@ -129,13 +129,14 @@ public class RentServices {
     }
 
     //Metodo de leitura para buscar alugueis atraves do status do pagamento
-    public ResponseEntity<List<Rent>> findRentByPaymentStatus (String paymentStatus) {
+    public List<Rent> findRentByPaymentStatus (String paymentStatus) {
 
-        List<Rent> rents = rentRepository.findRentByPaymentStatus(paymentStatus);
-        if (rents.isEmpty()) {
+        List<Rent> rentsFound = rentRepository.findRentByPaymentStatus(paymentStatus);
+
+        if (rentsFound.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for payment status " + paymentStatus);
         }
-        return ResponseEntity.ok(rents);
+        return rentsFound;
     }
 
     //Metodo de leitura para buscar alugueis atraves do status do aluguel
