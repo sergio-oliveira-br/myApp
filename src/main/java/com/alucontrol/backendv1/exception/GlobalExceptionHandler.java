@@ -85,4 +85,19 @@ public class GlobalExceptionHandler {
                 "Ocorreu um erro inesperado. Tente novamente mais tarde."
         );
     }
+
+    @ExceptionHandler(DuplicateUserException.class)
+    public ResponseEntity<ProblemDetails> handleDuplicateUserException(RuntimeException ex,
+                                                                       HttpServletRequest request) {
+
+        String correlationId = UUID.randomUUID().toString();
+        LoggerUtil.error("User already exists in the database." + request.getRequestURI() +
+                ", with CorrelationId: " + correlationId + ", Error: " + ex.getMessage());
+
+        return buildErrorResponse(
+                HttpStatus.CONFLICT, //409
+                "O cadastro não pode ser realizado.",
+                "Tente novamente com outro username."
+        );
+    }
 }
