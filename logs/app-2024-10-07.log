@@ -1626,7 +1626,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.alucontrol.backendv1.Controllers.Customer.CustomerStatisticsController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@351937c1]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.alucontrol.backendv1.controllers.customer.CustomerStatisticsController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@351937c1]
 	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483)
 	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:475)
@@ -1637,7 +1637,7 @@ Caused by: java.lang.NoClassDefFoundError: com/alucontrol/backendv1/Exception/Re
 	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2686)
 	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465)
 	... 24 common frames omitted
-Caused by: java.lang.ClassNotFoundException: com.alucontrol.backendv1.Exception.ResourceNotFoundException
+Caused by: java.lang.ClassNotFoundException: com.alucontrol.backendv1.exception.ResourceNotFoundException
 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)

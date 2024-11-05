@@ -30,13 +30,13 @@
 2024-10-20 09:58:47 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-10-20 09:58:47 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2024-10-20 09:59:30 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/expense/category, with CorrelationId: 292f16f6-17a6-41b2-9b49-5c3bde5592e6, Error: Expense category Outros not found
-2024-10-20 09:59:30 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Expense category Outros not found]
+2024-10-20 09:59:30 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Expense category Outros not found]
 2024-10-20 09:59:34 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/expense/category, with CorrelationId: 5248f1c4-777d-4ca9-b904-9509cfc13d99, Error: Expense category Outros not found
-2024-10-20 09:59:34 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Expense category Outros not found]
+2024-10-20 09:59:34 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Expense category Outros not found]
 2024-10-20 10:00:44 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/expense/year-month, with CorrelationId: a158ab1a-3796-45ab-bba0-2b87b525cfa8, Error: Expense - not found
-2024-10-20 10:00:44 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Expense - not found]
+2024-10-20 10:00:44 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Expense - not found]
 2024-10-20 10:00:49 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/expense/year-month, with CorrelationId: d3bce1d2-ce61-47b9-934e-c17eea840da7, Error: Expense -44 not found
-2024-10-20 10:00:49 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Expense -44 not found]
+2024-10-20 10:00:49 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Expense -44 not found]
 2024-10-20 10:03:48 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /rent, with CorrelationId: 913f99f1-685f-4125-82b8-c512e483ca0e, Error: No static resource rent.
 2024-10-20 10:03:48 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource rent.]
 2024-10-20 10:04:00 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /rent, with CorrelationId: 42a9e94f-81cf-4084-a368-fb99c802453e, Error: No static resource rent.

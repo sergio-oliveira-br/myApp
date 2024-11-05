@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/expenses/expensesReport/expensesAllDataFilter.js
 
 /**
- * Page: Expense Report
+ * Page: expense Report
  * Item: Table
  * Method: Load all expenses into the table without filtering
  */

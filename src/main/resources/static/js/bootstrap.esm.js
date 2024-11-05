@@ -86,7 +86,7 @@ const toType = object => {
 };
 
 /**
- * Public Util API
+ * Public util API
  */
 
 const getUID = prefix => {

@@ -13,7 +13,7 @@
 // src/main/resources/static/js/modules/dashboard/dashboardRentPageInit.js
 
 /**
- * Page: Dashboard
+ * Page: dashboard
  * Item: Initialization
  * Method: Load data and render charts
  */

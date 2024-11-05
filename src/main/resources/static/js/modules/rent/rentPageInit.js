@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 
-    //Load Rent the table on Rent page
+    //Load rent the table on rent page
     loadRentTable();
 
     //load customers created in the form as a list
@@ -24,7 +24,7 @@ $(document).ready(function () {
         alert('O status do aluguel foi alterado.' +
             '\nCertifique-se de que você escolheu a opção correta!');
 
-        console.log('Rent Status Changed');
+        console.log('rent Status Changed');
     });
 
     //(Modal)Update total price when price or quantity change

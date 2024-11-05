@@ -343,7 +343,7 @@
 2024-10-10 11:44:18 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource rent.]
 2024-10-10 11:44:40 ERROR c.a.backendv1.Util.LoggerUtil - No Rent found for year 2024 and month 07
 2024-10-10 11:44:40 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/rent-by-date, with CorrelationId: bd8c9bbf-e09a-4b58-978f-ced7ce0b3b9e, Error: No Rent found
-2024-10-10 11:44:40 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: No Rent found]
+2024-10-10 11:44:40 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: No Rent found]
 2024-10-10 11:45:07 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-10-10 11:45:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2024-10-10 11:45:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

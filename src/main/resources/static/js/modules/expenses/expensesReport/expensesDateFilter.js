@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/expenses/expensesReport/expensesDateFilter.js
 
 /**
- * Page: Expense Report
+ * Page: expense Report
  * Item: Table
  * Method: Filter expenses by date (Month and Year)
  */

@@ -1159,8 +1159,8 @@ Caused by: java.lang.NumberFormatException: For input string: "${PORT}"
 	... 145 common frames omitted
 2024-11-05 17:06:34 INFO  c.a.backendv1.Util.LoggerUtil - [] Customer saved successfully: Customer{ID=1, firstName='Sergio', lastName='null', phoneNumber='null', additionalInfo='null', city='DUB'}
 2024-11-05 17:06:34 ERROR c.a.backendv1.Util.LoggerUtil - [] Error while saving customer: Customer{ID=1, firstName='Sergio', lastName='null', phoneNumber='null', additionalInfo='null', city='DUB'}
-com.alucontrol.backendv1.Exception.DataAccessException: Attempting to save client data was unsuccessful
-	at com.alucontrol.backendv1.Service.CustomerService.saveCustomer(CustomerService.java:25)
+com.alucontrol.backendv1.exception.DataAccessException: Attempting to save client data was unsuccessful
+	at com.alucontrol.backendv1.service.CustomerService.saveCustomer(CustomerService.java:25)
 	at com.alucontrol.backendv1.ControllerTest.CustomerServiceTest$SaveCustomerTests.lambda$saveCustomerFailure$0(CustomerServiceTest.java:76)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)

@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/expenses/expensesReport/expensesCategoryFilter.js
 
 /**
- * Page: Expense Report
+ * Page: expense Report
  * Item: Table
  * Method: Load expenses filtered by category
  */

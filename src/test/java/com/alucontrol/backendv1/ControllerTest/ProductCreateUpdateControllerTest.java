@@ -13,9 +13,9 @@
 //
 ////Reference: https://site.mockito.org
 //
-//import com.alucontrol.backendv1.Controllers.Product.ProductCreateUpdateController;
-//import com.alucontrol.backendv1.Model.Product;
-//import com.alucontrol.backendv1.Repository.ProductRepository;
+//import com.alucontrol.backendv1.controllers.product.ProductCreateUpdateController;
+//import com.alucontrol.backendv1.model.product;
+//import com.alucontrol.backendv1.repository.ProductRepository;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
 //import org.mockito.InjectMocks;
@@ -32,8 +32,8 @@
 //
 ///** This test focuses on the "saveProduct" method by checking:
 //
-// -> Whether the method correctly saves a Product in the database.
-// -> If the method returns a Customer object with the correct data.
+// -> Whether the method correctly saves a product in the database.
+// -> If the method returns a customer object with the correct data.
 // -> If the method throws an exception when an error occurs.
 // -> Whether the method creates a correct log when the client is saved successfully or when an error occurs.*/
 //
@@ -53,36 +53,36 @@
 //    public void saveProductSuccess()
 //    {
 //        //create a instance object
-//        Product product = new Product();
+//        product product = new product();
 //        product.setItemDescription("ItemTest");
 //        product.setItemQuantity(99);
 //
-//        /** Stubbing: Set the behavior of the Repository save method.
+//        /** Stubbing: Set the behavior of the repository save method.
 //          * When the save method is called in the productRepository object
 //          * with the product argument, return the product itself as a result */
-//        when(productRepository.save(any(Product.class))).thenReturn(product);
+//        when(productRepository.save(any(product.class))).thenReturn(product);
 //
-//        ResponseEntity<Product> response;
+//        ResponseEntity<product> response;
 //
 //        /** The method is expected to return a response with a status code of 200 (OK) and the client saved */
 //        assertEquals("Status code should be 200: ", HttpStatus.OK, response.getStatusCode());
 //        assertEquals("Returned customer should match: ", product, response.getBody());
-//        verify(productRepository).save(any(Product.class));
+//        verify(productRepository).save(any(product.class));
 //    }
 //
 //    //The error case, where an exception is thrown when trying to save the product to the database.
 //    @Test
-//    public void saveProductError() throws Exception
+//    public void saveProductError() throws exception
 //    {
 //        //create a instance object
-//        Product testProduct = new Product();
+//        product testProduct = new product();
 //        testProduct.setItemDescription("ItemTest");
 //        testProduct.setItemQuantity(99);
 //
 //        //Mockito will throw a RuntimeException exception instead of actually saving the client to the database
-//        doThrow(new RuntimeException("Error saving testProduct")).when(productRepository).save(any(Product.class));
+//        doThrow(new RuntimeException("Error saving testProduct")).when(productRepository).save(any(product.class));
 //
-//        ResponseEntity<Product> response;
+//        ResponseEntity<product> response;
 //        response = productCreateUpdateController.saveProduct(testProduct);
 //
 //        //Checks whether the server response is an internal error (500) and whether the response body is empty
