@@ -20,7 +20,9 @@ public class ReadSaleController {
 
     @GetMapping
     public ResponseEntity<List<Sale>> getAllSales() {
-        return saleService.findAllSales();
+
+        List<Sale> salesFound = saleService.findAllSales();
+        return ResponseEntity.ok(salesFound);
     }
 
     @GetMapping("/{id}")

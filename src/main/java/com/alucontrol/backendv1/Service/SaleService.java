@@ -54,10 +54,9 @@ public class SaleService {
     }
 
     //Metodo de leitura, buscando todos as vendas na base de dados
-    public ResponseEntity<List<Sale>> findAllSales () {
+    public List<Sale> findAllSales () {
 
-        List<Sale> sales = saleRepository.findAll();
-        return ResponseEntity.ok(sales);
+        return saleRepository.findAll();
     }
 
     //Metodo de leiteura responsavel por buscar uma venda específica atraves do ID.
