@@ -44,6 +44,12 @@
             </exclusions>
         </dependency>
 
+        <!-- Spring Secutity Core -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- Mockito Core -->
         <dependency>
             <groupId>org.mockito</groupId>
