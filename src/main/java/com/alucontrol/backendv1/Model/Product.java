@@ -1,16 +1,8 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -19,25 +11,23 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @NotBlank(message = "A descrição do item é um campo obrigatorio e não pode ser vazio ou branco")
     private String itemDescription;
 
-    @Column(nullable = false)
+    @NotNull(message = "A qtd é um campo importante para o gerenciamento do estoque, por isso deve ser preenchido")
     private int itemQuantity;
 
-    @Column(nullable = false)
+    @NotNull(message = "A qty disponível auxilia o controle de estoque, por isso não pode ser nulo")
     private double itemAvailableQty;
 
-    @Column(nullable = false)
+    @NotBlank(message = "O tipo não pode ser um campo em branco")
     private String productType;
 
-    @Column(nullable = true) //this field should be autofilled by js
     private String dateCreated;
 
-    @Column(nullable = true) //this field should be autofilled by js
     private String dateModified;
 
-    @Column(nullable = false) //the purpose of this is to set a unique price
+    @NotNull(message = "O preço é um campo obrigatorio, e deve ser preenchido")
     private double itemPrice;
 
     //Getters and Setters
@@ -70,14 +60,29 @@ public class Product {
     public void setItemAvailableQty(double itemAvailableQty) {this.itemAvailableQty = itemAvailableQty;}
 
     //This make part of version 2.0, where I will improve the traceability, and segregate the rent and sale responsibility
-    public String getProductType() {return productType;}
-    public void setProductType(String productType) {this.productType = productType;}
-    public String getDateCreated() {return dateCreated;}
-    public void setDateCreated(String dateCreated) {this.dateCreated = dateCreated;}
-    public String getDateModified() {return dateModified;}
-    public void setDateModified(String dateModified) {this.dateModified = dateModified;}
-    public double getItemPrice() {return itemPrice;}
-    public void setItemPrice(double itemPrice) {this.itemPrice = itemPrice;}
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
+    public String getDateModified() {
+        return dateModified;
+
+    }
+
+    public void setDateModified(String dateModified) {
+        this.dateModified = dateModified;
+    }
+    public double getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
+    }
 
     @Override
     public String toString() {

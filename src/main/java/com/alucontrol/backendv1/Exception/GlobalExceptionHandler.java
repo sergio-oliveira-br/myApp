@@ -67,8 +67,22 @@ public class GlobalExceptionHandler {
 
         return buildErrorResponse (
                 HttpStatus.INTERNAL_SERVER_ERROR,
-                "Erro interno do servidor.",
+                "Erro interno genérico ",
                 ex.getMessage()
+        );
+    }
+
+    @ExceptionHandler(InternalServerException.class)
+    public ResponseEntity<ProblemDetails> handleInternalServerException(InternalServerException ex, HttpServletRequest request) {
+
+        // Correlation ID and Log
+        String correlationId = UUID.randomUUID().toString();
+        LoggerUtil.error("Internal server error on path: " + request.getRequestURI() + ", with CorrelationId: " + correlationId + ", Error: " + ex.getMessage());
+
+        return buildErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                "Erro interno do servidor.",
+                "Ocorreu um erro inesperado. Tente novamente mais tarde."
         );
     }
 }

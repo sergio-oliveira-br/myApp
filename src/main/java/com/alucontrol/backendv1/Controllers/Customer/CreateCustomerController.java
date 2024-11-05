@@ -2,6 +2,7 @@ package com.alucontrol.backendv1.Controllers.Customer;
 
 import com.alucontrol.backendv1.Model.Customer;
 import com.alucontrol.backendv1.Service.CustomerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,13 @@ public class CreateCustomerController {
         this.customerService = customerService;
     }
 
-    //This endpoint is responsible to create a new Customer into a DB
+    // Este endpoint é responsavel por receber um objeto Customer no corpo da requisição,
+    // fazer a validacao valida os dados e, se estiverem corretos, persiste o cliente na base de dados, retornando 201
     @PostMapping("/create-customer")
     public ResponseEntity<Customer> createCustomer(@Validated @RequestBody Customer customer) {
-        return customerService.saveCustomer(customer);
+
+        Customer newCustomer = customerService.saveCustomer(customer);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newCustomer);
     }
 }

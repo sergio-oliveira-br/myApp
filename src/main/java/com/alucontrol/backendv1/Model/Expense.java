@@ -1,19 +1,11 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-/** The Expense class represents an expense entity in the application
- *  This class is mapped to the "expenses" table in the database.*/
+// The represents an expense entity in the application,
+// This class is mapped to the "expenses" table in the database.
 @Entity
 @Table(name = "expenses")
 public class Expense
@@ -22,26 +14,22 @@ public class Expense
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment by the database
     private Long id;
 
-    @Column(nullable = false) //cannot be null
+    @NotBlank(message = "O campo descrição da despesa não pode ser em branco")
     private String expenseDescription;
 
-    @Column(nullable = false) //cannot be null
+    @NotNull(message = "O valor da despsas é fundamental para esta operação")
     private double expenseAmount;
 
-    @Column(nullable = false) //cannot be null
+    @NotBlank(message = "A data nos ajudará a manter o registro das despesaas, por isso é um campo obrigatorio")
     private String expenseDate;
 
-    @Column(nullable = false) //cannot be null
+    @NotBlank(message = "A categoria da despesa é essencial para analise de gasto, por isso deve ser preenchido")
     private String expenseCategory;
 
-//    @Column(nullable = false) //cannot be null
-//    private String ExpenseType;
-
-    @Column(nullable = true)
     private String expenseAdditionalNotes;
 
 
-    /** Getters and Setters */
+    // Getters and Setters
     public long getId() {
         return id;
     }
@@ -50,52 +38,12 @@ public class Expense
         this.id = id;
     }
 
-    public String getExpenseDescription() {
-        return expenseDescription;
-    }
-
-    public void setExpenseDescription(String expenseDescription) {
-        this.expenseDescription = expenseDescription;
-    }
-
-    public double getExpenseAmount() {
-        return expenseAmount;
-    }
-
-    public void setExpenseAmount(double expenseAmount) {
-        this.expenseAmount = expenseAmount;
-    }
-
-    public String getExpenseDate() {
-        return expenseDate;
-    }
-
-    public void setExpenseDate(String expenseDate) {
-        this.expenseDate = expenseDate;
-    }
-
     public String getExpenseCategory() {
         return expenseCategory;
     }
 
     public void setExpenseCategory(String expenseCategory) {
         this.expenseCategory = expenseCategory;
-    }
-
-//    public String getExpenseType() {
-//        return ExpenseType;
-//    }
-//
-//    public void setExpenseType(String expenseType) {
-//        ExpenseType = expenseType;
-//    }
-
-    public String getExpenseAdditionalNotes() {
-        return expenseAdditionalNotes;
-    }
-
-    public void setExpenseAdditionalNotes(String expenseAdditionalNotes) {
-        this.expenseAdditionalNotes = expenseAdditionalNotes;
     }
 
     @Override

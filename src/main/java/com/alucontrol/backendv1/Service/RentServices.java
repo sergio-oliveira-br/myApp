@@ -1,5 +1,7 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Rent;
 import com.alucontrol.backendv1.Repository.RentRepository;
@@ -9,7 +11,6 @@ import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -32,26 +33,32 @@ public class RentServices {
 
 
     //Metodo de Salvamento,
-    public ResponseEntity<Rent> saveRent(Rent rent) {
+    public Rent saveRent(Rent rent) {
 
         String rentStatus = rent.getRentStatus();
-        RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
 
-        Rent savedRent = rentRepository.save(rent);
+        try{
+            RentStatusHandler rentStatusHandler = rentStatusHandlers.get(rentStatus);
+            Rent savedRent = rentRepository.save(rent);
 
-        //Verifica o rentStatus do rent para para fazer o ajuste necessario
-        if(rentStatusHandler != null ){
-            rentStatusHandler.handleRentStatusUpdate(rent);
+            //Verifica o rentStatus do rent para para fazer o ajuste necessario
+            if(rentStatusHandler != null ){
+                rentStatusHandler.handleRentStatusUpdate(rent);
 
-            LoggerUtil.info("Aluguel salvo com sucesso: " + savedRent.toString());
-            return ResponseEntity.ok(savedRent);
+                LoggerUtil.info("Rent saved successfully: " + savedRent);
+                return savedRent;
+            }
+
+            throw new InternalServerException("Não foi possivel salvar o aluguel. Erro relacioado ao Status");
+
+        }catch (DataAccessException e){
+            LoggerUtil.error("Error while saving rent: " + rent, e);
+            throw new InternalServerException("Failed to save rent data. " + e.getMessage());
         }
-
-        throw new IllegalArgumentException("Erro ao salvar o aluguel.");
     }
 
     //Metodo de Atualização de algueis que ja existentem na DB buscando o ID.
-    public ResponseEntity<Rent> saveRentChanges(Rent updatedRent, Long id) {
+    public Rent saveRentChanges(Rent updatedRent, Long id) {
 
         Optional<Rent> rentOptional = rentRepository.findById(id);
 
@@ -69,90 +76,90 @@ public class RentServices {
                 }
 
             } else {
-                LoggerUtil.info("Nenhuma mudança no status foi realizada no aluguel ID: " + id);
+                LoggerUtil.info("There has been no modification to the status of the rental ID: " + id);
             }
 
             Rent savedRent = rentRepository.save(updatedRent);
-            LoggerUtil.info("Aluguel salvo com sucesso: " + updatedRent.toString());
-            return ResponseEntity.ok(savedRent);
+
+            LoggerUtil.info("Rent updated successfully: " + updatedRent);
+            return savedRent;
         }
 
-      throw new ResourceNotFoundException("O aluguel com id" + id + " não foi encontrado");
+      throw new ResourceNotFoundException("Rent ID:" + id + " not found");
     }
 
     //Metodo de Leitura, buscando todos os algueis existentes na base de dados
-    public ResponseEntity<List<Rent>> findAllRents() {
+    public List<Rent> findAllRents() {
 
-        List<Rent> rents = rentRepository.findAll();
-        return ResponseEntity.ok(rents);
+        return rentRepository.findAll();
     }
 
     //Metodo de leitura para buscar um alguel especifico atraves do ID
-    public ResponseEntity<Rent> findRentById (@RequestParam Long id) {
+    public Rent findRentById (Long id) {
 
         Optional<Rent> rentOptional = rentRepository.findById(id);
 
         if (rentOptional.isPresent()) {
-            return ResponseEntity.ok(rentOptional.get());
+            return rentOptional.get();
         }
 
-        throw new ResourceNotFoundException("Rent with id" + id + " not found");
+        throw new ResourceNotFoundException("Rent ID:" + id + " not found");
     }
 
     //Metodo de leitura para buscar algueis atraves da data "mes" e "ano"
-    public ResponseEntity<List<Rent>> findRentByDate (String year, String month) {
+    public List<Rent> findRentByDate (String year, String month) {
 
         List<Rent> rents = rentRepository.findByYearAndMonth(year, month);
 
         if (rents.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for year" + year + " and month"  + month);
         }
-        return ResponseEntity.ok(rents);
+        return rents;
     }
 
     //Metodo de leitura para buscar alugueis atraves do nome do cliente
-    public ResponseEntity<List<Rent>> findRentByName (String customerName) {
+    public List<Rent> findRentByName (String customerName) {
 
-        List<Rent> rents = rentRepository.findRentByFirstName(customerName);
-        if (rents.isEmpty()) {
+        List<Rent> rentsFound = rentRepository.findRentByFirstName(customerName);
+
+        if (rentsFound.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for customer " + customerName);
         }
-        return ResponseEntity.ok(rents);
+        return rentsFound;
     }
 
     //Metodo de leitura para buscar alugueis atraves do status do pagamento
-    public ResponseEntity<List<Rent>> findRentByPaymentStatus (String paymentStatus) {
+    public List<Rent> findRentByPaymentStatus (String paymentStatus) {
 
-        List<Rent> rents = rentRepository.findRentByPaymentStatus(paymentStatus);
-        if (rents.isEmpty()) {
+        List<Rent> rentsFound = rentRepository.findRentByPaymentStatus(paymentStatus);
+
+        if (rentsFound.isEmpty()) {
             throw new ResourceNotFoundException("No Rent found for payment status " + paymentStatus);
         }
-        return ResponseEntity.ok(rents);
+        return rentsFound;
     }
 
     //Metodo de leitura para buscar alugueis atraves do status do aluguel
-    public ResponseEntity<List<Rent>> findRentByStatus (String rentStatus) {
+    public List<Rent> findRentByStatus (String rentStatus) {
 
         List<Rent> rents = rentRepository.findRentByStatus(rentStatus);
-        if (rents.isEmpty()) {
-            throw new ResourceNotFoundException("Não foi encontrado nenhum aluguel para status " + rentStatus);
-        }
 
-        return ResponseEntity.ok(rents);
+        if (rents.isEmpty()) {
+            throw new ResourceNotFoundException("No Rent found for rent status " + rentStatus);
+        }
+        return rents;
     }
 
 
     //Metodo de leitura para buscar a quantidade/contar os alugueis de acordo com o status do alugel
-    public ResponseEntity<Long> findQtyRentByRentStatus (String rentStatus) {
+    public Long findQtyRentByRentStatus (String rentStatus) {
 
-        Long countRent = rentRepository.countRentByStatus(rentStatus);
-        return ResponseEntity.ok(countRent);
+        return rentRepository.countRentByStatus(rentStatus);
     }
 
     //Metodo de leitura para buscar a quantidade/contar os alugueis de acordo com o status do pagamento
-    public ResponseEntity<Long> findQtyRentByPaymentStatus (String paymentStatus) {
+    public Long findQtyRentByPaymentStatus (String paymentStatus) {
 
-        Long countRent = rentRepository.countRentByPaymentStatus(paymentStatus);
-        return ResponseEntity.ok(countRent);
+        return rentRepository.countRentByPaymentStatus(paymentStatus);
     }
 }

@@ -1,66 +1,47 @@
-/**
- * National College of Ireland - NCI
- *    Higher Diploma in Computing
- *         Final Project
- *              ---
- * Author: Sergio Vinicio da Silva Oliveira
- * ID: x23170981@student.ncirl.ie
- * Project Commencing May 2024
- * Version: 1.0
- */
 package com.alucontrol.backendv1.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-//Indicates that this class is a JPA entity and will be mapped to a table in the database
 @Entity
-
-//Specifies the name of the table in the database to which the entity will be mapped
 @Table(name = "rent")
-public class Rent
-{
-    /** Here is the original data from the Rent */
+public class Rent {
+
     @Id //Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @NotNull(message = "O nome do cliente deve ser informado")
     private String rentFirstName;
 
-    @Column(nullable = true)
     private String rentLastName;
 
-    @Column(nullable = true)
     private String rentAddress;
 
-    @Column(nullable = true)
-    private String rentItem; //this will be deleted
+    @NotBlank(message = "O item deve ser informado para ser associado ao aluguel")
+    private String rentItem;
 
-    @Column(nullable = true)
     private double rentPrice;
 
-    @Column(nullable = true)
     private int rentQtyItem;
 
-    @Column(nullable = true)
+    @NotBlank(message = "As datas são informações que precisam ser preenchidas")
     private String rentStarts;
 
-    @Column(nullable = true)
+    @NotBlank(message = "As datas são informações que precisam ser preenchidas")
     private String rentEnds;
 
-    @Column(nullable = true)
     private int rentTotalDays;
 
-    @Column(nullable = true)
     private double rentTotalPrice;
 
-    @Column(nullable = true)
     private String rentDetails;
 
-    @Column(nullable = true)
+    @NotBlank(message = "A cituação do pagamento é um campo obrigatório, e deve ser preenchido")
     private String rentPaymentStatus;
 
-    @Column(nullable = true)
+    @NotBlank(message = "O status irá auxiliar no controle dos aluguéis, por isso não pode ser vazio")
     private String rentStatus;
 
 
@@ -80,15 +61,7 @@ public class Rent
     public void setRentFirstName(String rentFirstName) {
         this.rentFirstName = rentFirstName;
     }
-
-    public String getRentLastName() {
-        return rentLastName;
-    }
-
-    public void setRentLastName(String rentLastName) {
-        this.rentLastName = rentLastName;
-    }
-
+    
     public String getRentAddress() {
         return rentAddress;
     }

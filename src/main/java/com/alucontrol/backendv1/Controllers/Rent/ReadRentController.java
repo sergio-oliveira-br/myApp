@@ -20,42 +20,65 @@ public class ReadRentController {
 
     @GetMapping
     public ResponseEntity<List<Rent>> getAllRent() {
-        return rentServices.findAllRents();
+
+        List<Rent> allRentsFound = rentServices.findAllRents();
+
+        return ResponseEntity.ok(allRentsFound);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Rent> getRentById(@PathVariable Long id) {
-        return rentServices.findRentById(id);
+
+        Rent rentFound = rentServices.findRentById(id);
+
+        return ResponseEntity.ok(rentFound);
     }
 
     @GetMapping("/rent-by-date")
     public ResponseEntity<List<Rent>> getRentByDate(String year, String month) {
-        return rentServices.findRentByDate(year, month);
+
+        List<Rent> rentsFound = rentServices.findRentByDate(year, month);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/rent-by-name")
     public ResponseEntity<List<Rent>> getRentByName(String customerName) {
-        return rentServices.findRentByName(customerName);
+
+        List<Rent> rentsFound = rentServices.findRentByName(customerName);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/rent-by-payment-status")
     public ResponseEntity<List<Rent>> getRentByPaymentStatus(String paymentStatus) {
-        return rentServices.findRentByPaymentStatus(paymentStatus);
+
+        List<Rent> rentsFound = rentServices.findRentByPaymentStatus(paymentStatus);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/rent-by-status")
     public ResponseEntity<List<Rent>> getRentByStatus(String rentStatus) {
-        return rentServices.findRentByStatus(rentStatus);
+
+        List<Rent> rentsFound = rentServices.findRentByStatus(rentStatus);
+
+        return ResponseEntity.ok(rentsFound);
     }
 
     @GetMapping("/qty/rent-by-status")
     public ResponseEntity<Long> getRentQtyByStatus(String status) {
-        return rentServices.findQtyRentByRentStatus(status);
+
+        Long countRents = rentServices.findQtyRentByRentStatus(status);
+
+        return ResponseEntity.ok(countRents);
     }
 
     @GetMapping("/qty/rent-by-payment-status")
     public ResponseEntity<Long> getRentQtyByPaymentStatus(String paymentStatus) {
-        return rentServices.findQtyRentByPaymentStatus(paymentStatus);
-    }
 
+        Long countRents = rentServices.findQtyRentByPaymentStatus(paymentStatus);
+
+        return ResponseEntity.ok(countRents);
+    }
 }

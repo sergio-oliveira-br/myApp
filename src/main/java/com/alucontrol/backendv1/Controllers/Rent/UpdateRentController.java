@@ -19,6 +19,9 @@ public class UpdateRentController {
 
     @PutMapping("/update-rent/{id}")
     public ResponseEntity<Rent> updateRent(@RequestBody Rent rent, @PathVariable("id") Long id) {
-        return rentServices.saveRentChanges(rent, id);
+
+        Rent updatedRent = rentServices.saveRentChanges(rent, id);
+
+        return ResponseEntity.ok(updatedRent);
     }
 }

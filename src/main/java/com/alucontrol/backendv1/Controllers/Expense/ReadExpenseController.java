@@ -19,26 +19,37 @@ public class ReadExpenseController {
 
     //Endpoit para buscar todos as despesas presentes no banco de dados.
     @GetMapping()
-    public ResponseEntity<List<Expense>> getExpense() {
-        return expenseService.findAllExpenses();
+    public ResponseEntity<List<Expense>> getAllExpenses() {
+
+        List<Expense> allExpenses = expenseService.findAllExpenses();
+
+        return ResponseEntity.ok(allExpenses);
     }
 
     //Method para buscar uma despesa específica atraves do id.
     @GetMapping("/{id}")
     public ResponseEntity<Expense> getExpenseById(@PathVariable Long id){
-        return expenseService.findExpenseById(id);
+
+        Expense expenseFound = expenseService.findExpenseById(id);
+
+        return ResponseEntity.ok(expenseFound);
     }
 
     //Metodo para buscar uma lista de despesas atraves da categoria.
     @GetMapping("/category")
     public ResponseEntity<List<Expense>> getExpensesByCategory(@RequestParam("expenseCategory") String expenseCategory) {
-        return expenseService.findExpenseByCategory(expenseCategory);
+
+        List<Expense> expensesFound =  expenseService.findExpenseByCategory(expenseCategory);
+
+        return ResponseEntity.ok(expensesFound);
     }
 
     //Metodo para buscar/filtrar a lista de despesas atraves do "Month" e "Year"
     @GetMapping("/year-month")
     public ResponseEntity<List<Expense>> getExpenseByDate(String year, String month) {
-      return expenseService.findExpenseByDate(year, month);
-    }
 
+        List<Expense> expensesFound =  expenseService.findExpenseByDate(year, month);
+
+        return ResponseEntity.ok(expensesFound);
+    }
 }

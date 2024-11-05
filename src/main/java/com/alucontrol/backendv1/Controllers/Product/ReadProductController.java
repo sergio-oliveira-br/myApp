@@ -1,12 +1,9 @@
 package com.alucontrol.backendv1.Controllers.Product;
 
-import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
-import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Service.ProductService;
-import com.alucontrol.backendv1.Util.LoggerUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,21 +24,33 @@ public class ReadProductController {
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProduct() {
-        return productService.findAllProducts();
+
+        List<Product> productsFound = productService.findAllProducts();
+
+        return ResponseEntity.ok(productsFound);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id){
-        return productService.findProductById(id);
+
+        Product productFound = productService.findProductById(id);
+
+        return ResponseEntity.ok(productFound);
     }
 
     @GetMapping("/product-by-type")
     public ResponseEntity<List<ItemPriceProjection>> getProductByType(String productType) {
-        return productService.findProductByType(productType);
+
+        List<ItemPriceProjection> productsFound = productService.findProductByType(productType);
+
+        return ResponseEntity.ok(productsFound);
     }
 
     @GetMapping("/qty/product-by-type")
     public ResponseEntity<List<ProductStockProjection>> getProductQtyByType(String productType) {
-        return productService.findProductStockByType(productType);
+
+        List<ProductStockProjection> productsFound = productService.findProductStockByType(productType);
+
+        return ResponseEntity.ok(productsFound);
     }
 }

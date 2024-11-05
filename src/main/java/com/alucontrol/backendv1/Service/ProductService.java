@@ -1,12 +1,13 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Product;
 import com.alucontrol.backendv1.Projection.Product.ItemPriceProjection;
 import com.alucontrol.backendv1.Projection.Product.ProductStockProjection;
 import com.alucontrol.backendv1.Repository.ProductRepository;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,21 +23,28 @@ public class ProductService {
     }
 
     //Metodo de Salvamento
-    public ResponseEntity<Product> saveProduct(Product product) {
+    public Product saveProduct(Product product) {
 
-        //Confitura o campo 'itemAvailableQty' com a mesma quantidade do campo 'itemQuantity'
-        product.setItemAvailableQty(product.getItemQuantity());
-        Product savedProduct = productRepository.save(product);
-        LoggerUtil.info("Product saved successfully: " + savedProduct.toString());
+        try{
+            //Confitura o campo 'itemAvailableQty' com a mesma quantidade do campo 'itemQuantity'
+            product.setItemAvailableQty(product.getItemQuantity());
 
-        return ResponseEntity.ok(savedProduct);
+            Product savedProduct = productRepository.save(product);
+
+            LoggerUtil.info("Product saved successfully: " + savedProduct);
+            return savedProduct;
+
+        }catch (DataAccessException e){
+            LoggerUtil.error("Error while saving product: " + product, e);
+            throw new InternalServerException("Failed to save product data. " + e.getMessage());
+        }
     }
 
-    //Metodo de Atualização de Produtos que ja existentem por meio do ID
-    public ResponseEntity<Product> saveProductChanges(Product updatedProduct, Long id) {
+    //Metodo de Atualização de Produtos que ja existentem por meio do "ID"
+    public Product saveProductChanges(Product updatedProduct, Long id) {
 
         Optional<Product> productOptional = productRepository.findById(id);
-        LoggerUtil.info("Starting updating product: " + productOptional.toString());
+        LoggerUtil.info("Starting updating product: " + productOptional);
 
         if (productOptional.isPresent()) {
 
@@ -44,56 +52,59 @@ public class ProductService {
 
             product.setItemDescription(updatedProduct.getItemDescription());
             product.setItemQuantity(updatedProduct.getItemQuantity());
-            product.setItemAvailableQty(updatedProduct.getItemAvailableQty()); //why is this different?
+            product.setItemAvailableQty(updatedProduct.getItemAvailableQty());
             product.setProductType(updatedProduct.getProductType());
             product.setItemPrice(updatedProduct.getItemPrice());
             product.setDateModified(updatedProduct.getDateModified());//this will get data and time when the item has been changed
 
             Product savedProduct = productRepository.save(product);
-            LoggerUtil.info("Product Updated Successfully: " + savedProduct.toString());
-            return ResponseEntity.ok(savedProduct);
+
+            LoggerUtil.info("Product Updated Successfully: " + savedProduct);
+            return savedProduct;
         }
 
-        throw new ResourceNotFoundException("Product with id " + id + " not found");
+        throw new ResourceNotFoundException("Product ID:" + id + " not found");
     }
 
     //Metodo de Leitura buscando todos os produtos existentes na base de dados
-    public ResponseEntity<List<Product>> findAllProducts() {
+    public List<Product> findAllProducts() {
 
-        List<Product> products = productRepository.findAll();
-        return ResponseEntity.ok(products);
+        return productRepository.findAll();
     }
 
-    //Metodo de Leitura buscando um produto específico por meio do ID.
-    public ResponseEntity<Product> findProductById(Long id) {
+    //Metodo de Leitura buscando um produto específico por meio do "ID"
+    public Product findProductById(Long id) {
 
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            return ResponseEntity.ok(product.get());
+        Optional<Product> productFound = productRepository.findById(id);
+
+        if (productFound.isPresent()) {
+            return productFound.get();
         }
 
-        throw new ResourceNotFoundException("Product " + product + " not found.");
+        throw new ResourceNotFoundException("Product ID:" +  id + " not found.");
     }
 
     //Metodo de Leitura buscando os produtos por meio da selecao de do tipo cadastrado
-    public ResponseEntity<List<ItemPriceProjection>> findProductByType(String productType) {
+    public List<ItemPriceProjection> findProductByType(String productType) {
 
-        if (productRepository.findProductsByProductType(productType) == null){
-            throw new ResourceNotFoundException("Product type " + productType + " not found.");
+        List<ItemPriceProjection> productsByType = productRepository.findProductsByProductType(productType);
+
+        if (productsByType == null){
+            throw new ResourceNotFoundException("Product Type:" + productType + " not found.");
         }
 
-        List<ItemPriceProjection> products = productRepository.findProductsByProductType(productType);
-        return ResponseEntity.ok(products);
+        return productsByType;
     }
 
     //Method de leitura que busca os produtos por meio da seleção do tipo do cadastro e retorna a quantidade
-    public ResponseEntity<List<ProductStockProjection>> findProductStockByType(String productType) {
+    public List<ProductStockProjection> findProductStockByType(String productType) {
 
-        if (productRepository.findProductsAndQtyByProductType(productType) == null){
-            throw new ResourceNotFoundException("Product type " + productType + " not found.");
+        List<ProductStockProjection> productsFound = productRepository.findProductsAndQtyByProductType(productType);
+
+        if (productsFound == null){
+            throw new ResourceNotFoundException("Product Type:" + productType + " not found.");
         }
 
-        List<ProductStockProjection> products = productRepository.findProductsAndQtyByProductType(productType);
-        return ResponseEntity.ok(products);
+        return productsFound;
     }
 }

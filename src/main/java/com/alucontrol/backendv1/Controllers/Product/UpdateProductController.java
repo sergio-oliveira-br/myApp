@@ -17,6 +17,8 @@ public class UpdateProductController {
 
     @PutMapping("/update-product/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable("id") Long id, @RequestBody Product product) {
-        return productService.saveProductChanges(product, id);
+
+        Product updatedProduct = productService.saveProductChanges(product, id);
+        return ResponseEntity.ok(updatedProduct);
     }
 }

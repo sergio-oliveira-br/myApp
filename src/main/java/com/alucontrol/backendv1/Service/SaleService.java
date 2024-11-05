@@ -1,11 +1,12 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
 import com.alucontrol.backendv1.Service.Inventory.DecreaseStockService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,46 +24,47 @@ public class SaleService {
     }
 
     //Metodo para salvar uma nova venda
-    public ResponseEntity<Sale> saveSale(Sale sale) {
+    public Sale saveSale(Sale sale) {
 
-        Sale savedSale = saleRepository.save(sale);
-
-        decreaseStockService.decreaseStock(sale.getSaleItem(), sale.getSaleQtyItem());
-
-        LoggerUtil.info("Venda salva com sucesso. ID: " + savedSale.toString());
-        return ResponseEntity.ok(savedSale);
+        try {
+            Sale savedSale = saleRepository.save(sale);
+            decreaseStockService.decreaseStock(sale.getSaleItem(), sale.getSaleQtyItem());
+            LoggerUtil.info("Sale saved successfully: " + savedSale);
+            return savedSale;
+        }
+        catch (DataAccessException e){
+            LoggerUtil.error("Error while saving sale: " + sale, e);
+            throw new InternalServerException("Failed to save sale data. " + e.getMessage());
+        }
     }
 
     //Metodo para atualizar uma venda ja existente no BD atraves do ID.
-    public ResponseEntity<Sale> saveSaleChanges(Sale sale, Long id) {
+    public Sale saveSaleChanges(Sale sale, Long id) {
 
        Optional<Sale> optionalSale = saleRepository.findById(id);
+
        if (optionalSale.isPresent()) {
            Sale savedSale = saleRepository.save(sale);
 
-           LoggerUtil.info("Venda salva com sucesso. ID: " + savedSale.toString());
-           return ResponseEntity.ok(savedSale);
+           LoggerUtil.info("Sale updated successfully: " + savedSale);
+           return savedSale;
        }
-
-       throw new ResourceNotFoundException("Venda ID: " + id + " não encontrada.");
+       throw new ResourceNotFoundException("Sale ID: " + id + " not found.");
     }
 
     //Metodo de leitura, buscando todos as vendas na base de dados
-    public ResponseEntity<List<Sale>> findAllSales () {
+    public List<Sale> findAllSales () {
 
-        List<Sale> sales = saleRepository.findAll();
-        return ResponseEntity.ok(sales);
+        return saleRepository.findAll();
     }
 
     //Metodo de leiteura responsavel por buscar uma venda específica atraves do ID.
-    public ResponseEntity<Sale> findSaleById(Long id) {
+    public Sale findSaleById(Long id) {
 
-        Optional<Sale> optionalSale = saleRepository.findById(id);
-        if (optionalSale.isPresent()) {
-            return ResponseEntity.ok(optionalSale.get());
+        Optional<Sale> saleFound = saleRepository.findById(id);
+        if (saleFound.isPresent()) {
+            return saleFound.get();
         }
-
-        throw new ResourceNotFoundException("Venda com ID: " + id + "não encontrada.");
+        throw new ResourceNotFoundException("Sale ID: " + id + " not found.");
     }
-
 }

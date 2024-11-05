@@ -2,6 +2,7 @@ package com.alucontrol.backendv1.Controllers.Sale;
 
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Service.SaleService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,9 @@ public class CreateSaleController {
 
     @PostMapping("/create-sale")
     public ResponseEntity<Sale> createSale(@Validated @RequestBody Sale sale) {
-        return saleService.saveSale(sale);
+
+        Sale newSale = saleService.saveSale(sale);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newSale);
     }
 }
