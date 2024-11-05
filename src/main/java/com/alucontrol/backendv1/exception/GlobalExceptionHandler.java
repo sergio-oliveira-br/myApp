@@ -2,6 +2,7 @@ package com.alucontrol.backendv1.exception;
 
 import com.alucontrol.backendv1.util.LoggerUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.coyote.BadRequestException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +45,8 @@ public class GlobalExceptionHandler {
 
     //Handles DataAccessException
     @ExceptionHandler(DataAccessException.class)
-    public ResponseEntity<ProblemDetails> handleDataAccessException(DataAccessException ex, HttpServletRequest request) {
+    public ResponseEntity<ProblemDetails> handleDataAccessException(DataAccessException ex,
+                                                                    HttpServletRequest request) {
 
         //Correlation ID and Log
         String correlationId = UUID.randomUUID().toString();
@@ -59,7 +61,8 @@ public class GlobalExceptionHandler {
 
     //Handles all other generic exceptions
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ProblemDetails> handleGenericException(Exception ex, HttpServletRequest request) {
+    public ResponseEntity<ProblemDetails> handleGenericException(Exception ex,
+                                                                 HttpServletRequest request) {
 
         //Correlation ID and Log
         String correlationId = UUID.randomUUID().toString();
@@ -73,7 +76,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(InternalServerException.class)
-    public ResponseEntity<ProblemDetails> handleInternalServerException(InternalServerException ex, HttpServletRequest request) {
+    public ResponseEntity<ProblemDetails> handleInternalServerException(InternalServerException ex,
+                                                                        HttpServletRequest request) {
 
         // Correlation ID and Log
         String correlationId = UUID.randomUUID().toString();
