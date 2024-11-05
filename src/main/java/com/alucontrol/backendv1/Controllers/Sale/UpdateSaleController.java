@@ -2,6 +2,7 @@ package com.alucontrol.backendv1.Controllers.Sale;
 
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Service.SaleService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +20,11 @@ public class UpdateSaleController {
     }
 
     @PutMapping("/update-sale/{id}")
-    public ResponseEntity<Sale> updateSale(@Validated @RequestBody Sale sale, @PathVariable("id") Long id){
-        return saleService.saveSaleChanges(sale, id);
+    public ResponseEntity<Sale> updateSale(@Validated @RequestBody Sale sale,
+                                           @Valid @PathVariable("id") Long id){
+
+        Sale updatedSale = saleService.saveSaleChanges(sale, id);
+
+        return ResponseEntity.ok(updatedSale);
     }
 }

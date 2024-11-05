@@ -40,17 +40,17 @@ public class SaleService {
     }
 
     //Metodo para atualizar uma venda ja existente no BD atraves do ID.
-    public ResponseEntity<Sale> saveSaleChanges(Sale sale, Long id) {
+    public Sale saveSaleChanges(Sale sale, Long id) {
 
        Optional<Sale> optionalSale = saleRepository.findById(id);
+
        if (optionalSale.isPresent()) {
            Sale savedSale = saleRepository.save(sale);
 
-           LoggerUtil.info("Venda salva com sucesso. ID: " + savedSale.toString());
-           return ResponseEntity.ok(savedSale);
+           LoggerUtil.info("Sale updated successfully: " + savedSale);
+           return savedSale;
        }
-
-       throw new ResourceNotFoundException("Venda ID: " + id + " não encontrada.");
+       throw new ResourceNotFoundException("Sale ID: " + id + " not found.");
     }
 
     //Metodo de leitura, buscando todos as vendas na base de dados
