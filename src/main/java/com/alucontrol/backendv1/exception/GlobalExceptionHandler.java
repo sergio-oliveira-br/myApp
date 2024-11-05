@@ -95,7 +95,7 @@ public class GlobalExceptionHandler {
                                                                        HttpServletRequest request) {
 
         String correlationId = UUID.randomUUID().toString();
-        LoggerUtil.error("User already exists in the database." + request.getRequestURI() +
+        LoggerUtil.error("This username is already in use. " + request.getRequestURI() +
                 ", with CorrelationId: " + correlationId + ", Error: " + ex.getMessage());
 
         return buildErrorResponse(
