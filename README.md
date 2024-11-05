@@ -90,7 +90,10 @@ The AluControl application was developed as part of the final project for the Hi
 ---
 
 ## Version History
-- **1.2.0 (18 October 2024)**
+- **1.3.0 (WIP)**
+  - **Focus:** Spring Secutiry implementation.
+
+- **1.2.0 (5 November 2024)**
   - **Focus:** On Clean Code practices, applying SOLID principles. Specifically, the DRY (Don’t Repeat) principle and the Single Responsibility Principle were implemented. 
   - **Refactor:** The frontend code has been refactored to ensure that each method in JavaScript has a single responsibility. This resulted in a more readable, maintainable and efficient code, improving the performance and reliability of the application.
   - **Minor improvements:** Minor UI adjustments and usability improvements to provide a more intuitive experience.
