@@ -1,5 +1,6 @@
 package com.alucontrol.backendv1.config;
 
+import com.alucontrol.backendv1.model.UserAccout;
 import com.alucontrol.backendv1.repository.UserRepository;
 import com.alucontrol.backendv1.util.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class CustomUserDetails implements UserDetailsService {
 
         LoggerUtil.info("Start searching ... username: " + username);
 
-        Optional<User> user = userRepository.findByUsername(username);
+        Optional<UserAccout> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
 
             LoggerUtil.info("Found user: " + user.get().getUsername());
