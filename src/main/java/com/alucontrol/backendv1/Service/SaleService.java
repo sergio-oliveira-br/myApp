@@ -7,7 +7,6 @@ import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
 import com.alucontrol.backendv1.Service.Inventory.DecreaseStockService;
 import com.alucontrol.backendv1.Util.LoggerUtil;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
