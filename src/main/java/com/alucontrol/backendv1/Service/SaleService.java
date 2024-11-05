@@ -1,5 +1,7 @@
 package com.alucontrol.backendv1.Service;
 
+import com.alucontrol.backendv1.Exception.DataAccessException;
+import com.alucontrol.backendv1.Exception.InternalServerException;
 import com.alucontrol.backendv1.Exception.ResourceNotFoundException;
 import com.alucontrol.backendv1.Model.Sale;
 import com.alucontrol.backendv1.Repository.SaleRepository;
@@ -23,14 +25,18 @@ public class SaleService {
     }
 
     //Metodo para salvar uma nova venda
-    public ResponseEntity<Sale> saveSale(Sale sale) {
+    public Sale saveSale(Sale sale) {
 
-        Sale savedSale = saleRepository.save(sale);
-
-        decreaseStockService.decreaseStock(sale.getSaleItem(), sale.getSaleQtyItem());
-
-        LoggerUtil.info("Venda salva com sucesso. ID: " + savedSale.toString());
-        return ResponseEntity.ok(savedSale);
+        try {
+            Sale savedSale = saleRepository.save(sale);
+            decreaseStockService.decreaseStock(sale.getSaleItem(), sale.getSaleQtyItem());
+            LoggerUtil.info("Sale saved successfully: " + savedSale);
+            return savedSale;
+        }
+        catch (DataAccessException e){
+            LoggerUtil.error("Error while saving sale: " + sale, e);
+            throw new InternalServerException("Failed to save sale data. " + e.getMessage());
+        }
     }
 
     //Metodo para atualizar uma venda ja existente no BD atraves do ID.
