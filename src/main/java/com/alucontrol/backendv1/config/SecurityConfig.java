@@ -5,12 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -36,10 +34,21 @@ public class SecurityConfig {
 
         // Inicia a definição das regras de autorização.
         .authorizeHttpRequests((authorizeRequests -> authorizeRequests
-            .requestMatchers("/login", "/users").permitAll() // Permite acesso irrestrito
+            .requestMatchers("/images/login-img.pdf").permitAll()
+            .requestMatchers("/login", "/login**", "/users").permitAll() // Permite acesso irrestrito
             .anyRequest().authenticated())  // O resto requer autenticação
         )
-        .formLogin(Customizer.withDefaults());
+        .formLogin((form -> form
+            .loginPage("/login.html").permitAll()
+            .loginProcessingUrl("/login")
+            .defaultSuccessUrl("/index.html", true)
+            .failureUrl("/login.html?error=true"))
+        )
+        .logout((logout -> logout
+            .logoutUrl("/perform_logout") // URL para logout
+            .deleteCookies("JSESSIONID")
+            .logoutSuccessUrl("/login.html")) // URL após logout;
+        );
         return http.build();
     }
 
