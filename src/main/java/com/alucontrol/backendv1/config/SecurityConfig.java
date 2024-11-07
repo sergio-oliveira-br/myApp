@@ -34,9 +34,10 @@ public class SecurityConfig {
 
         // Inicia a definição das regras de autorização.
         .authorizeHttpRequests((authorizeRequests -> authorizeRequests
-            .requestMatchers("/images/login-img.pdf", "/images/register-img.pdf").permitAll()
+            .requestMatchers("/images/login-img.pdf", "/images/register-img.pdf", "/css/about-style.css").permitAll()
             .requestMatchers("/login**").permitAll() // Permite acesso irrestrito
             .requestMatchers("/register**", "/users").permitAll() // Permite acesso irrestrito
+            .requestMatchers("/about-us.html").permitAll()
             .anyRequest().authenticated())  // O resto requer autenticação
         )
         .formLogin((form -> form
