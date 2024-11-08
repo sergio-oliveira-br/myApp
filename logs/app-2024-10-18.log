@@ -268,7 +268,7 @@
 2024-10-18 16:59:04 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-10-18 16:59:04 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
 2024-10-18 16:59:36 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/sale/create-sale, with CorrelationId: d6474fd9-8c64-43fd-861b-ab1ea7a6c236, Error: O produto 'Produto Y' não possui a quantidade 4 solicitada em estoque. Atualmente a quantidade disponivel é 1.0
-2024-10-18 16:59:36 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'Produto Y' não possui a quantidade 4 solicitada em estoque. Atualmente a quantidade disponivel é 1.0]
+2024-10-18 16:59:36 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'Produto Y' não possui a quantidade 4 solicitada em estoque. Atualmente a quantidade disponivel é 1.0]
 2024-10-18 17:00:39 INFO  c.a.backendv1.Util.LoggerUtil - O produto 'Produto AB12' foi reduzido em 10un.
 2024-10-18 17:00:39 INFO  c.a.backendv1.Util.LoggerUtil - Venda salva com sucesso. ID: Sale{id=20, saleFirstName='New User  - ', saleAddress='Av109', saleItem='Produto AB12', salePrice=8.88, saleQtyItem=10, saleDate='2024-10-18', saleTotalPrice=88.8, salePaymentStatus='Pago', saleDetails='teste'}
 2024-10-18 17:03:04 INFO  c.a.backendv1.Util.LoggerUtil - Venda salva com sucesso. ID: Sale{id=20, saleFirstName='New User  - ', saleAddress='Av109', saleItem='Produto AB12', salePrice=8.88, saleQtyItem=10, saleDate='2024-10-19', saleTotalPrice=88.8, salePaymentStatus='Pago', saleDetails='teste'}

@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/dashboard/chartItems.js
 
 /**
- * Page: Dashboard
+ * Page: dashboard
  * Item: Chart - Total Price by Item
  * Method: Display chart of total price grouped by item
  */

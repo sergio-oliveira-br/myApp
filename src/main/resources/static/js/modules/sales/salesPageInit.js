@@ -1,7 +1,7 @@
 //src/main/resources/static/js/modules/sales/salesPageInit.js
 
 $(document).ready(function () {
-    console.log('Sale Page initialized');
+    console.log('sale Page initialized');
 
     //load customers created in the form as a list
     loadCustomersListForm('#saleFirstName'); //original form

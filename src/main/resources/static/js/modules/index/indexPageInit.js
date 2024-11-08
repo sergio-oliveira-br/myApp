@@ -21,7 +21,7 @@ $(document).ready(function () {
         alert('O status do aluguel foi alterado.' +
             '\nCertifique-se de que você escolheu a opção correta!');
 
-        console.log('Rent Status Changed');
+        console.log('rent Status Changed');
     });
 
     //(Modal)Presenting a message because of the significance of the field (payment) RENT

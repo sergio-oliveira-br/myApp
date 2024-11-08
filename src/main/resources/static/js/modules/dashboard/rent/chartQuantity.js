@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/dashboard/chartQuantity.js
 
 /**
- * Page: Dashboard
+ * Page: dashboard
  * Item: Chart - Quantity of Items
  * Method: Display chart of item quantities
  */

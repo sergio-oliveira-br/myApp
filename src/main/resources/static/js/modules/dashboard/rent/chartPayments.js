@@ -13,7 +13,7 @@
 //src/main/resources/static/js/modules/dashboard/chartPayments.js
 
 /**
- * Page: Dashboard
+ * Page: dashboard
  * Item: Chart - Payment Status
  * Method: Display chart of payment status
  */

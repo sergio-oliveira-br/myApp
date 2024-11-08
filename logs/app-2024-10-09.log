@@ -456,10 +456,10 @@
 2024-10-09 13:11:41 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2024-10-09 13:11:48 INFO  c.a.backendv1.Util.LoggerUtil - Product saved successfully: Product {id= 45, itemDescription= Produto AxA , itemPrice= 10.12, itemQuantity= 100, itemAvailableQty= 100.0, productType= Aluguel, dateCreated= 2024-08-28T09:41:04.689Z, dateModified= 2024-10-09T12:11:48.566Z}
 2024-10-09 13:11:48 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/update-product/45, with CorrelationId: a7d27b5a-e893-443b-a872-2c3aa7746bdd, Error: Product with id 45 not found
-2024-10-09 13:11:48 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Product with id 45 not found]
+2024-10-09 13:11:48 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Product with id 45 not found]
 2024-10-09 13:12:04 INFO  c.a.backendv1.Util.LoggerUtil - Product saved successfully: Product {id= 45, itemDescription= Produto AxA , itemPrice= 10.12, itemQuantity= 100, itemAvailableQty= 100.0, productType= Aluguel, dateCreated= 2024-08-28T09:41:04.689Z, dateModified= 2024-10-09T12:12:04.940Z}
 2024-10-09 13:12:04 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/update-product/45, with CorrelationId: 7c8a9318-7a52-4155-963f-22f9978d32bd, Error: Product with id 45 not found
-2024-10-09 13:12:04 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Product with id 45 not found]
+2024-10-09 13:12:04 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Product with id 45 not found]
 2024-10-09 13:13:09 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-09 13:13:09 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-09 13:13:15 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -584,7 +584,7 @@
 2024-10-09 13:18:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
 2024-10-09 13:18:54 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-10-09 13:18:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-09 13:18:54 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createProductController': Resolution of declared constructors on bean Class [com.alucontrol.backendv1.Controllers.Product.CreateProductController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@405eff67] failed
+2024-10-09 13:18:54 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createProductController': Resolution of declared constructors on bean Class [com.alucontrol.backendv1.controllers.product.CreateProductController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@405eff67] failed
 2024-10-09 13:18:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-10-09 13:18:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
 2024-10-09 13:18:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
@@ -593,7 +593,7 @@
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-10-09 13:18:54 ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createProductController': Resolution of declared constructors on bean Class [com.alucontrol.backendv1.Controllers.Product.CreateProductController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@405eff67] failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createProductController': Resolution of declared constructors on bean Class [com.alucontrol.backendv1.controllers.product.CreateProductController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@405eff67] failed
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:383)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1294)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
@@ -622,7 +622,7 @@ Caused by: java.lang.NoClassDefFoundError: com/alucontrol/backendv1/Service/Prod
 	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2737)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:378)
 	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: com.alucontrol.backendv1.Service.ProductService
+Caused by: java.lang.ClassNotFoundException: com.alucontrol.backendv1.service.ProductService
 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)

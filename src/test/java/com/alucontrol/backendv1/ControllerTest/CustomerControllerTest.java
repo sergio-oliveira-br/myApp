@@ -1,8 +1,8 @@
 //package com.alucontrol.backendv1.ControllerTest;
 //
-//import com.alucontrol.backendv1.Controllers.Customer.CreateCustomerController;
-//import com.alucontrol.backendv1.Model.Customer;
-//import com.alucontrol.backendv1.Service.CustomerService;
+//import com.alucontrol.backendv1.controllers.customer.CreateCustomerController;
+//import com.alucontrol.backendv1.model.customer;
+//import com.alucontrol.backendv1.service.CustomerService;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +32,15 @@
 //    private CustomerService customerService;
 //
 //    @Test
-//    public void createCustomerSucess() throws Exception {
+//    public void createCustomerSucess() throws exception {
 //
-//        Customer customer = new Customer();
+//        customer customer = new customer();
 //
 //        customer.setId(1L);
 //        customer.setFirstName("Sergio");
 //        customer.setCity("DUB");
 //
-//        when(customerService.saveCustomer(any(Customer.class))).thenReturn(customer);
+//        when(customerService.saveCustomer(any(customer.class))).thenReturn(customer);
 //
 //        mockMvc.perform(post("/api/v1/customer/create-customer")
 //                .contentType(MediaType.APPLICATION_JSON)

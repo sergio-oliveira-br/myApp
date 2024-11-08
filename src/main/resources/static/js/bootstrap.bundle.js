@@ -90,7 +90,7 @@
   };
 
   /**
-   * Public Util API
+   * Public util API
    */
 
   const getUID = prefix => {

@@ -34,7 +34,7 @@
 2024-10-11 10:13:17 INFO  c.a.backendv1.Util.LoggerUtil - Calculando o estoque: 
 2024-10-11 10:13:17 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 10.0
 2024-10-11 10:13:17 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: 2bd98d4e-53c2-402e-aa15-6f71b4d025c7, Error: The product 'teste' does not have enough in stock.
-2024-10-11 10:13:17 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: The product 'teste' does not have enough in stock.]
+2024-10-11 10:13:17 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: The product 'teste' does not have enough in stock.]
 2024-10-11 10:13:58 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 10:13:58 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 10:13:59 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -73,7 +73,7 @@
 2024-10-11 10:14:30 INFO  c.a.backendv1.Util.LoggerUtil - Calculando o estoque: 
 2024-10-11 10:14:30 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 10.0
 2024-10-11 10:14:30 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: 4b71ee19-69de-49ff-9e79-0782a2645cad, Error: O produto 'teste' does not have enough in stock.
-2024-10-11 10:14:30 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'teste' does not have enough in stock.]
+2024-10-11 10:14:30 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'teste' does not have enough in stock.]
 2024-10-11 10:15:51 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 10:15:51 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 10:16:02 WARN  org.apache.tomcat.util.net.Acceptor - The acceptor thread [http-nio-8080-Acceptor] did not stop cleanly
@@ -111,7 +111,7 @@
 2024-10-11 10:16:04 INFO  c.a.backendv1.Util.LoggerUtil - Calculando o estoque: 
 2024-10-11 10:16:04 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 10.0
 2024-10-11 10:16:04 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: ec2e7fb8-2f3a-4a76-89c3-02caeebe9d98, Error: O produto 'teste' não tem o suficiente em estoque.Atualmente a quantidade disponivel é 9.0
-2024-10-11 10:16:04 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'teste' não tem o suficiente em estoque.Atualmente a quantidade disponivel é 9.0]
+2024-10-11 10:16:04 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'teste' não tem o suficiente em estoque.Atualmente a quantidade disponivel é 9.0]
 2024-10-11 10:17:05 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 10:17:05 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 10:17:16 WARN  org.apache.tomcat.util.net.Acceptor - The acceptor thread [http-nio-8080-Acceptor] did not stop cleanly
@@ -183,7 +183,7 @@
 2024-10-11 10:18:24 INFO  c.a.backendv1.Util.LoggerUtil - Calculando o estoque: 
 2024-10-11 10:18:24 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 10.0
 2024-10-11 10:18:24 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: 3da012b0-3432-427f-8043-6707c012bfd9, Error: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0
-2024-10-11 10:18:24 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0]
+2024-10-11 10:18:24 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0]
 2024-10-11 10:22:37 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 10:22:37 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 10:22:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -326,7 +326,7 @@
 2024-10-11 10:25:39 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 10.0
 2024-10-11 10:25:39 INFO  c.a.backendv1.Util.LoggerUtil - O novo saldo é: 9.0
 2024-10-11 10:25:39 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: 6f92b2f0-82b2-4712-9aed-301ba54e1849, Error: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0
-2024-10-11 10:25:39 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0]
+2024-10-11 10:25:39 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 9.0]
 2024-10-11 10:27:10 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 10:27:10 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 10:27:21 WARN  org.apache.tomcat.util.net.Acceptor - The acceptor thread [http-nio-8080-Acceptor] did not stop cleanly
@@ -365,7 +365,7 @@
 2024-10-11 10:28:19 INFO  c.a.backendv1.Util.LoggerUtil - Qtd Disponivel: 9.0
 2024-10-11 10:28:19 INFO  c.a.backendv1.Util.LoggerUtil - O novo saldo é: 8.0
 2024-10-11 10:28:19 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/create-rent, with CorrelationId: bfe93e4e-0e6f-496f-99ff-0fc4df756a45, Error: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 8.0
-2024-10-11 10:28:19 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 8.0]
+2024-10-11 10:28:19 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: O produto 'teste' não possui a quantidade 1 solicitada em estoque. Atualmente a quantidade disponivel é 8.0]
 2024-10-11 10:28:43 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /rentByPaymentStatus, with CorrelationId: ee9260b5-b5f0-4678-a10b-27d4a9a1bbfb, Error: No static resource rentByPaymentStatus.
 2024-10-11 10:28:43 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource rentByPaymentStatus.]
 2024-10-11 10:29:10 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
@@ -649,7 +649,7 @@
 2024-10-11 13:10:36 INFO  c.a.backendv1.Util.LoggerUtil - estoque antes da atualizacao: 4.0
 2024-10-11 13:10:36 INFO  c.a.backendv1.Util.LoggerUtil - estoque atualizado: 5.0
 2024-10-11 13:10:36 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/update-rent/120, with CorrelationId: 304b50cc-ed03-4c7f-b336-d5a534108788, Error: Product teste not found
-2024-10-11 13:10:36 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Product teste not found]
+2024-10-11 13:10:36 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Product teste not found]
 2024-10-11 13:12:11 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
 2024-10-11 13:12:11 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 13:12:15 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -890,7 +890,7 @@
 2024-10-11 13:41:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2024-10-11 13:41:41 INFO  c.a.backendv1.Util.LoggerUtil - Rent saved successfully: Rent{id=122, rentFirstName='Maria  - 999', rentLastName='null', rentAddress='1', rentItem='teste', rentPrice=11.0, rentQtyItem=1, rentStarts='2024-10-11', rentEnds='2024-10-13', rentTotalDays=2, rentTotalPrice=22.0, rentDetails='', rentPaymentStatus='Pago', rentStatus='Em andamento'}
 2024-10-11 13:41:41 ERROR c.a.backendv1.Util.LoggerUtil - Error occurred on path: /api/v1/rent/update-rent/122, with CorrelationId: b748822d-e2cb-4ac9-b34a-90cbdc6a39db, Error: Product Optional.empty not found.
-2024-10-11 13:41:41 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.Exception.ResourceNotFoundException: Product Optional.empty not found.]
+2024-10-11 13:41:41 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.alucontrol.backendv1.exception.ResourceNotFoundException: Product Optional.empty not found.]
 2024-10-11 13:43:58 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-10-11 13:43:58 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-10-11 13:44:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
