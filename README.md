@@ -90,8 +90,8 @@ The AluControl application was developed as part of the final project for the Hi
 ---
 
 ## Version History
-- **1.3.0 (WIP)**
-  - **Focus:** Spring Secutiry implementation.
+- **1.3.0 (8 November 2024)**
+  - **Focus:** Spring Security implementation to manage user authentication and authorization, by using custom UserDetails, login, user registration, and secure access to specific endpoints.
 
 - **1.2.0 (5 November 2024)**
   - **Focus:** On Clean Code practices, applying SOLID principles. Specifically, the DRY (Don’t Repeat) principle and the Single Responsibility Principle were implemented. 
